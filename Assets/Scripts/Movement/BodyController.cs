@@ -61,7 +61,7 @@ public class BodyController : MonoBehaviour
     {
         if(externalForces != Vector3.zero)
         {
-            Debug.Log(this.gameObject.name + " External Forces: " + externalForces.ToString());
+            //Debug.Log(this.gameObject.name + " External Forces: " + externalForces.ToString());
             controller.Move(this.transform.InverseTransformDirection(externalForces * Time.deltaTime * physicsToForceModifer));
         }
     }

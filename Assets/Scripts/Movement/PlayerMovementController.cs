@@ -18,11 +18,19 @@ public class PlayerMovementController : MonoBehaviour
 
     private Timer lastJumpTimer = new Timer();
 
+    Item itemInFocus;
+    private Vector3 preCatapultPosition;
+    public bool catapultMode = false;
+    private int catapultPower = 0;
+    GameObject catapultArmRotation;
+
     void Start()
     {
         playerView = GameObject.Find("PlayerView");
         bodyController = GetComponent<BodyController>();
         lockCursor();
+
+        catapultArmRotation = GameObject.Find("CatapultArmRotation");
     }
 
     void bodyMove()
@@ -59,8 +67,42 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
-        bodyMove();
+        if (catapultMode)
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                deactiveCatapultMode();
+            }
+
+            if(Input.GetMouseButton(0))
+            {
+                updateCatapultPower(1);
+            }
+            else
+            {
+                updateCatapultPower(-1);
+            }
+
+        }
+        else
+        {
+            if (itemInFocus != null && Input.GetKeyDown(KeyCode.E))
+            {
+                itemInFocus.use();
+            }
+            bodyMove();
+        }
         cameraMove();
+        
+    }
+    
+    private void updateCatapultPower(int catapultChange)
+    {
+        catapultPower = Mathf.Clamp(catapultPower + catapultChange, 0, 50);
+        if (catapultPower < 50 && catapultPower > 0)
+        {
+            catapultArmRotation.transform.Rotate(Vector3.right, -catapultChange);
+        }
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -99,6 +141,42 @@ public class PlayerMovementController : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public void setCatapultMode()
+    {
+        catapultPower = 0;
+        catapultMode = true;
+        preCatapultPosition = this.transform.position;
+        this.transform.position = References.GetCatapult().gameObject.transform.position;
+    }
+
+    public void deactiveCatapultMode()
+    {
+        catapultMode = false;
+        this.transform.position = preCatapultPosition;
+    }
+
+    private void useItem(Item item)
+    {
+        itemInFocus = null;
+        item.use();
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Item item = other.GetComponent<Item>();
+        //Debug.Log("Trigger enter");
+        if (item != null)
+        {
+            //Debug.Log("Item focus");
+            setItemFocus(item);
+        }
+    }
+
+    private void setItemFocus(Item item)
+    {
+        itemInFocus = item;
     }
 
 }
