@@ -8,7 +8,9 @@ public class PlayerMovementController : MonoBehaviour
     public GameObject playerView;
     public BodyController bodyController;
 
-    public GameObject enemyHoldingPlayer = null;
+    // First person and third person cameras
+    private GameObject firstPersonCamera;
+    private GameObject thirdPersonCamera;
 
     private float mouseXSensitivity = 5.0f;
     private float mouseYSensitivity = 2.0f;
@@ -20,17 +22,20 @@ public class PlayerMovementController : MonoBehaviour
 
     Item itemInFocus;
     private Vector3 preCatapultPosition;
-    public bool catapultMode = false;
-    private int catapultPower = 0;
-    GameObject catapultArmRotation;
+    public bool turrentMode = false;
+
+    private Turrent turrent;
 
     void Start()
     {
+        turrent = References.GetTurrent();
         playerView = GameObject.Find("PlayerView");
         bodyController = GetComponent<BodyController>();
         lockCursor();
 
-        catapultArmRotation = GameObject.Find("CatapultArmRotation");
+        firstPersonCamera = GameObject.Find("FirstPersonCamera");
+        thirdPersonCamera = GameObject.Find("ThirdPersonCamera");
+        switchToThirdPersonCamera();
     }
 
     void bodyMove()
@@ -67,42 +72,28 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
-        if (catapultMode)
+        if (turrentMode)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                deactiveCatapultMode();
+                turrent.deactiveTurrentMode();
+                this.transform.position = preCatapultPosition;
+                switchToFirstPersonCamera();
             }
-
-            if(Input.GetMouseButton(0))
-            {
-                updateCatapultPower(1);
-            }
-            else
-            {
-                updateCatapultPower(-1);
-            }
-
         }
         else
         {
             if (itemInFocus != null && Input.GetKeyDown(KeyCode.E))
             {
+                Debug.Log("start turrent mode");
                 itemInFocus.use();
+                preCatapultPosition = this.transform.position;
+                this.transform.position = turrent.gameObject.transform.position;
             }
             bodyMove();
         }
         cameraMove();
         
-    }
-    
-    private void updateCatapultPower(int catapultChange)
-    {
-        catapultPower = Mathf.Clamp(catapultPower + catapultChange, 0, 50);
-        if (catapultPower < 50 && catapultPower > 0)
-        {
-            catapultArmRotation.transform.Rotate(Vector3.right, -catapultChange);
-        }
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -143,18 +134,20 @@ public class PlayerMovementController : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void setCatapultMode()
+
+
+
+
+    public void switchToFirstPersonCamera()
     {
-        catapultPower = 0;
-        catapultMode = true;
-        preCatapultPosition = this.transform.position;
-        this.transform.position = References.GetCatapult().gameObject.transform.position;
+        firstPersonCamera.SetActive(true);
+        thirdPersonCamera.SetActive(false);
     }
 
-    public void deactiveCatapultMode()
+    public void switchToThirdPersonCamera()
     {
-        catapultMode = false;
-        this.transform.position = preCatapultPosition;
+        firstPersonCamera.SetActive(false);
+        thirdPersonCamera.SetActive(true);
     }
 
     private void useItem(Item item)

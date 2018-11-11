@@ -121,7 +121,7 @@ public class BodyController : MonoBehaviour
     //            bodyPart.gameObject.GetComponent<CharacterJoint>().connectedBody = bodyPart.jointBodyObj.GetComponent<Rigidbody>();
     //        }
     //    }
-        
+
     //    foreach (Collider collider in this.GetComponentsInChildren<Collider>())
     //    {
     //        collider.isTrigger = false;
@@ -134,7 +134,7 @@ public class BodyController : MonoBehaviour
     //    GetComponent<AgentMovementController>().enabled = false;
     //    GetComponent<Animator>().enabled = false;
     //    controller.enabled = false;
-        
+
 
     //    this.enabled = false;
 
