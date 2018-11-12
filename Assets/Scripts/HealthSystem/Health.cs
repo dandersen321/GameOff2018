@@ -38,7 +38,7 @@ public class Health : MonoBehaviour
 
             Debug.Log(gameObject.name + " took " + amount + " damage to ");
 
-            if (currentHealth == 0)
+            if (currentHealth <= 0)
             {
                 isAlive = false;
                 Die();

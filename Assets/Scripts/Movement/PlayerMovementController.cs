@@ -78,7 +78,8 @@ public class PlayerMovementController : MonoBehaviour
             {
                 turrent.deactiveTurrentMode();
                 this.transform.position = preCatapultPosition;
-                switchToFirstPersonCamera();
+                switchToThirdPersonCamera();
+                turrentMode = false;
             }
         }
         else
@@ -89,6 +90,8 @@ public class PlayerMovementController : MonoBehaviour
                 itemInFocus.use();
                 preCatapultPosition = this.transform.position;
                 this.transform.position = turrent.gameObject.transform.position;
+                switchToFirstPersonCamera();
+                turrentMode = true;
             }
             bodyMove();
         }
