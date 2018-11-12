@@ -515,7 +515,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData:
   - {fileID: 11400000, guid: 527cd04b18bf40d47b6b6d61e7e18b20, type: 2}
-  meeleAttackRange: 0
+  meeleAttackRange: 2
   foundTarget: 0
 --- !u!1 &53118392
 GameObject:
@@ -6255,6 +6255,7 @@ GameObject:
   - component: {fileID: 930063057}
   - component: {fileID: 930063056}
   - component: {fileID: 930063055}
+  - component: {fileID: 930063059}
   m_Layer: 5
   m_Name: HUD
   m_TagString: Untagged
@@ -6345,6 +6346,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &930063059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930063054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c57bb27f6d27354082f1815dc1f66f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthBar: {fileID: 1008106223}
+  textHealth: {fileID: 1337553545}
 --- !u!1 &933425877
 GameObject:
   m_ObjectHideFlags: 0
@@ -14938,7 +14952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData:
   - {fileID: 11400000, guid: 527cd04b18bf40d47b6b6d61e7e18b20, type: 2}
-  meeleAttackRange: 0
+  meeleAttackRange: 2
   foundTarget: 0
 --- !u!1 &2111045657
 GameObject:

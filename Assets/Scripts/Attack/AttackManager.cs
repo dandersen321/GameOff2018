@@ -58,6 +58,7 @@ public class AttackManager : MonoBehaviour {
     void BeginAttack(Attack attack)
     {
         attack.BeginAttack(GetComponent<Animator>());
+        attack.DoDamage(References.getBeacon().GetComponent<Health>());
         canAttackTimer.Start(attack.attackLength + globalCooldown);
     }
 

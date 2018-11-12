@@ -46,6 +46,12 @@ public class Bullet : MonoBehaviour {
             bulletSpent = true;
         }
 
+        Health health = collision.gameObject.GetComponent<Health>();
+        if(health)
+        {
+            health.TakeDamage(damage);
+        }
+
         Destroy(this.gameObject);
     }
 
