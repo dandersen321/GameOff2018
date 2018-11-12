@@ -21,4 +21,9 @@ public static class References  {
         return GameObject.Find("Player").GetComponent<InventoryManager>();
     }
 
+    public static Beacon getBeacon()
+    {
+        return GameObject.Find("Beacon").GetComponent<Beacon>();
+    }
+
 }
