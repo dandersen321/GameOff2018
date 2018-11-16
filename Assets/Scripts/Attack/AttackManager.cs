@@ -46,7 +46,7 @@ public class AttackManager : MonoBehaviour {
     {
         checkAttackRange.Start(1f);
         Vector3 targetPosition = References.getBeacon().transform.position;
-        Debug.Log("Range: " + Vector3.Distance(targetPosition, this.transform.position));
+        //Debug.Log("Range: " + Vector3.Distance(targetPosition, this.transform.position));
         return Vector3.Distance(targetPosition, this.transform.position) <= attack.attackRange;
     }
 

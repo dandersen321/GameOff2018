@@ -14,7 +14,8 @@ public class Turrent : Item
     private float minAimDistance = 2;
 
     private ChickenType activeChickenType;
-    private Timer nextFireTimer = new Timer();
+    private ChickenUIManager chickenUIManager;
+    //private Timer nextFireTimer = new Timer();
     public bool turrentModeActive;
     
 
@@ -22,6 +23,7 @@ public class Turrent : Item
     {
         factory = new BulletFactory();
         bulletSpawner = GameObject.Find("BulletSpawnPosition");
+        chickenUIManager = References.getChickenUIManager();
     }
 
     // update the state of the gun
@@ -32,7 +34,7 @@ public class Turrent : Item
 
         if (EventSystem.current == null || !EventSystem.current.IsPointerOverGameObject())
         {
-            if (Input.GetButton("Fire1") && nextFireTimer.Expired())
+            if (Input.GetButton("Fire1") && chickenUIManager.getSelectedChickenSlot().rechargeTimer.Expired())
             {
                 fireBullet(getTargetPosition());
             }
@@ -103,18 +105,20 @@ public class Turrent : Item
     void fireBullet(Vector3 targetPosition)
     {
         factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition);
-        nextFireTimer.Start(activeChickenType.cooldown);
+        chickenUIManager.getSelectedChickenSlot().rechargeTimer.Start(activeChickenType.cooldown);
     }
 
     public override void use()
     {
         turrentModeActive = true;
+        References.getChickenUIManager().showChickenSlots();
         activeChickenType = References.getInventoryManager().chickenInventories[0];
     }
 
     public void deactiveTurrentMode()
     {
         turrentModeActive = false;
+        References.getChickenUIManager().hideChickenSlots();
     }
 
 }

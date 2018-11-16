@@ -26,4 +26,9 @@ public static class References  {
         return GameObject.Find("Beacon").GetComponent<Beacon>();
     }
 
+    public static ChickenUIManager getChickenUIManager()
+    {
+        return GameObject.Find("ChickensEquipped").GetComponent<ChickenUIManager>();
+    }
+
 }
