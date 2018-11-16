@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 4967877603330098}
   - component: {fileID: 33511356280228360}
   - component: {fileID: 23091621269773496}
+  - component: {fileID: 65650236829489150}
   m_Layer: 0
   m_Name: TurretCab.001
   m_TagString: Untagged
@@ -70,6 +71,7 @@ GameObject:
   - component: {fileID: 4282586663668356}
   - component: {fileID: 33333831044809238}
   - component: {fileID: 23611784046643388}
+  - component: {fileID: 65326549965288880}
   m_Layer: 0
   m_Name: TurretBase.001
   m_TagString: Untagged
@@ -132,7 +134,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1362138684018218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 161.86255, y: 114.98667, z: 171.08893}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4282586663668356}
@@ -409,3 +411,27 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1506946635776854}
   m_Mesh: {fileID: 4300006, guid: 3e91c32ee5d92a04fa523bd8f22daf69, type: 3}
+--- !u!65 &65326549965288880
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1396907265098754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.0785065, y: 2.5224044, z: 4.0785074}
+  m_Center: {x: -0.00000011920929, y: 1.2578293, z: 0}
+--- !u!65 &65650236829489150
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331554388707882}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.626827, y: 1.8277762, z: 3.9627326}
+  m_Center: {x: 1.6688005e-21, y: 3.9403439, z: -0.663767}

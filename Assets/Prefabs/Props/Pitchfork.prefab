@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4111411160120146}
   - component: {fileID: 33728857948626538}
   - component: {fileID: 23547703473578126}
+  - component: {fileID: 65064323723672330}
   m_Layer: 0
   m_Name: Pitchfork
   m_TagString: Untagged
@@ -84,3 +85,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1148273518114998}
   m_Mesh: {fileID: 4300000, guid: a8c3db9e965f1c1418cb80aabff4f128, type: 3}
+--- !u!65 &65064323723672330
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1148273518114998}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.2875862, y: 1.5740523, z: 0.061876148}
+  m_Center: {x: -0.00021093339, y: 0.7097876, z: -0.39259046}

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4347030318639156}
   - component: {fileID: 33667238982258076}
   - component: {fileID: 23289943615687980}
+  - component: {fileID: 64865137021216658}
   m_Layer: 0
   m_Name: Hill3_Dirt 1
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325068835139476}
+  m_Mesh: {fileID: 4300000, guid: e0bab3f73d4610d4f93e24795f54d01f, type: 3}
+--- !u!64 &64865137021216658
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1325068835139476}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: e0bab3f73d4610d4f93e24795f54d01f, type: 3}

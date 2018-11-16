@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4171761988899036}
   - component: {fileID: 33610464697066250}
   - component: {fileID: 23997896403903742}
+  - component: {fileID: 64652102227664112}
   m_Layer: 0
   m_Name: LargeRock_Med
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1768905595441808}
+  m_Mesh: {fileID: 4300000, guid: d7069565a4980e14c981c84d89b7fe47, type: 3}
+--- !u!64 &64652102227664112
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1768905595441808}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d7069565a4980e14c981c84d89b7fe47, type: 3}

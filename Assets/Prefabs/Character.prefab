@@ -35,6 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4273784096180824}
   - component: {fileID: 137062213435479240}
+  - component: {fileID: 136693344788308810}
   m_Layer: 0
   m_Name: Character1
   m_TagString: Untagged
@@ -1052,7 +1053,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1113978559877078}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 165.99687, y: 118.14352, z: 172.99756}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4398309359529634}
@@ -1451,6 +1452,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &136693344788308810
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1065876002195542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.003305841
+  m_Height: 0.02693303
+  m_Direction: 1
+  m_Center: {x: 0.000031179974, y: 0.012705679, z: 0.00031005617}
 --- !u!137 &137062213435479240
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

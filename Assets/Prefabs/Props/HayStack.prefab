@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4547319793420440}
   - component: {fileID: 33365809990617892}
   - component: {fileID: 23600544919920122}
+  - component: {fileID: 64440084900252144}
   m_Layer: 0
   m_Name: HayStack
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1428546007747634}
+  m_Mesh: {fileID: 4300000, guid: 7b926d385531a4b4aaff1326af56970b, type: 3}
+--- !u!64 &64440084900252144
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1428546007747634}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 7b926d385531a4b4aaff1326af56970b, type: 3}

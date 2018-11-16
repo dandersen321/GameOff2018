@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4710624632407366}
   - component: {fileID: 33918687441375786}
   - component: {fileID: 23815468114783664}
+  - component: {fileID: 64270900842038856}
   m_Layer: 0
   m_Name: BoulderMedium1_Light
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1410391655720164}
+  m_Mesh: {fileID: 4300000, guid: ad53255a3e847f74f9d3c7d4c2a32c3b, type: 3}
+--- !u!64 &64270900842038856
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1410391655720164}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: ad53255a3e847f74f9d3c7d4c2a32c3b, type: 3}

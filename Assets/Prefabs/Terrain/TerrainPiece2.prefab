@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4282847738378678}
   - component: {fileID: 33817322017880784}
   - component: {fileID: 23971538892607708}
+  - component: {fileID: 64874981561821134}
   m_Layer: 0
   m_Name: TerrainPiece2
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1105473408807070}
+  m_Mesh: {fileID: 4300000, guid: d9a46c943832c6b4e8e4a0957b893152, type: 3}
+--- !u!64 &64874981561821134
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1105473408807070}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: d9a46c943832c6b4e8e4a0957b893152, type: 3}

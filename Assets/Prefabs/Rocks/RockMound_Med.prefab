@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4909925493172896}
   - component: {fileID: 33980625258343044}
   - component: {fileID: 23195142862411402}
+  - component: {fileID: 64658257232693928}
   m_Layer: 0
   m_Name: RockMound_Med
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1433743638417900}
+  m_Mesh: {fileID: 4300000, guid: fc1ce828dd5fa0d40baae5c789a7222f, type: 3}
+--- !u!64 &64658257232693928
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1433743638417900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: fc1ce828dd5fa0d40baae5c789a7222f, type: 3}

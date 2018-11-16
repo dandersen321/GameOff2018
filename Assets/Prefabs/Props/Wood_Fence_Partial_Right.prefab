@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4393083589815432}
   - component: {fileID: 33386041305255276}
   - component: {fileID: 23608991194147812}
+  - component: {fileID: 65161395748906444}
   m_Layer: 0
   m_Name: Wood_Fence_Partial_Right
   m_TagString: Untagged
@@ -84,3 +85,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1116796808695586}
   m_Mesh: {fileID: 4300000, guid: 4697ef5d7a9ecaa488d1e0a4da83ea05, type: 3}
+--- !u!65 &65161395748906444
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1116796808695586}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48974782, y: 0.96190524, z: 2.7556024}
+  m_Center: {x: -0.20600098, y: 0.4809525, z: 1.7529695}

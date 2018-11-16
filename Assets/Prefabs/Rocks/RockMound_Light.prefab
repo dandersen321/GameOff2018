@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4649975900215718}
   - component: {fileID: 33777404844906476}
   - component: {fileID: 23030526997657354}
+  - component: {fileID: 64079616537519460}
   m_Layer: 0
   m_Name: RockMound_Light
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1146625219791140}
+  m_Mesh: {fileID: 4300000, guid: 6bc4fa1544b19824d87f1caeb5af1b3b, type: 3}
+--- !u!64 &64079616537519460
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1146625219791140}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 6bc4fa1544b19824d87f1caeb5af1b3b, type: 3}

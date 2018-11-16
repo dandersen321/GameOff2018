@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4557341520295240}
   - component: {fileID: 33638931535621866}
   - component: {fileID: 23298607494397082}
+  - component: {fileID: 65335435385812492}
   m_Layer: 0
   m_Name: Tractor
   m_TagString: Untagged
@@ -84,3 +85,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1817916884214252}
   m_Mesh: {fileID: 4300000, guid: 6b52b151e7ec94f41b59f7ca94b94645, type: 3}
+--- !u!65 &65335435385812492
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1817916884214252}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.332463, y: 3.66478, z: 2.4464147}
+  m_Center: {x: -0.03881812, y: 1.8283564, z: -0.012976289}

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4287130792074780}
   - component: {fileID: 33345051801557884}
   - component: {fileID: 23975667014860178}
+  - component: {fileID: 64406492379019954}
   m_Layer: 0
   m_Name: RockMound_Dark
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1930764867702022}
+  m_Mesh: {fileID: 4300000, guid: bdd90e09713ffee4793472e8c40e7915, type: 3}
+--- !u!64 &64406492379019954
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1930764867702022}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bdd90e09713ffee4793472e8c40e7915, type: 3}

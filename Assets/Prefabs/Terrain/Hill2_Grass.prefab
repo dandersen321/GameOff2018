@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4770293968048434}
   - component: {fileID: 33102417868078564}
   - component: {fileID: 23618877882278824}
+  - component: {fileID: 64430206944145738}
   m_Layer: 0
   m_Name: Hill2_Grass
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1043343283891810}
+  m_Mesh: {fileID: 4300000, guid: 53f2846197b579a4d8f2b283468d1de4, type: 3}
+--- !u!64 &64430206944145738
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1043343283891810}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 53f2846197b579a4d8f2b283468d1de4, type: 3}

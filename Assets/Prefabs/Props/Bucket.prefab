@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4094297125134906}
   - component: {fileID: 33810618915431474}
   - component: {fileID: 23805069570843590}
+  - component: {fileID: 65572033521959736}
   m_Layer: 0
   m_Name: Bucket
   m_TagString: Untagged
@@ -84,3 +85,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1456937523855632}
   m_Mesh: {fileID: 4300000, guid: b2fc2673a3102674085e9577685f1ccc, type: 3}
+--- !u!65 &65572033521959736
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1456937523855632}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5624596, y: 0.6679947, z: 0.56245965}
+  m_Center: {x: 1.4243876e-22, y: 0.336324, z: -0.000000029802322}

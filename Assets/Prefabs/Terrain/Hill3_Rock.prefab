@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4859718356412090}
   - component: {fileID: 33965210715940936}
   - component: {fileID: 23996497161560682}
+  - component: {fileID: 64014968545849294}
   m_Layer: 0
   m_Name: Hill3_Rock
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1276938785548422}
+  m_Mesh: {fileID: 4300000, guid: bcc69e4522341994daf553f51f1db600, type: 3}
+--- !u!64 &64014968545849294
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1276938785548422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: bcc69e4522341994daf553f51f1db600, type: 3}

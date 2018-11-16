@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4752038682455068}
   - component: {fileID: 33604969684724424}
   - component: {fileID: 23778180717172886}
+  - component: {fileID: 65871918323934504}
   m_Layer: 0
   m_Name: WoodPost
   m_TagString: Untagged
@@ -84,3 +85,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1114677275097048}
   m_Mesh: {fileID: 4300000, guid: b08177e7aa83ea94299e27ce8f921c4a, type: 3}
+--- !u!65 &65871918323934504
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1114677275097048}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48974782, y: 0.96190524, z: 0.48974782}
+  m_Center: {x: -0.20600075, y: 0.48095238, z: 0.20598894}

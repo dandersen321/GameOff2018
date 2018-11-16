@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4578127528254308}
   - component: {fileID: 33457297148171276}
   - component: {fileID: 23660309619122890}
+  - component: {fileID: 64939170319054402}
   m_Layer: 0
   m_Name: RcokMedium2_Dark
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1044638432062526}
+  m_Mesh: {fileID: 4300000, guid: 2eb25d08817b8424f90ce91e2935ac4e, type: 3}
+--- !u!64 &64939170319054402
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1044638432062526}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 2eb25d08817b8424f90ce91e2935ac4e, type: 3}

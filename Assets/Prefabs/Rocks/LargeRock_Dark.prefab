@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4320678707278560}
   - component: {fileID: 33104682509012670}
   - component: {fileID: 23817444676431258}
+  - component: {fileID: 64639676022430522}
   m_Layer: 0
   m_Name: LargeRock_Dark
   m_TagString: Untagged
@@ -83,4 +84,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1411883148978884}
+  m_Mesh: {fileID: 4300000, guid: cd9042171db0b0541841a2f0a142c713, type: 3}
+--- !u!64 &64639676022430522
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1411883148978884}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: cd9042171db0b0541841a2f0a142c713, type: 3}

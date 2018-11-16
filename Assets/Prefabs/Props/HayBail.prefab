@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4075986592475166}
   - component: {fileID: 33054337380136188}
   - component: {fileID: 23899741750406810}
+  - component: {fileID: 65408383310847858}
   m_Layer: 0
   m_Name: HayBail
   m_TagString: Untagged
@@ -84,3 +85,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1271824186715848}
   m_Mesh: {fileID: 4300000, guid: 48d92191055e265408fef8f17f8a633c, type: 3}
+--- !u!65 &65408383310847858
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1271824186715848}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1965885, y: 0.6830539, z: 0.85379934}
+  m_Center: {x: -0.005365193, y: 0.33391586, z: -0.0014552921}
