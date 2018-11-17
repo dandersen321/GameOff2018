@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ChickenSlot : MonoBehaviour {
 
-    private ChickenType chickenType;
+    public ChickenType chickenType;
     public Image chickenIcon;
     public Image chickenIconRecharge;
     public Text imageText;
@@ -16,7 +16,7 @@ public class ChickenSlot : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         chickenIcon = this.transform.Find("Icon").gameObject.GetComponent<Image>();
         selectedImage = this.transform.Find("Selected").gameObject.GetComponent<Image>();
 

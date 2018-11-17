@@ -6,9 +6,10 @@ using UnityEngine;
 public class ChickenType : ScriptableObject {
 
     public int count;
-    public float baseDamage;
+    public int baseDamage;
     public float cooldown;
     public Sprite sprite;
     public string chickenName;
+    //public List<ChickenEffect> chickenEffects;
 
 }

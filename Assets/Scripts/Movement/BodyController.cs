@@ -111,32 +111,32 @@ public class BodyController : MonoBehaviour
         }
     }
 
-    //public void Ragdoll()
-    //{
-    //    foreach(EnemyBodyPart bodyPart in this.GetComponentsInChildren<EnemyBodyPart>())
-    //    {
-    //        if(bodyPart.jointBodyObj != null)
-    //        {
-    //            bodyPart.gameObject.AddComponent<CharacterJoint>();
-    //            bodyPart.gameObject.GetComponent<CharacterJoint>().connectedBody = bodyPart.jointBodyObj.GetComponent<Rigidbody>();
-    //        }
-    //    }
+    public void Ragdoll()
+    {
+        //foreach (EnemyBodyPart bodyPart in this.GetComponentsInChildren<EnemyBodyPart>())
+        //{
+        //    if (bodyPart.jointBodyObj != null)
+        //    {
+        //        bodyPart.gameObject.AddComponent<CharacterJoint>();
+        //        bodyPart.gameObject.GetComponent<CharacterJoint>().connectedBody = bodyPart.jointBodyObj.GetComponent<Rigidbody>();
+        //    }
+        //}
 
-    //    foreach (Collider collider in this.GetComponentsInChildren<Collider>())
-    //    {
-    //        collider.isTrigger = false;
-    //    }
+        foreach (Collider collider in this.GetComponentsInChildren<Collider>())
+        {
+            collider.isTrigger = false;
+        }
 
-    //    foreach (Rigidbody part in this.GetComponentsInChildren<Rigidbody>())
-    //    {
-    //        part.isKinematic = false;
-    //    }
-    //    GetComponent<AgentMovementController>().enabled = false;
-    //    GetComponent<Animator>().enabled = false;
-    //    controller.enabled = false;
+        foreach (Rigidbody part in this.GetComponentsInChildren<Rigidbody>())
+        {
+            part.isKinematic = false;
+        }
+        //GetComponent<AgentMovementController>().enabled = false;
+        //GetComponent<Animator>().enabled = false;
+        controller.enabled = false;
 
 
-    //    this.enabled = false;
+        this.enabled = false;
 
-    //}
+    }
 }

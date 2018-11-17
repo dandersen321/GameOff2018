@@ -19,7 +19,22 @@ public class Bullet : MonoBehaviour {
 
     public int damage = 100;
 
-	void Start () {
+    public List<ChickenEffect> chickenEffects;
+
+    public void init(ChickenType chickenType)
+    {
+        chickenEffects = new List<ChickenEffect>();
+        if(chickenType.chickenName == "Explosive")
+        {
+            chickenEffects.Add(new ExplodeEffect(chickenType));
+        }
+        else if (chickenType.chickenName == "Normal")
+        {
+            chickenEffects.Add(new NormalEffect(chickenType));
+        }
+    }
+
+    void Start () {
         lifeTimer.Start(lifeTime);
         gravityTimer.Start(timeUntilGravity);
     }
@@ -40,17 +55,22 @@ public class Bullet : MonoBehaviour {
     {
         if (collision.gameObject.name == "Player")
             return;
-        Debug.Log("Hit " + collision.gameObject.name);
+        //Debug.Log("Hit " + collision.gameObject.name);
         if (!bulletSpent)
         {
             bulletSpent = true;
         }
 
-        Health health = collision.gameObject.GetComponent<Health>();
-        if(health)
+        foreach(ChickenEffect chickenEffect in chickenEffects)
         {
-            health.TakeDamage(damage);
+            chickenEffect.doEffect(this.transform.position, collision.gameObject);
         }
+
+        //Health health = collision.gameObject.GetComponent<Health>();
+        //if(health)
+        //{
+        //    health.TakeDamage(damage);
+        //}
 
         Destroy(this.gameObject);
     }

@@ -44,6 +44,7 @@ public class AgentMovementController : MonoBehaviour
 
     void moveTowardsTarget()
     {
+        //Debug.Log("Moving!");
         Vector3 directionToTarget = bodyController.getDirectionToTarget(getNextPosition());
         bodyController.moveInDirection(directionToTarget);
         if (rotateOverride != null)
@@ -61,6 +62,12 @@ public class AgentMovementController : MonoBehaviour
     Vector3 getBeaconPosition()
     {
         return References.getBeacon().gameObject.transform.position;
+    }
+
+    public void ragDoll()
+    {
+        bodyController.Ragdoll();
+        this.enabled = false;
     }
 
 }
