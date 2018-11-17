@@ -21,13 +21,15 @@ MonoBehaviour:
   - z_pref_hideWireframe
   m_int_keys:
   - z_GIWorkflowMode
-  m_float_keys: []
+  m_float_keys:
+  - push_pull_effect
   m_string_keys: []
   m_Color_keys:
   - z_pref_brushColor
   m_bool_values: 01010101000101
   m_int_values: 01000000
-  m_float_values: []
+  m_float_values:
+  - 0
   m_string_values: []
   m_Color_values:
   - {r: 0, g: 0.8, b: 1, a: 1}

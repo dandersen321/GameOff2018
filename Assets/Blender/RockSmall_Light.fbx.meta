@@ -14,7 +14,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Lowpoly
-    second: {fileID: 2100000, guid: d695ed7395d79ea4986629bf6259b1a2, type: 2}
+    second: {fileID: 2100000, guid: ad9fd36cde376244f9fc4ea7b11ab895, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
