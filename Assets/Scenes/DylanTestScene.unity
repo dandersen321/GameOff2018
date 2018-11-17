@@ -2204,6 +2204,39 @@ Transform:
   m_Father: {fileID: 1388724132}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 10, y: 0, z: 0}
+--- !u!1 &319741646
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 319741647}
+  m_Layer: 5
+  m_Name: TurrentHUD
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &319741647
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 319741646}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 930063058}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &320879773
 GameObject:
   m_ObjectHideFlags: 0
@@ -2653,6 +2686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 394598470}
   - component: {fileID: 394598472}
+  - component: {fileID: 394598471}
   m_Layer: 5
   m_Name: Chicken2
   m_TagString: Untagged
@@ -2683,6 +2717,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &394598471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 394598469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fecda58afb63c4c95aca5e724547c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chickenIcon: {fileID: 0}
+  chickenIconRecharge: {fileID: 0}
+  imageText: {fileID: 0}
 --- !u!222 &394598472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5475,6 +5523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 784459527}
   - component: {fileID: 784459529}
+  - component: {fileID: 784459528}
   m_Layer: 5
   m_Name: Chicken5
   m_TagString: Untagged
@@ -5505,6 +5554,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &784459528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 784459526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fecda58afb63c4c95aca5e724547c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chickenIcon: {fileID: 0}
+  chickenIconRecharge: {fileID: 0}
+  imageText: {fileID: 0}
 --- !u!222 &784459529
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5815,6 +5878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 864986348}
   - component: {fileID: 864986350}
+  - component: {fileID: 864986349}
   m_Layer: 5
   m_Name: Chicken1
   m_TagString: Untagged
@@ -5845,6 +5909,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &864986349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 864986347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fecda58afb63c4c95aca5e724547c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chickenIcon: {fileID: 0}
+  chickenIconRecharge: {fileID: 0}
+  imageText: {fileID: 0}
 --- !u!222 &864986350
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5898,6 +5976,7 @@ GameObject:
   m_Component:
   - component: {fileID: 881018579}
   - component: {fileID: 881018581}
+  - component: {fileID: 881018580}
   m_Layer: 5
   m_Name: Chicken3
   m_TagString: Untagged
@@ -5928,6 +6007,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &881018580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 881018578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fecda58afb63c4c95aca5e724547c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chickenIcon: {fileID: 0}
+  chickenIconRecharge: {fileID: 0}
+  imageText: {fileID: 0}
 --- !u!222 &881018581
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6257,7 +6350,7 @@ GameObject:
   - component: {fileID: 930063055}
   - component: {fileID: 930063059}
   m_Layer: 5
-  m_Name: HUD
+  m_Name: TurrentHUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6338,6 +6431,7 @@ RectTransform:
   - {fileID: 2054760569}
   - {fileID: 1865224686}
   - {fileID: 1838562084}
+  - {fileID: 319741647}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10581,6 +10675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1575200881}
   - component: {fileID: 1575200883}
+  - component: {fileID: 1575200882}
   m_Layer: 5
   m_Name: Chicken4
   m_TagString: Untagged
@@ -10611,6 +10706,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1575200882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1575200880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fecda58afb63c4c95aca5e724547c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chickenIcon: {fileID: 0}
+  chickenIconRecharge: {fileID: 0}
+  imageText: {fileID: 0}
 --- !u!222 &1575200883
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11751,6 +11860,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1715037149}
   - component: {fileID: 1715037151}
+  - component: {fileID: 1715037150}
   m_Layer: 5
   m_Name: Chicken6
   m_TagString: Untagged
@@ -11781,6 +11891,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
+--- !u!114 &1715037150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1715037148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fecda58afb63c4c95aca5e724547c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chickenIcon: {fileID: 0}
+  chickenIconRecharge: {fileID: 0}
+  imageText: {fileID: 0}
 --- !u!222 &1715037151
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -13325,7 +13449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3304307f2d6540741a74be535e5fb245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  chickenEquippedUI: {fileID: 0}
+  turrentHUD: {fileID: 0}
 --- !u!1 &1865232545
 GameObject:
   m_ObjectHideFlags: 0

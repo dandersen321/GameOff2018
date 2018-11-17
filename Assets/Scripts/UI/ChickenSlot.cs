@@ -16,7 +16,7 @@ public class ChickenSlot : MonoBehaviour {
 
 
     // Use this for initialization
-    void Start () {
+    void Awake () {
         chickenIcon = this.transform.Find("Icon").gameObject.GetComponent<Image>();
         selectedImage = this.transform.Find("Selected").gameObject.GetComponent<Image>();
 

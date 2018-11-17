@@ -14,3 +14,5 @@ MonoBehaviour:
   count: 0
   baseDamage: 10
   cooldown: 0.5
+  sprite: {fileID: 21300000, guid: 09b7c2c2c08e9564ebf964ab22e08c52, type: 3}
+  chickenName: 

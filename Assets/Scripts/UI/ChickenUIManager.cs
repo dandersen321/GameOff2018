@@ -4,16 +4,18 @@ using UnityEngine;
 
 public class ChickenUIManager : MonoBehaviour {
 
-    public GameObject chickenEquippedUI;
+    public GameObject turrentHUD;
     private Turrent turrent;
 
     private ChickenSlot[] chickenSlots;
     private int selectedChickenIndex = 0;
 
+    public Canvas turrentCanvas;
+
 
 	// Use this for initialization
 	void Start () {
-        chickenEquippedUI = GameObject.Find("ChickensEquipped");
+        turrentHUD = GameObject.Find("TurrentHUD");
         turrent = References.GetTurrent();
         chickenSlots = GetComponentsInChildren< ChickenSlot > ();
         chickenSlots[selectedChickenIndex].setChicken(References.getInventoryManager().chickenInventories[0]);
@@ -42,13 +44,18 @@ public class ChickenUIManager : MonoBehaviour {
     public void showChickenSlots()
     {
         //chickenEquippedUI.SetActive(true);
-        chickenEquippedUI.transform.localScale = Vector3.one;
+        //turrentHUD.transform.localScale = Vector3.one;
+        //turrentHUD.SetActive(true);
+        turrentCanvas.enabled = true;
         selectChickenSlot(selectedChickenIndex);
     }
 
     public void hideChickenSlots()
     {
-        chickenEquippedUI.transform.localScale = Vector3.zero;
+        turrentCanvas.enabled = false;
+        //turrentHUD.transform.position = new Vector3(-10000, -10000, -10000);
+        //turrentHUD.SetActive(false);
+        //turrentHUD.transform.localScale = Vector3.zero;
         //chickenEquippedUI.SetActive(false);
     }
 
