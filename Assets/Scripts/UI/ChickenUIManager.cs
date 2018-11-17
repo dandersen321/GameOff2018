@@ -19,7 +19,13 @@ public class ChickenUIManager : MonoBehaviour {
         turrent = References.GetTurrent();
         chickenSlots = GetComponentsInChildren< ChickenSlot > ();
         chickenSlots[selectedChickenIndex].setChicken(References.getInventoryManager().chickenInventories[0]);
+        chickenSlots[1].setChicken(References.getInventoryManager().chickenInventories[1]);
         hideChickenSlots();
+    }
+
+    public ChickenType getActiveChicken()
+    {
+        return chickenSlots[selectedChickenIndex].chickenType;
     }
 	
 	// Update is called once per frame

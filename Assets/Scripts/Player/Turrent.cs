@@ -13,7 +13,7 @@ public class Turrent : Item
     private float defaulAimtDistance = 50;
     private float minAimDistance = 2;
 
-    private ChickenType activeChickenType;
+    private ChickenType activeChickenType { get { return References.getChickenUIManager().getActiveChicken(); } }
     private ChickenUIManager chickenUIManager;
     //private Timer nextFireTimer = new Timer();
     public bool turrentModeActive;
@@ -104,7 +104,8 @@ public class Turrent : Item
     // fire a bullet at the given position
     void fireBullet(Vector3 targetPosition)
     {
-        factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition);
+        Debug.Log("Firing " + activeChickenType.chickenName);
+        factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition, activeChickenType);
         chickenUIManager.getSelectedChickenSlot().rechargeTimer.Start(activeChickenType.cooldown);
     }
 
@@ -112,7 +113,7 @@ public class Turrent : Item
     {
         turrentModeActive = true;
         References.getChickenUIManager().showChickenSlots();
-        activeChickenType = References.getInventoryManager().chickenInventories[0];
+        //activeChickenType = References.getInventoryManager().chickenInventories[0];
     }
 
     public void deactiveTurrentMode()

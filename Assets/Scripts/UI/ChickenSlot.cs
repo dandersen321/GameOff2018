@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ChickenSlot : MonoBehaviour {
 
-    private ChickenType chickenType;
+    public ChickenType chickenType;
     public Image chickenIcon;
     public Image chickenIconRecharge;
     public Text imageText;

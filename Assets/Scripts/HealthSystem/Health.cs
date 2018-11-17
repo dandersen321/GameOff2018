@@ -7,6 +7,10 @@ public class Health : MonoBehaviour
     public delegate void OnHealthChangeAction(int currentHealth, int maxHealth);
     public event OnHealthChangeAction OnHealthChange;
 
+    public delegate void OnDeathAction();
+    public event OnDeathAction onDeathAction;
+
+
     [SerializeField]
     private int maxHealth;
     public int MaxHealth { get { return maxHealth; } private set { maxHealth = value; } }
@@ -36,12 +40,15 @@ public class Health : MonoBehaviour
                 OnHealthChange(currentHealth, maxHealth);
             }
 
-            Debug.Log(gameObject.name + " took " + amount + " damage to ");
+            //Debug.Log(gameObject.name + " took " + amount + " damage to ");
 
             if (currentHealth <= 0)
             {
                 isAlive = false;
-                Die();
+                if(onDeathAction != null)
+                {
+                    onDeathAction();
+                }
             }
         }
     }

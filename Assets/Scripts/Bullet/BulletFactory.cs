@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletFactory {
 
-	public GameObject createBullet(GameObject bulletObj, Vector3 startPosition, Vector3 targetPosition)
+	public GameObject createBullet(GameObject bulletObj, Vector3 startPosition, Vector3 targetPosition, ChickenType chickenType)
     {
         GameObject bullet = GameObject.Instantiate(bulletObj);
         bullet.SetActive(true);
@@ -15,6 +15,8 @@ public class BulletFactory {
         rb.AddForce(bullet.transform.forward * rb.mass * 4000);
 
         bullet.AddComponent<Bullet>();
+        bullet.GetComponent<Bullet>().init(chickenType);
+        
         
         // Debug code to see where bullet is targeting
         //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
