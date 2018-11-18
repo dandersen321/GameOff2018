@@ -27,7 +27,7 @@ public class BulletFactory {
         }
         else
         {
-            
+            bullet.heatSeeking = false;
             rb.AddForce(bulletObj.transform.forward * rb.mass * 4000);
         }
 

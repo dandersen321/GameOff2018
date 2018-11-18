@@ -32,9 +32,7 @@ public class Bullet : MonoBehaviour {
     {
         this.chickenType = chickenType;
         this.rank = rank;
-    }
 
-    void Start () {
         lifeTimer.Start(lifeTime);
         gravityTimer.Start(timeUntilGravity);
     }
@@ -43,7 +41,7 @@ public class Bullet : MonoBehaviour {
     {
         if (heatSeeking)
         {
-            if (target.GetComponent<Enemy>().alive == false)
+            if (target != null && target.GetComponent<Enemy>().alive == false)
                 target = null;
             if (target == null && lookForTarget.Expired())
                 findTarget();
@@ -60,6 +58,7 @@ public class Bullet : MonoBehaviour {
         {
             if (lifeTimer.Expired())
             {
+                Debug.Log("Bullet expired");
                 Destroy(this.gameObject);
             }
             if (gravityTimer.Expired())
@@ -86,6 +85,12 @@ public class Bullet : MonoBehaviour {
         //{
         //    health.TakeDamage(damage);
         //}
+
+        if(chickenType.name == ChickenTypeEnum.slowName && rank == 3)
+        {
+            // don't get spent
+            return;
+        }
 
         Destroy(this.gameObject);
     }
@@ -120,9 +125,9 @@ public class Bullet : MonoBehaviour {
 
     void startEffects(GameObject objectHit)
     {
-        GameObject effectObj = new GameObject();
         if (chickenType.name == ChickenTypeEnum.explosiveName)
         {
+            GameObject effectObj = new GameObject();
             effectObj.AddComponent<ExplodeEffectMonoBehavior>();
             effectObj.GetComponent<ChickenEffectMonoBehavior>().init(chickenType, this.transform.position, objectHit, rank);
         }
