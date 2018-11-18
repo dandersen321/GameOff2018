@@ -20,9 +20,9 @@ public class Enemy : MonoBehaviour {
 
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
 
@@ -30,6 +30,17 @@ public class Enemy : MonoBehaviour {
     {
         Debug.Log("Death!");
         alive = false;
+        if(References.getArtifact().heldBy == this)
+        {
+            // drop it
+            References.getArtifact().heldBy = null;
+            References.getArtifact().transform.parent = null;
+        }
         agentController.ragDoll();
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+        
+    //}
 }

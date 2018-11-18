@@ -26,6 +26,8 @@ public class AttackManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
+        if (!this.GetComponent<AgentMovementController>().attackPlayer)
+            return;
         
         if(!canAttackTimer.Expired() || !checkAttackRange.Expired())
         {
@@ -50,7 +52,7 @@ public class AttackManager : MonoBehaviour {
     {
         checkAttackRange.Start(1f);
         Vector3 targetPosition = References.GetPlayer().transform.position;
-        Debug.Log("Range: " + Vector3.Distance(targetPosition, this.transform.position));
+        //Debug.Log("Range: " + Vector3.Distance(targetPosition, this.transform.position));
         return Vector3.Distance(targetPosition, this.transform.position) <= attack.attackRange;
     }
 
