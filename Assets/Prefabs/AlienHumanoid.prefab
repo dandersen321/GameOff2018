@@ -53,6 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4850776610420000}
   - component: {fileID: 137386849001244226}
+  - component: {fileID: 136688482579753514}
   m_Layer: 0
   m_Name: AlienHumanoid
   m_TagString: Untagged
@@ -161,6 +162,19 @@ Animator:
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &136688482579753514
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1611280069819422}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.004421231
+  m_Height: 0.019
+  m_Direction: 1
+  m_Center: {x: -0.000074415, y: 0.0012091195, z: 0.00010018354}
 --- !u!137 &137386849001244226
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
