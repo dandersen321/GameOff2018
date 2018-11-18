@@ -113,6 +113,7 @@ public class Turrent : Item
     {
         turrentModeActive = true;
         References.getChickenUIManager().showChickenSlots();
+        References.GetPlayerMovementController().startTurrentMode();
         //activeChickenType = References.getInventoryManager().chickenInventories[0];
     }
 
