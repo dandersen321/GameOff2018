@@ -10,7 +10,7 @@ public class HealthUIManager : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        References.getBeacon().gameObject.GetComponent<Health>().OnHealthChange += UpdateHealthBar;
+        References.GetPlayer().GetComponent<Health>().OnHealthChange += UpdateHealthBar;
     }
 	
 	// Update is called once per frame

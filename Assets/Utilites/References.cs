@@ -6,6 +6,11 @@ public static class References  {
 
     //// Use this for initialization
 
+    public static GameObject GetPlayer()
+    {
+        return GameObject.Find("Player");
+    }
+
     public static PlayerMovementController GetPlayerMovementController()
     {
         return GameObject.Find("Player").GetComponent<PlayerMovementController>();
@@ -21,9 +26,9 @@ public static class References  {
         return GameObject.Find("Player").GetComponent<InventoryManager>();
     }
 
-    public static Beacon getBeacon()
+    public static Artifact getArtifact()
     {
-        return GameObject.Find("Beacon").GetComponent<Beacon>();
+        return GameObject.Find("Beacon").GetComponent<Artifact>();
     }
 
     public static ChickenUIManager getChickenUIManager()

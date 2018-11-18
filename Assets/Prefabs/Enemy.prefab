@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData:
   - {fileID: 11400000, guid: 527cd04b18bf40d47b6b6d61e7e18b20, type: 2}
-  meeleAttackRange: 2
+  meeleAttackRange: 10
   foundTarget: 0
 --- !u!114 &114708251732525128
 MonoBehaviour:
@@ -164,6 +164,7 @@ MonoBehaviour:
   rotationSpeed: 8
   externalForces: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
+  frozen: 0
 --- !u!114 &114894401259200998
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -176,6 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  alive: 1
 --- !u!136 &136370136448317214
 CapsuleCollider:
   m_ObjectHideFlags: 1

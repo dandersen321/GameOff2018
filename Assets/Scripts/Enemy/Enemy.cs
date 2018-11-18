@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour {
     private BodyController bodyController;
     private AgentMovementController agentController;
 
+    public bool alive = true;
+
     // Use this for initialization
     void Start () {
         agentController = GetComponent<AgentMovementController>();
@@ -27,6 +29,7 @@ public class Enemy : MonoBehaviour {
     public void die()
     {
         Debug.Log("Death!");
+        alive = false;
         agentController.ragDoll();
     }
 }

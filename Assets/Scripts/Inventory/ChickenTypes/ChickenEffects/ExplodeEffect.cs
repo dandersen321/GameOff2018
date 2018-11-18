@@ -30,6 +30,7 @@ public class ExplodeEffect : ChickenEffect {
             if(enemy)
             {
                 enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
+                enemy.GetComponent<AgentMovementController>().stopMoving = false;
             }
 
             if (rb == null)
@@ -39,8 +40,8 @@ public class ExplodeEffect : ChickenEffect {
             rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
         }
 
-        GameObject a = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        a.transform.position = explosionPos;
+        //GameObject a = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        //a.transform.position = explosionPos;
     }
 
 }

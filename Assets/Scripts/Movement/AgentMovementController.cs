@@ -11,6 +11,8 @@ public class AgentMovementController : MonoBehaviour
 
     public GameObject rotateOverride = null;
 
+    public bool stopMoving = false;
+
     // Use this for initialization
     void Start()
     {
@@ -21,6 +23,8 @@ public class AgentMovementController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (stopMoving)
+            return;
         moveTowardsTarget();
     }
 
@@ -37,7 +41,7 @@ public class AgentMovementController : MonoBehaviour
 
     Vector3 getNextPosition()
     {
-        Vector3 targetDestination = getBeaconPosition();
+        Vector3 targetDestination = getPlayerPosition();
         agent.SetDestination(targetDestination);
         return agent.nextPosition;
     }
@@ -59,9 +63,9 @@ public class AgentMovementController : MonoBehaviour
         agent.nextPosition = this.transform.position;
     }
 
-    Vector3 getBeaconPosition()
+    Vector3 getPlayerPosition()
     {
-        return References.getBeacon().gameObject.transform.position;
+        return References.GetPlayer().transform.position;
     }
 
     public void ragDoll()
