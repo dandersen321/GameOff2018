@@ -42,7 +42,7 @@ public class ChickenSlot : MonoBehaviour {
         chickenIcon.enabled = true;
         //chickenIcon.transform.localScale = Vector3.one * 50;
         chickenIconRecharge.enabled = true;
-        imageText.text = chickenType.chickenName;
+        imageText.text = chickenType.name;
     }
 
     public void clearChicken()

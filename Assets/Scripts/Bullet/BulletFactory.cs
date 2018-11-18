@@ -4,25 +4,39 @@ using UnityEngine;
 
 public class BulletFactory {
 
-	public GameObject createBullet(GameObject bulletObj, Vector3 startPosition, Vector3 targetPosition, ChickenType chickenType)
+	public GameObject createBullet(GameObject bulletObjPrefab, Vector3 startPosition, Vector3 targetPosition, ChickenType chickenType, int rank)
     {
-        GameObject bullet = GameObject.Instantiate(bulletObj);
-        bullet.SetActive(true);
-        bullet.transform.position = startPosition;
-        bullet.transform.LookAt(targetPosition);
+        GameObject bulletObj = GameObject.Instantiate(bulletObjPrefab);
+        bulletObj.SetActive(true);
+        bulletObj.transform.position = startPosition;
+        bulletObj.transform.LookAt(targetPosition);
 
-        var rb = bullet.GetComponent<Rigidbody>();
-        rb.AddForce(bullet.transform.forward * rb.mass * 4000);
+        
 
-        bullet.AddComponent<Bullet>();
-        bullet.GetComponent<Bullet>().init(chickenType);
-        
-        
+        bulletObj.AddComponent<Bullet>();
+        Bullet bullet = bulletObj.GetComponent<Bullet>();
+        bullet.init(chickenType, rank);
+        var rb = bulletObj.GetComponent<Rigidbody>();
+
+        if (chickenType.name == ChickenTypeEnum.heatSeekingName)
+        {
+            Debug.Log("This is heatseekign");
+            bullet.heatSeeking = true;
+            rb.useGravity = false;
+            bullet.defaultTargetPosition = bullet.transform.position + bullet.transform.forward * 100;
+        }
+        else
+        {
+            
+            rb.AddForce(bulletObj.transform.forward * rb.mass * 4000);
+        }
+
+
         // Debug code to see where bullet is targeting
         //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
         //cube.transform.position = targetPosition;
 
-        return bullet;
+        return bulletObj;
     }
 
 

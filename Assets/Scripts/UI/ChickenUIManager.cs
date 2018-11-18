@@ -20,8 +20,13 @@ public class ChickenUIManager : MonoBehaviour {
         chickensEquipped = GameObject.Find("ChickensEquipped");
         turrent = References.GetTurrent();
         chickenSlots = chickensEquipped. GetComponentsInChildren< ChickenSlot > ();
-        chickenSlots[selectedChickenIndex].setChicken(References.getInventoryManager().chickenInventories[0]);
-        chickenSlots[1].setChicken(References.getInventoryManager().chickenInventories[1]);
+        for(int i = 0; i < 6; ++i)
+        {
+            chickenSlots[i].setChicken(References.getInventoryManager().chickenInventories[i]);
+        }
+        //chickenSlots[selectedChickenIndex].setChicken(References.getInventoryManager().chickenInventories[0]);
+        //chickenSlots[1].setChicken(References.getInventoryManager().chickenInventories[1]);
+        //chickenSlots[2].setChicken(References.getInventoryManager().chickenInventories[2]);
         hideChickenSlots();
     }
 

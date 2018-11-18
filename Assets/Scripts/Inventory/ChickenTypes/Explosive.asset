@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eced0ae064bc44649acad6e677808c28, type: 3}
+  m_Name: Explosive
+  m_EditorClassIdentifier: 
+  count: 0
+  baseDamage: 10
+  cooldown: 0.5
+  sprite: {fileID: 21300000, guid: 09b7c2c2c08e9564ebf964ab22e08c52, type: 3}
+  chickenName: Explosive

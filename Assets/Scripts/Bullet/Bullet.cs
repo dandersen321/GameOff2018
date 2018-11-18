@@ -19,19 +19,19 @@ public class Bullet : MonoBehaviour {
 
     public int damage = 100;
 
-    public List<ChickenEffect> chickenEffects;
+    public ChickenType chickenType;
+    private int rank;
 
-    public void init(ChickenType chickenType)
+    public bool heatSeeking = false;
+    public GameObject target;
+    public Vector3 defaultTargetPosition;
+    private Timer lookForTarget = new Timer();
+    private float moveToTargetSpeed = 12f;
+
+    public void init(ChickenType chickenType, int rank)
     {
-        chickenEffects = new List<ChickenEffect>();
-        if(chickenType.chickenName == "Explosive")
-        {
-            chickenEffects.Add(new ExplodeEffect(chickenType));
-        }
-        else if (chickenType.chickenName == "Normal")
-        {
-            chickenEffects.Add(new NormalEffect(chickenType));
-        }
+        this.chickenType = chickenType;
+        this.rank = rank;
     }
 
     void Start () {
@@ -41,13 +41,31 @@ public class Bullet : MonoBehaviour {
 	
 	void Update ()
     {
-        if (lifeTimer.Expired())
+        if (heatSeeking)
         {
-            Destroy(this.gameObject);
+            if (target.GetComponent<Enemy>().alive == false)
+                target = null;
+            if (target == null && lookForTarget.Expired())
+                findTarget();
+
+            Vector3 targetPosition = target == null ? defaultTargetPosition : target.transform.position;
+
+            float step = moveToTargetSpeed * Time.deltaTime;
+
+            // Move our position a step closer to the target.
+            this.transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
+
         }
-        if(gravityTimer.Expired())
+        else
         {
-            this.GetComponent<Rigidbody>().useGravity = true;
+            if (lifeTimer.Expired())
+            {
+                Destroy(this.gameObject);
+            }
+            if (gravityTimer.Expired())
+            {
+                this.GetComponent<Rigidbody>().useGravity = true;
+            }
         }
 	}
 
@@ -61,10 +79,7 @@ public class Bullet : MonoBehaviour {
             bulletSpent = true;
         }
 
-        foreach(ChickenEffect chickenEffect in chickenEffects)
-        {
-            chickenEffect.doEffect(this.transform.position, collision.gameObject);
-        }
+        startEffects(collision.gameObject);
 
         //Health health = collision.gameObject.GetComponent<Health>();
         //if(health)
@@ -73,6 +88,94 @@ public class Bullet : MonoBehaviour {
         //}
 
         Destroy(this.gameObject);
+    }
+
+    public void findTarget()
+    {
+        GameObject closestTarget = null;
+        float? closestSqrMagnitude = null;
+        foreach(GameObject gameObject in GameObject.FindGameObjectsWithTag("Enemy"))
+        {
+            if (gameObject.GetComponent<Enemy>().alive == false)
+                continue;
+            float sqrMagnitude = (this.transform.position - gameObject.transform.position).sqrMagnitude;
+
+            if (closestSqrMagnitude == null || sqrMagnitude < closestSqrMagnitude)
+            {
+                closestTarget = gameObject;
+                closestSqrMagnitude = sqrMagnitude;
+            }
+
+        }
+
+        if (closestTarget == null) {
+            lookForTarget.Start(2f);
+        }
+        else
+        {
+            target = closestTarget;
+        }
+
+    }
+
+    void startEffects(GameObject objectHit)
+    {
+        GameObject effectObj = new GameObject();
+        if (chickenType.name == ChickenTypeEnum.explosiveName)
+        {
+            effectObj.AddComponent<ExplodeEffectMonoBehavior>();
+            effectObj.GetComponent<ChickenEffectMonoBehavior>().init(chickenType, this.transform.position, objectHit, rank);
+        }
+        else if (chickenType.name == ChickenTypeEnum.normalName)
+        {
+            //effectObj.AddComponent<NormalEffectMonoBehavior>();
+            doNormalEffect(objectHit);
+        }
+        else if (chickenType.name == ChickenTypeEnum.slowName)
+        {
+
+        }
+        else if(chickenType.name == ChickenTypeEnum.radiationName)
+        {
+
+        }
+        else if(chickenType.name == ChickenTypeEnum.steroidName)
+        {
+            doSteriodEffect(objectHit);
+        }
+        else if(chickenType.name == ChickenTypeEnum.heatSeekingName)
+        {
+
+        }
+        else
+        {
+            // TODO remove this?
+            throw new System.Exception("Unknown chicken? " + chickenType.ToString());
+        }
+
+
+        
+    }
+
+    void doNormalEffect(GameObject objectHit)
+    {
+        Enemy enemy = objectHit.GetComponent<Enemy>();
+        if (enemy == null)
+            return;
+        enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
+    }
+
+    void doSteriodEffect(GameObject objectHit)
+    {
+        Enemy enemy = objectHit.GetComponent<Enemy>();
+        if (enemy == null)
+            return;
+        enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
+
+        if(rank==3)
+        {
+
+        }
     }
 
     //void OnTriggerEnter(Collider collider)

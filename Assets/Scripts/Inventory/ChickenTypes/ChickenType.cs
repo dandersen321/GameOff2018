@@ -9,7 +9,7 @@ public class ChickenType : ScriptableObject {
     public int baseDamage;
     public float cooldown;
     public Sprite sprite;
-    public string chickenName;
+    //public string chickenName;
     //public List<ChickenEffect> chickenEffects;
 
 }

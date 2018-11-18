@@ -104,8 +104,8 @@ public class Turrent : MonoBehaviour
     // fire a bullet at the given position
     void fireBullet(Vector3 targetPosition)
     {
-        Debug.Log("Firing " + activeChickenType.chickenName);
-        factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition, activeChickenType);
+        Debug.Log("Firing " + activeChickenType.name);
+        factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition, activeChickenType, 3);
         chickenUIManager.getSelectedChickenSlot().rechargeTimer.Start(activeChickenType.cooldown);
     }
 
