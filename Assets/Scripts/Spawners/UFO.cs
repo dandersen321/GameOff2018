@@ -33,12 +33,8 @@ public class UFO : MonoBehaviour {
         {
             flying = false;
             unloadingTroops = true;
+            StartCoroutine(unloadTroops());
         }
-    }
-
-    void updateUnloadingTroops()
-    {
-        StartCoroutine(unloadTroops());
     }
 
     IEnumerator unloadTroops()
@@ -47,19 +43,22 @@ public class UFO : MonoBehaviour {
         Vector2 localSpawnPoint = new Vector2(spawnPoint.x, spawnPoint.z);
         float localSpawnRadius = 5f;
 
-        float enemiesToSpawnPerSecond = 1;
+        float secondsPerEnemyUnload = 1;
 
         landedEnemies = new List<Enemy>();
 
         foreach (GameObject enemyPrefab in enemyPrefabs)
         {
-            yield return new WaitForSeconds(enemiesToSpawnPerSecond);
+            yield return new WaitForSeconds(secondsPerEnemyUnload);
 
             Vector2 enemySpawnPointV2 = (Random.insideUnitCircle.normalized * localSpawnRadius) + localSpawnPoint;
             Vector3 enemySpawnPoint = new Vector3(enemySpawnPointV2.x, spawnPoint.y, enemySpawnPointV2.y);
             Enemy landedEnemy = this.CreateEnemy(enemyPrefab, enemySpawnPoint).GetComponent<Enemy>();
             landedEnemies.Add(landedEnemy);
         }
+
+        unloadingTroops = false;
+        waitingForTroops = true;
     }
 
     GameObject CreateEnemy(GameObject enemyPrefab, Vector3 position)
@@ -119,9 +118,9 @@ public class UFO : MonoBehaviour {
         {
             updateFlying();
         }
-        else if(unloadingTroops)
+        else if (unloadingTroops)
         {
-            updateUnloadingTroops();
+            //updateUnloadingTroops();
         }
         else
         {
