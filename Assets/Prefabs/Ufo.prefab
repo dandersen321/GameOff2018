@@ -312,6 +312,7 @@ GameObject:
   - component: {fileID: 33456245645103578}
   - component: {fileID: 23011822937701150}
   - component: {fileID: 95953760976929162}
+  - component: {fileID: 114671692430675452}
   m_Layer: 0
   m_Name: Ufo
   m_TagString: Untagged
@@ -1436,3 +1437,14 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114671692430675452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1918361365295684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 989b099e7cd94d24082129b9befe3f31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
