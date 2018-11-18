@@ -312,7 +312,6 @@ GameObject:
   - component: {fileID: 33456245645103578}
   - component: {fileID: 23011822937701150}
   - component: {fileID: 95953760976929162}
-  - component: {fileID: 114450188803883756}
   m_Layer: 0
   m_Name: Ufo
   m_TagString: Untagged
@@ -419,7 +418,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1217420619998690}
   m_LocalRotation: {x: -1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: 0.0020000075, y: -1.4901161e-10, z: 0.0010000227}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4390717982166302}
@@ -587,7 +586,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1391065804888734}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0020000075, y: -0.0020001214, z: -0.005}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4390717982166302}
@@ -871,8 +870,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.89184636, b: 0.6933962, a: 1}
-  m_Intensity: 4
-  m_Range: 2.36
+  m_Intensity: 15
+  m_Range: 3
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -1123,7 +1122,7 @@ Light:
   serializedVersion: 8
   m_Type: 0
   m_Color: {r: 1, g: 0.89184636, b: 0.6933962, a: 1}
-  m_Intensity: 2
+  m_Intensity: 3
   m_Range: 50
   m_SpotAngle: 40
   m_CookieSize: 10
@@ -1437,14 +1436,3 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114450188803883756
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1918361365295684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 989b099e7cd94d24082129b9befe3f31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
