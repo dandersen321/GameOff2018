@@ -20,6 +20,9 @@ public class AgentMovementController : MonoBehaviour
 
     private Timer nextArtifactCheck = new Timer();
     private Timer nextArtifactBodyCheck = new Timer();
+
+    private Timer slowDownTimer = new Timer();
+    private float slowDownModifer;
     //private Timer nextArtifactFinishCheck = new Timer();
 
     // Use this for initialization
@@ -32,6 +35,10 @@ public class AgentMovementController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(slowDownTimer.Expired())
+        {
+            slowDownModifer = 1f;
+        }
         if(!attackPlayer && nextArtifactCheck.Expired())
         {
             updateArtifactCheck();
@@ -95,7 +102,7 @@ public class AgentMovementController : MonoBehaviour
     {
         //Debug.Log("Moving!");
         Vector3 directionToTarget = bodyController.getDirectionToTarget(getNextPosition());
-        bodyController.moveInDirection(directionToTarget);
+        bodyController.moveInDirection(directionToTarget, slowDownModifer);
         if (rotateOverride != null)
         {
             bodyController.lookInDirection(bodyController.getDirectionToTarget(rotateOverride.transform.position));
@@ -144,6 +151,12 @@ public class AgentMovementController : MonoBehaviour
         References.getArtifact().transform.parent = this.gameObject.transform;
 
 
+    }
+
+    public void slowDown(float slowDownModifer, float slowDownLength)
+    {
+        this.slowDownModifer = slowDownModifer;
+        this.slowDownTimer.Start(slowDownLength);
     }
 
     public void ragDoll()

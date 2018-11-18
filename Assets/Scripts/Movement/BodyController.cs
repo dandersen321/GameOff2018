@@ -39,9 +39,9 @@ public class BodyController : MonoBehaviour
     }
 
 
-    public void moveInDirection(Vector3 direction)
+    public void moveInDirection(Vector3 direction, float slowDownModifer = 1f)
     {
-        controller.Move(direction * speed * Time.deltaTime * physicsToForceModifer);
+        controller.Move(direction * speed * slowDownModifer * Time.deltaTime * physicsToForceModifer);
     }
 
     public void jump()

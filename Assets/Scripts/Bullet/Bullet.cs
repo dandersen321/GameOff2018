@@ -133,7 +133,7 @@ public class Bullet : MonoBehaviour {
         }
         else if (chickenType.name == ChickenTypeEnum.slowName)
         {
-
+            doSlowEffect(objectHit);
         }
         else if(chickenType.name == ChickenTypeEnum.radiationName)
         {
@@ -145,7 +145,7 @@ public class Bullet : MonoBehaviour {
         }
         else if(chickenType.name == ChickenTypeEnum.heatSeekingName)
         {
-
+            doHeatSeekingEffect(objectHit);
         }
         else
         {
@@ -176,6 +176,48 @@ public class Bullet : MonoBehaviour {
         {
 
         }
+    }
+
+    void doHeatSeekingEffect(GameObject objectHit)
+    {
+        float radius = 10.0F;
+        float power = 500.0F;
+
+        Vector3 explosionPos = objectHit.transform.position;
+        Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+
+        foreach (Collider hit in colliders)
+        {
+            Rigidbody rb = hit.GetComponent<Rigidbody>();
+            Enemy enemy = hit.GetComponent<Enemy>();
+
+            //Debug.Log("hit " + hit.name);
+
+            if (enemy)
+            {
+                int damage = rank == 1 ? chickenType.baseDamage : System.Convert.ToInt32(chickenType.baseDamage * 1.5);
+                enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
+                enemy.GetComponent<AgentMovementController>().stopMoving = false;
+            }
+
+            if (rb == null)
+                continue;
+
+            //Debug.Log("doing explosive to " + hit.name);
+            rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
+        }
+    }
+
+    void doSlowEffect(GameObject objectHit)
+    {
+        Enemy enemy = objectHit.GetComponent<Enemy>();
+        if (enemy == null)
+            return;
+
+        float slowDownModifer = rank == 1 ? 0.5f : 0f;
+        float slowDownLength = 3f;
+
+        enemy.GetComponent<AgentMovementController>().slowDown(slowDownModifer, slowDownLength);
     }
 
     //void OnTriggerEnter(Collider collider)
