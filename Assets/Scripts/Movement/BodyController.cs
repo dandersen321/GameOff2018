@@ -14,6 +14,8 @@ public class BodyController : MonoBehaviour
     public Vector3 externalForces = Vector3.zero;
     public CharacterController controller;
 
+    public bool frozen = false;
+
     // Use this for initialization
     void Start()
     {
@@ -24,6 +26,8 @@ public class BodyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (frozen)
+            return;
         updateExternalForces();
         updatePosition();
 

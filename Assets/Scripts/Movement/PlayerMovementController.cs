@@ -28,6 +28,9 @@ public class PlayerMovementController : MonoBehaviour
     public LayerMask aimMask;
     private float maxAimDistance = 5;
 
+    private GameObject playerTurrentObj;
+    private GameObject farmTurrentObj;
+
     void Start()
     {
         turrent = References.GetTurrent();
@@ -37,7 +40,10 @@ public class PlayerMovementController : MonoBehaviour
 
         firstPersonCamera = GameObject.Find("FirstPersonCamera");
         thirdPersonCamera = GameObject.Find("ThirdPersonCamera");
-        switchToThirdPersonCamera();
+        playerTurrentObj = GameObject.Find("PlayerTurrent");
+        farmTurrentObj = GameObject.Find("Turrent");
+        //switchToThirdPersonCamera();
+        endTurrentMode();
     }
 
     void bodyMove()
@@ -183,16 +189,23 @@ public class PlayerMovementController : MonoBehaviour
     public void startTurrentMode()
     {
         preCatapultPosition = this.transform.position;
-        this.transform.position = turrent.gameObject.transform.position - new Vector3(0, 10, 0);
+        this.transform.position = turrent.gameObject.transform.position + new Vector3(0, 1, 0);
+        bodyController.frozen = true;
         switchToFirstPersonCamera();
         turrentMode = true;
+        playerTurrentObj.SetActive(true);
+        farmTurrentObj.SetActive(false);
     }
 
     public void endTurrentMode()
     {
-        this.transform.position = preCatapultPosition;
+        if(preCatapultPosition != Vector3.zero)
+            this.transform.position = preCatapultPosition;
+        bodyController.frozen = false;
         switchToThirdPersonCamera();
         turrentMode = false;
+        playerTurrentObj.SetActive(false);
+        farmTurrentObj.SetActive(true);
     }
 
 

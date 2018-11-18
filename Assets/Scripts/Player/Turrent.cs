@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class Turrent : Item
+public class Turrent : MonoBehaviour
 {
     private GameObject bulletSpawner;
     public GameObject storedBulletObject;
@@ -109,7 +109,7 @@ public class Turrent : Item
         chickenUIManager.getSelectedChickenSlot().rechargeTimer.Start(activeChickenType.cooldown);
     }
 
-    public override void use()
+    public void activateTurrentMode()
     {
         turrentModeActive = true;
         References.getChickenUIManager().showChickenSlots();

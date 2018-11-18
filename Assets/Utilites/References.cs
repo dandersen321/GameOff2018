@@ -13,7 +13,7 @@ public static class References  {
 
     public static Turrent GetTurrent()
     {
-        return GameObject.Find("Turrent").GetComponent<Turrent>();
+        return GameObject.Find("PlayerGun").GetComponent<Turrent>();
     }
 
     public static InventoryManager getInventoryManager()
