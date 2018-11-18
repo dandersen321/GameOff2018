@@ -25,7 +25,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private Turrent turrent;
 
-    public LayerMask aimMask;
+    public LayerMask itemMask;
     private float maxAimDistance = 5;
 
     private GameObject playerTurrentObj;
@@ -111,7 +111,7 @@ public class PlayerMovementController : MonoBehaviour
     Item getTargetedItem()
     {
         GameObject targetedObject = getTargetedObject();
-        Debug.Log("Targeted " + targetedObject.name);
+        //Debug.Log("Targeted " + targetedObject.name);
         Item item = targetedObject == null ? null : targetedObject.GetComponent<Item>();
         return item;
     }
@@ -140,8 +140,8 @@ public class PlayerMovementController : MonoBehaviour
     bool getRaycastFromCamera(out RaycastHit hit)
     {
         Vector3 rayOrigin = getCameraWorldPoint();
-        float radius = 3f;
-        if (Physics.SphereCast(rayOrigin, radius, getPlayerCamera().transform.forward, out hit, maxAimDistance, aimMask))
+        float radius = 5;
+        if (Physics.SphereCast(rayOrigin - new Vector3(0, 0, radius/2), radius, getPlayerCamera().transform.forward, out hit, maxAimDistance, itemMask))
         {
             return true;
         }

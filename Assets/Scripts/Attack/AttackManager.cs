@@ -40,13 +40,17 @@ public class AttackManager : MonoBehaviour {
             foundTarget = true;
             BeginAttack(nextAttack);
         }
+        else
+        {
+            this.GetComponent<AgentMovementController>().stopMoving = false;
+        }
 	}
 
     public bool targetInRange(Attack attack)
     {
         checkAttackRange.Start(1f);
-        Vector3 targetPosition = References.getBeacon().transform.position;
-        //Debug.Log("Range: " + Vector3.Distance(targetPosition, this.transform.position));
+        Vector3 targetPosition = References.GetPlayer().transform.position;
+        Debug.Log("Range: " + Vector3.Distance(targetPosition, this.transform.position));
         return Vector3.Distance(targetPosition, this.transform.position) <= attack.attackRange;
     }
 
@@ -57,8 +61,10 @@ public class AttackManager : MonoBehaviour {
 
     void BeginAttack(Attack attack)
     {
+        Debug.Log("Beginning Attack!");
+        this.GetComponent<AgentMovementController>().stopMoving = true; // stop moving once in attack range
         attack.BeginAttack(GetComponent<Animator>());
-        attack.DoDamage(References.getBeacon().GetComponent<Health>());
+        attack.DoDamage(References.GetPlayer().GetComponent<Health>());
         canAttackTimer.Start(attack.attackLength + globalCooldown);
     }
 

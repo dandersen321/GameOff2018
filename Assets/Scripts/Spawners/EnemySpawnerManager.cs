@@ -146,16 +146,19 @@ public class EnemySpawnerManager : MonoBehaviour {
 
         for (int i = 0; i < randomIndexes.Count; ++i)
         {
-            yield return new WaitForSeconds(secondsPerEnemy);
+            
 
             Vector2 enemySpawnPointV2 = (Random.insideUnitCircle.normalized * localSpawnRadius) + localSpawnPoint;
             Vector3 enemySpawnPoint = new Vector3(enemySpawnPointV2.x, ufoStartingPosition.y, enemySpawnPointV2.y);
             List<GameObject> newEnemyPrefabs = new List<GameObject>();
-            for(int j = 0; j < 5; ++j)
+            //for(int j = 0; j < 5; ++j)
+            for (int j = 0; j < 1; ++j)
             {
                 newEnemyPrefabs.Add(enemyPrefabs[0]);
             }
             SpawnUfo(enemySpawnPoint, spawnPoints[randomIndexes[i]].transform.position, newEnemyPrefabs);
+
+            yield return new WaitForSeconds(secondsPerEnemy);
 
         }
 

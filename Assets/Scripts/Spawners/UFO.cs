@@ -49,12 +49,14 @@ public class UFO : MonoBehaviour {
 
         foreach (GameObject enemyPrefab in enemyPrefabs)
         {
-            yield return new WaitForSeconds(secondsPerEnemyUnload);
+            
 
             Vector2 enemySpawnPointV2 = (Random.insideUnitCircle.normalized * localSpawnRadius) + localSpawnPoint;
             Vector3 enemySpawnPoint = new Vector3(enemySpawnPointV2.x, spawnPoint.y, enemySpawnPointV2.y);
             Enemy landedEnemy = this.CreateEnemy(enemyPrefab, enemySpawnPoint).GetComponent<Enemy>();
             landedEnemies.Add(landedEnemy);
+
+            yield return new WaitForSeconds(secondsPerEnemyUnload);
         }
 
         unloadingTroops = false;
