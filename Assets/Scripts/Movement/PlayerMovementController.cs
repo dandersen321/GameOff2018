@@ -20,11 +20,13 @@ public class PlayerMovementController : MonoBehaviour
 
     private Timer lastJumpTimer = new Timer();
 
-    Item itemInFocus;
     private Vector3 preCatapultPosition;
     public bool turrentMode = false;
 
     private Turrent turrent;
+
+    public LayerMask aimMask;
+    private float maxAimDistance = 5;
 
     void Start()
     {
@@ -76,27 +78,68 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                turrent.deactiveTurrentMode();
-                this.transform.position = preCatapultPosition;
-                switchToThirdPersonCamera();
-                turrentMode = false;
+                endTurrentMode();
+                //turrent.deactiveTurrentMode();
+                //this.transform.position = preCatapultPosition;
+                //switchToThirdPersonCamera();
+                //turrentMode = false;
             }
         }
         else
         {
-            if (itemInFocus != null && Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("start turrent mode");
-                itemInFocus.use();
-                preCatapultPosition = this.transform.position;
-                this.transform.position = turrent.gameObject.transform.position;
-                switchToFirstPersonCamera();
-                turrentMode = true;
+                Item targetedItem = getTargetedItem();
+                if (targetedItem != null)
+                {
+                    targetedItem.use();
+                }
+
             }
             bodyMove();
         }
         cameraMove();
-        
+
+    }
+
+    Item getTargetedItem()
+    {
+        GameObject targetedObject = getTargetedObject();
+        Debug.Log("Targeted " + targetedObject.name);
+        Item item = targetedObject == null ? null : targetedObject.GetComponent<Item>();
+        return item;
+    }
+
+    GameObject getTargetedObject()
+    {
+        //// rayOrigin is the center of the camera's screen (0.5f/0.5f) at the player (0)
+        RaycastHit hit;
+        if (getRaycastFromCamera(out hit))
+        {
+            return hit.transform.gameObject;
+        }
+        return null;
+    }
+
+    Camera getPlayerCamera()
+    {
+        return GetComponentInChildren<Camera>();
+    }
+
+    Vector3 getCameraWorldPoint()
+    {
+        return getPlayerCamera().ViewportToWorldPoint(new Vector3(0.5f, 0.5f, 0));
+    }
+
+    bool getRaycastFromCamera(out RaycastHit hit)
+    {
+        Vector3 rayOrigin = getCameraWorldPoint();
+        float radius = 3f;
+        if (Physics.SphereCast(rayOrigin, radius, getPlayerCamera().transform.forward, out hit, maxAimDistance, aimMask))
+        {
+            return true;
+        }
+        return false;
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -137,6 +180,20 @@ public class PlayerMovementController : MonoBehaviour
         Cursor.visible = true;
     }
 
+    public void startTurrentMode()
+    {
+        preCatapultPosition = this.transform.position;
+        this.transform.position = turrent.gameObject.transform.position - new Vector3(0, 10, 0);
+        switchToFirstPersonCamera();
+        turrentMode = true;
+    }
+
+    public void endTurrentMode()
+    {
+        this.transform.position = preCatapultPosition;
+        switchToThirdPersonCamera();
+        turrentMode = false;
+    }
 
 
 
@@ -153,26 +210,26 @@ public class PlayerMovementController : MonoBehaviour
         thirdPersonCamera.SetActive(true);
     }
 
-    private void useItem(Item item)
-    {
-        itemInFocus = null;
-        item.use();
-    }
+    //private void useItem(Item item)
+    //{
+    //    itemInFocus = null;
+    //    item.use();
+    //}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Item item = other.GetComponent<Item>();
-        //Debug.Log("Trigger enter");
-        if (item != null)
-        {
-            //Debug.Log("Item focus");
-            setItemFocus(item);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    Item item = other.GetComponent<Item>();
+    //    //Debug.Log("Trigger enter");
+    //    if (item != null)
+    //    {
+    //        //Debug.Log("Item focus");
+    //        setItemFocus(item);
+    //    }
+    //}
 
-    private void setItemFocus(Item item)
-    {
-        itemInFocus = item;
-    }
+    //private void setItemFocus(Item item)
+    //{
+    //    itemInFocus = item;
+    //}
 
 }
