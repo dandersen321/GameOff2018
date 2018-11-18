@@ -142,7 +142,7 @@ public class Bullet : MonoBehaviour {
         }
         else if(chickenType.name == ChickenTypeEnum.radiationName)
         {
-
+            doRadiationEffect(objectHit);
         }
         else if(chickenType.name == ChickenTypeEnum.steroidName)
         {
@@ -160,6 +160,15 @@ public class Bullet : MonoBehaviour {
 
 
         
+    }
+
+    void doRadiationEffect(GameObject objectHit)
+    {
+        Enemy enemy = objectHit.GetComponent<Enemy>();
+        if (enemy == null)
+            return;
+
+        enemy.irridate(rank);
     }
 
     void doNormalEffect(GameObject objectHit)

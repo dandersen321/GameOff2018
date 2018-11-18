@@ -12,6 +12,12 @@ public class Enemy : MonoBehaviour {
 
     public bool alive = true;
 
+    private int irridationCyclesLeft = 0;
+    private Timer irridationPoll = new Timer();
+    private int irridationRank;
+    private int raditionDamge;
+    private float irridationRank3Radius = 10f;
+
     // Use this for initialization
     void Start () {
         agentController = GetComponent<AgentMovementController>();
@@ -24,6 +30,10 @@ public class Enemy : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 		
+        if(irridationCyclesLeft > 0 && irridationPoll.Expired())
+        {
+            doIrridationPoll();
+        }
 	}
 
     public void die()
@@ -39,8 +49,45 @@ public class Enemy : MonoBehaviour {
         agentController.ragDoll();
     }
 
+    public void irridate(int rank)
+    {
+        irridationCyclesLeft = rank == 1 ? 10 : 15;
+        raditionDamge = rank == 1 ? 1 : 2;
+        irridationRank = rank;
+    }
+
+    private void doIrridationPoll()
+    {
+        GetComponent<Health>().TakeDamage(raditionDamge);
+        if(irridationRank == 3)
+        {
+            Vector3 explosionPos = this.transform.position;
+            Collider[] colliders = Physics.OverlapSphere(explosionPos, irridationRank3Radius);
+
+            foreach (Collider hit in colliders)
+            {
+                
+                Enemy enemy = hit.gameObject.GetComponent<Enemy>();
+                if (!enemy)
+                {
+                    continue;
+                }
+
+                Debug.Log("Radiation spread to " + hit.name);
+
+                enemy.irridate(1);
+            }
+
+            //GameObject a = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            //a.transform.position = explosionPos;
+        }
+
+        irridationCyclesLeft -= 1;
+        irridationPoll.Start(1);
+    }
+
     //private void OnTriggerEnter(Collider other)
     //{
-        
+
     //}
 }
