@@ -140,8 +140,8 @@ public class PlayerMovementController : MonoBehaviour
     bool getRaycastFromCamera(out RaycastHit hit)
     {
         Vector3 rayOrigin = getCameraWorldPoint();
-        float radius = 5;
-        if (Physics.SphereCast(rayOrigin - new Vector3(0, 0, radius/2), radius, getPlayerCamera().transform.forward, out hit, maxAimDistance, itemMask))
+        float radius = 3;
+        if (Physics.SphereCast(rayOrigin - new Vector3(0, 0, radius), radius, getPlayerCamera().transform.forward, out hit, maxAimDistance, itemMask))
         {
             return true;
         }
