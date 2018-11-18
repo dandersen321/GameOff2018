@@ -28,7 +28,7 @@ public static class References  {
 
     public static Artifact getArtifact()
     {
-        return GameObject.Find("Beacon").GetComponent<Artifact>();
+        return GameObject.Find("Artifact").GetComponent<Artifact>();
     }
 
     public static ChickenUIManager getChickenUIManager()

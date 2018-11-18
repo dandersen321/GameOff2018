@@ -13,6 +13,15 @@ public class AgentMovementController : MonoBehaviour
 
     public bool stopMoving = false;
 
+    public bool attackPlayer = false;
+
+    public Vector3 ufoStartingPosition;
+    public Vector3 artifactGuardOffset = Vector3.zero;
+
+    private Timer nextArtifactCheck = new Timer();
+    private Timer nextArtifactBodyCheck = new Timer();
+    //private Timer nextArtifactFinishCheck = new Timer();
+
     // Use this for initialization
     void Start()
     {
@@ -23,6 +32,11 @@ public class AgentMovementController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if(!attackPlayer && nextArtifactCheck.Expired())
+        {
+            updateArtifactCheck();
+        }
+
         if (stopMoving)
             return;
         moveTowardsTarget();
@@ -41,9 +55,40 @@ public class AgentMovementController : MonoBehaviour
 
     Vector3 getNextPosition()
     {
-        Vector3 targetDestination = getPlayerPosition();
+        Vector3 targetDestination = attackPlayer ? getPlayerPosition() : getArtifactPosition();
         agent.SetDestination(targetDestination);
         return agent.nextPosition;
+    }
+
+    Vector3 getArtifactPosition()
+    {
+        Artifact artifact = References.getArtifact();
+        if(artifact.heldBy == this.gameObject.GetComponent<Enemy>())
+        {
+            // we are the runner
+            return ufoStartingPosition;
+        }
+        else if(artifact.heldBy != null)
+        {
+            if(artifactGuardOffset == Vector3.zero && nextArtifactBodyCheck.Expired())
+            {
+                if(Vector3.Distance(this.transform.position, References.getArtifact().transform.position) < 3f)
+                {
+                    artifactGuardOffset = this.transform.position - References.getArtifact().transform.position;
+                }
+            }
+
+            nextArtifactBodyCheck.Start(1f);
+
+            return References.getArtifact().transform.position + artifactGuardOffset;
+        }
+        else
+        {
+            // no one holds the artifiact
+            return References.getArtifact().transform.position;
+        }
+
+        
     }
 
     void moveTowardsTarget()
@@ -68,10 +113,45 @@ public class AgentMovementController : MonoBehaviour
         return References.GetPlayer().transform.position;
     }
 
+    private void updateArtifactCheck()
+    {
+        Artifact artifact = References.getArtifact();
+        if (artifact.heldBy == null && Vector3.Distance(this.transform.position, References.getArtifact().transform.position) < 3f)
+        {
+            // grab artifact
+            grabArtifact();
+        }
+
+        if(artifact.heldBy == this.gameObject.GetComponent<Enemy>())
+        {
+            if (Vector3.Distance(this.transform.position, ufoStartingPosition) < 2f)
+            {
+                Debug.Log("You Lose!");
+            }
+            else
+            {
+                Debug.Log("Distance to lose: " + Vector3.Distance(this.transform.position, ufoStartingPosition));
+            }
+        }
+
+        nextArtifactCheck.Start(1f);
+    }
+
+    private void grabArtifact()
+    {
+        References.getArtifact().heldBy = this.gameObject.GetComponent<Enemy>();
+        References.getArtifact().transform.position = this.gameObject.transform.position + new Vector3(0, 1, 1);
+        References.getArtifact().transform.parent = this.gameObject.transform;
+
+
+    }
+
     public void ragDoll()
     {
         bodyController.Ragdoll();
         this.enabled = false;
     }
+
+
 
 }

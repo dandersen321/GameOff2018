@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Artifact : MonoBehaviour {
 
+    public Enemy heldBy = null;
+
 	// Use this for initialization
 	void Start () {
 		
