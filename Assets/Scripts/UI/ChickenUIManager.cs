@@ -27,7 +27,7 @@ public class ChickenUIManager : MonoBehaviour {
         //chickenSlots[selectedChickenIndex].setChicken(References.getInventoryManager().chickenInventories[0]);
         //chickenSlots[1].setChicken(References.getInventoryManager().chickenInventories[1]);
         //chickenSlots[2].setChicken(References.getInventoryManager().chickenInventories[2]);
-        hideChickenSlots();
+        //hideTurrentHUD();
     }
 
     public ChickenType getActiveChicken()
@@ -37,16 +37,14 @@ public class ChickenUIManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(turrent.turrentModeActive)
+        for(int i = 1; i<=6;++i)
         {
-            for(int i = 1; i<=6;++i)
+            if(Input.GetKeyDown("" + i))
             {
-                if(Input.GetKeyDown("" + i))
-                {
-                    selectChickenSlot(i-1);
-                }
+                selectChickenSlot(i-1);
             }
         }
+        
 	}
 
     public ChickenSlot getSelectedChickenSlot()
@@ -63,14 +61,14 @@ public class ChickenUIManager : MonoBehaviour {
         selectChickenSlot(selectedChickenIndex);
     }
 
-    public void hideChickenSlots()
-    {
-        turrentCanvas.enabled = false;
-        //turrentHUD.transform.position = new Vector3(-10000, -10000, -10000);
-        //turrentHUD.SetActive(false);
-        //turrentHUD.transform.localScale = Vector3.zero;
-        //chickenEquippedUI.SetActive(false);
-    }
+    //public void hideTurrentHUD()
+    //{
+    //    turrentCanvas.enabled = false;
+    //    //turrentHUD.transform.position = new Vector3(-10000, -10000, -10000);
+    //    //turrentHUD.SetActive(false);
+    //    //turrentHUD.transform.localScale = Vector3.zero;
+    //    //chickenEquippedUI.SetActive(false);
+    //}
 
     public void selectChickenSlot(int chickenSlotIndex)
     {

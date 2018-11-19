@@ -31,6 +31,8 @@ public class PlayerMovementController : MonoBehaviour
     private GameObject playerTurrentObj;
     private GameObject farmTurrentObj;
 
+    public ChickenType farmingActiveSeed;
+
     void Start()
     {
         turrent = References.GetTurrent();
@@ -93,19 +95,38 @@ public class PlayerMovementController : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                Item targetedItem = getTargetedItem();
-                if (targetedItem != null)
-                {
-                    targetedItem.use();
-                }
-
-            }
+            checkFarmingKeyPress();
+            
             bodyMove();
         }
         cameraMove();
 
+    }
+
+    private void checkFarmingKeyPress()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Item targetedItem = getTargetedItem();
+            if (targetedItem != null)
+            {
+                Debug.Log("Found item " + targetedItem.gameObject.name);
+                targetedItem.use();
+            }
+
+        }
+
+        ChickenType chickenType = References.getInventoryManager().getChickenKeyPressed();
+        if(chickenType)
+        {
+            selectChickenSeed(chickenType);
+        }
+    }
+
+    private void selectChickenSeed(ChickenType chickenType)
+    {
+        chickenType.startSeed.SetActive(true);
+        farmingActiveSeed = chickenType;
     }
 
     Item getTargetedItem()
@@ -119,12 +140,32 @@ public class PlayerMovementController : MonoBehaviour
     GameObject getTargetedObject()
     {
         //// rayOrigin is the center of the camera's screen (0.5f/0.5f) at the player (0)
-        RaycastHit hit;
-        if (getRaycastFromCamera(out hit))
+        //RaycastHit hit;
+        //if (getRaycastFromCamera(out hit))
+        //{
+        //    return hit.transform.gameObject;
+        //}
+        //return null;
+        float itemRadius = 3f;
+        Collider[] colliders = Physics.OverlapSphere(this.transform.position, itemRadius, itemMask);
+
+        GameObject closestTarget = null;
+        float? closestSqrMagnitude = null;
+        foreach (Collider hit in colliders)
         {
-            return hit.transform.gameObject;
+            if (!hit.gameObject.GetComponent<Item>().isUsable())
+                continue;
+            float sqrMagnitude = (this.transform.position - hit.transform.position).sqrMagnitude;
+
+            if (closestSqrMagnitude == null || sqrMagnitude < closestSqrMagnitude)
+            {
+                closestTarget = hit.gameObject;
+                closestSqrMagnitude = sqrMagnitude;
+            }
+
         }
-        return null;
+
+        return closestTarget;
     }
 
     Camera getPlayerCamera()

@@ -73,20 +73,29 @@ public class AgentMovementController : MonoBehaviour
         if(artifact.heldBy == this.gameObject.GetComponent<Enemy>())
         {
             // we are the runner
+            Debug.Log(ufoStartingPosition);
             return ufoStartingPosition;
+            //return new Vector3(30, 0, -550);
         }
         else if(artifact.heldBy != null)
         {
             if(artifactGuardOffset == Vector3.zero && nextArtifactBodyCheck.Expired())
             {
-                if(Vector3.Distance(this.transform.position, References.getArtifact().transform.position) < 3f)
+                float distanceToKeep = 15f;
+                if (Vector3.Distance(this.transform.position, References.getArtifact().transform.position) < distanceToKeep)
                 {
-                    artifactGuardOffset = this.transform.position - References.getArtifact().transform.position;
+                    //artifactGuardOffset = this.transform.position - References.getArtifact().transform.position;
+                    
+                    Vector2 offsetV2 = (Random.insideUnitCircle.normalized * distanceToKeep);
+                    artifactGuardOffset = new Vector3(offsetV2.x, 0, offsetV2.y);
+
+                    //Debug.Log("Choosing offset position " + artifactGuardOffset);
                 }
+                nextArtifactBodyCheck.Start(1f);
             }
 
-            nextArtifactBodyCheck.Start(1f);
-
+            //Debug.Log("???");
+            //return new Vector3(30, 0, -550);
             return References.getArtifact().transform.position + artifactGuardOffset;
         }
         else
@@ -137,7 +146,7 @@ public class AgentMovementController : MonoBehaviour
             }
             else
             {
-                Debug.Log("Distance to lose: " + Vector3.Distance(this.transform.position, ufoStartingPosition));
+                //Debug.Log("Distance to lose: " + Vector3.Distance(this.transform.position, ufoStartingPosition));
             }
         }
 

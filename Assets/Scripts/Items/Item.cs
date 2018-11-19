@@ -19,5 +19,10 @@ public abstract class Item : MonoBehaviour {
         
     }
 
+    public virtual bool isUsable()
+    {
+        return true;
+    }
+
     abstract public void use();
 }

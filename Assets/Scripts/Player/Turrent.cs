@@ -120,7 +120,7 @@ public class Turrent : MonoBehaviour
     public void deactiveTurrentMode()
     {
         turrentModeActive = false;
-        References.getChickenUIManager().hideChickenSlots();
+        //References.getChickenUIManager().hideTurrentHUD();
     }
 
 }
