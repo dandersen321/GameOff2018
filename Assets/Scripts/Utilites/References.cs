@@ -6,42 +6,63 @@ public static class References  {
 
     //// Use this for initialization
 
+    private static GameObject player;
+    private static PlayerMovementController playerMovementController;
+    private static Turrent turrent;
+    private static InventoryManager inventoryManager;
+    private static Artifact artifact;
+    private static ChickenUIManager chickenUIManager;
+    private static EnemySpawnerManager enemySpawnManager;
     
 
 
     public static GameObject GetPlayer()
     {
-        return GameObject.Find("Player");
+        if(player == null)
+            player = GameObject.Find("Player");
+        return player;
     }
 
     public static PlayerMovementController GetPlayerMovementController()
     {
-        return GameObject.Find("Player").GetComponent<PlayerMovementController>();
+        if (playerMovementController == null)
+            playerMovementController = GetPlayer().GetComponent<PlayerMovementController>();
+        return playerMovementController;
     }
 
     public static Turrent GetTurrent()
     {
-        return GameObject.Find("PlayerGun").GetComponent<Turrent>();
+        if(turrent == null)
+            turrent = GameObject.Find("PlayerGun").GetComponent<Turrent>();
+        return turrent;
     }
 
     public static InventoryManager getInventoryManager()
     {
-        return GameObject.Find("Player").GetComponent<InventoryManager>();
+        if(inventoryManager == null)
+            inventoryManager = GameObject.Find("Player").GetComponent<InventoryManager>();
+        return inventoryManager;
     }
 
     public static Artifact getArtifact()
     {
-        return GameObject.Find("Artifact").GetComponent<Artifact>();
+        if(artifact == null)
+            artifact = GameObject.Find("Artifact").GetComponent<Artifact>();
+        return artifact;
     }
 
     public static ChickenUIManager getChickenUIManager()
     {
-        return GameObject.Find("HUD").GetComponent<ChickenUIManager>();
+        if(chickenUIManager == null)
+            chickenUIManager = GameObject.Find("HUD").GetComponent<ChickenUIManager>();
+        return chickenUIManager;
     }
 
     public static EnemySpawnerManager GetEnemySpawnerManager()
     {
-        return GameObject.Find("Spawners").GetComponent<EnemySpawnerManager>();
+        if(enemySpawnManager == null)
+            enemySpawnManager = GameObject.Find("Spawners").GetComponent<EnemySpawnerManager>();
+        return enemySpawnManager;
     }
 
 }
