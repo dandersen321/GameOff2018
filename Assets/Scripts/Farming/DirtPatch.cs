@@ -27,6 +27,22 @@ public class DirtPatch : Item {
         Destroy(plantObj);
     }
 
+    public void endNight()
+    {
+        if (growingChickenFood == null)
+            return;
+
+        Destroy(plantObj);
+        stage += 1;
+        updateStage();
+    }
+
+    public void updateStage()
+    {
+        plantObj = GameObject.Instantiate(growingChickenFood.seedStages[stage]);
+        plantObj.transform.position = centerLocation;
+    }
+
     public override bool isUsable()
     {
 
@@ -47,8 +63,7 @@ public class DirtPatch : Item {
         growingChickenFood.seedCount -= 1;
         stage = 0;
 
-        plantObj = GameObject.Instantiate(chickenType.seedStages[stage]);
-        plantObj.transform.position = centerLocation;
+        updateStage();
     }
 
     public override void use()

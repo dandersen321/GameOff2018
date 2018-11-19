@@ -91,61 +91,18 @@ public class EnemySpawnerManager : MonoBehaviour {
     public void endNightMode()
     {
         inNightMode = false;
-
+        foreach(GameObject gameObject in GameObject.FindGameObjectsWithTag("DirtPatch"))
+        {
+            gameObject.GetComponent<DirtPatch>().endNight();
+        }
     }
 
     public void StartNight()
     {
-        //waveRunning = true;
-
-        //List<int> rangeValues = new List<int>();
-        //for (int i = 0; i < spawnPoints.Count; ++i)
-        //{
-        //    rangeValues.Add(i);
-        //}
-
-        //int numberOfSpawnLocations = spawnPoints.Count;
-
-
-        //int numberOfEnemiesToSpawn = lastWaveCount + waveNumber * 2;
-        //if (waveNumber == 1)
-        //{
-        //    numberOfEnemiesToSpawn = 15;
-        //}
-        //else if (waveNumber == 2)
-        //{
-        //    numberOfEnemiesToSpawn = 20;
-        //}
-        //else if (waveNumber == 3)
-        //{
-        //    numberOfEnemiesToSpawn = 30;
-        //}
-        //else if (waveNumber == 5)
-        //{
-        //    numberOfEnemiesToSpawn = 60;
-        //}
-        //else if (waveNumber == 6)
-        //{
-        //    numberOfEnemiesToSpawn = 60;
-        //}
-        //else if (waveNumber == 7)
-        //{
-        //    numberOfEnemiesToSpawn = 60;
-        //}
-        //else if (waveNumber >= 8)
-        //{
-        //    numberOfEnemiesToSpawn = 0;
-        //}
-        //lastWaveCount = numberOfEnemiesToSpawn;
-        //int numPerWave = numberOfEnemiesToSpawn / numberOfSpawnLocations;
-        //numPerWave += waveNumber; //Add some addtiona scaling
-        //numPerWave += waveNumber / 10 * 10;
-        //int enemiesPerWave = numberOfEnemiesToSpawn / numberOfSpawnLocations;
-        inNightMode = true;
-        inSpawnUfoMode = true;
-        StartCoroutine(SpawnUfos(nightNumber+2));
-
-        //nightNumber += 1;
+        endNightMode();
+        //inNightMode = true;
+        //inSpawnUfoMode = true;
+        //StartCoroutine(SpawnUfos(nightNumber + 2));
     }
 
     public void SpawnUfo(Vector3 startingPosition, Vector3 landingPosition, List<GameObject> enemyPrefabs)
