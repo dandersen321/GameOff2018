@@ -45,7 +45,8 @@ public class PlayerMovementController : MonoBehaviour
         playerTurrentObj = GameObject.Find("PlayerTurrent");
         farmTurrentObj = GameObject.Find("Turrent");
         //switchToThirdPersonCamera();
-        endTurrentMode();
+        switchToThirdPersonCamera();
+        playerTurrentObj.SetActive(false);
     }
 
     void bodyMove()
@@ -247,6 +248,7 @@ public class PlayerMovementController : MonoBehaviour
         turrentMode = false;
         playerTurrentObj.SetActive(false);
         farmTurrentObj.SetActive(true);
+        turrent.deactiveTurrentMode();
     }
 
 

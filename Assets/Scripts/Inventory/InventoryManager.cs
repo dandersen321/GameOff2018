@@ -52,13 +52,11 @@ public class InventoryManager : MonoBehaviour {
             //}
         }
 
-        //for(int i = 0; i < seedStages.Count; ++i)
-        int i = 2;
+        for(int i = 1; i < seedStages.Count; ++i)
         {
             chickenInventories[i].startSeed = seedStages[i].startSeed;
             chickenInventories[i].grownSeed = seedStages[i].grownPlant;
             chickenInventories[i].seedStages = seedStages[i].seedStagesPrefabs;
-
         }
 
     }
@@ -67,6 +65,7 @@ public class InventoryManager : MonoBehaviour {
     void Update () {
 		
 	}
+
 
     public ChickenType getChickenKeyPressed()
     {

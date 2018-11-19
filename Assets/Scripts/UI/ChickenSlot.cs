@@ -13,15 +13,26 @@ public class ChickenSlot : MonoBehaviour {
     private bool active = false;
     //public bool selected = false;
     private Image selectedImage;
+    private Text imageOverLayText;
 
+    private Text chickenCountDayTimeText;
+
+    private bool isNormalSlot()
+    {
+        return this.gameObject.name == "Chicken1";
+    }
 
     // Use this for initialization
     void Awake () {
         chickenIcon = this.transform.Find("Icon").gameObject.GetComponent<Image>();
         selectedImage = this.transform.Find("Selected").gameObject.GetComponent<Image>();
+        imageOverLayText = this.transform.Find("ImageOverLayText").gameObject.GetComponent<Text>();
+        //int slotNumber = System.Convert.ToInt32(this.gameObject.name[-1]);
 
         chickenIconRecharge = chickenIcon.transform.Find("ModuleRechargeRate").GetComponent<Image>();
         imageText = GetComponentInChildren<Text>();
+
+
         clearChicken();
     }
 
@@ -43,6 +54,21 @@ public class ChickenSlot : MonoBehaviour {
         //chickenIcon.transform.localScale = Vector3.one * 50;
         chickenIconRecharge.enabled = true;
         imageText.text = chickenType.name;
+
+        if (isNormalSlot())
+        {
+
+        }
+        else
+        {
+            chickenCountDayTimeText = GameObject.Find(chickenType.name + "ChickensDayTimeText").GetComponent<Text>();
+        }
+
+        
+
+
+
+        updateChickenUICount();
     }
 
     public void clearChicken()
@@ -68,6 +94,30 @@ public class ChickenSlot : MonoBehaviour {
         //selected = false;
         //imageText.text = "DeSelected!";
         selectedImage.enabled = false;
+    }
+
+    public void updateFired()
+    {
+        rechargeTimer.Start(chickenType.cooldown);
+        updateChickenUICount();
+    }
+
+    public void updateChickenUICount()
+    {
+        imageOverLayText.text = isNormalSlot() ? "-" : chickenType.chickenCount.ToString();
+    }
+
+    public void updateSeedCount()
+    {
+        imageOverLayText.text = isNormalSlot() ? "-" : chickenType.seedCount.ToString();
+    }
+
+    public void updateDayTimeChickenUICount()
+    {
+        if (isNormalSlot())
+            return;
+
+        chickenCountDayTimeText.text = chickenType.name + " Chickens: " + chickenType.chickenCount;
     }
 
 

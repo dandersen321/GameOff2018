@@ -12,18 +12,21 @@ public class ChickenUIManager : MonoBehaviour {
     private int selectedChickenIndex = 0;
 
     public Canvas turrentCanvas;
+    private GameObject healthBarBG;
 
 
 	// Use this for initialization
 	void Start () {
         turrentHUD = GameObject.Find("TurrentHUD");
         chickensEquipped = GameObject.Find("ChickensEquipped");
+        healthBarBG = GameObject.Find("HealthBarBG");
         turrent = References.GetTurrent();
         chickenSlots = chickensEquipped. GetComponentsInChildren< ChickenSlot > ();
         for(int i = 0; i < 6; ++i)
         {
             chickenSlots[i].setChicken(References.getInventoryManager().chickenInventories[i]);
         }
+        showDayUI();
         //chickenSlots[selectedChickenIndex].setChicken(References.getInventoryManager().chickenInventories[0]);
         //chickenSlots[1].setChicken(References.getInventoryManager().chickenInventories[1]);
         //chickenSlots[2].setChicken(References.getInventoryManager().chickenInventories[2]);
@@ -75,5 +78,46 @@ public class ChickenUIManager : MonoBehaviour {
         chickenSlots[selectedChickenIndex].deselectChicken();
         selectedChickenIndex = chickenSlotIndex;
         chickenSlots[selectedChickenIndex].selectChicken();
+    }
+    
+    public void showNightUI()
+    {
+        healthBarBG.SetActive(true);
+        foreach (ChickenSlot chickenSlot in chickenSlots)
+        {
+            chickenSlot.updateChickenUICount();
+        }
     } 
+
+    public void showDayUI()
+    {
+        healthBarBG.SetActive(false);  // TODO repairs during day?
+        foreach (ChickenSlot chickenSlot in chickenSlots)
+        {
+            chickenSlot.updateSeedCount();
+            chickenSlot.updateDayTimeChickenUICount();
+        }
+    }
+
+    public void updateDayTimeSeedCount(ChickenType chickenType)
+    {
+        foreach (ChickenSlot chickenSlot in chickenSlots)
+        {
+            if (chickenType == chickenSlot.chickenType)
+            {
+                chickenSlot.updateSeedCount();
+            }
+        }
+    }
+
+    public void updateDayTimeChickenCount(ChickenType chickenType)
+    {
+        foreach(ChickenSlot chickenSlot in chickenSlots)
+        {
+            if(chickenType == chickenSlot.chickenType)
+            {
+                chickenSlot.updateDayTimeChickenUICount();
+            }
+        }
+    }
 }

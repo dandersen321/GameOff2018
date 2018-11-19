@@ -95,11 +95,13 @@ public class EnemySpawnerManager : MonoBehaviour {
         {
             gameObject.GetComponent<DirtPatch>().endNight();
         }
+        References.getChickenUIManager().showDayUI();
     }
 
     public void StartNight()
     {
-        endNightMode();
+        References.getChickenUIManager().showNightUI();
+        //endNightMode();
         //inNightMode = true;
         //inSpawnUfoMode = true;
         //StartCoroutine(SpawnUfos(nightNumber + 2));

@@ -104,9 +104,12 @@ public class Turrent : MonoBehaviour
     // fire a bullet at the given position
     void fireBullet(Vector3 targetPosition)
     {
+        if (activeChickenType.name != ChickenTypeEnum.normalName && activeChickenType.chickenCount <= 0)
+            return;
         Debug.Log("Firing " + activeChickenType.name);
         factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition, activeChickenType, 3);
-        chickenUIManager.getSelectedChickenSlot().rechargeTimer.Start(activeChickenType.cooldown);
+        activeChickenType.chickenCount -= 1;
+        chickenUIManager.getSelectedChickenSlot().updateFired();
     }
 
     public void activateTurrentMode()
@@ -121,6 +124,7 @@ public class Turrent : MonoBehaviour
     public void deactiveTurrentMode()
     {
         turrentModeActive = false;
+        References.GetEnemySpawnerManager().endNightMode();
         //References.getChickenUIManager().hideTurrentHUD();
     }
 

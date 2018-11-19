@@ -21,7 +21,9 @@ public class DirtPatch : Item {
 
     private void pickPlant()
     {
+        //growingChickenFood.plantCount += 1;
         growingChickenFood.chickenCount += 1;
+        References.getChickenUIManager().updateDayTimeChickenCount(growingChickenFood);
         growingChickenFood = null;
 
         Destroy(plantObj);
@@ -63,6 +65,7 @@ public class DirtPatch : Item {
         growingChickenFood.seedCount -= 1;
         stage = 0;
 
+        References.getChickenUIManager().updateDayTimeSeedCount(chickenType);
         updateStage();
     }
 
