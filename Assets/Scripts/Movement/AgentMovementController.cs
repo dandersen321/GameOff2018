@@ -73,7 +73,7 @@ public class AgentMovementController : MonoBehaviour
         if(artifact.heldBy == this.gameObject.GetComponent<Enemy>())
         {
             // we are the runner
-            Debug.Log(ufoStartingPosition);
+            //Debug.Log(ufoStartingPosition);
             return ufoStartingPosition;
             //return new Vector3(30, 0, -550);
         }

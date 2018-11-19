@@ -7,16 +7,19 @@ public class UFO : MonoBehaviour {
 
     private List<GameObject> enemyPrefabs;
     private List<Enemy> landedEnemies;
+    private Vector3 startingPosition;
     private Vector3 landingPosition;
     private bool flying = true;
     private bool unloadingTroops = false;
     private bool waitingForTroops = false;
+    private bool retreating = false;
     private float speed = 5f;
 
     public void init(List<GameObject> enemyPrefabs, Vector3 landingPosition)
     {
         this.enemyPrefabs = enemyPrefabs;
         this.landingPosition = landingPosition;
+        this.startingPosition = this.transform.position;
     }
 
 	// Use this for initialization
@@ -105,6 +108,8 @@ public class UFO : MonoBehaviour {
                 return;
             }
         }
+        waitingForTroops = false;
+        retreating = true;
 
         retreat();
 
@@ -113,7 +118,20 @@ public class UFO : MonoBehaviour {
 
     void retreat()
     {
-        Destroy(this.gameObject);
+        float step = speed * Time.deltaTime;
+        Vector3 targetPosition = startingPosition;
+        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, step);
+        if (Vector3.Distance(this.transform.position, targetPosition) < 1f)
+        {
+            foreach (Enemy enemy in landedEnemies)
+            {
+                Destroy(enemy.gameObject);
+            }
+
+            Destroy(this.gameObject);
+        }
+
+        
     }
 	
 	// Update is called once per frame
@@ -127,10 +145,14 @@ public class UFO : MonoBehaviour {
         {
             //updateUnloadingTroops();
         }
-        else
+        else if(waitingForTroops)
         {
             waitForTroops();
         }        
+        else
+        {
+            retreat();
+        }
 		
 	}
 }

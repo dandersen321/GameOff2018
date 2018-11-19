@@ -13,9 +13,14 @@ public class EnemySpawnerManager : MonoBehaviour {
     public List<GameObject> enemyPrefabs;
     public GameObject ufoPrefab;
 
-    int waveNumber = 1;
+    int nightNumber = 1;
     int lastWaveCount = 0;
     //bool waveRunning = false;
+
+    public bool inSpawnUfoMode = false;
+    public bool inNightMode = false;
+    private List<UFO> activeUfos;
+
 
     int enemyTotalSpawned = 0;
 
@@ -56,16 +61,40 @@ public class EnemySpawnerManager : MonoBehaviour {
         spawnPoints = new List<GameObject>(GameObject.FindGameObjectsWithTag("EnemySpawner"));
         ufoStartingPosition = GameObject.Find("UfoSpawner").transform.position;
         //enemyObjectPool["MaleZombiePrefab"] = new List<GameObject>();
-        SpawnWave();
+        //StartNight();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(inNightMode)
+        {
+            if(!inSpawnUfoMode)
+            {
+                updateNightMode();
+            }
+            
+        }
+    }
+
+    public void updateNightMode()
+    {
+        foreach(UFO ufo in activeUfos)
+        {
+            if (ufo != null)
+                return;
+        }
+
+        endNightMode();
+    }
+
+    public void endNightMode()
+    {
+        inNightMode = false;
 
     }
 
-    public void SpawnWave()
+    public void StartNight()
     {
         //waveRunning = true;
 
@@ -112,9 +141,11 @@ public class EnemySpawnerManager : MonoBehaviour {
         //numPerWave += waveNumber; //Add some addtiona scaling
         //numPerWave += waveNumber / 10 * 10;
         //int enemiesPerWave = numberOfEnemiesToSpawn / numberOfSpawnLocations;
-        StartCoroutine(SpawnUfos(waveNumber+2));
+        inNightMode = true;
+        inSpawnUfoMode = true;
+        StartCoroutine(SpawnUfos(nightNumber+2));
 
-        waveNumber += 1;
+        //nightNumber += 1;
     }
 
     public void SpawnUfo(Vector3 startingPosition, Vector3 landingPosition, List<GameObject> enemyPrefabs)
@@ -122,10 +153,12 @@ public class EnemySpawnerManager : MonoBehaviour {
         UFO ufo = GameObject.Instantiate(ufoPrefab, startingPosition, Quaternion.identity).GetComponent<UFO>();
         ufo.transform.rotation = GameObject.Find("UfoSpawner").transform.rotation; // Ufos aren't on straight
         ufo.init(enemyPrefabs, landingPosition);
+        activeUfos.Add(ufo);
     }
 
     IEnumerator SpawnUfos(int numberOfUfos)
     {
+        activeUfos = new List<UFO>();
         Debug.Log("Spawning " + numberOfUfos.ToString() + " ufos");
         Vector2 localSpawnPoint = new Vector2(ufoStartingPosition.x, ufoStartingPosition.z);
         float secondsPerEnemy = 10f;
@@ -146,7 +179,6 @@ public class EnemySpawnerManager : MonoBehaviour {
 
         for (int i = 0; i < randomIndexes.Count; ++i)
         {
-            
 
             Vector2 enemySpawnPointV2 = (Random.insideUnitCircle.normalized * localSpawnRadius) + localSpawnPoint;
             Vector3 enemySpawnPoint = new Vector3(enemySpawnPointV2.x, ufoStartingPosition.y, enemySpawnPointV2.y);
@@ -162,6 +194,7 @@ public class EnemySpawnerManager : MonoBehaviour {
 
         }
 
+        inSpawnUfoMode = false;
         //waveRunning = false;
 
     }

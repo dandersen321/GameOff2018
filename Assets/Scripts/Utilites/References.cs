@@ -39,4 +39,9 @@ public static class References  {
         return GameObject.Find("HUD").GetComponent<ChickenUIManager>();
     }
 
+    public static EnemySpawnerManager GetEnemySpawnerManager()
+    {
+        return GameObject.Find("Spawners").GetComponent<EnemySpawnerManager>();
+    }
+
 }

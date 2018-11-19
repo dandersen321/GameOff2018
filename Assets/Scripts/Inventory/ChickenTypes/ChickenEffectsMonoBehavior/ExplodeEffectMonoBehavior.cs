@@ -5,17 +5,18 @@ using UnityEngine;
 
 public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
 
-    public float radius = 10.0F;
+    public float radius = 5.0F;
     public float power = 500.0F;
 
-    public float implosionSpeed = 1f;
-    public float implosionRadius = 30.0F;
-    //private Timer implosionTimer = new Timer();
-    private float implosionInterval = 0.5f;
-    private int numberOfImplosionTicks = 6; 
+    public float implosionSpeed = 5f;
+    public float implosionRadius = 10.0F;
+    private Timer implosionTimer = new Timer();
+    //private float implosionInterval = 0.1f;
+    private int numberOfImplosionTicks = 100; 
 
     public override void doEffect()
     {
+        effectStarted = true;
         StartCoroutine(doEffectCoroutine());
         //GameObject a = GameObject.CreatePrimitive(PrimitiveType.Cube);
         //a.transform.position = explosionPos;
@@ -26,11 +27,12 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
 
         if(rank == 3)
         {
-            //implosionTimer.Start(3f);
+            implosionTimer.Start(3f);
 
-            for(int i = 0; i < numberOfImplosionTicks; ++i)
+            //for(int i = 0; i < numberOfImplosionTicks; ++i)
+            while(!implosionTimer.Expired())
             {
-                //Debug.Log("Implosion effect Effect!!!");
+                //Debug.Log("Implosion effect Effect!!! " + i);
                 Collider[] collidersImplosion = Physics.OverlapSphere(positionHit, implosionRadius);
                 foreach (Collider hit in collidersImplosion)
                 {
@@ -39,6 +41,9 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
                         continue;
 
                     AgentMovementController agentMoveContoller = hit.GetComponent<AgentMovementController>();
+                    if (!agentMoveContoller)
+                        continue;
+
                     if(agentMoveContoller)
                     {
                         agentMoveContoller.stopMoving = true;
@@ -46,13 +51,14 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
 
                     float step = implosionSpeed * Time.deltaTime;
 
-                    Debug.Log("Imploding " + hit.gameObject.name);
+                    //Debug.Log("Imploding " + hit.gameObject.name);
 
                     // Move our position a step closer to the target.
                     rb.MovePosition(Vector3.MoveTowards(rb.transform.position, positionHit, step));
 
                 }
-                yield return new WaitForSeconds(implosionInterval);
+                //yield return new WaitForSeconds(implosionInterval);
+                yield return new WaitForFixedUpdate();
             }
 
             Debug.Log("done implosion");
