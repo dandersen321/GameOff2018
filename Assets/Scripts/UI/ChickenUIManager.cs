@@ -38,7 +38,7 @@ public class ChickenUIManager : MonoBehaviour {
 
         upgradeShopSlots = References.GetUpgradeShopActivator().gameShopUI.GetComponentsInChildren<UpgradeShopSlot>();
 
-        playerMoney = 10;
+        playerMoney = 100;
         
 
         for (int i = 0; i < 6; ++i)

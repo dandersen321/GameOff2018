@@ -16,10 +16,10 @@ MonoBehaviour:
   cooldown: 0.5
   sprite: {fileID: 21300000, guid: b1c5f51974481064283c3d0bfdc7eec9, type: 3}
   seedSprite: {fileID: 21300000, guid: 20def65b8b89b7e49b825589d0f5559a, type: 3}
-  cost: 0
-  seedCount: 102
+  cost: 8
+  seedCount: 100
   plantCount: 0
-  currentRank: 0
+  currentRank: 1
   rankCosts: 0100000002000000
   seedStages:
   - {fileID: 1201413054525332, guid: f093ff495c29b674ea0b2cf7f7ff1b8d, type: 2}

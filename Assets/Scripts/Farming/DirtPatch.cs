@@ -31,7 +31,7 @@ public class DirtPatch : Item {
 
     public void endNight()
     {
-        if (growingChickenFood == null)
+        if (growingChickenFood == null || isPickable())
             return;
 
         Destroy(plantObj);
@@ -54,9 +54,13 @@ public class DirtPatch : Item {
         }
         else
         {
-            return growingChickenFood.seedStages.Count - 1 == stage;
+            return isPickable();
         }
 
+    }
+    private bool isPickable()
+    {
+        return growingChickenFood.seedStages.Count - 1 == stage;
     }
 
     private void plantPlant(ChickenType chickenType)

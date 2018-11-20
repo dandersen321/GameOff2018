@@ -144,10 +144,27 @@ public class PlayerMovementController : MonoBehaviour
         
 
         ChickenType chickenType = References.getInventoryManager().getChickenKeyPressed();
-        if(chickenType)
+        if(chickenType && chickenType.name != ChickenTypeEnum.normalName)
         {
-            selectChickenSeed(chickenType);
+            if (farmingActiveSeed == chickenType)
+            {
+                deselectChickenSeed();
+            }
+            else
+            {
+                if (farmingActiveSeed)
+                {
+                    deselectChickenSeed();
+                }
+                selectChickenSeed(chickenType);
+            }
         }
+    }
+
+    private void deselectChickenSeed()
+    {
+        farmingActiveSeed.startSeed.SetActive(false);
+        farmingActiveSeed = null;
     }
 
     private void selectChickenSeed(ChickenType chickenType)
