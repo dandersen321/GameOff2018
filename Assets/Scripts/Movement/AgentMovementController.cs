@@ -158,6 +158,7 @@ public class AgentMovementController : MonoBehaviour
         References.getArtifact().heldBy = this.gameObject.GetComponent<Enemy>();
         References.getArtifact().transform.position = this.gameObject.transform.position + new Vector3(0, 1, 1);
         References.getArtifact().transform.parent = this.gameObject.transform;
+        References.getArtifact().isInRock = false;
 
 
     }

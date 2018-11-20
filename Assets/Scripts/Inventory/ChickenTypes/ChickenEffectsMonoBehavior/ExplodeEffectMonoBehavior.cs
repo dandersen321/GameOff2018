@@ -6,7 +6,7 @@ using UnityEngine;
 public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
 
     public float radius = 5.0F;
-    public float power = 500.0F;
+    public float power = 1000.0F;
 
     public float implosionSpeed = 5f;
     public float implosionRadius = 10.0F;
@@ -42,6 +42,10 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
 
                     AgentMovementController agentMoveContoller = hit.GetComponent<AgentMovementController>();
                     if (!agentMoveContoller)
+                        continue;
+
+                    Artifact artifact = hit.GetComponent<Artifact>();
+                    if (artifact && artifact.isInRock)
                         continue;
 
                     if(agentMoveContoller)
@@ -81,6 +85,10 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
                 enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
                 enemy.GetComponent<AgentMovementController>().stopMoving = false;
             }
+
+            Artifact artifact = hit.GetComponent<Artifact>();
+            if (artifact && artifact.isInRock)
+                continue;
 
             if (rb == null)
                 continue;

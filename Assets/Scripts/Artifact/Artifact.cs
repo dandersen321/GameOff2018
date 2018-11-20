@@ -5,6 +5,7 @@ using UnityEngine;
 public class Artifact : MonoBehaviour {
 
     public Enemy heldBy = null;
+    public bool isInRock = true;
 
 	// Use this for initialization
 	void Start () {

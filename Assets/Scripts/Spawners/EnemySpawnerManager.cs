@@ -100,6 +100,7 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     public void StartNight()
     {
+        References.getArtifact().isInRock = true;
         References.getChickenUIManager().showNightUI();
         inNightMode = true;
         inSpawnUfoMode = true;
@@ -144,7 +145,7 @@ public class EnemySpawnerManager : MonoBehaviour {
             for(int j = 0; j < 5; ++j)
             //for (int j = 0; j < 1; ++j)
             {
-                newEnemyPrefabs.Add(enemyPrefabs[0]);
+                newEnemyPrefabs.Add(enemyPrefabs[j%3]);
             }
             SpawnUfo(enemySpawnPoint, spawnPoints[randomIndexes[i]].transform.position, newEnemyPrefabs);
 
