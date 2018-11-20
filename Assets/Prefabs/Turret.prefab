@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33831643151313580}
   - component: {fileID: 23180930931708486}
   - component: {fileID: 65473029443294856}
+  - component: {fileID: 114091311693945994}
   m_Layer: 0
   m_Name: TurretBase
   m_TagString: Untagged
@@ -72,7 +73,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4539786417760298}
-  m_Layer: 0
+  - component: {fileID: 114153363905003636}
+  m_Layer: 10
   m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,8 +118,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1762911004998604}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 165.28885, y: 114.891106, z: 165.68164}
+  m_LocalRotation: {x: -0, y: -0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 27.733429, y: -4.148819, z: 13.316475}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4548743148910458}
@@ -126,7 +128,7 @@ Transform:
   - {fileID: 4631428504649806}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
 --- !u!4 &4548743148910458
 Transform:
   m_ObjectHideFlags: 1
@@ -361,3 +363,26 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.0785065, y: 2.5224044, z: 4.0785074}
   m_Center: {x: -0.00000011920929, y: 1.2578293, z: 0}
+--- !u!114 &114091311693945994
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1005118985348916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23fa698560b688845bf08bafe6dc1b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AdditionalVertexStreamMesh: {fileID: 0}
+--- !u!114 &114153363905003636
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1762911004998604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caa813f38bed57541999968359120697, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
