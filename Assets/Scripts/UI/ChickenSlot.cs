@@ -106,12 +106,28 @@ public class ChickenSlot : MonoBehaviour {
     {
         this.chickenIcon.sprite = chickenType.sprite;
         imageOverLayText.text = isNormalSlot() ? "-" : chickenType.chickenCount.ToString();
+        updateDisable(isUsableAsBullet());
     }
 
     public void updateSeedCount()
     {
         this.chickenIcon.sprite = chickenType.seedSprite;
         imageOverLayText.text = isNormalSlot() ? "-" : chickenType.seedCount.ToString();
+        updateDisable(isUsabledAsPlant());
+    }
+
+    public void updateDisable(bool validIcon)
+    {
+        if (validIcon)
+        {
+            imageOverLayText.color = Color.black;
+            chickenIcon.color = Color.white;
+        }
+        else
+        {
+            imageOverLayText.color = Color.red;
+            chickenIcon.color = Color.gray;
+        }
     }
 
     public void updateDayTimeChickenUICount()
@@ -120,6 +136,16 @@ public class ChickenSlot : MonoBehaviour {
             return;
 
         chickenCountDayTimeText.text = chickenType.name + " Chickens: " + chickenType.chickenCount;
+    }
+
+    public bool isUsableAsBullet()
+    {
+        return chickenType.name == ChickenTypeEnum.normalName || chickenType.chickenCount > 0;
+    }
+
+    public bool isUsabledAsPlant()
+    {
+        return chickenType.name != ChickenTypeEnum.normalName && chickenType.seedCount > 0;
     }
 
 
