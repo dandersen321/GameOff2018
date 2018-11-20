@@ -128,6 +128,7 @@ public class PlayerMovementController : MonoBehaviour
         if (inMenu && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)))
         {
             References.GetSeedShopActivator().hideSeedShop();
+            References.GetUpgradeShopActivator().hideUpgradeShop();
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {

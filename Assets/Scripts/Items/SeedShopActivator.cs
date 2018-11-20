@@ -21,6 +21,7 @@ public class SeedShopActivator : Item
     {
         References.GetPlayerMovementController().beginMenu();
         seedShopUI.SetActive(true);
+        References.getChickenUIManager().updatePlayerMoney();
     }
 
     public void hideSeedShop()

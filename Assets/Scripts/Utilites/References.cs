@@ -14,6 +14,7 @@ public static class References  {
     private static ChickenUIManager chickenUIManager;
     private static EnemySpawnerManager enemySpawnManager;
     private static SeedShopActivator seedShopActivator;
+    private static UpgradeShopActivator ugradeShopActivator;
 
 
 
@@ -72,5 +73,14 @@ public static class References  {
             seedShopActivator = GameObject.Find("ImortalHuman").GetComponent<SeedShopActivator>();
         return seedShopActivator;
     }
+
+    public static UpgradeShopActivator GetUpgradeShopActivator()
+    {
+        if (ugradeShopActivator == null)
+            ugradeShopActivator = GameObject.Find("TrenchCoatAlienObj").GetComponent<UpgradeShopActivator>();
+        return ugradeShopActivator;
+    }
+
+    
 
 }

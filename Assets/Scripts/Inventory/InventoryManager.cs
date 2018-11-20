@@ -25,6 +25,7 @@ public class InventoryManager : MonoBehaviour {
         {
             chickenType.chickenCount = 0;
             chickenType.seedCount = 100;
+            chickenType.currentRank = 1;
             //if (chickenType.name == ChickenTypeEnum.explosiveName)
             //{
             //   chickenType.

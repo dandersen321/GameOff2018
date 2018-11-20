@@ -19,6 +19,8 @@ MonoBehaviour:
   cost: 0
   seedCount: 100
   plantCount: 0
+  currentRank: 0
+  rankCosts: 0100000002000000
   seedStages: []
   grownSeed: {fileID: 0}
   startSeed: {fileID: 0}

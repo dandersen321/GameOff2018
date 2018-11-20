@@ -18,6 +18,7 @@ public class SeedShopSlot : MonoBehaviour {
         button.onClick.AddListener(onClick);
         slotIndex = this.gameObject.name[this.gameObject.name.Length - 1] - '0';
         chickenType = References.getInventoryManager().chickenInventories[slotIndex];
+        //Debug.Log("chickenType for slot " + slotIndex.ToString() + chickenType.name.ToString());
         costText.text = chickenType.cost.ToString();
         seedIcon = this.transform.Find("Icon").GetComponentInChildren<Image>();
         seedIcon.sprite = chickenType.seedSprite;

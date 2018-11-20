@@ -14,6 +14,8 @@ public class ChickenType : ScriptableObject {
 
     public int seedCount;
     public int plantCount;
+    public int currentRank;
+    public List<int> rankCosts;
     public List<GameObject> seedStages;
     public GameObject grownSeed;
     public GameObject startSeed;
