@@ -107,7 +107,7 @@ public class Turrent : MonoBehaviour
         if (activeChickenType.name != ChickenTypeEnum.normalName && activeChickenType.chickenCount <= 0)
             return;
         Debug.Log("Firing " + activeChickenType.name);
-        factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition, activeChickenType, 3);
+        factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition, activeChickenType);
         activeChickenType.chickenCount -= 1;
         chickenUIManager.getSelectedChickenSlot().updateFired();
     }

@@ -27,6 +27,7 @@ public class SeedShopSlot : MonoBehaviour {
     
     public void onClick()
     {
+        Debug.Log("Seed Shop Slot clicked " + this.gameObject.name);
         References.getChickenUIManager().buySeed(slotIndex);
     }
 
@@ -35,15 +36,18 @@ public class SeedShopSlot : MonoBehaviour {
         if(playerMoney >= chickenType.cost)
         {
             costText.color = Color.black;
+            seedIcon.color = Color.white;
         }
         else
         {
             costText.color = Color.red;
+            seedIcon.color = Color.gray;
         }
     }
 
     // Update is called once per frame
     void Update () {
-		
-	}
+        //Debug.Log("u");
+        //button.onClick.Invoke();
+    }
 }

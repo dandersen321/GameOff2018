@@ -9,9 +9,9 @@ public class UpgradeShopSlot : MonoBehaviour {
     Text costText;
     Image upgradeIcon;
     int chickenSlotIndex;
-    int rankSlotIndex;
-    int rank;
-    ChickenType chickenType;
+    //int rankSlotIndex;
+    public int rank;
+    public ChickenType chickenType;
 
 	// Use this for initialization
 	void Start () {
@@ -20,7 +20,7 @@ public class UpgradeShopSlot : MonoBehaviour {
         button.onClick.AddListener(onClick);
         chickenSlotIndex = this.gameObject.name[this.gameObject.name.Length - 3] - '0';
         rank = this.gameObject.name[this.gameObject.name.Length - 1] - '0' + 1;
-        rankSlotIndex = rank == 2 ? chickenSlotIndex : chickenSlotIndex + 6;
+        //rankSlotIndex = rank == 2 ? chickenSlotIndex : chickenSlotIndex + 5;
 
         chickenType = References.getInventoryManager().chickenInventories[chickenSlotIndex];
         costText.text = getPrice().ToString();
@@ -31,7 +31,8 @@ public class UpgradeShopSlot : MonoBehaviour {
     
     public void onClick()
     {
-        References.getChickenUIManager().buyRank(rankSlotIndex);
+        Debug.Log("upgrade slot clicked! " + this.gameObject.name);
+        References.getChickenUIManager().buyRank(rank, chickenSlotIndex);
     }
 
     public int getPrice()
@@ -39,15 +40,22 @@ public class UpgradeShopSlot : MonoBehaviour {
         return chickenType.rankCosts[rank-2];
     }
 
+    public bool buyable(int playerMoney)
+    {
+        return playerMoney >= getPrice() && chickenType.currentRank +1 == rank;
+    }
+
     public void updateBuyable(int playerMoney)
     {
-        if(playerMoney >= getPrice())
+        if(buyable(playerMoney))
         {
             costText.color = Color.black;
+            upgradeIcon.color = Color.white;
         }
         else
         {
             costText.color = Color.red;
+            upgradeIcon.color = Color.gray;
         }
     }
 

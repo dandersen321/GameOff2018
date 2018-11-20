@@ -20,7 +20,6 @@ public class Bullet : MonoBehaviour {
     public int damage = 100;
 
     public ChickenType chickenType;
-    private int rank;
 
     public bool heatSeeking = false;
     public GameObject target;
@@ -28,10 +27,9 @@ public class Bullet : MonoBehaviour {
     private Timer lookForTarget = new Timer();
     private float moveToTargetSpeed = 12f;
 
-    public void init(ChickenType chickenType, int rank)
+    public void init(ChickenType chickenType)
     {
         this.chickenType = chickenType;
-        this.rank = rank;
 
         lifeTimer.Start(lifeTime);
         gravityTimer.Start(timeUntilGravity);
@@ -86,7 +84,7 @@ public class Bullet : MonoBehaviour {
         //    health.TakeDamage(damage);
         //}
 
-        if(chickenType.name == ChickenTypeEnum.slowName && rank == 3)
+        if(chickenType.name == ChickenTypeEnum.slowName && chickenType.currentRank == 3)
         {
             // don't get spent
             return;
@@ -129,7 +127,7 @@ public class Bullet : MonoBehaviour {
         {
             GameObject effectObj = new GameObject();
             effectObj.AddComponent<ExplodeEffectMonoBehavior>();
-            effectObj.GetComponent<ChickenEffectMonoBehavior>().init(chickenType, this.transform.position, objectHit, rank);
+            effectObj.GetComponent<ChickenEffectMonoBehavior>().init(chickenType, this.transform.position, objectHit, chickenType.currentRank);
         }
         else if (chickenType.name == ChickenTypeEnum.normalName)
         {
@@ -168,7 +166,7 @@ public class Bullet : MonoBehaviour {
         if (enemy == null)
             return;
 
-        enemy.irridate(rank);
+        enemy.irridate(chickenType.currentRank);
     }
 
     void doNormalEffect(GameObject objectHit)
@@ -186,7 +184,7 @@ public class Bullet : MonoBehaviour {
             return;
         enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
 
-        if(rank==3)
+        if(chickenType.currentRank == 3)
         {
 
         }
@@ -209,7 +207,7 @@ public class Bullet : MonoBehaviour {
 
             if (enemy)
             {
-                int damage = rank == 1 ? chickenType.baseDamage : System.Convert.ToInt32(chickenType.baseDamage * 1.5);
+                int damage = chickenType.currentRank == 1 ? chickenType.baseDamage : System.Convert.ToInt32(chickenType.baseDamage * 1.5);
                 enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
                 enemy.GetComponent<AgentMovementController>().stopMoving = false;
             }
@@ -228,7 +226,7 @@ public class Bullet : MonoBehaviour {
         if (enemy == null)
             return;
 
-        float slowDownModifer = rank == 1 ? 0.5f : 0f;
+        float slowDownModifer = chickenType.currentRank == 1 ? 0.5f : 0f;
         float slowDownLength = 3f;
 
         enemy.GetComponent<AgentMovementController>().slowDown(slowDownModifer, slowDownLength);

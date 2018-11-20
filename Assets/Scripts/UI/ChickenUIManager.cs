@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ChickenUIManager : MonoBehaviour {
 
@@ -18,6 +19,8 @@ public class ChickenUIManager : MonoBehaviour {
     private UpgradeShopSlot[] upgradeShopSlots;
     public int playerMoney = 0;
 
+    private Text playerMoneyText;
+
     private bool gameStarted = false;
 
 
@@ -26,6 +29,7 @@ public class ChickenUIManager : MonoBehaviour {
         turrentHUD = GameObject.Find("TurrentHUD");
         chickensEquipped = GameObject.Find("ChickensEquipped");
         healthBarBG = GameObject.Find("HealthBarBG");
+        playerMoneyText = GameObject.Find("PlayerMoney").GetComponent<Text>();
         turrent = References.GetTurrent();
         chickenSlots = chickensEquipped. GetComponentsInChildren< ChickenSlot > ();
 
@@ -33,6 +37,8 @@ public class ChickenUIManager : MonoBehaviour {
         
 
         upgradeShopSlots = References.GetUpgradeShopActivator().gameShopUI.GetComponentsInChildren<UpgradeShopSlot>();
+
+        playerMoney = 10;
         
 
         for (int i = 0; i < 6; ++i)
@@ -156,18 +162,30 @@ public class ChickenUIManager : MonoBehaviour {
         updatePlayerMoney();  // yeah, really should be using delegates but oh well
     }
 
-    public void buyRank(int slotIndex)
+    public void buyRank(int rank, int chickenIndex)
     {
-        ChickenType chickenType = chickenSlots[slotIndex].chickenType;
-        if (chickenType.currentRank == 3)
-            return;
-        int rankCost = upgradeShopSlots[slotIndex].getPrice();
-        if (playerMoney < rankCost)
+        //Debug.Log(slotIndex);
+        ChickenType chickenType = chickenSlots[chickenIndex].chickenType;
+        UpgradeShopSlot upgradeShopSlot = getUpgradeShopSlot(chickenType, rank);
+        if (!upgradeShopSlot.buyable(playerMoney))
             return;
 
-        playerMoney -= rankCost;
+        playerMoney -= upgradeShopSlot.getPrice();
         chickenType.currentRank += 1;
         updatePlayerMoney();  // yeah, really should be using delegates but oh well
+    }
+
+    public UpgradeShopSlot getUpgradeShopSlot(ChickenType chickenType, int rank)
+    {
+        foreach(UpgradeShopSlot upgradeShopSlot in upgradeShopSlots)
+        {
+            if(upgradeShopSlot.chickenType == chickenType && upgradeShopSlot.rank == rank)
+            {
+                return upgradeShopSlot;
+            }
+        }
+        throw new System.Exception("??? no getUpgradeShotSlot???");
+        return null;
     }
 
 
@@ -188,5 +206,6 @@ public class ChickenUIManager : MonoBehaviour {
                 upgradeShopSlot.updateBuyable(playerMoney);
             }
         }
+        playerMoneyText.text = "Money: " + playerMoney.ToString();
     }
 }
