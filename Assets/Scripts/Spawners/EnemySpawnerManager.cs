@@ -101,10 +101,9 @@ public class EnemySpawnerManager : MonoBehaviour {
     public void StartNight()
     {
         References.getChickenUIManager().showNightUI();
-        //endNightMode();
-        //inNightMode = true;
-        //inSpawnUfoMode = true;
-        //StartCoroutine(SpawnUfos(nightNumber + 2));
+        inNightMode = true;
+        inSpawnUfoMode = true;
+        StartCoroutine(SpawnUfos(nightNumber + 2));
     }
 
     public void SpawnUfo(Vector3 startingPosition, Vector3 landingPosition, List<GameObject> enemyPrefabs)
