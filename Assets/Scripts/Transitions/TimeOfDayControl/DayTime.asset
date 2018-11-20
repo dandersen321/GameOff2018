@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eb2d8f65a7dbeb4ea1994028c8d617f, type: 3}
+  m_Name: DayTime
+  m_EditorClassIdentifier: 
+  skyBox: {fileID: 2100000, guid: 8c1b086c484ccf04f82e5a35705a7924, type: 2}
+  skyColor: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 0}
+  equatorColor: {r: 1, g: 0.84705883, b: 0.6666667, a: 0}
+  groundColor: {r: 0.2627451, g: 0.47058824, b: 0.20392157, a: 0}
+  sun: {fileID: 0}
+  sunAngle: {x: 50, y: -30, z: 0}
+  sunColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 0}
+  sunIntesity: 1

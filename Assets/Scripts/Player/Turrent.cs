@@ -5,6 +5,10 @@ using UnityEngine.EventSystems;
 
 public class Turrent : MonoBehaviour
 {
+
+    public delegate void TurrentActiveAction(bool active);
+    public event TurrentActiveAction OnTurrentActiveChange;
+
     private GameObject bulletSpawner;
     public GameObject storedBulletObject;
     private BulletFactory factory;
@@ -115,6 +119,8 @@ public class Turrent : MonoBehaviour
     public void activateTurrentMode()
     {
         turrentModeActive = true;
+        if(OnTurrentActiveChange != null)
+            OnTurrentActiveChange(turrentModeActive);
         References.getChickenUIManager().showChickenSlots();
         References.GetPlayerMovementController().startTurrentMode();
         References.GetEnemySpawnerManager().StartNight();
@@ -124,6 +130,8 @@ public class Turrent : MonoBehaviour
     public void deactiveTurrentMode()
     {
         turrentModeActive = false;
+        if(OnTurrentActiveChange != null)
+            OnTurrentActiveChange(turrentModeActive);
         References.GetEnemySpawnerManager().endNightMode();
         //References.getChickenUIManager().hideTurrentHUD();
     }
