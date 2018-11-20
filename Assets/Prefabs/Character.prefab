@@ -74,6 +74,7 @@ GameObject:
   - component: {fileID: 114969228397790218}
   - component: {fileID: 114410371686095552}
   - component: {fileID: 135993686117875202}
+  - component: {fileID: 114235190650842618}
   m_Layer: 9
   m_Name: Character
   m_TagString: Player
@@ -1207,8 +1208,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1113978559877078}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 16.09, y: 0.3, z: -554.34}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -71.100006, y: 0, z: -1.2099762}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4398309359529634}
@@ -1969,6 +1970,33 @@ MonoBehaviour:
   externalForces: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
   frozen: 0
+--- !u!114 &114235190650842618
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1113978559877078}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e07a55323bee3e429d4abb0a8a2119f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDayTime: 1
+  dayTimeSkyBox: {fileID: 2100000, guid: 8c1b086c484ccf04f82e5a35705a7924, type: 2}
+  dayTimeSkyColor: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 0}
+  dayTimeEquatorColor: {r: 1, g: 0.84705883, b: 0.6666667, a: 0}
+  dayTimeGroundColor: {r: 0.2627451, g: 0.47058824, b: 0.20392157, a: 0}
+  nightTimeSkyBox: {fileID: 2100000, guid: 9e2a86beced3c9842b5b72740bd72410, type: 2}
+  nightTimeSkyColor: {r: 0.28627452, g: 0.43529412, b: 0.44313726, a: 0}
+  nightTimeEquatorColor: {r: 0, g: 0, b: 0, a: 0}
+  nightTimeGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  sun: {fileID: 0}
+  sunDayAngle: {x: 50, y: -30, z: 0}
+  sunNightAngle: {x: 30, y: 75, z: 0}
+  sunDayColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 0}
+  sunNightColor: {r: 0.79607844, g: 0.90588236, b: 0.93333334, a: 0}
+  sunIntesityDay: 1
+  sunIntesityNight: 0.5
 --- !u!114 &114319695471253510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2068,6 +2096,7 @@ MonoBehaviour:
   itemMask:
     serializedVersion: 2
     m_Bits: 1024
+  farmingActiveSeed: {fileID: 0}
 --- !u!114 &114737225592813106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2141,6 +2170,7 @@ MonoBehaviour:
   chickenInventories:
   - {fileID: 11400000, guid: 51800c6da27309b449733002bbc6af47, type: 2}
   - {fileID: 11400000, guid: a75fc4ff0829f8944b105ab227c520a7, type: 2}
+  seedStages: []
   chickenEquippedUI: {fileID: 0}
 --- !u!114 &114919871976802144
 MonoBehaviour:
@@ -2167,6 +2197,7 @@ MonoBehaviour:
   chickenInventories:
   - {fileID: 11400000, guid: 51800c6da27309b449733002bbc6af47, type: 2}
   - {fileID: 11400000, guid: a75fc4ff0829f8944b105ab227c520a7, type: 2}
+  seedStages: []
   chickenEquippedUI: {fileID: 0}
 --- !u!135 &135993686117875202
 SphereCollider:
