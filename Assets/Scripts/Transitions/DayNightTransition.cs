@@ -6,6 +6,7 @@ public class DayNightTransition : MonoBehaviour {
 
     public bool startDayTime = true;
 
+    public Animator transitionAnimation;
     public TimeOfDayTransition dayTime;
     public TimeOfDayTransition nightTime;
 
@@ -24,17 +25,41 @@ public class DayNightTransition : MonoBehaviour {
     private void TurrentActive(bool active)
     {
         if (active)
-            nightTime.PerformTimeOfDayTransition(sun);
+        {
+            StartCoroutine(StartNightTransition());
+        }
         else
-            dayTime.PerformTimeOfDayTransition(sun);
+        {
+            StartCoroutine(StartDayTransition());
+        }
+    }
+
+    IEnumerator StartNightTransition()
+    {
+        transitionAnimation.SetTrigger("TurretTransitionStart");
+        yield return new WaitForSeconds(1f);
+        nightTime.PerformTimeOfDayTransition(sun);
+        transitionAnimation.SetTrigger("TurretTransitionEnd");
+    }
+
+    IEnumerator StartDayTransition()
+    {
+        transitionAnimation.SetTrigger("TurretTransitionStart");
+        yield return new WaitForSeconds(1.5f);
+        dayTime.PerformTimeOfDayTransition(sun);
+        transitionAnimation.SetTrigger("TurretTransitionEnd");
     }
 
     // Use this for initialization
     void Start () {
 
         if (startDayTime)
+        {
             dayTime.PerformTimeOfDayTransition(sun);
+        }
         else
+        {
             nightTime.PerformTimeOfDayTransition(sun);
+        }
 	}
 }
