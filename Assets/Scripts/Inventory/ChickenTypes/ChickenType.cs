@@ -9,6 +9,8 @@ public class ChickenType : ScriptableObject {
     public int baseDamage;
     public float cooldown;
     public Sprite sprite;
+    public Sprite seedSprite;
+    public int cost;
 
     public int seedCount;
     public int plantCount;

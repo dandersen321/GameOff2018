@@ -11,8 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eced0ae064bc44649acad6e677808c28, type: 3}
   m_Name: Radiation
   m_EditorClassIdentifier: 
-  count: 0
+  chickenCount: 0
   baseDamage: 10
   cooldown: 0.5
   sprite: {fileID: 21300000, guid: b1c5f51974481064283c3d0bfdc7eec9, type: 3}
-  chickenName: Radiation
+  seedSprite: {fileID: 21300000, guid: 20def65b8b89b7e49b825589d0f5559a, type: 3}
+  cost: 0
+  seedCount: 102
+  plantCount: 0
+  seedStages:
+  - {fileID: 1201413054525332, guid: f093ff495c29b674ea0b2cf7f7ff1b8d, type: 2}
+  - {fileID: 1663929682223580, guid: cdfbf8521330efd458852f94418808f8, type: 2}
+  - {fileID: 1890523714537844, guid: 9b8ad8ba39157c147a7039b335180639, type: 2}
+  grownSeed: {fileID: 0}
+  startSeed: {fileID: 0}

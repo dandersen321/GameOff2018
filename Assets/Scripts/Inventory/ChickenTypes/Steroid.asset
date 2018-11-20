@@ -11,12 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eced0ae064bc44649acad6e677808c28, type: 3}
   m_Name: Steroid
   m_EditorClassIdentifier: 
-  count: 0
+  chickenCount: 0
   baseDamage: 10
   cooldown: 0.5
   sprite: {fileID: 21300000, guid: 36b833608b29bf2499f10a4fa02fb51a, type: 3}
+  seedSprite: {fileID: 21300000, guid: cbd5b682d7544344a8c5c00dc4ee2aaf, type: 3}
+  cost: 0
+  seedCount: 103
+  plantCount: 0
   seedStages:
   - {fileID: 1253636373616230, guid: 9a2e20f03a8f9644886df5207c8c8a03, type: 2}
   - {fileID: 1744317455766106, guid: f291836d3da218b4daa712741a9af3b4, type: 2}
   - {fileID: 1873438092911204, guid: 71edaf4f094d28c409f06467fd69d8f5, type: 2}
-  grownSeed: {fileID: 1771575079823840, guid: 610fc0c936e8b9545aed54c13f34c8ee, type: 2}
+  grownSeed: {fileID: 0}
+  startSeed: {fileID: 0}

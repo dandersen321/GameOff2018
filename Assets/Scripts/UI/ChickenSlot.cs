@@ -104,11 +104,13 @@ public class ChickenSlot : MonoBehaviour {
 
     public void updateChickenUICount()
     {
+        this.chickenIcon.sprite = chickenType.sprite;
         imageOverLayText.text = isNormalSlot() ? "-" : chickenType.chickenCount.ToString();
     }
 
     public void updateSeedCount()
     {
+        this.chickenIcon.sprite = chickenType.seedSprite;
         imageOverLayText.text = isNormalSlot() ? "-" : chickenType.seedCount.ToString();
     }
 

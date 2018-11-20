@@ -14,6 +14,9 @@ public class ChickenUIManager : MonoBehaviour {
     public Canvas turrentCanvas;
     private GameObject healthBarBG;
 
+    private SeedShopSlot[] seedShotSlots;
+    public int playerMoney = 0;
+
 
 	// Use this for initialization
 	void Start () {
@@ -22,7 +25,9 @@ public class ChickenUIManager : MonoBehaviour {
         healthBarBG = GameObject.Find("HealthBarBG");
         turrent = References.GetTurrent();
         chickenSlots = chickensEquipped. GetComponentsInChildren< ChickenSlot > ();
-        for(int i = 0; i < 6; ++i)
+        seedShotSlots = GameObject.Find("SeedInventory").GetComponentsInChildren<SeedShopSlot>();
+        GameObject.Find("SeedInventory").SetActive(false);
+        for (int i = 0; i < 6; ++i)
         {
             chickenSlots[i].setChicken(References.getInventoryManager().chickenInventories[i]);
         }
@@ -91,12 +96,14 @@ public class ChickenUIManager : MonoBehaviour {
 
     public void showDayUI()
     {
+        
         healthBarBG.SetActive(false);  // TODO repairs during day?
         foreach (ChickenSlot chickenSlot in chickenSlots)
         {
             chickenSlot.updateSeedCount();
             chickenSlot.updateDayTimeChickenUICount();
         }
+        updatePlayerMoney();
     }
 
     public void updateDayTimeSeedCount(ChickenType chickenType)
@@ -118,6 +125,25 @@ public class ChickenUIManager : MonoBehaviour {
             {
                 chickenSlot.updateDayTimeChickenUICount();
             }
+        }
+    }
+
+    public void buySeed(int slotIndex)
+    {
+        ChickenType chickenType = chickenSlots[slotIndex].chickenType;
+        if (playerMoney < chickenType.cost)
+            return;
+
+        playerMoney -= chickenType.cost;
+        chickenType.seedCount += 1;
+        updatePlayerMoney();
+    }
+
+    public void updatePlayerMoney()
+    {
+        foreach(SeedShopSlot seedShotSlot in seedShotSlots)
+        {
+            seedShotSlot.updateBuyable(playerMoney);
         }
     }
 }

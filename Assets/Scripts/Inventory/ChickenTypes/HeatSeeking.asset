@@ -11,8 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eced0ae064bc44649acad6e677808c28, type: 3}
   m_Name: HeatSeeking
   m_EditorClassIdentifier: 
-  count: 0
+  chickenCount: 0
   baseDamage: 10
   cooldown: 0.5
   sprite: {fileID: 21300000, guid: 3a60f4b11cdfa5f4fba38f19a06dfc30, type: 3}
-  chickenName: HeatSeeking
+  seedSprite: {fileID: 21300000, guid: f3755dc9d59c06540bf47868ea68dc96, type: 3}
+  cost: 0
+  seedCount: 100
+  plantCount: 0
+  seedStages:
+  - {fileID: 1740792795233602, guid: a7dc0b2aa5ec39e45ae83e322004c7ef, type: 2}
+  - {fileID: 1505769355042924, guid: ed3747b6cfc8a7f4f8485f0edaa8ff48, type: 2}
+  - {fileID: 1445938062509636, guid: 825c211be566bd147990732062692c31, type: 2}
+  grownSeed: {fileID: 0}
+  startSeed: {fileID: 0}

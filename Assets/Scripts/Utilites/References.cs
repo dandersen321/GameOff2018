@@ -13,7 +13,8 @@ public static class References  {
     private static Artifact artifact;
     private static ChickenUIManager chickenUIManager;
     private static EnemySpawnerManager enemySpawnManager;
-    
+    private static SeedShopActivator seedShopActivator;
+
 
 
     public static GameObject GetPlayer()
@@ -63,6 +64,13 @@ public static class References  {
         if(enemySpawnManager == null)
             enemySpawnManager = GameObject.Find("Spawners").GetComponent<EnemySpawnerManager>();
         return enemySpawnManager;
+    }
+
+    public static SeedShopActivator GetSeedShopActivator()
+    {
+        if (seedShopActivator == null)
+            seedShopActivator = GameObject.Find("ImortalHuman").GetComponent<SeedShopActivator>();
+        return seedShopActivator;
     }
 
 }

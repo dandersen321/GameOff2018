@@ -32,6 +32,7 @@ public class PlayerMovementController : MonoBehaviour
     private GameObject farmTurrentObj;
 
     public ChickenType farmingActiveSeed;
+    public bool inMenu = false;
 
     void Start()
     {
@@ -97,16 +98,38 @@ public class PlayerMovementController : MonoBehaviour
         else
         {
             checkFarmingKeyPress();
-            
-            bodyMove();
-        }
-        cameraMove();
 
+            if (!inMenu)
+            {
+                bodyMove();
+            }
+        }
+        if (!inMenu)
+        {
+            cameraMove();
+        }
+
+    }
+
+    public void beginMenu()
+    {
+        inMenu = true;
+        unlockCursor();
+    }
+
+    public void closeMenu()
+    {
+        inMenu = false;
+        lockCursor();
     }
 
     private void checkFarmingKeyPress()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (inMenu && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)))
+        {
+            References.GetSeedShopActivator().hideSeedShop();
+        }
+        else if (Input.GetKeyDown(KeyCode.E))
         {
             Item targetedItem = getTargetedItem();
             if (targetedItem != null)
@@ -116,6 +139,8 @@ public class PlayerMovementController : MonoBehaviour
             }
 
         }
+
+        
 
         ChickenType chickenType = References.getInventoryManager().getChickenKeyPressed();
         if(chickenType)
