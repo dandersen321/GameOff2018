@@ -76,7 +76,13 @@ public class Bullet : MonoBehaviour {
             bulletSpent = true;
         }
 
-        startEffects(collision.gameObject);
+        if (chickenType.spentOnNonEnemyImpact)
+        {
+
+            startEffects(collision.gameObject);
+            Destroy(this.gameObject);
+        }
+
 
         //Health health = collision.gameObject.GetComponent<Health>();
         //if(health)
@@ -84,13 +90,14 @@ public class Bullet : MonoBehaviour {
         //    health.TakeDamage(damage);
         //}
 
-        if(chickenType.name == ChickenTypeEnum.slowName && chickenType.currentRank == 3)
-        {
-            // don't get spent
-            return;
-        }
+        //if(chickenType.name == ChickenTypeEnum.slowName && chickenType.currentRank == 3)
+        //if(true)
+        //{
+        //    // don't get spent
+        //    return;
+        //}
 
-        Destroy(this.gameObject);
+        
     }
 
     public void findTarget()
@@ -179,15 +186,30 @@ public class Bullet : MonoBehaviour {
 
     void doSteriodEffect(GameObject objectHit)
     {
+
+        if (chickenType.currentRank == 3)
+        {
+            Debug.Log("steroid rank 3 effect");
+            BulletFactory bulletFactory = new BulletFactory();
+            GameObject chickenPrefab = References.GetTurrent().storedBulletObject;
+            ChickenType normalChicken = References.getInventoryManager().chickenInventories[0];
+            float chickenRange = 10;
+            for (int i = 0; i < 5; ++i)
+            {
+                //Debug.Log("Creating " + i);
+
+                Vector2 offsetV2 = (Random.insideUnitCircle.normalized * chickenRange);
+                Vector3 targetPosition = this.transform.position + new Vector3(offsetV2.x, 0, offsetV2.y);
+
+
+                bulletFactory.createBullet(chickenPrefab, this.transform.position, targetPosition, normalChicken);
+            }
+        }
+
         Enemy enemy = objectHit.GetComponent<Enemy>();
         if (enemy == null)
             return;
         enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
-
-        if(chickenType.currentRank == 3)
-        {
-
-        }
     }
 
     void doHeatSeekingEffect(GameObject objectHit)

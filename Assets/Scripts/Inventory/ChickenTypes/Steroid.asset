@@ -11,15 +11,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eced0ae064bc44649acad6e677808c28, type: 3}
   m_Name: Steroid
   m_EditorClassIdentifier: 
-  chickenCount: 0
+  chickenCount: 99
   baseDamage: 10
   cooldown: 0.5
   sprite: {fileID: 21300000, guid: 36b833608b29bf2499f10a4fa02fb51a, type: 3}
   seedSprite: {fileID: 21300000, guid: cbd5b682d7544344a8c5c00dc4ee2aaf, type: 3}
   cost: 3
+  chickenSizeScale: 3
+  spentOnNonEnemyImpact: 1
   seedCount: 100
   plantCount: 0
-  currentRank: 1
+  currentRank: 3
   rankCosts: 0100000002000000
   seedStages:
   - {fileID: 1253636373616230, guid: 9a2e20f03a8f9644886df5207c8c8a03, type: 2}

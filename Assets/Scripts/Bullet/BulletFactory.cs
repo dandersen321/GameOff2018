@@ -10,6 +10,7 @@ public class BulletFactory {
         bulletObj.SetActive(true);
         bulletObj.transform.position = startPosition;
         bulletObj.transform.LookAt(targetPosition);
+        bulletObj.transform.localScale*= chickenType.chickenSizeScale;
 
         
 

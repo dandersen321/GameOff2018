@@ -11,6 +11,8 @@ public class ChickenType : ScriptableObject {
     public Sprite sprite;
     public Sprite seedSprite;
     public int cost;
+    public float chickenSizeScale;
+    public bool spentOnNonEnemyImpact;
 
     public int seedCount;
     public int plantCount;
