@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class DayNightTransition : MonoBehaviour {
 
-    public bool startDayTime = true;
-
     public Animator transitionAnimation;
     public TimeOfDayTransition dayTime;
     public TimeOfDayTransition nightTime;
@@ -25,13 +23,9 @@ public class DayNightTransition : MonoBehaviour {
     private void TurrentActive(bool active)
     {
         if (active)
-        {
             StartCoroutine(StartNightTransition());
-        }
         else
-        {
             StartCoroutine(StartDayTransition());
-        }
     }
 
     IEnumerator StartNightTransition()
@@ -52,14 +46,6 @@ public class DayNightTransition : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-
-        if (startDayTime)
-        {
-            dayTime.PerformTimeOfDayTransition(sun);
-        }
-        else
-        {
-            nightTime.PerformTimeOfDayTransition(sun);
-        }
+        dayTime.PerformTimeOfDayTransition(sun);
 	}
 }
