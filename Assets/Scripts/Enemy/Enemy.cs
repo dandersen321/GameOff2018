@@ -46,6 +46,7 @@ public class Enemy : MonoBehaviour {
             References.getArtifact().heldBy = null;
             References.getArtifact().transform.parent = null;
         }
+        
         agentController.ragDoll();
     }
 

@@ -25,7 +25,9 @@ public class Bullet : MonoBehaviour {
     public GameObject target;
     public Vector3 defaultTargetPosition;
     private Timer lookForTarget = new Timer();
+    public Timer heatSeekingSpawner = new Timer();
     private float moveToTargetSpeed = 12f;
+    public bool heatSeekingMini = false;
 
     public void init(ChickenType chickenType)
     {
@@ -43,10 +45,17 @@ public class Bullet : MonoBehaviour {
                 target = null;
             if (target == null && lookForTarget.Expired())
                 findTarget();
+            if (chickenType.currentRank == 3 && !heatSeekingMini && heatSeekingSpawner.Expired())
+                spawnMiniMissiles();
 
             Vector3 targetPosition = target == null ? defaultTargetPosition : target.transform.position;
 
             float step = moveToTargetSpeed * Time.deltaTime;
+
+            if (chickenType.currentRank == 3 && !heatSeekingMini)
+            {
+                step /= 3;
+            }
 
             // Move our position a step closer to the target.
             this.transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
@@ -76,12 +85,13 @@ public class Bullet : MonoBehaviour {
             bulletSpent = true;
         }
 
-        if (chickenType.spentOnNonEnemyImpact)
+        if (chickenType.spentOnNonEnemyImpact || collision.gameObject.GetComponent<Enemy>())
         {
-
             startEffects(collision.gameObject);
             Destroy(this.gameObject);
         }
+
+        
 
 
         //Health health = collision.gameObject.GetComponent<Health>();
@@ -100,8 +110,22 @@ public class Bullet : MonoBehaviour {
         
     }
 
+    public void spawnMiniMissiles()
+    {
+        BulletFactory bulletFactory = new BulletFactory();
+        GameObject chickenPrefab = References.GetTurrent().storedBulletObject;
+
+        Vector2 offsetV2 = (Random.insideUnitCircle.normalized * 25f);
+        Vector3 targetPosition = this.transform.position + new Vector3(offsetV2.x, 0, offsetV2.y);
+
+        GameObject bulletObject = bulletFactory.createBullet(chickenPrefab, this.transform.position, targetPosition, chickenType, true);
+        heatSeekingSpawner.Start(2f);
+    }
+
     public void findTarget()
     {
+        if (chickenType.currentRank == 3 && !heatSeekingMini)
+            return;
         GameObject closestTarget = null;
         float? closestSqrMagnitude = null;
         foreach(GameObject gameObject in GameObject.FindGameObjectsWithTag("Enemy"))
@@ -118,12 +142,16 @@ public class Bullet : MonoBehaviour {
 
         }
 
+        
+
         if (closestTarget == null) {
             lookForTarget.Start(2f);
+            Debug.Log("No luck");
         }
         else
         {
             target = closestTarget;
+            Debug.Log("Found target " + target.gameObject.name);
         }
 
     }

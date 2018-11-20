@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BulletFactory {
 
-	public GameObject createBullet(GameObject bulletObjPrefab, Vector3 startPosition, Vector3 targetPosition, ChickenType chickenType)
+	public GameObject createBullet(GameObject bulletObjPrefab, Vector3 startPosition, Vector3 targetPosition, ChickenType chickenType, bool heatMiniMissle = false)
     {
         GameObject bulletObj = GameObject.Instantiate(bulletObjPrefab);
         bulletObj.SetActive(true);
         bulletObj.transform.position = startPosition;
         bulletObj.transform.LookAt(targetPosition);
-        bulletObj.transform.localScale*= chickenType.chickenSizeScale;
 
+        float chickenSizeScale = chickenType.chickenSizeScale;
         
 
         bulletObj.AddComponent<Bullet>();
@@ -24,7 +24,19 @@ public class BulletFactory {
             Debug.Log("This is heatseekign");
             bullet.heatSeeking = true;
             rb.useGravity = false;
+            
             bullet.defaultTargetPosition = bullet.transform.position + bullet.transform.forward * 100;
+
+            bullet.heatSeekingMini = heatMiniMissle;
+            if (chickenType.currentRank == 3 && !heatMiniMissle)
+            {
+                chickenSizeScale = 3f;
+                bullet.heatSeekingSpawner.Start(2f);
+                rb.GetComponent<Collider>().enabled = false;
+            }
+
+            
+
         }
         else
         {
@@ -32,6 +44,7 @@ public class BulletFactory {
             rb.AddForce(bulletObj.transform.forward * rb.mass * 4000);
         }
 
+        bulletObj.transform.localScale *= chickenSizeScale;
 
         // Debug code to see where bullet is targeting
         //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
