@@ -126,18 +126,23 @@ public class BodyController : MonoBehaviour
         //    }
         //}
 
-        foreach (Collider collider in this.GetComponentsInChildren<Collider>())
-        {
-            collider.isTrigger = false;
-        }
+        //foreach (Collider collider in this.GetComponentsInChildren<Collider>())
+        //{
+        //    collider.isTrigger = false;
+        //}
 
-        foreach (Rigidbody part in this.GetComponentsInChildren<Rigidbody>())
-        {
-            part.isKinematic = false;
-        }
+        //foreach (Rigidbody part in this.GetComponentsInChildren<Rigidbody>())
+        //{
+        //    part.isKinematic = false;
+        //}
+
         //GetComponent<AgentMovementController>().enabled = false;
         //GetComponent<Animator>().enabled = false;
         controller.enabled = false;
+        this.GetComponent<CharacterController>().enabled = false;
+        this.GetComponent<NavMeshAgent>().enabled = false;
+        this.GetComponent<Rigidbody>().isKinematic = false;
+        this.GetComponent<Animator>().enabled = false;
 
 
         this.enabled = false;

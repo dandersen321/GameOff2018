@@ -80,6 +80,28 @@ public class PlayerMovementController : MonoBehaviour
 
         playerView.transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         this.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, this.transform.up);
+        //playerView.transform.eulerAngles = new Vector3(playerView.transform.eulerAngles.y, Mathf.Clamp(transform.eulerAngles.y, -90, 90), playerView.transform.eulerAngles.z);
+
+        //Debug.Log(playerView.transform.eulerAngles);
+        //Vector3 eulerAngles = playerView.transform.eulerAngles;
+        //if(eulerAngles.x > 45 && eulerAngles.x < 180)
+        //{
+        //    eulerAngles.x = 45;
+        //}
+
+        //if(eulerAngles.x < 270 && eulerAngles.x > 180)
+        //{
+        //    eulerAngles.x = 270;
+        //}
+
+        //playerView.transform.eulerAngles = eulerAngles;
+
+        //float minRotation = -45;
+        //float maxRotation = 45;
+        //Vector3 currentRotation = transform.localRotation.eulerAngles;
+        //currentRotation.x = Mathf.Clamp(currentRotation.x, minRotation, maxRotation);
+        //transform.localRotation = Quaternion.Euler(currentRotation);
+
     }
 
     private void Update()
@@ -274,7 +296,7 @@ public class PlayerMovementController : MonoBehaviour
     public void startTurrentMode()
     {
         preCatapultPosition = this.transform.position;
-        this.transform.position = turrent.gameObject.transform.position + new Vector3(0, 1, 0);
+        this.transform.position = turrent.gameObject.transform.position + new Vector3(0, 3, 0);
         bodyController.frozen = true;
         switchToFirstPersonCamera();
         turrentMode = true;
