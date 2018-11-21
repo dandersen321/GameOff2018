@@ -1926,7 +1926,7 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1113978559877078}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 7db99ffc6f89c314a964a6e914bd5ba2, type: 3}
+  m_Avatar: {fileID: 9000000, guid: b3f22003ece2dc4479fbd79c3107c44c, type: 3}
   m_Controller: {fileID: 9100000, guid: f1b73a27b47357747acb7baf9c969c27, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
@@ -1981,22 +1981,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e07a55323bee3e429d4abb0a8a2119f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDayTime: 1
-  dayTimeSkyBox: {fileID: 2100000, guid: 8c1b086c484ccf04f82e5a35705a7924, type: 2}
-  dayTimeSkyColor: {r: 0.85882354, g: 0.85882354, b: 0.85882354, a: 0}
-  dayTimeEquatorColor: {r: 1, g: 0.84705883, b: 0.6666667, a: 0}
-  dayTimeGroundColor: {r: 0.2627451, g: 0.47058824, b: 0.20392157, a: 0}
-  nightTimeSkyBox: {fileID: 2100000, guid: 9e2a86beced3c9842b5b72740bd72410, type: 2}
-  nightTimeSkyColor: {r: 0.28627452, g: 0.43529412, b: 0.44313726, a: 0}
-  nightTimeEquatorColor: {r: 0, g: 0, b: 0, a: 0}
-  nightTimeGroundColor: {r: 1, g: 1, b: 1, a: 0}
+  transitionAnimation: {fileID: 0}
+  dayTime: {fileID: 0}
+  nightTime: {fileID: 0}
   sun: {fileID: 0}
-  sunDayAngle: {x: 50, y: -30, z: 0}
-  sunNightAngle: {x: 30, y: 75, z: 0}
-  sunDayColor: {r: 1, g: 0.95686275, b: 0.8392157, a: 0}
-  sunNightColor: {r: 0.79607844, g: 0.90588236, b: 0.93333334, a: 0}
-  sunIntesityDay: 1
-  sunIntesityNight: 0.5
 --- !u!114 &114319695471253510
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2097,6 +2085,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1024
   farmingActiveSeed: {fileID: 0}
+  inMenu: 0
 --- !u!114 &114737225592813106
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2250,7 +2239,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4300000, guid: 7db99ffc6f89c314a964a6e914bd5ba2, type: 3}
+  m_Mesh: {fileID: 4300000, guid: b3f22003ece2dc4479fbd79c3107c44c, type: 3}
   m_Bones:
   - {fileID: 4064962433899904}
   - {fileID: 4845199531317938}

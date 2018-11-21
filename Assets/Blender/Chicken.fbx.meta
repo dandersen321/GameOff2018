@@ -6,7 +6,7 @@ ModelImporter:
     100000: Arm
     100002: Chest
     100004: //RootNode
-    100006: Cube
+    100006: Chicken
     100008: Head
     100010: Head_end
     100012: Hips
@@ -24,7 +24,7 @@ ModelImporter:
     400000: Arm
     400002: Chest
     400004: //RootNode
-    400006: Cube
+    400006: Chicken
     400008: Head
     400010: Head_end
     400012: Hips
@@ -40,12 +40,16 @@ ModelImporter:
     400032: Wing1.L
     400034: Wing1.R
     2100000: Lowpoly
-    4300000: Cube
-    7400000: Arm|ChickenIdle
-    7400002: Arm|ChickenWalk
-    7400004: Arm|ChickenWalk.001
+    4300000: Chicken
+    7400000: Arm|ChickenBulletAttack
+    7400002: Arm|ChickenIdle
+    7400004: Arm|ChickenWalk
+    7400006: Arm|ImortalHumanBlinkLeft
+    7400008: Arm|ImortalHumanBlinkRight
+    7400010: Arm|UfoInnerRotation
+    7400012: Arm|UfoOuterRotation
     9500000: //RootNode
-    13700000: Cube
+    13700000: Chicken
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -79,6 +83,34 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations:
+    - serializedVersion: 16
+      name: Arm|ChickenBulletAttack
+      takeName: Arm|ChickenBulletAttack
+      firstFrame: 0
+      lastFrame: 6
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     - serializedVersion: 16
       name: Arm|ChickenIdle
       takeName: Arm|ChickenIdle
