@@ -34,6 +34,8 @@ public class PlayerMovementController : MonoBehaviour
     public ChickenType farmingActiveSeed;
     public bool inMenu = false;
 
+    private Animator animator;
+
     void Start()
     {
         turrent = References.GetTurrent();
@@ -48,13 +50,16 @@ public class PlayerMovementController : MonoBehaviour
         //switchToThirdPersonCamera();
         switchToThirdPersonCamera();
         playerTurrentObj.SetActive(false);
+
+        animator = GetComponentInChildren<Animator>();
     }
 
     void bodyMove()
     {
         Vector3 targetDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         targetDirection = transform.TransformDirection(targetDirection);
-        
+
+        animator.SetFloat("speedPercent", Mathf.Abs(Input.GetAxis("Vertical")), .1f, Time.deltaTime);
 
         if (targetDirection != Vector3.zero)
         {
@@ -64,7 +69,8 @@ public class PlayerMovementController : MonoBehaviour
         bool isGrounded = bodyController.controller.isGrounded;
         if (lastJumpTimer.Expired() && Input.GetButtonDown("Jump"))
         {
-            bodyController.jump();
+            // No jumping for now. If we find we need it, then I will create an animation.
+            //bodyController.jump();
             lastJumpTimer.Start(1f);
         }
     }
