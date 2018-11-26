@@ -358,7 +358,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 201.50035, y: -421.0053}
+  m_AnchoredPosition: {x: 201.49754, y: -356.99933}
   m_SizeDelta: {x: 2140.4, y: 195.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278437000
@@ -445,7 +445,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Continue
+  m_Text: Continue...
 --- !u!222 &1278437002
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -580,9 +580,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   storyText: {fileID: 1742344914}
   buttonText: {fileID: 1278437001}
+  startButton: {fileID: 1278437000}
   lines:
   - This is the first line of the story
-  - Now we are on the secnd line of the story
+  - Now we are on the second line of the story
   - This is the last line
   sceneToLoad: 2
 --- !u!1 &1705189634
@@ -682,8 +683,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.8987427, y: 0}
-  m_SizeDelta: {x: 1786.4, y: 1403.8}
+  m_AnchoredPosition: {x: -1.9039912, y: 0}
+  m_SizeDelta: {x: 1786.4, y: 1119.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742344914
 MonoBehaviour:

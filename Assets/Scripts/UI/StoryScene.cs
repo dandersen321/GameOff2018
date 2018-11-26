@@ -8,6 +8,7 @@ public class StoryScene : MonoBehaviour {
 
     public Text storyText;
     public Text buttonText;
+    public Button startButton;
     public List<string> lines;
     public int sceneToLoad = 2;
 
@@ -25,7 +26,11 @@ public class StoryScene : MonoBehaviour {
         }
         else
         {
-            SceneManager.LoadScene(sceneToLoad); 
+            startButton.enabled = false;
+            buttonText.text = "Loading";
+            storyText.enabled = false;
+            StartCoroutine(BeginLoadSceneAsync());
+            //SceneManager.LoadScene(sceneToLoad);
         }
     }
 
@@ -33,4 +38,14 @@ public class StoryScene : MonoBehaviour {
 	void Start () {
         Nextline();
 	}
+
+    IEnumerator BeginLoadSceneAsync()
+    {
+        AsyncOperation asyncSceneLoad = SceneManager.LoadSceneAsync(sceneToLoad);
+
+        while(!asyncSceneLoad.isDone)
+        {
+            yield return null;
+        }
+    }
 }

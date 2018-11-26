@@ -16,7 +16,7 @@ public class LoadSceneWithAnimation : MonoBehaviour {
     IEnumerator LoadScene()
     {
         transitionAnimation.SetTrigger("StartGame");
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene(sceneToLoadIndex);
     }
 	

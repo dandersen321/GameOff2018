@@ -159,7 +159,7 @@ Font:
       y: 0
       width: 169
       height: -169
-    advance: 60
+    advance: 110
     flipped: 0
   - serializedVersion: 2
     index: 74
