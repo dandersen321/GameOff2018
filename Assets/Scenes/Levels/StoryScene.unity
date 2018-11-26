@@ -582,9 +582,9 @@ MonoBehaviour:
   buttonText: {fileID: 1278437001}
   startButton: {fileID: 1278437000}
   lines:
-  - This is the first line of the story
+  - This is the first line of the story.
   - Now we are on the second line of the story
-  - This is the last line
+  - This is the last line!
   sceneToLoad: 2
 --- !u!1 &1705189634
 GameObject:
