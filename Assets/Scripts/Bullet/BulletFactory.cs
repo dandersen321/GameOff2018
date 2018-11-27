@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BulletFactory {
 
-	public GameObject createBullet(GameObject bulletObjPrefab, Vector3 startPosition, Vector3 targetPosition, ChickenType chickenType, bool heatMiniMissle = false)
+    public GameObject createBullet(GameObject bulletObjPrefab, Vector3 startPosition, Vector3 targetPosition, ChickenType chickenType, bool heatMiniMissle = false, ParticleSystem onHitParticle = null)
     {
         GameObject bulletObj = GameObject.Instantiate(bulletObjPrefab);
         bulletObj.SetActive(true);
@@ -17,6 +17,7 @@ public class BulletFactory {
         bulletObj.AddComponent<Bullet>();
         Bullet bullet = bulletObj.GetComponent<Bullet>();
         bullet.init(chickenType);
+        bullet.onHitParticle = onHitParticle;
         var rb = bulletObj.GetComponent<Rigidbody>();
 
         if (chickenType.name == ChickenTypeEnum.heatSeekingName)

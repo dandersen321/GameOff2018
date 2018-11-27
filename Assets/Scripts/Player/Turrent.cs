@@ -13,6 +13,7 @@ public class Turrent : MonoBehaviour
     public GameObject storedBulletObject;
     private BulletFactory factory;
     public LayerMask aimMask;
+    public ParticleSystem onHitParticle;
     private float maxAimDistance = 500;
     private float defaulAimtDistance = 50;
     private float minAimDistance = 2;
@@ -111,7 +112,7 @@ public class Turrent : MonoBehaviour
         if (activeChickenType.name != ChickenTypeEnum.normalName && activeChickenType.chickenCount <= 0)
             return;
         Debug.Log("Firing " + activeChickenType.name);
-        factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition, activeChickenType);
+        factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition, activeChickenType, onHitParticle: onHitParticle);
         activeChickenType.chickenCount -= 1;
         chickenUIManager.getSelectedChickenSlot().updateFired();
     }
