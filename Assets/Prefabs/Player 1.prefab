@@ -632,9 +632,9 @@ GameObject:
   - component: {fileID: 81931753513909988}
   - component: {fileID: 143649117893143438}
   - component: {fileID: 114672322073151744}
-  - component: {fileID: 114990737068138826}
   - component: {fileID: 114805181072774030}
   - component: {fileID: 114812171575519886}
+  - component: {fileID: 114308082100536378}
   m_Layer: 9
   m_Name: Player 1
   m_TagString: Player
@@ -2047,7 +2047,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1570184317606172}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 11.279068, y: 0, z: -552.51807}
+  m_LocalPosition: {x: 15.989616, y: 0, z: -558.7288}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4978470457136880}
@@ -2907,6 +2907,32 @@ MonoBehaviour:
   - {fileID: 1253636373616230, guid: 9a2e20f03a8f9644886df5207c8c8a03, type: 2}
   - {fileID: 1744317455766106, guid: f291836d3da218b4daa712741a9af3b4, type: 2}
   - {fileID: 1873438092911204, guid: 71edaf4f094d28c409f06467fd69d8f5, type: 2}
+--- !u!114 &114308082100536378
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1570184317606172}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1438e63fc4a58d043accb99e2f85c945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chickenInventories:
+  - {fileID: 11400000, guid: 51800c6da27309b449733002bbc6af47, type: 2}
+  - {fileID: 11400000, guid: 1f7f819b604372c4db5148d384d060bb, type: 2}
+  - {fileID: 11400000, guid: 1964ce5c4350cc7439bdd6a6e5fb1d82, type: 2}
+  - {fileID: 11400000, guid: a75fc4ff0829f8944b105ab227c520a7, type: 2}
+  - {fileID: 11400000, guid: f21b73ed522e26d43b67322a742560bb, type: 2}
+  - {fileID: 11400000, guid: e4b0c7e2f630595489becd059311c433, type: 2}
+  seedStages:
+  - {fileID: 0}
+  - {fileID: 114008754242634880}
+  - {fileID: 114288081350162990}
+  - {fileID: 114351944328867184}
+  - {fileID: 114518044535125670}
+  - {fileID: 114663286582270548}
+  chickenEquippedUI: {fileID: 0}
 --- !u!114 &114351944328867184
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2934,7 +2960,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59a5c6f04687ff54d9887c5193bb2ca1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storedBulletObject: {fileID: 1420097993222070, guid: ca387f04b7e7a7f4e984d8ff26771513,
+  bulletSpawner: {fileID: 1549237523141768}
+  storedBulletObject: {fileID: 1814726112598980, guid: 93b494e2258adc347ba4dfdea25dbf80,
     type: 2}
   aimMask:
     serializedVersion: 2
@@ -3044,22 +3071,6 @@ MonoBehaviour:
   externalForces: {x: 0, y: 0, z: 0}
   controller: {fileID: 0}
   frozen: 0
---- !u!114 &114990737068138826
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1570184317606172}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1438e63fc4a58d043accb99e2f85c945, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  chickenInventories:
-  - {fileID: 11400000, guid: 51800c6da27309b449733002bbc6af47, type: 2}
-  - {fileID: 11400000, guid: a75fc4ff0829f8944b105ab227c520a7, type: 2}
-  seedStages: []
-  chickenEquippedUI: {fileID: 0}
 --- !u!135 &135995080368665978
 SphereCollider:
   m_ObjectHideFlags: 1
