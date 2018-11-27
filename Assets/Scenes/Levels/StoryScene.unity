@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028365, g: 0.22571392, b: 0.30692288, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -377,7 +377,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 201.49754, y: -356.99933}
+  m_AnchoredPosition: {x: 260, y: -275}
   m_SizeDelta: {x: 2140.4, y: 195.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278437000
@@ -601,7 +601,7 @@ MonoBehaviour:
   buttonText: {fileID: 1278437001}
   startButton: {fileID: 1278437000}
   lines:
-  - This is the first line of the story.
+  - This is the first line!!
   - Now we are on the second line of the story
   - This is the last line!
   sceneToLoad: 2
@@ -695,15 +695,15 @@ RectTransform:
   m_GameObject: {fileID: 1742344912}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.42982784, y: 0.42982808, z: 0.42982808}
+  m_LocalScale: {x: 0.29298007, y: 0.29298, z: 0.29298}
   m_Children: []
   m_Father: {fileID: 1481314107}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -1.9039912, y: 0}
-  m_SizeDelta: {x: 1786.4, y: 1119.6}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00010755094, y: 0}
+  m_SizeDelta: {x: 5461.1, y: 2442.5}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1742344914
 MonoBehaviour:
