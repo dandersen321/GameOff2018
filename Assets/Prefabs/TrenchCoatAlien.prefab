@@ -155,7 +155,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4651708412277202}
   - component: {fileID: 95941358038028868}
-  m_Layer: 0
+  - component: {fileID: 136512568669817454}
+  - component: {fileID: 114169591722147502}
+  - component: {fileID: 114419334082200460}
+  m_Layer: 10
   m_Name: TrenchCoatAlien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -679,15 +682,15 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392972607593006}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -44.983574, y: 0, z: -537.19055}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -90, y: 0, z: -386.4}
   m_LocalScale: {x: 1.1523607, y: 1.1523607, z: 1.1523607}
   m_Children:
   - {fileID: 4168712897555438}
   - {fileID: 4725386305330238}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4652144998500270
 Transform:
   m_ObjectHideFlags: 1
@@ -787,6 +790,33 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114169591722147502
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392972607593006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c231e7fba9ad2c24fa859d55851312ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameShopUI: {fileID: 0}
+--- !u!114 &114419334082200460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392972607593006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cba0f6188a7019f46aee5ce39bd8218c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animationTriggerNames:
+  - Idle1
+  - Idle2
+  timeDelay: 15
 --- !u!136 &136404606484264832
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -800,6 +830,19 @@ CapsuleCollider:
   m_Height: 0.023984456
   m_Direction: 1
   m_Center: {x: -0.0012755474, y: 0.01170725, z: -0.0010044735}
+--- !u!136 &136512568669817454
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392972607593006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.3
+  m_Direction: 1
+  m_Center: {x: -0.17, y: 1.27, z: -0.16}
 --- !u!137 &137556334314272132
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
