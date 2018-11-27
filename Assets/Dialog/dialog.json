@@ -1,0 +1,26 @@
+{
+    "names" : {
+        "alien" : "alien",
+        "immortal" : "immortal",
+        "farmer" : "farmer"
+    },
+    "dayDialog" : [
+        {
+            "day" : 1,
+            "dialog" : [
+                {
+                    "speaker" : "alien",
+                    "text"    : "first thing alien says"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "second thing alien says"
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "second thing alien says"
+                }
+            ]
+        }
+    ]
+}
