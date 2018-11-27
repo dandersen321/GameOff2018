@@ -132,7 +132,7 @@ public class Turrent : MonoBehaviour
         turrentModeActive = false;
         if(OnTurrentActiveChange != null)
             OnTurrentActiveChange(turrentModeActive);
-        References.GetEnemySpawnerManager().endNightMode();
+        
         //References.getChickenUIManager().hideTurrentHUD();
     }
 

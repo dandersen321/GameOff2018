@@ -7,6 +7,7 @@ TagManager:
   - EnemySpawner
   - Enemy
   - DirtPatch
+  - Wave
   layers:
   - Default
   - TransparentFX

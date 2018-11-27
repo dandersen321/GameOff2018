@@ -116,7 +116,8 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                endTurrentMode();
+                References.GetEnemySpawnerManager().endNightMode();
+                //endTurrentMode();
                 //turrent.deactiveTurrentMode();
                 //this.transform.position = preCatapultPosition;
                 //switchToThirdPersonCamera();
@@ -310,16 +311,24 @@ public class PlayerMovementController : MonoBehaviour
         farmTurrentObj.SetActive(false);
     }
 
-    public void endTurrentMode()
+    public IEnumerator endTurrentMode()
     {
-        if(preCatapultPosition != Vector3.zero)
+
+        turrent.deactiveTurrentMode();
+
+        yield return new WaitForSeconds(1);
+
+        if (preCatapultPosition != Vector3.zero)
             this.transform.position = preCatapultPosition;
         bodyController.frozen = false;
-        switchToThirdPersonCamera();
+
+        
         turrentMode = false;
         playerTurrentObj.SetActive(false);
         farmTurrentObj.SetActive(true);
-        turrent.deactiveTurrentMode();
+
+
+        switchToThirdPersonCamera();
     }
 
 

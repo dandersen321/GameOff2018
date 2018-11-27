@@ -5,26 +5,44 @@ using UnityEngine.AI;
 
 public class UFO : MonoBehaviour {
 
-    private List<GameObject> enemyPrefabs;
+    public List<EnemyType> enemyTypes;
+
+    //private List<GameObject> enemyPrefabs;
     private List<Enemy> landedEnemies;
     private Vector3 startingPosition;
     private Vector3 landingPosition;
+    private bool started = false;
     private bool flying = true;
     private bool unloadingTroops = false;
     private bool waitingForTroops = false;
     private bool retreating = false;
-    private float speed = 5f;
+    private float speed = 10f;
+    public float chargeTime;
 
-    public void init(List<GameObject> enemyPrefabs, Vector3 landingPosition)
+    private Wave wave;
+
+    //public void init(List<GameObject> enemyPrefabs, Vector3 landingPosition)
+    public void init(Wave wave)
     {
-        this.enemyPrefabs = enemyPrefabs;
-        this.landingPosition = landingPosition;
-        this.startingPosition = this.transform.position;
+        //this.enemyPrefabs = enemyPrefabs;
+        //this.landingPosition = landingPosition;
+        this.wave = wave;
+        this.started = true;
+        //this.startingPosition = this.transform.position;
     }
 
 	// Use this for initialization
 	void Start () {
-		
+        // TODO might need to do this on awake and disable these initially?
+        this.landingPosition = this.transform.position;
+        //this.startingPosition = this.transform.parent.position;
+        float distanceAway = 45f;
+        Vector2 offsetV2 = (Random.insideUnitCircle.normalized * distanceAway);
+        Vector3 ufoOffset = new Vector3(offsetV2.x, landingPosition.y + distanceAway, offsetV2.y);
+
+        this.startingPosition = landingPosition + ufoOffset;
+        this.transform.position = this.startingPosition;
+        this.gameObject.SetActive(false);
 	}
 
     void updateFlying()
@@ -50,13 +68,13 @@ public class UFO : MonoBehaviour {
 
         landedEnemies = new List<Enemy>();
 
-        foreach (GameObject enemyPrefab in enemyPrefabs)
+        foreach (EnemyType enemyType in enemyTypes)
         {
             
 
             Vector2 enemySpawnPointV2 = (Random.insideUnitCircle.normalized * localSpawnRadius) + localSpawnPoint;
             Vector3 enemySpawnPoint = new Vector3(enemySpawnPointV2.x, spawnPoint.y, enemySpawnPointV2.y);
-            Enemy landedEnemy = this.CreateEnemy(enemyPrefab, enemySpawnPoint).GetComponent<Enemy>();
+            Enemy landedEnemy = this.CreateEnemy(enemyType.enemyPrefab, enemySpawnPoint).GetComponent<Enemy>();
             landedEnemy.GetComponent<AgentMovementController>().attackPlayer = false;
             landedEnemy.GetComponent<AgentMovementController>().ufoStartingPosition = enemySpawnPoint;
             landedEnemies.Add(landedEnemy);
@@ -127,6 +145,8 @@ public class UFO : MonoBehaviour {
             {
                 Destroy(enemy.gameObject);
             }
+
+            wave.ufoDied();
 
             Destroy(this.gameObject);
         }
