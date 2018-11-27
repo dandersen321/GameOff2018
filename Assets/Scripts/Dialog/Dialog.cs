@@ -5,6 +5,8 @@ using UnityEngine;
 
 [System.Serializable]
 public class DayDialog  {
+    [HideInInspector]
+    public bool dialogRead = false;
     public int day;
     public Line[] lines;
 }

@@ -16,16 +16,17 @@ public class DialogActivator : MonoBehaviour {
     // For debugging
     public int currentDay = 1;
 
-	// Use this for initialization
-	void Start () {
-        ActivateDialog(); 
-	}
-	
-    public void ActivateDialog()
+    public bool ActivateDialog()
     {
         var dialogForDay = dialog.Find(obj => obj.day == currentDay);
 
-        if(dialogForDay != null && !dialogSystem.IsActive)
-            dialogSystem.StartDialog(dialog[currentDay-1]);
+        if (dialogForDay != null && !dialogSystem.IsActive && !dialogForDay.dialogRead)
+        {
+            dialogSystem.StartDialog(dialogForDay);
+            dialogForDay.dialogRead = true;
+            return true;
+        }
+
+        return false;
     }
 }

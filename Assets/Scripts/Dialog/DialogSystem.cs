@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class DialogSystem : MonoBehaviour {
 
+    public static DialogSystem Instance { get; private set; }
+
     public Text nameText;
     public Text dialogText;
     public Text continueText;
@@ -17,6 +19,8 @@ public class DialogSystem : MonoBehaviour {
     public void Awake()
     {
         lines = new Queue<Line>();
+        if (Instance == null)
+            Instance = this;
     }
 
     public void StartDialog(DayDialog dialog)
@@ -24,6 +28,7 @@ public class DialogSystem : MonoBehaviour {
         IsActive = true;
         animator.SetBool("IsOpen", true);
         lines.Clear();
+        References.GetPlayerMovementController().beginMenu();
 
         foreach (var line in dialog.lines)
         {
@@ -49,6 +54,7 @@ public class DialogSystem : MonoBehaviour {
         {
             IsActive = false;
             animator.SetBool("IsOpen", false);
+            References.GetPlayerMovementController().closeMenu();
         }
     }
 

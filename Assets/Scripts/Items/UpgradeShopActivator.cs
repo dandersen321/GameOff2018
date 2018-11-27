@@ -7,14 +7,17 @@ public class UpgradeShopActivator : Item
 {
 
     public GameObject gameShopUI;
+    private DialogActivator dialogActivator;
 
     public void Start()
     {
+        dialogActivator = GetComponent<DialogActivator>();
     }
 
     public override void use()
     {
-        showInventoryShop();
+        if (dialogActivator == null || (!dialogActivator.ActivateDialog() && !DialogSystem.Instance.IsActive))
+            showInventoryShop();
     }
 
     public void showInventoryShop()

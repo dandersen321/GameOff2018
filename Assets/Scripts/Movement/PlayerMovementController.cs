@@ -154,7 +154,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void checkFarmingKeyPress()
     {
-        if (inMenu && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)))
+        if (inMenu && !DialogSystem.Instance.IsActive && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)))
         {
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();
