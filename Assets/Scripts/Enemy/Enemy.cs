@@ -45,6 +45,8 @@ public class Enemy : MonoBehaviour {
             // drop it
             References.getArtifact().heldBy = null;
             References.getArtifact().transform.parent = null;
+            References.getArtifact().GetComponent<Rigidbody>().isKinematic = false;
+            References.getArtifact().GetComponent<Rigidbody>().useGravity = true;
         }
         
         agentController.ragDoll();
@@ -87,8 +89,13 @@ public class Enemy : MonoBehaviour {
         irridationPoll.Start(1);
     }
 
-    //private void OnTriggerEnter(Collider other)
-    //{
-
-    //}
+    private void OnTriggerEnter(Collider other)
+    {
+        Bullet bullet = other.GetComponent<Bullet>();
+        if(bullet != null)
+        {
+            Debug.Log("Hit enemy via trigger");
+            bullet.hitEnemy(this);
+        }
+    }
 }

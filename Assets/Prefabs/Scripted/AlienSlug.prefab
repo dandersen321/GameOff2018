@@ -209,7 +209,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449830390868782}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: 0, z: -2.91}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 4779868599771016}
@@ -251,7 +251,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265682517359718}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 27.829758, y: 0, z: -569.62714}
+  m_LocalPosition: {x: 63.132977, y: -0.104147226, z: -547.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4400920771394804}
@@ -280,7 +280,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1192504728173896}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2.9099731}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 4357632955129218}
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e503c3db85e794fa7318b5f9ead8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 2
   jumpSpeed: 1
   rotationSpeed: 8
   externalForces: {x: 0, y: 0, z: 0}
@@ -460,7 +460,7 @@ CapsuleCollider:
   m_Radius: 1.1
   m_Height: 8.91
   m_Direction: 2
-  m_Center: {x: 0, y: 1.1, z: -1}
+  m_Center: {x: 0, y: 0.8, z: -3.12}
 --- !u!136 &136706038186591524
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -468,12 +468,12 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1265682517359718}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.25
+  m_Radius: 1.5
   m_Height: 5.9
   m_Direction: 1
-  m_Center: {x: 0, y: 3.07, z: 2.92}
+  m_Center: {x: 0, y: 3.07, z: 0}
 --- !u!137 &137902188654509058
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
@@ -538,12 +538,12 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 2
   m_Height: 6
-  m_Radius: 1
+  m_Radius: 1.5
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 3.04, z: 2.5}
+  m_Center: {x: 0, y: 3.04, z: 0}
 --- !u!195 &195339157878213350
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -552,10 +552,10 @@ NavMeshAgent:
   m_GameObject: {fileID: 1265682517359718}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1.5
   m_Speed: 3.5
   m_Acceleration: 8
-  avoidancePriority: 50
+  avoidancePriority: 25
   m_AngularSpeed: 120
   m_StoppingDistance: 0
   m_AutoTraverseOffMeshLink: 1

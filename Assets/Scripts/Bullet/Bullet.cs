@@ -79,35 +79,22 @@ public class Bullet : MonoBehaviour {
     {
         if (collision.gameObject.name == "Player")
             return;
-        //Debug.Log("Hit " + collision.gameObject.name);
-        if (!bulletSpent)
+
+        Enemy enemy = collision.gameObject.GetComponent<Enemy>();
+        if (chickenType.spentOnNonEnemyImpact || enemy)
         {
-            bulletSpent = true;
+            hitEnemy(enemy);
         }
 
-        if (chickenType.spentOnNonEnemyImpact || collision.gameObject.GetComponent<Enemy>())
-        {
-            startEffects(collision.gameObject);
-            Destroy(this.gameObject);
-        }
+      
 
         
+    }
 
-
-        //Health health = collision.gameObject.GetComponent<Health>();
-        //if(health)
-        //{
-        //    health.TakeDamage(damage);
-        //}
-
-        //if(chickenType.name == ChickenTypeEnum.slowName && chickenType.currentRank == 3)
-        //if(true)
-        //{
-        //    // don't get spent
-        //    return;
-        //}
-
-        
+    public void hitEnemy(Enemy enemy)
+    {
+        startEffects(enemy.gameObject);
+        Destroy(this.gameObject);
     }
 
     public void spawnMiniMissiles()
@@ -146,7 +133,6 @@ public class Bullet : MonoBehaviour {
 
         if (closestTarget == null) {
             lookForTarget.Start(2f);
-            Debug.Log("No luck");
         }
         else
         {
