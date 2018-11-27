@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 95274249258544528}
   - component: {fileID: 136161325289937886}
   - component: {fileID: 114791704011349608}
+  - component: {fileID: 114823438433555018}
   m_Layer: 10
   m_Name: ImortalHuman
   m_TagString: Untagged
@@ -174,7 +175,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1003963952762166}
   m_LocalRotation: {x: -0, y: -0.9588198, z: 0, w: -0.28401527}
-  m_LocalPosition: {x: 17.01, y: 0, z: -548.3338}
+  m_LocalPosition: {x: -117, y: 0, z: -374.30002}
   m_LocalScale: {x: 1.1258578, y: 1.2973871, z: 1.1258578}
   m_Children:
   - {fileID: 4517124939710086}
@@ -452,6 +453,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   seedShopUI: {fileID: 0}
+--- !u!114 &114823438433555018
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1003963952762166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda2a7441aa4267499a139ab3d46e571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogSystem: {fileID: 0}
+  dialog:
+  - dialogRead: 0
+    day: 1
+    lines:
+    - name: Human
+      line: Hi, I'm the Imortal Human and I'm here to help you
+    - name: Player
+      line: Sweet!
+    - name: Human
+      line: I sell seeds
+  currentDay: 1
 --- !u!136 &136161325289937886
 CapsuleCollider:
   m_ObjectHideFlags: 1

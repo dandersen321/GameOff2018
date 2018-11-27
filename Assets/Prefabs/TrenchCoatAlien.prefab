@@ -158,6 +158,7 @@ GameObject:
   - component: {fileID: 136512568669817454}
   - component: {fileID: 114169591722147502}
   - component: {fileID: 114419334082200460}
+  - component: {fileID: 114977181334733328}
   m_Layer: 10
   m_Name: TrenchCoatAlien
   m_TagString: Untagged
@@ -817,6 +818,27 @@ MonoBehaviour:
   - Idle1
   - Idle2
   timeDelay: 15
+--- !u!114 &114977181334733328
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392972607593006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fda2a7441aa4267499a139ab3d46e571, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogSystem: {fileID: 0}
+  dialog:
+  - dialogRead: 0
+    day: 1
+    lines:
+    - name: Alien
+      line: I'm the alien. I sell upgrades
+    - name: Player
+      line: Cool!
+  currentDay: 1
 --- !u!136 &136404606484264832
 CapsuleCollider:
   m_ObjectHideFlags: 1
