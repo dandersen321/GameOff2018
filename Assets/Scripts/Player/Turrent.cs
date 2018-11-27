@@ -9,7 +9,7 @@ public class Turrent : MonoBehaviour
     public delegate void TurrentActiveAction(bool active);
     public event TurrentActiveAction OnTurrentActiveChange;
 
-    private GameObject bulletSpawner;
+    public GameObject bulletSpawner;
     public GameObject storedBulletObject;
     private BulletFactory factory;
     public LayerMask aimMask;
@@ -26,7 +26,7 @@ public class Turrent : MonoBehaviour
     void Start()
     {
         factory = new BulletFactory();
-        bulletSpawner = GameObject.Find("BulletSpawnPosition");
+        //bulletSpawner = GameObject.Find("BulletSpawnPosition");
         chickenUIManager = References.getChickenUIManager();
     }
 

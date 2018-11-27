@@ -10,15 +10,15 @@ public class DayNightTransition : MonoBehaviour {
 
     public Light sun;
 
-    private void OnEnable()
-    {
-        References.GetTurrent().OnTurrentActiveChange += TurrentActive;
-    }
+    //private void OnEnable()
+    //{
+    //    References.GetTurrent().OnTurrentActiveChange += TurrentActive;
+    //}
 
-    private void OnDisable()
-    {
-        References.GetTurrent().OnTurrentActiveChange -= TurrentActive;
-    }
+    //private void OnDisable()
+    //{
+    //    References.GetTurrent().OnTurrentActiveChange -= TurrentActive;
+    //}
 
     private void TurrentActive(bool active)
     {
@@ -46,6 +46,7 @@ public class DayNightTransition : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        References.GetTurrent().OnTurrentActiveChange += TurrentActive;
         dayTime.PerformTimeOfDayTransition(sun);
 	}
 }
