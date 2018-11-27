@@ -159,6 +159,8 @@ GameObject:
   - component: {fileID: 114169591722147502}
   - component: {fileID: 114419334082200460}
   - component: {fileID: 114977181334733328}
+  - component: {fileID: 136562478031561212}
+  - component: {fileID: 114344747914893236}
   m_Layer: 10
   m_Name: TrenchCoatAlien
   m_TagString: Untagged
@@ -684,7 +686,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1392972607593006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -90, y: 0, z: -386.4}
+  m_LocalPosition: {x: 16.48, y: 0, z: -564.43}
   m_LocalScale: {x: 1.1523607, y: 1.1523607, z: 1.1523607}
   m_Children:
   - {fileID: 4168712897555438}
@@ -803,6 +805,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameShopUI: {fileID: 0}
+--- !u!114 &114344747914893236
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392972607593006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c231e7fba9ad2c24fa859d55851312ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameShopUI: {fileID: 0}
 --- !u!114 &114419334082200460
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -853,6 +867,19 @@ CapsuleCollider:
   m_Direction: 1
   m_Center: {x: -0.0012755474, y: 0.01170725, z: -0.0010044735}
 --- !u!136 &136512568669817454
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1392972607593006}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 2.3
+  m_Direction: 1
+  m_Center: {x: -0.17, y: 1.27, z: -0.16}
+--- !u!136 &136562478031561212
 CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

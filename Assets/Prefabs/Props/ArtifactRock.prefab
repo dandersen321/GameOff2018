@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4256051658781684}
   - component: {fileID: 33006931555334150}
   - component: {fileID: 23837371643652704}
+  - component: {fileID: 64162563323466852}
   m_Layer: 0
   m_Name: ArtifactRock
   m_TagString: Untagged
@@ -34,14 +35,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1300025454607228}
-  m_LocalRotation: {x: 0.000000021855694, y: -0.00000004371139, z: 1.0165751e-15,
-    w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0.0029229096, y: 0.00538225, z: -0.000015731894, w: 0.9999813}
+  m_LocalPosition: {x: 5.0000153, y: -0, z: -553.3}
+  m_LocalScale: {x: 1.0000341, y: 1, z: 1.0000342}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.335, y: 0.61700004, z: 0}
 --- !u!23 &23837371643652704
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -83,4 +83,18 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1300025454607228}
+  m_Mesh: {fileID: 4300000, guid: 5b48e16fe13e0c4418e48864d35caad3, type: 3}
+--- !u!64 &64162563323466852
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1300025454607228}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 5b48e16fe13e0c4418e48864d35caad3, type: 3}

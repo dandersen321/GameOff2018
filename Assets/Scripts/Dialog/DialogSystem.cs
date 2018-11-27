@@ -54,6 +54,7 @@ public class DialogSystem : MonoBehaviour {
         {
             IsActive = false;
             animator.SetBool("IsOpen", false);
+            continueText.text = "...";
             References.GetPlayerMovementController().closeMenu();
         }
     }

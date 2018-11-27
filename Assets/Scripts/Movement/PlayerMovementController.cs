@@ -132,6 +132,8 @@ public class PlayerMovementController : MonoBehaviour
             {
                 bodyMove();
             }
+            else
+                animator.SetFloat("speedPercent", 0f, .1f, Time.deltaTime);
         }
         if (!inMenu)
         {

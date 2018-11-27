@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4357513469916584}
   - component: {fileID: 95160912765502770}
-  - component: {fileID: 64926928549693666}
+  - component: {fileID: 64961680693827308}
   m_Layer: 0
   m_Name: TreeRigged
   m_TagString: Untagged
@@ -275,7 +275,7 @@ Transform:
   m_Father: {fileID: 4357513469916584}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &64926928549693666
+--- !u!64 &64961680693827308
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}

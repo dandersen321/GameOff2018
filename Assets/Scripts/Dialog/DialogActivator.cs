@@ -10,7 +10,6 @@ using UnityEngine;
 /// </summary>
 public class DialogActivator : MonoBehaviour {
 
-    public DialogSystem dialogSystem;
     public List<DayDialog> dialog;
 
     // For debugging
@@ -20,9 +19,9 @@ public class DialogActivator : MonoBehaviour {
     {
         var dialogForDay = dialog.Find(obj => obj.day == currentDay);
 
-        if (dialogForDay != null && !dialogSystem.IsActive && !dialogForDay.dialogRead)
+        if (dialogForDay != null && !DialogSystem.Instance.IsActive && !dialogForDay.dialogRead)
         {
-            dialogSystem.StartDialog(dialogForDay);
+            DialogSystem.Instance.StartDialog(dialogForDay);
             dialogForDay.dialogRead = true;
             return true;
         }

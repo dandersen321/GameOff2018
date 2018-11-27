@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour {
 
     public void init(ChickenType chickenType)
     {
+        GetComponent<Animator>().SetTrigger("attack");
         this.chickenType = chickenType;
 
         lifeTimer.Start(lifeTime);
