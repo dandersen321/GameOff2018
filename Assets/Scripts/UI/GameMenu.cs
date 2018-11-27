@@ -15,6 +15,11 @@ public class GameMenu : MonoBehaviour {
     public void ToggleGameMenu()
     {
         gameMenu.SetActive(!gameMenu.activeSelf);
+        if (gameMenu.activeSelf)
+            References.GetPlayerMovementController().beginMenu();
+        else
+            References.GetPlayerMovementController().closeMenu();
+
     }
 	
 	// Update is called once per frame
