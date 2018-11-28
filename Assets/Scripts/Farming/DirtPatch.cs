@@ -45,22 +45,27 @@ public class DirtPatch : Item {
         plantObj.transform.position = centerLocation;
     }
 
-    public override bool isUsable()
+    public override bool isUsable(bool itemInHand=false)
     {
-
-        if(growingChickenFood == null)
+        if(itemInHand)
         {
-            return true;
+            if (growingChickenFood == null)
+            {
+                return true;
+            }
+            return false;
         }
         else
         {
             return isPickable();
         }
+        
+        
 
     }
-    private bool isPickable()
+    public bool isPickable()
     {
-        return growingChickenFood.seedStages.Count - 1 == stage;
+        return growingChickenFood != null && growingChickenFood.seedStages.Count - 1 == stage;
     }
 
     private void plantPlant(ChickenType chickenType)

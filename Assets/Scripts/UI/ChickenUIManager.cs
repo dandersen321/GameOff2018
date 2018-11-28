@@ -72,7 +72,11 @@ public class ChickenUIManager : MonoBehaviour {
         {
             if(Input.GetKeyDown("" + i))
             {
-                selectChickenSlot(i-1);
+                if (i == 1 && !References.GetPlayerMovementController().turrentMode)
+                    break;
+
+                selectChickenSlot(i - 1);
+                
             }
         }
         
@@ -207,5 +211,11 @@ public class ChickenUIManager : MonoBehaviour {
             }
         }
         playerMoneyText.text = "Money: " + playerMoney.ToString();
+    }
+
+    public void addPlayerMoney(int money)
+    {
+        playerMoney += money;
+        updatePlayerMoney();
     }
 }

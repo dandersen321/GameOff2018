@@ -19,7 +19,7 @@ public abstract class Item : MonoBehaviour {
         
     }
 
-    public virtual bool isUsable()
+    public virtual bool isUsable(bool itemInHand=false)
     {
         return true;
     }

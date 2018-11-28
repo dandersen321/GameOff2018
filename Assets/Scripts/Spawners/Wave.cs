@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Wave : MonoBehaviour
 {
-
+    public int moneyOnClear;
     float interval = 60f;
     public float localSpawnRadius;
 
@@ -36,6 +36,7 @@ public class Wave : MonoBehaviour
     public void endWave()
     {
         this.enemySpawnManager.endNightMode();
+        References.getChickenUIManager().addPlayerMoney(moneyOnClear);
     }
 
     public void StartWave(EnemySpawnerManager enemySpawnManager)

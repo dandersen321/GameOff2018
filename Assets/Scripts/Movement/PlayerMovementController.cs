@@ -230,7 +230,7 @@ public class PlayerMovementController : MonoBehaviour
         float? closestSqrMagnitude = null;
         foreach (Collider hit in colliders)
         {
-            if (!hit.gameObject.GetComponent<Item>().isUsable())
+            if (!hit.gameObject.GetComponent<Item>().isUsable(farmingActiveSeed!=null))
                 continue;
             float sqrMagnitude = (this.transform.position - hit.transform.position).sqrMagnitude;
 
