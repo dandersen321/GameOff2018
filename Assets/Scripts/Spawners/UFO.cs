@@ -18,6 +18,7 @@ public class UFO : MonoBehaviour {
     private bool retreating = false;
     private float speed = 5f;
     public float chargeTime;
+    public float intervalTime = 1f;
 
     private Wave wave;
 
@@ -64,8 +65,6 @@ public class UFO : MonoBehaviour {
         Vector2 localSpawnPoint = new Vector2(spawnPoint.x, spawnPoint.z);
         float localSpawnRadius = 5f;
 
-        float secondsPerEnemyUnload = 1;
-
         landedEnemies = new List<Enemy>();
 
         foreach (EnemyType enemyType in enemyTypes)
@@ -79,7 +78,7 @@ public class UFO : MonoBehaviour {
             landedEnemy.GetComponent<AgentMovementController>().ufoStartingPosition = enemySpawnPoint;
             landedEnemies.Add(landedEnemy);
 
-            yield return new WaitForSeconds(secondsPerEnemyUnload);
+            yield return new WaitForSeconds(intervalTime);
         }
 
         unloadingTroops = false;

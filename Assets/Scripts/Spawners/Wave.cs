@@ -12,6 +12,7 @@ public class Wave : MonoBehaviour
     private List<UFO> ufos;
     private int ufosActive = 0;
     private int ufosDead = 0;
+    private int ufoCheck = 0;
     //private bool noUfosActive = false;
 
     //private Vector3 ufoStartingPosition;
@@ -47,12 +48,13 @@ public class Wave : MonoBehaviour
     {
         for(int i = 0; i < ufo.chargeTime; ++i)
         {
-            if(ufosActive == 0)
+            if(ufosActive == 0 && ++ufoCheck > 3)
             {
                 break;
             }
             else
             {
+                ufoCheck = 0;
                 yield return new WaitForSeconds(1);
             }
         }

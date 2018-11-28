@@ -30,6 +30,7 @@ public class Bullet : MonoBehaviour {
     public bool heatSeekingMini = false;
 
     public ParticleSystem onHitParticle;
+    public ParticleSystem onHitEnemyParticle;
 
     public void init(ChickenType chickenType)
     {
@@ -100,7 +101,16 @@ public class Bullet : MonoBehaviour {
         if (onHitParticle != null)
         {
             Debug.Log("Spawning particles");
-            ParticleSystem particle = Instantiate(onHitParticle, transform.position, Quaternion.identity) as ParticleSystem;
+            ParticleSystem systemToUse;
+            if(objectHit.GetComponent<Enemy>() != null)
+            {
+                systemToUse = onHitEnemyParticle;
+            }
+            else
+            {
+                systemToUse = onHitParticle;
+            }
+            ParticleSystem particle = Instantiate(systemToUse, transform.position, Quaternion.identity) as ParticleSystem;
             Destroy(particle.gameObject, onHitParticle.main.duration);
         }
         else
@@ -116,7 +126,7 @@ public class Bullet : MonoBehaviour {
         Vector2 offsetV2 = (Random.insideUnitCircle.normalized * 25f);
         Vector3 targetPosition = this.transform.position + new Vector3(offsetV2.x, 0, offsetV2.y);
 
-        GameObject bulletObject = bulletFactory.createBullet(chickenPrefab, this.transform.position, targetPosition, chickenType, true);
+        GameObject bulletObject = bulletFactory.createBullet(chickenPrefab, this.transform.position, targetPosition, chickenType, true, References.GetTurrent().onHitParticle, References.GetTurrent().onHitEnemyParticle);
         heatSeekingSpawner.Start(2f);
     }
 
@@ -188,8 +198,22 @@ public class Bullet : MonoBehaviour {
             throw new System.Exception("Unknown chicken? " + chickenType.ToString());
         }
 
+        blowEnemyIfApplicable(objectHit);
 
-        
+
+
+    }
+
+    void blowEnemyIfApplicable(GameObject objectHit)
+    {
+        Enemy enemy = objectHit.GetComponent<Enemy>();
+        if (!enemy || enemy.enemySpeed != "fast")
+            return;
+
+        Vector3 direction = objectHit.transform.position - transform.position;
+        direction.Normalize();
+        enemy.gameObject.GetComponent<Rigidbody>().AddForce(direction * 1000f);
+
     }
 
     void doRadiationEffect(GameObject objectHit)
