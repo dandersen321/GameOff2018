@@ -206,6 +206,7 @@ public class Bullet : MonoBehaviour {
         Enemy enemy = objectHit.GetComponent<Enemy>();
         if (enemy == null)
             return;
+        Debug.Log("did damge to " + objectHit.name);
         enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
     }
 

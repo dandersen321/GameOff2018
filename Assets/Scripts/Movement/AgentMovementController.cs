@@ -23,11 +23,13 @@ public class AgentMovementController : MonoBehaviour
 
     private Timer slowDownTimer = new Timer();
     private float slowDownModifer;
+    private Enemy enemy;
     //private Timer nextArtifactFinishCheck = new Timer();
 
     // Use this for initialization
     void Start()
     {
+        enemy = this.GetComponent<Enemy>();
         bodyController = GetComponent<BodyController>();
         initAgent();
     }
@@ -35,6 +37,9 @@ public class AgentMovementController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (!enemy.alive)
+            return;
+        
         if(slowDownTimer.Expired())
         {
             slowDownModifer = 1f;

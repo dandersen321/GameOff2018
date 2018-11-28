@@ -40,9 +40,14 @@ public class Enemy : MonoBehaviour {
 
     public void die()
     {
+        StartCoroutine(deathAnimations());
+    }
+
+    public IEnumerator deathAnimations() { 
         Debug.Log("Death!");
         alive = false;
-        if(References.getArtifact().heldBy == this)
+        agentController.stopMoving = true;
+        if (References.getArtifact().heldBy == this)
         {
             // drop it
             References.getArtifact().heldBy = null;
@@ -51,10 +56,21 @@ public class Enemy : MonoBehaviour {
             References.getArtifact().GetComponent<Rigidbody>().useGravity = true;
         }
 
-        if (animator != null)
+        if (health.MaxHealth > 20)
+        {
+            // medium and large guys
             animator.SetTrigger("death");
+            yield return new WaitForSeconds(3f);
+            //Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+        }
         else
+        {
             agentController.ragDoll();
+            yield return new WaitForSeconds(5f);
+            this.gameObject.SetActive(false);
+            //Destroy(this.gameObject);
+        }
     }
 
     public void irridate(int rank)
