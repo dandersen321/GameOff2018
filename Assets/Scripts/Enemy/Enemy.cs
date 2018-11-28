@@ -17,9 +17,11 @@ public class Enemy : MonoBehaviour {
     private int irridationRank;
     private int raditionDamge;
     private float irridationRank3Radius = 10f;
+    private Animator animator;
 
     // Use this for initialization
     void Start () {
+        animator = GetComponent<Animator>();
         agentController = GetComponent<AgentMovementController>();
         health = GetComponent<Health>();
         health.onDeathAction += die;
@@ -48,8 +50,11 @@ public class Enemy : MonoBehaviour {
             References.getArtifact().GetComponent<Rigidbody>().isKinematic = false;
             References.getArtifact().GetComponent<Rigidbody>().useGravity = true;
         }
-        
-        agentController.ragDoll();
+
+        if (animator != null)
+            animator.SetTrigger("death");
+        else
+            agentController.ragDoll();
     }
 
     public void irridate(int rank)

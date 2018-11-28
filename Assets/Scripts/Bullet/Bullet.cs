@@ -29,8 +29,11 @@ public class Bullet : MonoBehaviour {
     private float moveToTargetSpeed = 12f;
     public bool heatSeekingMini = false;
 
+    public ParticleSystem onHitParticle;
+
     public void init(ChickenType chickenType)
     {
+        GetComponent<Animator>().SetTrigger("attack");
         this.chickenType = chickenType;
 
         lifeTimer.Start(lifeTime);
@@ -94,6 +97,14 @@ public class Bullet : MonoBehaviour {
     public void hitEnemy(Enemy enemy)
     {
         startEffects(enemy.gameObject);
+        if (onHitParticle != null)
+        {
+            Debug.Log("Spawning particles");
+            ParticleSystem particle = Instantiate(onHitParticle, transform.position, Quaternion.identity) as ParticleSystem;
+            Destroy(particle.gameObject, onHitParticle.main.duration);
+        }
+        else
+            Debug.Log("Not spawning particles");
         Destroy(this.gameObject);
     }
 

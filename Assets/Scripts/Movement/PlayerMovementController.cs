@@ -84,6 +84,8 @@ public class PlayerMovementController : MonoBehaviour
         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / mouseSmoothing);
         mouseLook += smoothV;
 
+        mouseLook.y = Mathf.Clamp(mouseLook.y, -45, 45);
+
         playerView.transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         this.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, this.transform.up);
         //playerView.transform.eulerAngles = new Vector3(playerView.transform.eulerAngles.y, Mathf.Clamp(transform.eulerAngles.y, -90, 90), playerView.transform.eulerAngles.z);
@@ -132,6 +134,8 @@ public class PlayerMovementController : MonoBehaviour
             {
                 bodyMove();
             }
+            else
+                animator.SetFloat("speedPercent", 0f, .1f, Time.deltaTime);
         }
         if (!inMenu)
         {
@@ -154,7 +158,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void checkFarmingKeyPress()
     {
-        if (inMenu && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)))
+        if (inMenu && !DialogSystem.Instance.IsActive && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)))
         {
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();

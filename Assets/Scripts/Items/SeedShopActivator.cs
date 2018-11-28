@@ -7,14 +7,17 @@ public class SeedShopActivator : Item
 {
 
     public GameObject seedShopUI;
+    private DialogActivator dialogActivator;
 
     public void Start()
     {
+        dialogActivator = GetComponent<DialogActivator>();
     }
 
     public override void use()
     {
-        showSeedShop();
+        if (dialogActivator == null || (!dialogActivator.ActivateDialog() && !DialogSystem.Instance.IsActive))
+            showSeedShop();
     }
 
     public void showSeedShop()
