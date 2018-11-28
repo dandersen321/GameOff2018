@@ -92,7 +92,7 @@ public class Enemy : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         Bullet bullet = other.GetComponent<Bullet>();
-        if(bullet != null)
+        if(alive && bullet != null)
         {
             Debug.Log("Hit enemy via trigger");
             bullet.hitEnemy(this);
