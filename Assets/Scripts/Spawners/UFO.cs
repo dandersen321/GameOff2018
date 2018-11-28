@@ -156,6 +156,8 @@ public class UFO : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!started)
+            return;
 
         if(flying)
         {

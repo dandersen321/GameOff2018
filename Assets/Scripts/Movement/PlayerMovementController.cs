@@ -311,12 +311,8 @@ public class PlayerMovementController : MonoBehaviour
         preCatapultPosition = this.transform.position;
 
         yield return new WaitForSeconds(1);
-
         
         this.transform.position = turrent.gameObject.transform.position + new Vector3(0, 3, 0);
-        
-
-        
 
         switchToFirstPersonCamera();
         
