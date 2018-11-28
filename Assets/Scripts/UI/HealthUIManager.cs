@@ -22,5 +22,10 @@ public class HealthUIManager : MonoBehaviour {
     {
         healthBar.fillAmount = (float)currentHealth / maxHealth;
         textHealth.text = currentHealth + "/" + maxHealth;
+
+        if(currentHealth <= 0)
+        {
+            References.GetPlayerMovementController().Lose();
+        }
     }
 }

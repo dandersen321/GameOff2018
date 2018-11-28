@@ -183,7 +183,7 @@ public class AgentMovementController : MonoBehaviour
         {
             if (Vector3.Distance(this.transform.position, ufoStartingPosition) < 2f)
             {
-                Debug.Log("You Lose!");
+                References.GetPlayerMovementController().Lose();
             }
             else
             {
@@ -203,6 +203,8 @@ public class AgentMovementController : MonoBehaviour
         References.getArtifact().GetComponent<Rigidbody>().isKinematic = true;
         References.getArtifact().GetComponent<Rigidbody>().useGravity = false;
         References.getArtifact().GetComponent<Collider>().enabled = false;
+
+        StartCoroutine(References.GetTurrent().flashDanger());
     }
 
     public void slowDown(float slowDownModifer, float slowDownLength)

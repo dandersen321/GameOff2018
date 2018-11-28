@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Turrent : MonoBehaviour
 {
@@ -23,6 +24,8 @@ public class Turrent : MonoBehaviour
     private ChickenUIManager chickenUIManager;
     //private Timer nextFireTimer = new Timer();
     public bool turrentModeActive;
+
+    public Image dangerImage;
     
 
     void Start()
@@ -30,6 +33,20 @@ public class Turrent : MonoBehaviour
         factory = new BulletFactory();
         //bulletSpawner = GameObject.Find("BulletSpawnPosition");
         chickenUIManager = References.getChickenUIManager();
+        dangerImage = GameObject.Find("TurrentHUD").GetComponent<Image>();
+        //dangerImage.enabled = false;
+        //StartCoroutine(flashDanger());
+    }
+
+    public System.Collections.IEnumerator flashDanger()
+    {
+        for (float i = 0.4f; i>=0; i-=0.02f)
+        {
+            dangerImage.color = new Color(225, 0, 0, i);
+            yield return new WaitForSeconds(0.1f);
+        }
+        
+        //dangerImage.enabled = false;
     }
 
     // update the state of the gun

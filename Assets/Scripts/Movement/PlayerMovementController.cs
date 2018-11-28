@@ -356,6 +356,11 @@ public class PlayerMovementController : MonoBehaviour
         thirdPersonCamera.SetActive(true);
     }
 
+    public void Lose()
+    {
+        Debug.Log("You Lose!!!");
+    }
+
     //private void useItem(Item item)
     //{
     //    itemInFocus = null;

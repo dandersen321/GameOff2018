@@ -44,6 +44,7 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     public void endNightMode()
     {
+        nightNumber += 1;
         inNightMode = false;
         foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("DirtPatch"))
         {

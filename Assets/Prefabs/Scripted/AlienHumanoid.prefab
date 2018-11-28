@@ -210,7 +210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e503c3db85e794fa7318b5f9ead8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.25
+  speed: 3
   jumpSpeed: 2
   rotationSpeed: 8
   externalForces: {x: 0, y: 0, z: 0}
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackData:
   - {fileID: 11400000, guid: abe5af8716380b140a3427e87a4e1ca0, type: 2}
-  meeleAttackRange: 8
+  meeleAttackRange: 10
   foundTarget: 0
 --- !u!136 &136479553042238492
 CapsuleCollider:
