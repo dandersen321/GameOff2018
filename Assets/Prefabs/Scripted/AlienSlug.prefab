@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 114854797662054146}
   - component: {fileID: 195339157878213350}
   - component: {fileID: 54570098862002672}
+  - component: {fileID: 114911738368847614}
   m_Layer: 0
   m_Name: AlienSlug
   m_TagString: Enemy
@@ -399,7 +400,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e503c3db85e794fa7318b5f9ead8ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2.5
+  speed: 2
   jumpSpeed: 1
   rotationSpeed: 8
   externalForces: {x: 0, y: 0, z: 0}
@@ -449,6 +450,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 300
+--- !u!114 &114911738368847614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1265682517359718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819fc12f341d09c48b9dd285c50837d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackData:
+  - {fileID: 11400000, guid: f2f50c9da8bfc3f4a9e6d8f9e796b567, type: 2}
+  meeleAttackRange: 12
+  foundTarget: 0
 --- !u!136 &136301348774177468
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -553,8 +569,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 1265682517359718}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 1.5
-  m_Speed: 3.5
+  m_Radius: 0.5
+  m_Speed: 2
   m_Acceleration: 8
   avoidancePriority: 25
   m_AngularSpeed: 120

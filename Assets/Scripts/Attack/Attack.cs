@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Attack {
 
-    private AttackData data;
+    public AttackData data;
     public Timer attackCooldownTimer = new Timer();
     public Timer attackLengthTimer = new Timer();
     //public float attackLength { get { return data.animationClip.length; } }
@@ -20,7 +20,7 @@ public class Attack {
     public void BeginAttack(Animator animator)
     {        attackLengthTimer.Start(attackLength);
         attackCooldownTimer.Start(data.postAttackCooldown);
-        //animator.Play(data.animationClip.name.Replace("Clip", "BlendTree"));
+        animator.Play(data.BlendTreeClipName);
     }
 
     public void DoDamage(Health health)

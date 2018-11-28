@@ -6,6 +6,7 @@ using UnityEngine;
 public class AttackData : ScriptableObject
 {
     public AnimationClip animationClip;
+    public string BlendTreeClipName;
     public float attackRange;
     public int baseDamage;
     public float postAttackCooldown;

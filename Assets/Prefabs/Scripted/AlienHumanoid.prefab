@@ -61,6 +61,7 @@ GameObject:
   - component: {fileID: 114177801584805934}
   - component: {fileID: 114392799389392540}
   - component: {fileID: 195094435809824436}
+  - component: {fileID: 114932302087152754}
   m_Layer: 0
   m_Name: AlienHumanoid
   m_TagString: Enemy
@@ -75,7 +76,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1834768359411434}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25.830214, y: 0, z: -568.49274}
+  m_LocalPosition: {x: -1.5179557, y: -0.0043201046, z: -398.59}
   m_LocalScale: {x: 1.1, y: 1.2633555, z: 1.1}
   m_Children:
   - {fileID: 4965716840038976}
@@ -245,6 +246,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 50
+--- !u!114 &114932302087152754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1834768359411434}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 819fc12f341d09c48b9dd285c50837d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackData:
+  - {fileID: 11400000, guid: abe5af8716380b140a3427e87a4e1ca0, type: 2}
+  meeleAttackRange: 8
+  foundTarget: 0
 --- !u!136 &136479553042238492
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -330,7 +346,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1834768359411434}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.4
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50

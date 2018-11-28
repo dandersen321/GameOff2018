@@ -24,6 +24,7 @@ public class AgentMovementController : MonoBehaviour
     private Timer slowDownTimer = new Timer();
     private float slowDownModifer;
     private Enemy enemy;
+    private Vector3 playerAttackOffset;
     //private Timer nextArtifactFinishCheck = new Timer();
 
     // Use this for initialization
@@ -42,7 +43,15 @@ public class AgentMovementController : MonoBehaviour
         }
         else
         {
-            attackPlayer = (Random.Range(0, 1) == 1);
+            attackPlayer = (Random.value < .5);
+            //attackPlayer = true;
+            //float distanceToKeep = GetComponent<AttackManager>().attackData[0].attackRange - 2f;
+            //float distanceToKeep = GetComponent<AttackManager>().attackData[0].attackRange *2;
+            //Vector3 direction = transform.position - GameObject.Find("TurretBase").gameObject.transform.position;
+            //direction.Normalize();
+            ////float distanceToKeep = 3f;
+            //playerAttackOffset = direction * distanceToKeep;
+            
         }
 
         initAgent();
@@ -158,7 +167,7 @@ public class AgentMovementController : MonoBehaviour
 
     Vector3 getPlayerPosition()
     {
-        return References.GetPlayer().transform.position;
+        return References.GetPlayer().transform.position + playerAttackOffset;
     }
 
     private void updateArtifactCheck()

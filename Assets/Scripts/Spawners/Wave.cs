@@ -75,11 +75,11 @@ public class Wave : MonoBehaviour
     IEnumerator SpawnUfos()
     {
         yield return new WaitForSeconds(1);
-        Debug.Log("SpawnUfos");
+        //Debug.Log("SpawnUfos");
 
         foreach (UFO ufo in ufos)
         {
-            Debug.Log("SpawnUfos for");
+            //Debug.Log("SpawnUfos for");
             StartCoroutine(SpawnUfo(ufo));
         }
     }
