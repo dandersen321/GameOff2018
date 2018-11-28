@@ -1,24 +1,69 @@
 {
     "names" : {
-        "alien" : "alien",
-        "immortal" : "immortal",
-        "farmer" : "farmer"
+        "alien" : "Neil A.",
+        "immortal" : "Immortal",
+        "farmer" : "Farmer"
+    },
+    "otherSpeakerPrompt" : {
+        "alien" : "As much as it pains me to say, maybe you should go check on that pile of hay and make sure there are no flamables nearby.",
+        "immortal" : ""
+    },
+    "defaultDialog" : {
+        "alien" : "Fine day for ballistic chickens eh?",
+        "immortal" : ""
     },
     "dayDialog" : [
         {
             "day" : 1,
+            "firstSpeaker" : "alien",
             "dialog" : [
                 {
                     "speaker" : "alien",
-                    "text"    : "first thing alien says"
+                    "name"    : "Alien",
+                    "line"    : "There is no use trying to touch The Artifact human! It takes an impressive amount of energy to breach its protective barrier, energy that humans are incapable of. There is no need to fear me, I assure you. Mine is a peaceful and gentle race. How could I hurt anyone with no arms anyway? We use the Artifacts to expand the understanding of the universe and promote the good of life. I probably seem pretty alien to you eh? You can just call me Niel A. though."
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "second thing alien says"
+                    "line"    : "But don't let my good looks and charm fool you. There are indeed other, not so friendly aliens out there in the abyss of space. In fact they are most assuredly on their way to retrieve the Artifact for less chivalrous means."
                 },
                 {
                     "speaker" : "farmer",
-                    "text"    : "second thing alien says"
+                    "line"    : "On their way? How did you get here so fast then?"
+                },
+                {
+                    "speaker" : "alien",
+                    "line"    : "I was already here. As a matter of fact I was honorably selected by the royal court to reside on Earth, awaiting the arrival of an Artifact. The royal court is surely on its way here in The Mothership as we speak. Despite being lightyears away, they should be here in 14 Earth days. The nefarious aliens though, are likely closer and are undoubtedly hostile."
+                },
+                {
+                    "speaker" : "farmer",
+                    "line"    : "I don't want any trouble. All I have is this farm. My crops, my chickens. What of them?"
+                },
+                {
+                    "speaker" : "alien",
+                    "line"    : "We can help eachother. I need this Artifact kept safe until my people arrive to retrieve it. I may not be able to defend myself, but I can shield the rest of Humanity from discovering The Artifact. There. It is done, you are the only human who knows about The Artifact. Only you can protect it from the nefarious alien hoards."
+                },
+                {
+                    "speaker" : "farmer",
+                    "line"    : "Seems like I don't have much of a choice. As long as my farm survives, I'll do it."
+                },
+                {
+                    "speaker" : "alien",
+                    "line"    : "Excellent. There will be time for questions later. For now, lets go over some basics about how to defend your farm and more importantly the Artifact."
+                }
+            ]
+        },
+        {
+            "day" : 2,
+            "firstSpeaker" : "immortal",
+            "dialog" : [
+                {
+                    "name" : "Immortal Human",
+                    "speaker" : "immortal",
+                    "line"    : ""
+                },
+                {
+                    "speaker" : "immortal",
+                    "line"    : ""
                 }
             ]
         }
