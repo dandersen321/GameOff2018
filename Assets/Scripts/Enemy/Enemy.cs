@@ -18,6 +18,7 @@ public class Enemy : MonoBehaviour {
     private int raditionDamge;
     private float irridationRank3Radius = 10f;
     private Animator animator;
+    public string enemySpeed;
 
     // Use this for initialization
     void Start () {
@@ -56,7 +57,7 @@ public class Enemy : MonoBehaviour {
             References.getArtifact().GetComponent<Rigidbody>().useGravity = true;
         }
 
-        if (health.MaxHealth > 20)
+        if (enemySpeed != "fast")
         {
             // medium and large guys
             animator.SetTrigger("death");
@@ -116,7 +117,7 @@ public class Enemy : MonoBehaviour {
         if(alive && bullet != null)
         {
             Debug.Log("Hit enemy via trigger");
-            bullet.hitEnemy(this);
+            bullet.hitEnemy(this.gameObject);
         }
     }
 }

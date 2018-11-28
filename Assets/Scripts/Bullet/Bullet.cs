@@ -86,7 +86,7 @@ public class Bullet : MonoBehaviour {
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
         if (chickenType.spentOnNonEnemyImpact || enemy)
         {
-            hitEnemy(enemy);
+            hitEnemy(collision.gameObject);
         }
 
       
@@ -94,9 +94,9 @@ public class Bullet : MonoBehaviour {
         
     }
 
-    public void hitEnemy(Enemy enemy)
+    public void hitEnemy(GameObject objectHit)
     {
-        startEffects(enemy.gameObject);
+        startEffects(objectHit);
         if (onHitParticle != null)
         {
             Debug.Log("Spawning particles");

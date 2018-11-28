@@ -31,6 +31,20 @@ public class AgentMovementController : MonoBehaviour
     {
         enemy = this.GetComponent<Enemy>();
         bodyController = GetComponent<BodyController>();
+
+        if(enemy.enemySpeed == "slow")
+        {
+            attackPlayer = true;
+        }
+        else if (enemy.enemySpeed == "fast")
+        {
+            attackPlayer = false;
+        }
+        else
+        {
+            attackPlayer = (Random.Range(0, 1) == 1);
+        }
+
         initAgent();
     }
 
@@ -77,6 +91,7 @@ public class AgentMovementController : MonoBehaviour
         Artifact artifact = References.getArtifact();
         if(artifact.heldBy == this.gameObject.GetComponent<Enemy>())
         {
+            //return this.transform.position;
             // we are the runner
             //Debug.Log(ufoStartingPosition);
             return ufoStartingPosition;
@@ -86,13 +101,18 @@ public class AgentMovementController : MonoBehaviour
         {
             if(artifactGuardOffset == Vector3.zero && nextArtifactBodyCheck.Expired())
             {
-                float distanceToKeep = 15f;
-                if (Vector3.Distance(this.transform.position, References.getArtifact().transform.position) < distanceToKeep)
+                float distanceToKeep = 10f;
+                if (Vector3.Distance(this.transform.position, References.getArtifact().transform.position) < distanceToKeep + 5f)
                 {
                     //artifactGuardOffset = this.transform.position - References.getArtifact().transform.position;
-                    
-                    Vector2 offsetV2 = (Random.insideUnitCircle.normalized * distanceToKeep);
-                    artifactGuardOffset = new Vector3(offsetV2.x, 0, offsetV2.y);
+
+                    //Vector2 offsetV2 = (Random.insideUnitCircle.normalized * distanceToKeep);
+                    //artifactGuardOffset = new Vector3(offsetV2.x, 0, offsetV2.y);
+
+                    Vector3 direction = transform.position - References.getArtifact().transform.position;
+                    direction.Normalize();
+                    //float distanceToKeep = 3f;
+                    artifactGuardOffset = direction * distanceToKeep;
 
                     //Debug.Log("Choosing offset position " + artifactGuardOffset);
                 }

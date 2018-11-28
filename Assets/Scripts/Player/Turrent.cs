@@ -120,6 +120,8 @@ public class Turrent : MonoBehaviour
     public void activateTurrentMode()
     {
         turrentModeActive = true;
+        Health playerHealth = References.GetPlayer().GetComponent<Health>();
+        playerHealth.resetHealth();
         if(OnTurrentActiveChange != null)
             OnTurrentActiveChange(turrentModeActive);
         References.getChickenUIManager().showChickenSlots();

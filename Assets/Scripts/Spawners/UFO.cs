@@ -16,7 +16,7 @@ public class UFO : MonoBehaviour {
     private bool unloadingTroops = false;
     private bool waitingForTroops = false;
     private bool retreating = false;
-    private float speed = 10f;
+    private float speed = 5f;
     public float chargeTime;
 
     private Wave wave;
@@ -36,7 +36,7 @@ public class UFO : MonoBehaviour {
         // TODO might need to do this on awake and disable these initially?
         this.landingPosition = this.transform.position;
         //this.startingPosition = this.transform.parent.position;
-        float distanceAway = 45f;
+        float distanceAway = 20f;
         Vector2 offsetV2 = (Random.insideUnitCircle.normalized * distanceAway);
         Vector3 ufoOffset = new Vector3(offsetV2.x, landingPosition.y + distanceAway, offsetV2.y);
 

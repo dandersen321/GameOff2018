@@ -418,6 +418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: {fileID: 0}
   alive: 1
+  enemySpeed: slow
 --- !u!114 &114854797662054146
 MonoBehaviour:
   m_ObjectHideFlags: 1

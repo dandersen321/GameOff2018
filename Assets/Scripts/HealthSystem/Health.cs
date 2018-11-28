@@ -29,6 +29,15 @@ public class Health : MonoBehaviour
 
     }
 
+    public void resetHealth()
+    {
+        currentHealth = maxHealth;
+        if (OnHealthChange != null)
+        {
+            OnHealthChange(currentHealth, maxHealth);
+        }
+    }
+
     public void TakeDamage(int amount)
     {
         if (isAlive)
