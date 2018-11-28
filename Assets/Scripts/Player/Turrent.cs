@@ -125,7 +125,7 @@ public class Turrent : MonoBehaviour
         if(OnTurrentActiveChange != null)
             OnTurrentActiveChange(turrentModeActive);
         References.getChickenUIManager().showChickenSlots();
-        References.GetPlayerMovementController().startTurrentMode();
+        StartCoroutine(References.GetPlayerMovementController().startTurrentMode());
         References.GetEnemySpawnerManager().StartNight();
         //activeChickenType = References.getInventoryManager().chickenInventories[0];
     }

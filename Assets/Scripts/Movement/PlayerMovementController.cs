@@ -304,15 +304,25 @@ public class PlayerMovementController : MonoBehaviour
         Cursor.visible = true;
     }
 
-    public void startTurrentMode()
+    public IEnumerator startTurrentMode()
     {
-        preCatapultPosition = this.transform.position;
-        this.transform.position = turrent.gameObject.transform.position + new Vector3(0, 3, 0);
         bodyController.frozen = true;
-        switchToFirstPersonCamera();
         turrentMode = true;
+        preCatapultPosition = this.transform.position;
+
+        yield return new WaitForSeconds(1);
+
+        
+        this.transform.position = turrent.gameObject.transform.position + new Vector3(0, 3, 0);
+        
+
+        
+
+        switchToFirstPersonCamera();
+        
         playerTurrentObj.SetActive(true);
         farmTurrentObj.SetActive(false);
+        References.GetEnemySpawnerManager().StartNight();
     }
 
     public IEnumerator endTurrentMode()
