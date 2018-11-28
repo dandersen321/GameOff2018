@@ -84,6 +84,8 @@ public class PlayerMovementController : MonoBehaviour
         smoothV.y = Mathf.Lerp(smoothV.y, md.y, 1f / mouseSmoothing);
         mouseLook += smoothV;
 
+        mouseLook.y = Mathf.Clamp(mouseLook.y, -45, 45);
+
         playerView.transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         this.transform.localRotation = Quaternion.AngleAxis(mouseLook.x, this.transform.up);
         //playerView.transform.eulerAngles = new Vector3(playerView.transform.eulerAngles.y, Mathf.Clamp(transform.eulerAngles.y, -90, 90), playerView.transform.eulerAngles.z);
