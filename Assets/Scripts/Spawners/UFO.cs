@@ -74,8 +74,8 @@ public class UFO : MonoBehaviour {
             Vector2 enemySpawnPointV2 = (Random.insideUnitCircle.normalized * localSpawnRadius) + localSpawnPoint;
             Vector3 enemySpawnPoint = new Vector3(enemySpawnPointV2.x, spawnPoint.y, enemySpawnPointV2.y);
             Enemy landedEnemy = this.CreateEnemy(enemyType.enemyPrefab, enemySpawnPoint).GetComponent<Enemy>();
-            landedEnemy.GetComponent<AgentMovementController>().attackPlayer = false;
-            landedEnemy.GetComponent<AgentMovementController>().ufoStartingPosition = enemySpawnPoint;
+            landedEnemy.GetComponent<AgentMovementController>().init();
+            
             landedEnemies.Add(landedEnemy);
 
             yield return new WaitForSeconds(intervalTime);

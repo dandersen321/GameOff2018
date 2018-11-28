@@ -68,6 +68,13 @@ public class AgentMovementController : MonoBehaviour
         moveTowardsTarget();
     }
 
+    public void init()
+    {
+        ufoStartingPosition = this.transform.position;
+        //landedEnemy.GetComponent<AgentMovementController>().attackPlayer = false;
+        //landedEnemy.GetComponent<AgentMovementController>().ufoStartingPosition = enemySpawnPoint;
+    }
+
     private void initAgent()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -186,8 +193,7 @@ public class AgentMovementController : MonoBehaviour
         References.getArtifact().isInRock = false;
         References.getArtifact().GetComponent<Rigidbody>().isKinematic = true;
         References.getArtifact().GetComponent<Rigidbody>().useGravity = false;
-
-
+        References.getArtifact().GetComponent<Collider>().enabled = false;
     }
 
     public void slowDown(float slowDownModifer, float slowDownLength)

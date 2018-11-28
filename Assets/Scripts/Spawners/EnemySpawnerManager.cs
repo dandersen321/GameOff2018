@@ -50,6 +50,7 @@ public class EnemySpawnerManager : MonoBehaviour {
             gameObject.GetComponent<DirtPatch>().endNight();
         }
         References.getChickenUIManager().showDayUI();
+        References.getArtifact().resetPosition();
         StartCoroutine(References.GetPlayerMovementController().endTurrentMode());
     }
 

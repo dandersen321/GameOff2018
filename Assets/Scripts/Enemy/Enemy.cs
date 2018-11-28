@@ -55,6 +55,7 @@ public class Enemy : MonoBehaviour {
             References.getArtifact().transform.parent = null;
             References.getArtifact().GetComponent<Rigidbody>().isKinematic = false;
             References.getArtifact().GetComponent<Rigidbody>().useGravity = true;
+            References.getArtifact().GetComponent<Collider>().enabled = true;
         }
 
         if (enemySpeed != "fast")

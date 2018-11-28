@@ -11,9 +11,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eced0ae064bc44649acad6e677808c28, type: 3}
   m_Name: Normal
   m_EditorClassIdentifier: 
-  chickenCount: 99
+  chickenCount: 97
   baseDamage: 10
-  cooldown: 0.5
+  cooldown: 0.65
   sprite: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   seedSprite: {fileID: 21300000, guid: e94032933c4d68d4d81dd461cb432ea7, type: 3}
   cost: 0
