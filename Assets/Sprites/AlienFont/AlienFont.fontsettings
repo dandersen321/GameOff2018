@@ -239,7 +239,7 @@ Font:
       y: 0
       width: 169
       height: -169
-    advance: 170
+    advance: 160
     flipped: 0
   - serializedVersion: 2
     index: 79
@@ -610,22 +610,6 @@ Font:
     advance: 70
     flipped: 0
   - serializedVersion: 2
-    index: 32
-    uv:
-      serializedVersion: 2
-      x: 0.7337
-      y: 0.75
-      width: 0.0667
-      height: 0.125
-    vert:
-      serializedVersion: 2
-      x: 0
-      y: 0
-      width: 169
-      height: -169
-    advance: 70
-    flipped: 0
-  - serializedVersion: 2
     index: 46
     uv:
       serializedVersion: 2
@@ -671,7 +655,7 @@ Font:
       y: 0
       width: 169
       height: -169
-    advance: 25
+    advance: 30
     flipped: 0
   - serializedVersion: 2
     index: 34
@@ -687,7 +671,7 @@ Font:
       y: 0
       width: 169
       height: -169
-    advance: 70
+    advance: 45
     flipped: 0
   - serializedVersion: 2
     index: 33
@@ -703,7 +687,23 @@ Font:
       y: 0
       width: 169
       height: -169
-    advance: 70
+    advance: 55
+    flipped: 0
+  - serializedVersion: 2
+    index: 63
+    uv:
+      serializedVersion: 2
+      x: 0.3335
+      y: 0.5
+      width: 0.0667
+      height: 0.125
+    vert:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 169
+      height: -169
+    advance: 125
     flipped: 0
   m_KerningValues: []
   m_PixelScale: 0.1

@@ -151,7 +151,7 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: This is some simple dialog and we love it... Because this is more dialog
-    then we need!!!
+    then we need!!...
 --- !u!114 &114308675293457264
 MonoBehaviour:
   m_ObjectHideFlags: 1
