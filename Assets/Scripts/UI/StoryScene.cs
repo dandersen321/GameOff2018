@@ -49,8 +49,7 @@ public class StoryScene : MonoBehaviour {
     // TODO remove this, just to test the json loader
     private void testJson()
     {
-        Json2DialogObject json2Dialog = new Json2DialogObject();
-        json2Dialog.load();
+        DialogJsonParser.getDialog();
     }
 
     // Use this for initialization
