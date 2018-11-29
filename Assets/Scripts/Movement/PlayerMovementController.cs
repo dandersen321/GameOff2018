@@ -34,7 +34,7 @@ public class PlayerMovementController : MonoBehaviour
     public ChickenType farmingActiveSeed;
     public bool inMenu = false;
 
-    private Animator animator;
+    public Animator animator;
 
     void Start()
     {

@@ -21,6 +21,7 @@ public class DirtPatch : Item {
 
     private void pickPlant()
     {
+        References.GetPlayerMovementController().animator.SetTrigger("pickupPlant");
         //growingChickenFood.plantCount += 1;
         growingChickenFood.chickenCount += 1;
         References.getChickenUIManager().updateDayTimeChickenCount(growingChickenFood);
@@ -70,6 +71,7 @@ public class DirtPatch : Item {
 
     private void plantPlant(ChickenType chickenType)
     {
+        References.GetPlayerMovementController().animator.SetTrigger("plant");
         growingChickenFood = chickenType;
         growingChickenFood.seedCount -= 1;
         stage = 0;
