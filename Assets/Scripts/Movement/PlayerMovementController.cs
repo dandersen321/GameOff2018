@@ -35,6 +35,10 @@ public class PlayerMovementController : MonoBehaviour
     private bool inMenu;
     public bool inShopMenu;
 
+    [HideInInspector]
+    public bool lost = false;
+    public GameObject looseScreen;
+
     public Animator animator;
 
     private float stepSoundTimer = 0.5f;
@@ -393,7 +397,19 @@ public class PlayerMovementController : MonoBehaviour
 
     public void Lose()
     {
+        lost = true;
+        beginMenu();
+        looseScreen.SetActive(true);
         Debug.Log("You Lose!!!");
+    }
+
+    public void retryLastNight()
+    {
+        lost = false;
+        looseScreen.SetActive(false);
+        closeMenu();
+
+        //TODO: the rest of the stuff
     }
 
     //private void useItem(Item item)

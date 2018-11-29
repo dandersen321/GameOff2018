@@ -35,4 +35,17 @@ public class DialogActivator : MonoBehaviour {
 
         return false;
     }
+
+    public bool DialogAvailable()
+    {
+        var dialogForDay = dialog.Find(obj => obj.day == References.GetEnemySpawnerManager().nightNumber);
+        if (dialogForDay == null)
+            return false;
+
+        if (dialogForDay.dialogRead)
+            return false;
+
+        return true;
+         
+    }
 }

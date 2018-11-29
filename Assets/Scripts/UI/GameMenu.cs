@@ -33,7 +33,7 @@ public class GameMenu : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKeyDown(KeyCode.Escape) && !References.GetPlayerMovementController().inShopMenu)
+        if (Input.GetKeyDown(KeyCode.Escape) && !References.GetPlayerMovementController().inShopMenu && !References.GetPlayerMovementController().lost)
         {
             ToggleGameMenu();
         }
