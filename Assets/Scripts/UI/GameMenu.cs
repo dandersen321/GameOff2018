@@ -36,4 +36,9 @@ public class GameMenu : MonoBehaviour {
             ToggleGameMenu();
         }
 	}
+
+    public bool isDisplayed()
+    {
+        return gameMenu.activeSelf;
+    }
 }

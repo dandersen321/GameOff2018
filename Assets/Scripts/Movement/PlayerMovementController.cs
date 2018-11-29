@@ -32,12 +32,13 @@ public class PlayerMovementController : MonoBehaviour
     private GameObject farmTurrentObj;
 
     public ChickenType farmingActiveSeed;
-    public bool inMenu = false;
+    private bool inMenu;
 
     public Animator animator;
 
     void Start()
     {
+        inMenu = false;
         turrent = References.GetTurrent();
         playerView = GameObject.Find("PlayerView");
         bodyController = GetComponent<BodyController>();
@@ -137,6 +138,8 @@ public class PlayerMovementController : MonoBehaviour
             else
                 animator.SetFloat("speedPercent", 0f, .1f, Time.deltaTime);
         }
+
+        Debug.Log("InMenu: " + inMenu.ToString());
         if (!inMenu)
         {
             cameraMove();
@@ -152,13 +155,15 @@ public class PlayerMovementController : MonoBehaviour
 
     public void closeMenu()
     {
+        //throw new KeyNotFoundException("hmm");
+        //Debug.Log("Closing Menu");
         inMenu = false;
         lockCursor();
     }
 
     private void checkFarmingKeyPress()
     {
-        if (inMenu && !DialogSystem.Instance.IsActive && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)))
+        if (inMenu && !DialogSystem.Instance.IsActive && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)) && !References.GetGameMenu().isDisplayed())
         {
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();
@@ -282,11 +287,12 @@ public class PlayerMovementController : MonoBehaviour
 
     void setCursorState()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            unlockCursor();
-        }
-        else if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    unlockCursor();
+        //}
+        //else
+        if (Input.GetMouseButton(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             lockCursor();
         }

@@ -15,6 +15,7 @@ public static class References  {
     private static EnemySpawnerManager enemySpawnManager;
     private static SeedShopActivator seedShopActivator;
     private static UpgradeShopActivator ugradeShopActivator;
+    private static GameMenu gameMenu;
 
 
 
@@ -79,6 +80,13 @@ public static class References  {
         if (ugradeShopActivator == null)
             ugradeShopActivator = GameObject.Find("TrenchCoatAlienObj").GetComponent<UpgradeShopActivator>();
         return ugradeShopActivator;
+    }
+
+    public static GameMenu GetGameMenu()
+    {
+        if (gameMenu == null)
+            gameMenu = GameObject.Find("GameMenu").GetComponent<GameMenu>();
+        return gameMenu;
     }
 
     
