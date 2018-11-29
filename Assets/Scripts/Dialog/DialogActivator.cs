@@ -17,17 +17,14 @@ public class DialogActivator : MonoBehaviour {
     public List<DayDialog> dialog;
     public Speaker speaker;
 
-    // For debugging
-    public int currentDay = 1;
-
     public void Start()
     {
-        dialog = Json2Dialog.getDialogListForDay(speaker, currentDay);
+        dialog = Json2Dialog.getDialogListForDay(speaker, References.GetEnemySpawnerManager().nightNumber);
     }
 
     public bool ActivateDialog()
     {
-        var dialogForDay = dialog.Find(obj => obj.day == currentDay);
+        var dialogForDay = dialog.Find(obj => obj.day == References.GetEnemySpawnerManager().nightNumber);
 
         if (dialogForDay != null && !DialogSystem.Instance.IsActive && !dialogForDay.dialogRead)
         {

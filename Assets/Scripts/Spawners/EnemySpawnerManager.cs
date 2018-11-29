@@ -15,7 +15,7 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     public List<Wave> waves;
 
-    int nightNumber = 0;
+    public int nightNumber = 0;
 
     public bool inSpawnUfoMode = false;
     public bool inNightMode = false;
