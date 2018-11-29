@@ -152,7 +152,7 @@ public class PlayerMovementController : MonoBehaviour
                 animator.SetFloat("speedPercent", 0f, .1f, Time.deltaTime);
         }
 
-        Debug.Log("InMenu: " + inMenu.ToString());
+        //Debug.Log("InMenu: " + inMenu.ToString());
         if (!inMenu && !inShopMenu)
         {
             cameraMove();

@@ -43,6 +43,8 @@ public class Health : MonoBehaviour
         if (isAlive)
         {
             currentHealth -= amount;
+            if (gameObject.tag == "Player")
+                References.GetTurrent().playDamageTakenAnim();
 
             if (OnHealthChange != null)
             {
