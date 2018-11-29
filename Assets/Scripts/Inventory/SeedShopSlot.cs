@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class SeedShopSlot : MonoBehaviour {
 
     Button button;
-    Text costText;
+    public Text costText;
+    public Text chickenTypeText;
     Image seedIcon;
     int slotIndex;
     ChickenType chickenType;
@@ -14,7 +15,7 @@ public class SeedShopSlot : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         button = GetComponent<Button>();
-        costText = GetComponentInChildren<Text>();
+        //costText = GetComponentInChildren<Text>();
         button.onClick.AddListener(onClick);
         slotIndex = this.gameObject.name[this.gameObject.name.Length - 1] - '0';
         chickenType = References.getInventoryManager().chickenInventories[slotIndex];
@@ -22,6 +23,7 @@ public class SeedShopSlot : MonoBehaviour {
         costText.text = chickenType.cost.ToString();
         seedIcon = this.transform.Find("Icon").GetComponentInChildren<Image>();
         seedIcon.sprite = chickenType.seedSprite;
+        chickenTypeText.text = chickenType.name;
         //seedIcon.enabled = false;
     }
     
