@@ -16,9 +16,11 @@ public class Turrent : MonoBehaviour
     public LayerMask aimMask;
     public ParticleSystem onHitParticle;
     public ParticleSystem onHitEnemyParticle;
+    public GameObject dayTimeHud;
     private float maxAimDistance = 500;
     private float defaulAimtDistance = 50;
     private float minAimDistance = 2;
+
 
     private ChickenType activeChickenType { get { return References.getChickenUIManager().getActiveChicken(); } }
     private ChickenUIManager chickenUIManager;
@@ -144,6 +146,7 @@ public class Turrent : MonoBehaviour
         if(OnTurrentActiveChange != null)
             OnTurrentActiveChange(turrentModeActive);
         References.getChickenUIManager().showChickenSlots();
+        dayTimeHud.SetActive(false);
         StartCoroutine(References.GetPlayerMovementController().startTurrentMode());
         
         //activeChickenType = References.getInventoryManager().chickenInventories[0];
@@ -152,6 +155,7 @@ public class Turrent : MonoBehaviour
     public void deactiveTurrentMode()
     {
         turrentModeActive = false;
+        dayTimeHud.SetActive(true);
         if(OnTurrentActiveChange != null)
             OnTurrentActiveChange(turrentModeActive);
         
