@@ -21,7 +21,7 @@ MonoBehaviour:
   spentOnNonEnemyImpact: 1
   seedCount: 0
   plantCount: 0
-  currentRank: 2
+  currentRank: 1
   rankCosts: 0100000002000000
   seedStages:
   - {fileID: 1594348963339150, guid: 4c0529d8b6ac1784a9f7a6b393d924c1, type: 2}
