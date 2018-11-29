@@ -2,11 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class EnemySpawnerManager : MonoBehaviour {
 
     float interval = 60f;
     public float localSpawnRadius;
+    public Animator transitionAnimation;
+    public int winSceneIndex = 3;
+
     private Vector3 ufoStartingPosition;
 
     //public List<GameObject> spawnPoints;
@@ -44,15 +48,31 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     public void endNightMode()
     {
-        nightNumber += 1;
-        inNightMode = false;
-        foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("DirtPatch"))
+        if (nightNumber == waves.Count - 1)
         {
-            gameObject.GetComponent<DirtPatch>().endNight();
+            //Victory
+            Debug.Log("Game won");
+            StartCoroutine(LoadScene());
         }
-        References.getChickenUIManager().showDayUI();
-        References.getArtifact().resetPosition();
-        StartCoroutine(References.GetPlayerMovementController().endTurrentMode());
+        else
+        {
+            nightNumber += 1;
+            inNightMode = false;
+            foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("DirtPatch"))
+            {
+                gameObject.GetComponent<DirtPatch>().endNight();
+            }
+            References.getChickenUIManager().showDayUI();
+            References.getArtifact().resetPosition();
+            StartCoroutine(References.GetPlayerMovementController().endTurrentMode());
+        }
     }
 
+    IEnumerator LoadScene()
+    {
+        References.GetPlayerMovementController().beginMenu();
+        transitionAnimation.SetTrigger("FadeToGrey");
+        yield return new WaitForSeconds(2.5f);
+        SceneManager.LoadScene(winSceneIndex);
+    }
 }
