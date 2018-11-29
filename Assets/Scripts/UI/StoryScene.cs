@@ -24,13 +24,12 @@ public class StoryScene : MonoBehaviour {
             if (lineIdx == lines.Count)
                 buttonText.text = "Start Game";
         }
-        else
+        else if (buttonText.text != "Loading")
         {
             startButton.enabled = false;
             buttonText.text = "Loading";
             storyText.enabled = false;
             StartCoroutine(BeginLoadSceneAsync());
-            //SceneManager.LoadScene(sceneToLoad);
         }
     }
 
@@ -62,5 +61,11 @@ public class StoryScene : MonoBehaviour {
         {
             yield return null;
         }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            Nextline();
     }
 }
