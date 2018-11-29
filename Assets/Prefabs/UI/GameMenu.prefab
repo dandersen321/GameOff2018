@@ -594,7 +594,10 @@ MonoBehaviour:
     to talk to shops, plant, and activate the turret\n   -1-6 to select the seed to
     plant or the chicken to fire\r\n   -Space or click to advance the dialog\n   -Selecting
     a seed again will put it away\n\nShops\n   - The Imortal sells seeds\n   - The
-    Alien sells upgrades\n\n"
+    Alien sells upgrades\n\n\nDefense\n   - To defend against the alines you must
+    grow plants\n   - When the turret is activated the wave starts\n\nPlants\n   -
+    After each wave all plants will grow a bit\n   - To pick a plant make sure you
+    have nothing selected\n"
 --- !u!114 &114624539086439354
 MonoBehaviour:
   m_ObjectHideFlags: 1
