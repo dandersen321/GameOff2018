@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 4171179862462804}
   - component: {fileID: 114759293083856550}
   - component: {fileID: 54416619168344564}
-  - component: {fileID: 135871801479014912}
+  - component: {fileID: 65219942599682266}
   m_Layer: 0
   m_Name: Artifact
   m_TagString: Untagged
@@ -86,7 +86,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1713652918950854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.81, y: 1.28, z: -553.18}
+  m_LocalPosition: {x: -32.919067, y: 0.894947, z: -403.25473}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4882858683906218}
@@ -191,6 +191,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &65219942599682266
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1713652918950854}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.52, y: 0.51, z: 0.75}
+  m_Center: {x: 0.23, y: 0.25, z: 0}
 --- !u!108 &108973469927392926
 Light:
   m_ObjectHideFlags: 1
@@ -240,18 +252,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   heldBy: {fileID: 0}
   isInRock: 1
---- !u!135 &135871801479014912
-SphereCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1713652918950854}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.3
-  m_Center: {x: 0.25, y: 0.18, z: 0}
 --- !u!198 &198976180004018730
 ParticleSystem:
   m_ObjectHideFlags: 1
