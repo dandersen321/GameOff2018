@@ -22,14 +22,14 @@ public class SeedShopActivator : Item
 
     public void showSeedShop()
     {
-        References.GetPlayerMovementController().beginMenu();
+        References.GetPlayerMovementController().beginShopMenu();
         seedShopUI.SetActive(true);
         References.getChickenUIManager().updatePlayerMoney();
     }
 
     public void hideSeedShop()
     {
-        References.GetPlayerMovementController().closeMenu();
+        References.GetPlayerMovementController().closeShopMenu();
         seedShopUI.SetActive(false);
     }
 }

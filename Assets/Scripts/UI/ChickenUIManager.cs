@@ -56,6 +56,8 @@ public class ChickenUIManager : MonoBehaviour {
     {
         return chickenSlots[selectedChickenIndex].chickenType;
     }
+
+    
 	
 	// Update is called once per frame
 	void Update () {
@@ -70,19 +72,33 @@ public class ChickenUIManager : MonoBehaviour {
             updatePlayerMoney();
         }
 
-        for(int i = 1; i<=6;++i)
+        
+
+        for (int i = 1; i<=6;++i)
         {
             if(Input.GetKeyDown("" + i))
             {
                 if (i == 1 && !References.GetPlayerMovementController().turrentMode)
                     break;
 
-                selectChickenSlot(i - 1);
+                if (References.GetPlayerMovementController().turrentMode || 
+                    (chickenSlots[i - 1].chickenType != References.GetPlayerMovementController().farmingActiveSeed && chickenSlots[i - 1].chickenType.seedCount>0))
+                {
+                    selectChickenSlot(i - 1);
+                }
+                else
+                {
+                    deselectChickenSlot(i - 1);
+                }
+
+                
                 
             }
         }
-        
-	}
+
+        References.GetPlayerMovementController().checkFarmingKeyPress();
+
+    }
 
     public ChickenSlot getSelectedChickenSlot()
     {
@@ -113,7 +129,24 @@ public class ChickenUIManager : MonoBehaviour {
         selectedChickenIndex = chickenSlotIndex;
         chickenSlots[selectedChickenIndex].selectChicken();
     }
-    
+
+    public void deselectChickenSlot(int chickenSlotIndex)
+    {
+        chickenSlots[selectedChickenIndex].deselectChicken();
+    }
+
+    public void deselectChickenSlotFromItemUse(ChickenType chickenType)
+    {
+        foreach (ChickenSlot chickenSlot in chickenSlots)
+        {
+            if (chickenType == chickenSlot.chickenType)
+            {
+                chickenSlot.deselectChicken();
+            }
+        }
+    }
+
+
     public void showNightUI()
     {
         healthBarBG.SetActive(true);
@@ -121,6 +154,7 @@ public class ChickenUIManager : MonoBehaviour {
         {
             chickenSlot.updateChickenUICount();
         }
+        selectChickenSlot(0);
     } 
 
     public void showDayUI()

@@ -33,6 +33,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public ChickenType farmingActiveSeed;
     private bool inMenu;
+    public bool inShopMenu;
 
     public Animator animator;
 
@@ -141,9 +142,9 @@ public class PlayerMovementController : MonoBehaviour
         }
         else
         {
-            checkFarmingKeyPress();
+            //checkFarmingKeyPress();
 
-            if (!inMenu)
+            if (!inMenu && !inShopMenu)
             {
                 bodyMove();
             }
@@ -152,7 +153,7 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         Debug.Log("InMenu: " + inMenu.ToString());
-        if (!inMenu)
+        if (!inMenu && !inShopMenu)
         {
             cameraMove();
         }
@@ -165,6 +166,12 @@ public class PlayerMovementController : MonoBehaviour
         unlockCursor();
     }
 
+    public void beginShopMenu()
+    {
+        inShopMenu = true;
+        unlockCursor();
+    }
+
     public void closeMenu()
     {
         //throw new KeyNotFoundException("hmm");
@@ -173,9 +180,15 @@ public class PlayerMovementController : MonoBehaviour
         lockCursor();
     }
 
-    private void checkFarmingKeyPress()
+    public void closeShopMenu()
     {
-        if (inMenu && !DialogSystem.Instance.IsActive && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)) && !References.GetGameMenu().isDisplayed())
+        inShopMenu = false;
+        lockCursor();
+    }
+
+    public void checkFarmingKeyPress()
+    {
+        if (inShopMenu && !DialogSystem.Instance.IsActive && (Input.GetKeyDown(KeyCode.E) || Input.GetKeyDown(KeyCode.Escape)))
         {
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();
@@ -187,6 +200,7 @@ public class PlayerMovementController : MonoBehaviour
             {
                 Debug.Log("Found item " + targetedItem.gameObject.name);
                 targetedItem.use();
+                
             }
 
         }
@@ -206,12 +220,15 @@ public class PlayerMovementController : MonoBehaviour
                 {
                     deselectChickenSeed();
                 }
-                selectChickenSeed(chickenType);
+                if (chickenType.seedCount > 0)
+                {
+                    selectChickenSeed(chickenType);
+                }
             }
         }
     }
 
-    private void deselectChickenSeed()
+    public void deselectChickenSeed()
     {
         farmingActiveSeed.startSeed.SetActive(false);
         farmingActiveSeed = null;
@@ -247,7 +264,7 @@ public class PlayerMovementController : MonoBehaviour
         float? closestSqrMagnitude = null;
         foreach (Collider hit in colliders)
         {
-            if (!hit.gameObject.GetComponent<Item>().isUsable(farmingActiveSeed!=null))
+            if (!hit.gameObject.GetComponent<Item>().isUsable(farmingActiveSeed))
                 continue;
             float sqrMagnitude = (this.transform.position - hit.transform.position).sqrMagnitude;
 

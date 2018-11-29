@@ -23,8 +23,8 @@ public class InventoryManager : MonoBehaviour {
     {
         foreach (ChickenType chickenType in chickenInventories)
         {
-            chickenType.chickenCount = 100;
-            chickenType.seedCount = 100;
+            chickenType.chickenCount = 0;
+            chickenType.seedCount = 0;
             chickenType.currentRank = 1;
             //if (chickenType.name == ChickenTypeEnum.explosiveName)
             //{

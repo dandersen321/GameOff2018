@@ -46,11 +46,11 @@ public class DirtPatch : Item {
         plantObj.transform.position = centerLocation;
     }
 
-    public override bool isUsable(bool itemInHand=false)
+    public override bool isUsable(ChickenType chickenInHand)
     {
-        if(itemInHand)
+        if(chickenInHand != null )
         {
-            if (growingChickenFood == null)
+            if (growingChickenFood == null && chickenInHand.seedCount > 0)
             {
                 return true;
             }
@@ -78,6 +78,12 @@ public class DirtPatch : Item {
 
         References.getChickenUIManager().updateDayTimeSeedCount(chickenType);
         updateStage();
+
+        if(chickenType.seedCount <=0)
+        {
+            References.GetPlayerMovementController().deselectChickenSeed();
+            References.getChickenUIManager().deselectChickenSlotFromItemUse(chickenType);
+        }
     }
 
     public override void use()

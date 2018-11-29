@@ -22,14 +22,14 @@ public class UpgradeShopActivator : Item
 
     public void showInventoryShop()
     {
-        References.GetPlayerMovementController().beginMenu();
+        References.GetPlayerMovementController().beginShopMenu();
         gameShopUI.SetActive(true);
         References.getChickenUIManager().updatePlayerMoney();
     }
 
     public void hideUpgradeShop()
     {
-        References.GetPlayerMovementController().closeMenu();
+        References.GetPlayerMovementController().closeShopMenu();
         gameShopUI.SetActive(false);
     }
 }
