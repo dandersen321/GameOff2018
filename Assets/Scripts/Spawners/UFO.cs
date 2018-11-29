@@ -146,7 +146,7 @@ public class UFO : MonoBehaviour {
             }
 
             wave.ufoDied();
-
+            GetComponent<AudioSource>().Stop();
             Destroy(this.gameObject);
         }
 
