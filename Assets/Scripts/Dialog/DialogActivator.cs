@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public enum Speaker {
-    alien, immortal
+    alien, immortal, turret
 }
 
 /// <summary>
@@ -19,11 +19,18 @@ public class DialogActivator : MonoBehaviour {
 
     public void Start()
     {
-        dialog = Json2Dialog.getDialogListForDay(speaker, References.GetEnemySpawnerManager().nightNumber);
+        if (speaker != Speaker.turret)
+            dialog = Json2Dialog.getDialogListForDay(speaker, References.GetEnemySpawnerManager().nightNumber);
     }
 
     public bool ActivateDialog()
     {
+        if (speaker == Speaker.turret)
+        {
+            DialogSystem.Instance.StartDialog(dialog[0]);
+            return true;
+        }
+
         var dialogForDay = dialog.Find(obj => obj.day == References.GetEnemySpawnerManager().nightNumber);
 
         if (dialogForDay != null && !DialogSystem.Instance.IsActive && !dialogForDay.dialogRead)

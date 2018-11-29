@@ -21,6 +21,10 @@ public class Turrent : MonoBehaviour
     private float defaulAimtDistance = 50;
     private float minAimDistance = 2;
 
+    public DialogActivator alienDialog;
+    public DialogActivator imortalDialog;
+    public bool overrideDialogCheck = false;
+
 
     private ChickenType activeChickenType { get { return References.getChickenUIManager().getActiveChicken(); } }
     private ChickenUIManager chickenUIManager;
