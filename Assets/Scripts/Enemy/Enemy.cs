@@ -51,11 +51,7 @@ public class Enemy : MonoBehaviour {
         if (References.getArtifact().heldBy == this)
         {
             // drop it
-            References.getArtifact().heldBy = null;
-            References.getArtifact().transform.parent = null;
-            References.getArtifact().GetComponent<Rigidbody>().isKinematic = false;
-            References.getArtifact().GetComponent<Rigidbody>().useGravity = true;
-            References.getArtifact().GetComponent<Collider>().enabled = true;
+            References.getArtifact().drop();
         }
 
         if (enemySpeed != "fast")
