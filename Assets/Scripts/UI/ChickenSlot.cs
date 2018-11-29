@@ -135,7 +135,7 @@ public class ChickenSlot : MonoBehaviour {
         if (isNormalSlot())
             return;
 
-        chickenCountDayTimeText.text = chickenType.name + " Chickens: " + chickenType.chickenCount;
+        chickenCountDayTimeText.text = chickenType.name + ": " + chickenType.chickenCount;
     }
 
     public bool isUsableAsBullet()
