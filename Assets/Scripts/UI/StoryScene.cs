@@ -46,17 +46,10 @@ public class StoryScene : MonoBehaviour {
 
     }
 
-    // TODO remove this, just to test the json loader
-    private void testJson()
-    {
-        DialogJsonParser.getDialog();
-    }
-
     // Use this for initialization
     void Start () {
         if (lines.Count == 0) {
             initLines();
-            testJson();
         }
         Nextline();
     }

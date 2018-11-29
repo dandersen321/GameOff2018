@@ -8,11 +8,16 @@ public class DayDialog  {
     [HideInInspector]
     public bool dialogRead = false;
     public int day;
-    public Line[] lines;
+    public List<Line> lines;
+
+    public DayDialog()
+    {
+        lines = new List<Line>();
+    }
 }
 
 [System.Serializable]
-public struct Line
+public class Line
 {
     public string name;
     [TextArea(3, 10)]
