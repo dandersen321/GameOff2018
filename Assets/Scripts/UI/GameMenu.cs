@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GameMenu : MonoBehaviour {
 
     public GameObject gameMenu;
+    public GameObject hudToDisable;
 
 	// Use this for initialization
 	void Start () {
@@ -15,6 +16,7 @@ public class GameMenu : MonoBehaviour {
     public void ToggleGameMenu()
     {
         gameMenu.SetActive(!gameMenu.activeSelf);
+        hudToDisable.SetActive(!hudToDisable.activeSelf);
         if (gameMenu.activeSelf)
         {
             References.GetPlayerMovementController().beginMenu();
