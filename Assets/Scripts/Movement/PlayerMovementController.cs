@@ -36,6 +36,9 @@ public class PlayerMovementController : MonoBehaviour
 
     public Animator animator;
 
+    private float stepSoundTimer = 0.5f;
+    private float stepSoundLastPlayed = 0;
+
     void Start()
     {
         inMenu = false;
@@ -65,6 +68,13 @@ public class PlayerMovementController : MonoBehaviour
         if (targetDirection != Vector3.zero)
         {
             bodyController.moveInDirection(targetDirection);
+
+            if(stepSoundLastPlayed <= 0)
+            {
+                AudioPlayer.Instance.PlayRandomFootStep();
+                stepSoundLastPlayed = stepSoundTimer;
+            }
+
         }
 
         bool isGrounded = bodyController.controller.isGrounded;
@@ -74,6 +84,8 @@ public class PlayerMovementController : MonoBehaviour
             //bodyController.jump();
             lastJumpTimer.Start(1f);
         }
+        
+        stepSoundLastPlayed -= Time.deltaTime;
     }
 
     void cameraMove()

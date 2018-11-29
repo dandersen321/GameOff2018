@@ -8,6 +8,9 @@ public class AudioPlayer : MonoBehaviour {
 
     public List<Sound> sounds;
 
+    private string voiceLastPlayed;
+    private string steplastPlayed;
+
     private void Awake()
     {
         if (Instance == null)
@@ -28,6 +31,33 @@ public class AudioPlayer : MonoBehaviour {
     void Start () {
         
 	}
+
+    public void PlayeRandomVoice()
+    {
+        List<string> soundNames = new List<string> { "Voice1", "Voice2", "Voice3", "Voice4" };
+
+        if (voiceLastPlayed != null)
+            soundNames.Remove(voiceLastPlayed);
+
+        string soundName = soundNames[(int)Random.Range(0, soundNames.Count)];
+        voiceLastPlayed = soundName;
+
+        PlayAudio(soundName);
+    }
+
+    public void PlayRandomFootStep()
+    {
+        List<string> soundNames = new List<string> { "Step1", "Step2", "Step3", "Step4", "Step5" };
+
+        if (steplastPlayed != null)
+            soundNames.Remove(steplastPlayed);
+
+        string soundName = soundNames[(int)Random.Range(0, soundNames.Count)];
+        steplastPlayed = soundName;
+
+        PlayAudio(soundName);
+
+    }
 
     public void PlayAudio(string soundName)
     {

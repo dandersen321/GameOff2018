@@ -43,6 +43,8 @@ public class DialogSystem : MonoBehaviour {
     {
         if (lines.Count > 0)
         {
+            AudioPlayer.Instance.PlayeRandomVoice();
+
             if (lines.Count == 1)
                 continueText.text = "Done";
 
