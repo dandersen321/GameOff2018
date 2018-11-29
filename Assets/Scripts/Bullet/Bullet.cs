@@ -70,6 +70,7 @@ public class Bullet : MonoBehaviour {
             if (lifeTimer.Expired())
             {
                 Debug.Log("Bullet expired");
+                AudioPlayer.Instance.PlayAudio("Impact1");
                 Destroy(this.gameObject);
             }
             if (gravityTimer.Expired())
@@ -115,6 +116,9 @@ public class Bullet : MonoBehaviour {
         }
         else
             Debug.Log("Not spawning particles");
+
+        AudioPlayer.Instance.PlayAudio("Impact1");
+
         Destroy(this.gameObject);
     }
 

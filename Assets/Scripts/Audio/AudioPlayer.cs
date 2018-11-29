@@ -11,6 +11,10 @@ public class AudioPlayer : MonoBehaviour {
     private string voiceLastPlayed;
     private string steplastPlayed;
 
+    private string lastBawkPlayed;
+    private float bawkTimeDelay = 1.5f;
+    private float lastBawkTime = 0f;
+
     private void Awake()
     {
         if (Instance == null)
@@ -59,6 +63,28 @@ public class AudioPlayer : MonoBehaviour {
 
     }
 
+    public void PlayRandomBawk()
+    {
+        if (lastBawkTime + bawkTimeDelay >= Time.time)
+        {
+            return;
+        }
+
+        List<string> soundNames = new List<string> { "Bawk1", "Bawk2", "Bawk3", "Bawk4", "Bawk5", "Bawk6" };
+
+        if (lastBawkPlayed != null)
+            soundNames.Remove(lastBawkPlayed);
+
+        string soundName = soundNames[(int)Random.Range(0, soundNames.Count)];
+        lastBawkPlayed = soundName;
+
+        PlayAudio(soundName);
+
+        lastBawkTime = Time.time;
+
+    }
+
+
     public void PlayAudio(string soundName)
     {
         Sound sound = sounds.Find(obj => obj.name == soundName);
@@ -70,7 +96,10 @@ public class AudioPlayer : MonoBehaviour {
         }
 
         if (!sound.source.isPlaying)
+        {
+            sound.source.pitch = Random.Range(.85f, 1.1f);
             sound.source.Play();
+        }
     }
 
     public void PlayClipAtPoint(string soundName, Vector3 position)

@@ -133,6 +133,8 @@ public class Turrent : MonoBehaviour
         factory.createBullet(storedBulletObject, bulletSpawner.transform.position, targetPosition, activeChickenType, onHitParticle: onHitParticle, onHitEnemyParticle: onHitEnemyParticle);
         activeChickenType.chickenCount -= 1;
         chickenUIManager.getSelectedChickenSlot().updateFired();
+        AudioPlayer.Instance.PlayAudio("Gun");
+        AudioPlayer.Instance.PlayRandomBawk();
     }
 
     public void activateTurrentMode()
