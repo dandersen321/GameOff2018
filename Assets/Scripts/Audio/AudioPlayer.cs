@@ -51,7 +51,7 @@ public class AudioPlayer : MonoBehaviour {
 
     public void PlayRandomFootStep()
     {
-        List<string> soundNames = new List<string> { "Step1", "Step2", "Step3", "Step4", "Step5" };
+        List<string> soundNames = new List<string> { "Step1", "Step2", "Step3", "Step4" };
 
         if (steplastPlayed != null)
             soundNames.Remove(steplastPlayed);

@@ -25,7 +25,7 @@ public class Turrent : MonoBehaviour
     //private Timer nextFireTimer = new Timer();
     public bool turrentModeActive;
 
-    public Image dangerImage;
+    public Animator turrentUiAnimator; 
     
 
     void Start()
@@ -33,20 +33,19 @@ public class Turrent : MonoBehaviour
         factory = new BulletFactory();
         //bulletSpawner = GameObject.Find("BulletSpawnPosition");
         chickenUIManager = References.getChickenUIManager();
-        dangerImage = GameObject.Find("TurrentHUD").GetComponent<Image>();
         //dangerImage.enabled = false;
         //StartCoroutine(flashDanger());
     }
 
-    public System.Collections.IEnumerator flashDanger()
+    public void playDamageTakenAnim()
     {
-        for (float i = 0.4f; i>=0; i-=0.02f)
-        {
-            dangerImage.color = new Color(225, 0, 0, i);
-            yield return new WaitForSeconds(0.1f);
-        }
-        
-        //dangerImage.enabled = false;
+        turrentUiAnimator.SetTrigger("DamageTaken"); 
+    }
+
+    public void playArtifactTakeAnim()
+    {
+        Debug.Log("Playing artifact taken animation");
+        turrentUiAnimator.SetTrigger("ArtifactGrabbed"); 
     }
 
     // update the state of the gun
