@@ -112,7 +112,7 @@ public class Bullet : MonoBehaviour {
                 systemToUse = onHitParticle;
             }
             ParticleSystem particle = Instantiate(systemToUse, transform.position, Quaternion.identity) as ParticleSystem;
-            Destroy(particle.gameObject, onHitParticle.main.duration);
+            Destroy(particle.gameObject, systemToUse.main.duration);
         }
         else
             Debug.Log("Not spawning particles");
@@ -138,6 +138,11 @@ public class Bullet : MonoBehaviour {
     {
         if (chickenType.currentRank == 3 && !heatSeekingMini)
             return;
+
+        if (References.getArtifact().heldBy != null)
+            target = References.getArtifact().heldBy.gameObject;
+
+
         GameObject closestTarget = null;
         float? closestSqrMagnitude = null;
         foreach(GameObject gameObject in GameObject.FindGameObjectsWithTag("Enemy"))

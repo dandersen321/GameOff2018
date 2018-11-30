@@ -16,6 +16,7 @@ public class Turrent : MonoBehaviour
     public LayerMask aimMask;
     public ParticleSystem onHitParticle;
     public ParticleSystem onHitEnemyParticle;
+    public ParticleSystem onRadiationParticle;
     public GameObject dayTimeHud;
     private float maxAimDistance = 500;
     private float defaulAimtDistance = 50;

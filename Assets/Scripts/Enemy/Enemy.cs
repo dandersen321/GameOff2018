@@ -74,14 +74,16 @@ public class Enemy : MonoBehaviour {
     public void irridate(int rank)
     {
         irridationCyclesLeft = rank == 1 ? 10 : 15;
-        raditionDamge = rank == 1 ? 1 : 2;
+        raditionDamge = rank == 1 ? 10 : 15;
         irridationRank = rank;
     }
 
     private void doIrridationPoll()
     {
         GetComponent<Health>().TakeDamage(raditionDamge);
-        if(irridationRank == 3)
+        ParticleSystem particle = Instantiate(References.GetTurrent().onRadiationParticle, transform.position, Quaternion.identity) as ParticleSystem;
+        Destroy(particle.gameObject, References.GetTurrent().onRadiationParticle.main.duration);
+        if (irridationRank == 3)
         {
             Vector3 explosionPos = this.transform.position;
             Collider[] colliders = Physics.OverlapSphere(explosionPos, irridationRank3Radius);

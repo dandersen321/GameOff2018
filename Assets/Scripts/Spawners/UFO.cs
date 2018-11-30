@@ -19,6 +19,7 @@ public class UFO : MonoBehaviour {
     private float speed = 5f;
     public float chargeTime;
     public float intervalTime = 1f;
+    private int failedToSpawn = 0;
 
     private Wave wave;
 
@@ -96,8 +97,13 @@ public class UFO : MonoBehaviour {
         else
         {
             // TODO remove this
-            throw new KeyNotFoundException("Hmm, no nav mesh hit?");
-            return null;
+            failedToSpawn += 1;
+            if(failedToSpawn >= 5)
+            {
+                retreat();
+            }
+            //throw new KeyNotFoundException("Hmm, no nav mesh hit?");
+            //return null;
         }
         string name = enemyPrefab.GetComponent<Enemy>().name;
         //if (enemyObjectPool[name].Count > 0)
