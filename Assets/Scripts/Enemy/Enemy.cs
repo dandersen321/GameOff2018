@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour {
     private Animator animator;
     public string enemySpeed;
 
+    private Timer lifeTimer;
+
     // Use this for initialization
     void Start () {
         animator = GetComponent<Animator>();
@@ -27,6 +29,8 @@ public class Enemy : MonoBehaviour {
         health = GetComponent<Health>();
         health.onDeathAction += die;
 
+        lifeTimer = new Timer();
+        lifeTimer.Start(120); //in case they get stuck
 
     }
 
@@ -36,6 +40,11 @@ public class Enemy : MonoBehaviour {
         if(irridationCyclesLeft > 0 && irridationPoll.Expired())
         {
             doIrridationPoll();
+        }
+
+        if(lifeTimer.Expired() && alive)
+        {
+            die();
         }
 	}
 

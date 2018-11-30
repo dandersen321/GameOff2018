@@ -201,6 +201,10 @@ public class AgentMovementController : MonoBehaviour
         References.getArtifact().transform.parent = this.gameObject.transform;
 
         References.getArtifact().grab();
+        if (enemy.enemySpeed == "fast")
+        {
+            slowDown(0.5f, 300);
+        }
 
         //StartCoroutine(References.GetTurrent().flashDanger());
         References.GetTurrent().playArtifactTakeAnim();

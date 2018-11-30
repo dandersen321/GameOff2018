@@ -29,7 +29,7 @@ public class AttackManager : MonoBehaviour {
         if (!this.GetComponent<AgentMovementController>().attackPlayer)
             return;
         
-        if(!canAttackTimer.Expired() || !checkAttackRange.Expired())
+        if(!canAttackTimer.Expired() || !checkAttackRange.Expired() || !GetComponent<Enemy>().alive)
         {
             // we aren't ready to attack again yet
             return;

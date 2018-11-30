@@ -220,10 +220,10 @@ public class PlayerMovementController : MonoBehaviour
             //}
             //else
             {
-                if (farmingActiveSeed)
-                {
-                    deselectChickenSeed();
-                }
+                //if (farmingActiveSeed)
+                //{
+                //    deselectChickenSeed();
+                //}
                 if (chickenType.seedCount > 0)
                 {
                     selectChickenSeed(chickenType);
@@ -234,12 +234,17 @@ public class PlayerMovementController : MonoBehaviour
 
     public void deselectChickenSeed()
     {
-        farmingActiveSeed.startSeed.SetActive(false);
+        if (farmingActiveSeed != null)
+        {
+            farmingActiveSeed.startSeed.SetActive(false);
+        }
         farmingActiveSeed = null;
     }
 
     private void selectChickenSeed(ChickenType chickenType)
     {
+        
+        deselectChickenSeed();
         chickenType.startSeed.SetActive(true);
         farmingActiveSeed = chickenType;
     }
