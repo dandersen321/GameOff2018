@@ -54,14 +54,12 @@ public class DirtPatch : Item {
             {
                 return true;
             }
-            return false;
+            
         }
-        else
-        {
-            return isPickable();
-        }
-        
-        
+
+        return isPickable();
+
+
 
     }
     public bool isPickable()

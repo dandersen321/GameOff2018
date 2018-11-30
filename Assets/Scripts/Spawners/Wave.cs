@@ -35,6 +35,10 @@ public class Wave : MonoBehaviour
 
     public void endWave()
     {
+        foreach(UFO ufo in ufos)
+        {
+            Destroy(ufo.gameObject);
+        }
         this.enemySpawnManager.endNightMode();
         //References.getChickenUIManager().addPlayerMoney(moneyOnClear);
         References.getChickenUIManager().addPlayerMoney((References.GetEnemySpawnerManager().nightNumber+1)*100);

@@ -34,6 +34,8 @@ public class EnemySpawnerManager : MonoBehaviour {
         //waves = new List<GameObject>(GameObject.FindGameObjectsWithTag("Wave"));
         waves = new List<Wave>(GetComponentsInChildren<Wave>());
         //ufoStartingPosition = GameObject.Find("UfoSpawner").transform.position;
+
+        
     }
 
     // Update is called once per frame
