@@ -19,7 +19,7 @@ public class UFO : MonoBehaviour {
     private float speed = 5f;
     public float chargeTime;
     public float intervalTime = 1f;
-    private int failedToSpawn = 0;
+    private int failedToSpawn;
 
     private Wave wave;
 
@@ -29,7 +29,12 @@ public class UFO : MonoBehaviour {
         //this.enemyPrefabs = enemyPrefabs;
         //this.landingPosition = landingPosition;
         this.wave = wave;
-        this.started = true;
+        started = true;
+        flying = true;
+        unloadingTroops = false;
+        waitingForTroops = false;
+        retreating = false;
+        landedEnemies = new List<Enemy>();
         //this.startingPosition = this.transform.position;
     }
 
@@ -66,8 +71,8 @@ public class UFO : MonoBehaviour {
         Vector2 localSpawnPoint = new Vector2(spawnPoint.x, spawnPoint.z);
         float localSpawnRadius = 5f;
 
-        landedEnemies = new List<Enemy>();
-
+        
+        failedToSpawn = 0;
         foreach (EnemyType enemyType in enemyTypes)
         {
             
@@ -182,4 +187,21 @@ public class UFO : MonoBehaviour {
         }
 		
 	}
+
+    public void resetUfo()
+    {
+        StopAllCoroutines();
+        if (landedEnemies != null && landedEnemies.Count > 0)
+        {
+            foreach (Enemy enemy in landedEnemies)
+            {
+                if (enemy.gameObject)
+                {
+                    Destroy(enemy.gameObject);
+                }
+            }
+        }
+        this.transform.position = this.startingPosition;
+        this.gameObject.SetActive(false);
+    }
 }

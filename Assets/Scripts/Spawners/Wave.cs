@@ -10,9 +10,9 @@ public class Wave : MonoBehaviour
     public float localSpawnRadius;
 
     private List<UFO> ufos;
-    private int ufosActive = 0;
-    private int ufosDead = 0;
-    private int ufoCheck = 0;
+    private int ufosActive;
+    private int ufosDead;
+    private int ufoCheck;
     //private bool noUfosActive = false;
 
     //private Vector3 ufoStartingPosition;
@@ -42,6 +42,9 @@ public class Wave : MonoBehaviour
 
     public void StartWave(EnemySpawnerManager enemySpawnManager)
     {
+        ufosActive = 0;
+        ufosDead = 0;
+        ufoCheck = 0;
         this.enemySpawnManager = enemySpawnManager;
         StartCoroutine(SpawnUfos());
     }
@@ -92,6 +95,17 @@ public class Wave : MonoBehaviour
         {
             endWave();
         }
+    }
+
+    public void resetWave()
+    {
+        StopAllCoroutines();
+        foreach(UFO ufo in ufos)
+        {
+            ufo.resetUfo();
+        }
+
+        StartWave(enemySpawnManager);
     }
 
 }

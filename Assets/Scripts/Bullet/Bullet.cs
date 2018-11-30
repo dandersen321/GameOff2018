@@ -140,7 +140,12 @@ public class Bullet : MonoBehaviour {
             return;
 
         if (References.getArtifact().heldBy != null)
+        {
             target = References.getArtifact().heldBy.gameObject;
+            return;
+        }
+
+
 
 
         GameObject closestTarget = null;

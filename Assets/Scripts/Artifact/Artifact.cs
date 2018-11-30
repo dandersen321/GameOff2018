@@ -21,6 +21,8 @@ public class Artifact : MonoBehaviour {
 
     public void resetPosition()
     {
+        heldBy = null;
+        this.transform.parent = null;
         this.transform.position = startingPosition;
         isInRock = true;
         GetComponent<Rigidbody>().isKinematic = false;

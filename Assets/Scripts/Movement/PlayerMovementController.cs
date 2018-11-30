@@ -410,6 +410,8 @@ public class PlayerMovementController : MonoBehaviour
         closeMenu();
 
         //TODO: the rest of the stuff
+
+        References.GetEnemySpawnerManager().resetNight();
     }
 
     //private void useItem(Item item)

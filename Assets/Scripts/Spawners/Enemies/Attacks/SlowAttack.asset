@@ -14,5 +14,5 @@ MonoBehaviour:
   animationClip: {fileID: 7400004, guid: 348609f278eaf9b408dcbbc073fefc49, type: 3}
   BlendTreeClipName: SlugAttack
   attackRange: 0
-  baseDamage: 25
+  baseDamage: 15
   postAttackCooldown: 4

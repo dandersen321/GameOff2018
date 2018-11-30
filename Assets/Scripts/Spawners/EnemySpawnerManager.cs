@@ -13,6 +13,9 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     private Vector3 ufoStartingPosition;
 
+    private int prePlayerMoney;
+    private List<int> preChickenCounts;
+
     //public List<GameObject> spawnPoints;
     //public List<GameObject> enemyPrefabs;
     //public GameObject ufoPrefab;
@@ -40,9 +43,17 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     public void StartNight()
     {
+        prePlayerMoney = References.getChickenUIManager().playerMoney;
+        preChickenCounts = new List<int>();
+        foreach(ChickenType chickenType in References.getInventoryManager().chickenInventories)
+        {
+            preChickenCounts.Add(chickenType.chickenCount);
+        }
+
         Debug.Log("Starting Night " + nightNumber);
         References.getArtifact().isInRock = true;
         References.getChickenUIManager().showNightUI();
+        References.GetPlayer().GetComponent<Health>().resetHealth();
         waves[nightNumber].StartWave(this);
     }
 
@@ -74,5 +85,24 @@ public class EnemySpawnerManager : MonoBehaviour {
         transitionAnimation.SetTrigger("FadeToGrey");
         yield return new WaitForSeconds(2.5f);
         SceneManager.LoadScene(winSceneIndex);
+    }
+
+    public void resetNight()
+    {
+        References.getChickenUIManager().playerMoney = prePlayerMoney;
+        for (int i = 0; i < preChickenCounts.Count; ++i)
+        {
+            References.getInventoryManager().chickenInventories[i].chickenCount = preChickenCounts[i];
+            //preChickenCounts.Add(chickenType.chickenCount);
+        }
+
+        References.getArtifact().resetPosition();
+        References.GetPlayer().GetComponent<Health>().resetHealth();
+
+        waves[nightNumber].resetWave();
+
+        References.getChickenUIManager().showNightUI();
+
+
     }
 }
