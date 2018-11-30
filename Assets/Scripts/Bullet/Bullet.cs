@@ -291,7 +291,8 @@ public class Bullet : MonoBehaviour {
         Enemy enemy = objectHit.GetComponent<Enemy>();
         if (enemy == null)
             return;
-        enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
+        int rankModifer = chickenType.currentRank == 1 ? 1 : 2;
+        enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage * rankModifer);
     }
 
     void doHeatSeekingEffect(GameObject objectHit)

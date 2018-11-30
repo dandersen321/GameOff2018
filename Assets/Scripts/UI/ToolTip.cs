@@ -58,7 +58,7 @@ public class ToolTip : MonoBehaviour {
     public void ShowToolTipInfo()
     {
         toolTip.SetActive(true);
-        toolTip.transform.position = this.transform.position + new Vector3(350, -250, 0);
+        toolTip.transform.position = this.transform.position + new Vector3(250, -250, 0);
         nameText.text = nameToDisplay;
         mainText.text = messageToDisplay;
     }
