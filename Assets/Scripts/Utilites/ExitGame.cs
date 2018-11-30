@@ -14,6 +14,7 @@ public class ExitGame : MonoBehaviour {
 
     public void QuitToMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(mainMenuScene);
     }
 }
