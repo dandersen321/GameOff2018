@@ -19,7 +19,7 @@ public class ChickenSlot : MonoBehaviour {
 
     private bool isNormalSlot()
     {
-        return this.gameObject.name == "Chicken1";
+        return chickenType.name == ChickenTypeEnum.normalName;
     }
 
     // Use this for initialization

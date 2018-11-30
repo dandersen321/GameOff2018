@@ -182,12 +182,20 @@ public class PlayerMovementController : MonoBehaviour
         //Debug.Log("Closing Menu");
         inMenu = false;
         lockCursor();
+        if (References.activeToolTip != null)
+        {
+            References.activeToolTip.HideToolTipInfo();
+        }
     }
 
     public void closeShopMenu()
     {
         inShopMenu = false;
         lockCursor();
+        if (References.activeToolTip != null)
+        {
+            References.activeToolTip.HideToolTipInfo();
+        }
     }
 
     public void checkFarmingKeyPress()

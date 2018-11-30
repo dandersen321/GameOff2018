@@ -16,6 +16,7 @@ public static class References  {
     private static SeedShopActivator seedShopActivator;
     private static UpgradeShopActivator ugradeShopActivator;
     private static GameMenu gameMenu;
+    public static ToolTip activeToolTip;
 
 
 
@@ -89,6 +90,11 @@ public static class References  {
         return gameMenu;
     }
 
-    
+    public static ToolTip GetToolTip()
+    {
+        return activeToolTip;
+    }
+
+
 
 }
