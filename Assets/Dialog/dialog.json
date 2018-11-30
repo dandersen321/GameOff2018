@@ -1,37 +1,32 @@
 {
     "speakers" : {
         "alien" : {
-            "name" : "Neil A.",
-            "otherSpeakerPrompt" : "As much as it pains me to say, maybe you should go check on that pile of hay and make sure there are no flamables nearby.",
-            "defaultDialog" : "Fine day for ballistic chickens eh?"
+            "name"          : "Neil A.",
+            "defaultDialog" : "Fine day for ballistic chickens eh?!"
         },
         "immortal" : {
-            "name" : "Immortal",
-            "otherSpeakerPrompt" : "Just because I can live forever doesn't mean I want to talk forever.",
-            "defaultDialog" : ""
+            "name"          : "Immortal",
+            "defaultDialog" : "Are they all gone? Are you sure you got them all?"
         },
         "farmer" : {
-            "name" : "Farmer",
-            "otherSpeakerPrompt" : "",
-            "defaultDialog" : ""
+            "name" : "Farmer"
         }
     },
     "dayDialog" : [
         {
-            "day" : 1,
-            "firstSpeaker" : "alien",
+            "day" : 0,
             "alienDialog" : [
                 {
                     "speaker" : "alien",
-                    "text"    : "There is no use trying to touch The Artifact human! It takes an impressive amount of energy to breach its protective barrier, energy that humans are incapable of. There is no need to fear me, I assure you. Mine is a peaceful and gentle race. How could I hurt anyone with no arms anyway? We use the Artifacts to expand the understanding of the universe and promote the good of life. I probably seem pretty alien to you eh? You can just call me Niel A. though. But don't let my good looks and charm fool you. There are indeed other, not so friendly aliens out there in the abyss of space. In fact they are most assuredly on their way to retrieve the Artifact for less chivalrous means."
+                    "text"    : "There is no use trying to touch The Artifact human! It takes an impressive amount of energy to breach its protective barrier, energy that humans are incapable of. There is no need to fear me, I assure you. Mine is a peaceful and gentle race. How could I hurt anyone anyway, I have no hands! We use the Artifacts to expand the understanding of the universe and promote the good of life. I probably seem pretty alien to you eh? You can just call me Neil A. though. But don't let my good looks and charm fool you. There are indeed other, not so friendly aliens out there in the abyss of space. In fact they are most assuredly on their way to retrieve the Artifact for less chivalrous means."
                 },
                 {
                     "speaker" : "farmer",
-                    "text"    : "On their way? How did you get here so fast then?"
+                    "text"    : "On their way? Then how did you get here so fast then?"
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "I was already here. As a matter of fact I was honorably selected by the royal court to reside on Earth, awaiting the arrival of an Artifact. The royal court is surely on its way here in The Mothership as we speak. Despite being lightyears away, they should be here in 14 Earth days. The nefarious aliens though, are likely closer and are undoubtedly hostile."
+                    "text"    : "I was already here. As a matter of fact I was honorably selected by the high council to reside on Earth, awaiting the arrival of an Artifact. The council is surely on its way here in The Mothership as we speak. Despite being lightyears away, they should be here in less than 15 Earth days. The nefarious aliens though, are likely closer and are undoubtedly hostile."
                 },
                 {
                     "speaker" : "farmer",
@@ -47,17 +42,167 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "Excellent. There will be time for questions later. For now, lets go over some basics about how to defend your farm and more importantly the Artifact."
+                    "text"    : "Thats the right answer. to defend your farm, use that turret over there to fire at enemies, who will attempt to steal the artifact and take it back to their ship. The enemy will only attack at night, the cowards. In order to enter the turret, press E. E is the action key used to interact with objects here. Don't worry, if its too much for you to remember, you can always press ESC then HELP to view a controls list."
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "That is a fancy turret and all, but what will I use for ammunition?"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "You may have to get creative. Those crops on that farm plot over there. They seem to be affected by the Quather... Perhaps you can use what you have on the farm. Just pick your crops and feed your chickens, like any other day. But when you are ready for battle, enter the turret. Oh and don't pay any mind to that nervous pile of hay over there staring at us. My immortal human has gone practically mad over the centuries. Don't take anything he says too seriously. And don't forget, ESC then HELP to display controls. I shouldn't have to tell you this since its your farm, but your farm plots over there are ready for you to plant seeds. Just equip them by pressing that number on the keyboard then stand on the farm plot and press E. If you need more seeds just ask me. You might be able to get help from the immortal over in front of your house, with feeding the chickens."
+                }
+            ]
+        },
+        {
+            "day" : 1,
+            "alienDialog" : [
+                {
+                    "speaker" : "immortal",
+                    "text"    : "Not bad! There will be more attacks before the mothership arrives. I hate to say it but the immortal pile of hay over there may be able to help you with the chickens."
+                }
+            ],
+            "immortalDialog" : [
+                {
+                    "speaker" : "immortal",
+                    "text"    : "It may sound crazy but I think I can help you make those chickens work a little better for you. I mean if it were me, I'd run away at the sight of one of those things flying towards me like that. But I'm the one hiding in the hay... But those things in the flying saucers don't seem to care. Maybe if we feed the chickens some of those Quather infested plants you've harvested, maybe it'll make the chickens more threatening?"
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "I guess we could try it... Why are you hiding in the hay anyway?"
+                },
+                {
+                    "speaker" : "immortal",
+                    "text"    : "I.. don't remember. Isn't it terrifying when you can't remember something?"
                 }
             ]
         },
         {
             "day" : 2,
-            "firstSpeaker" : "immortal",
             "immortalDialog" : [
                 {
                     "speaker" : "immortal",
-                    "text"    : ""
+                    "text"    : "Its not easy being immortal. When you are mortal you know its going to end so its ok to get lazy and not care at the end. When you live forever there is all this pressure to keep it together."
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "How'd you get to be immortal anyway?"
+                },
+                {
+                    "speaker" : "immortal",
+                    "text"    : "That ghastly thing in the trenchcoat made me this way."
+                }
+            ],
+            "alienDialog" : [
+                {
+                    "speaker" : "alien",
+                    "text"    : "Well, we are still here. You must be doing something right"
+                }
+            ]
+        },
+        {
+            "day" : 3,
+            "alienDialog" : [
+                {
+                    "speaker" : "alien",
+                    "text"    : "You've been talking to the immortal haven't you? He can't be taken seriously, he's too scared to even show his face!"
+                }
+            ]
+        },
+        {
+            "day" : 4,
+            "alienDialog" : [
+                {
+                    "speaker" : "alien",
+                    "text"    : "The Quather is extremely powerful. What human scientists have theorized to be impossible, is probably possible through harnessing the Quather. As evidence, its clearly improved your farm quite a bit."
+                }
+            ]
+        },
+        {
+            "day" : 5,
+            "immortalDialog" : [
+                {
+                    "speaker" : "farmer",
+                    "text"    : "Do you have any memory about how you became immortal?"
+                },
+                {
+                    "speaker" : "immortal",
+                    "text"    : "It...it was...there was a light...and...I gah, I just don't remember!"
+                }
+            ],
+            "alienDialog" : [
+                {
+                    "speaker" : "farmer",
+                    "text"    : "Why did you give the immortal immortality?"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "I needed protection of course. You see, with no hands its a little challenging to protect myself. I thought you would have figured that out by now."
+                }
+            ]
+        },
+        {
+            "day" : 6,
+            "immortalDialog" : [
+                {
+                    "speaker" : "immortal",
+                    "text"    : "Your tactics and chickens are getting pretty advanced. Do you think... Do you think they'll work on me?"
+                }
+            ],
+            "alienDialog" : [
+                {
+                    "speaker" : "farmer",
+                    "text"    : "The immortal seems pretty unstable. Should I be worried?"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "You just worry about defending the Artifact. Its all that matters."
+                }
+            ]
+        },
+        {
+            "day" : 7,
+            "immortalDialog" : [
+                {
+                  "speaker"   : "immortal",
+                    "text"    : "Your tactics and chickens are getting pretty advanced. Do you think... Do you think they'll work on me?"
+                }
+            ],
+            "alienDialog" : [
+                {
+                    "speaker" : "farmer",
+                    "text"    : "The immortal seems pretty unstable. Should I be worried?"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "You just worry about defending the Artifact. Its all that matters."
+                }
+            ]
+        },
+        {
+            "day" : 8,
+            "immortalDialog" : [
+                {
+                  "speaker"   : "immortal",
+                    "text"    : "During the attack last night I saw the trenchcoat get a little too close to the enemy. He's probably pretty defenseless with no hands."
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "Are you concerned for his well-being?"
+                },
+                {
+                  "speaker"   : "immortal",
+                    "text"    : "It scared me to watch but I'm always scared I guess. If the trenchcoat were attacked I'd be scared but for some reason... some reason I can't explain... I would like it."
+                }
+            ],
+            "alienDialog" : [
+                {
+                    "speaker" : "farmer",
+                    "text"    : "Is there something you aren't telling me about this Artifact, about the immortal?"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "I can tell you the long boring story about the centuries I've had to put up with listening to that miserable pile of hay...or. You can pick your crops feed your chickens and defend this Artifact."
                 }
             ]
         }
