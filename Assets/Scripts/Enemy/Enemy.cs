@@ -55,7 +55,6 @@ public class Enemy : MonoBehaviour {
 
     public IEnumerator deathAnimations() { 
         Debug.Log("Death!");
-        AudioPlayer.Instance.PlayAudio("Impact1");
         alive = false;
         agentController.stopMoving = true;
         if (References.getArtifact().heldBy == this)

@@ -78,7 +78,6 @@ public class Bullet : MonoBehaviour {
         if (lifeTimer.Expired())
         {
             Debug.Log("Bullet expired");
-            //AudioPlayer.Instance.PlayAudio("Impact1");
             Destroy(this.gameObject);
         }
     }
@@ -104,6 +103,7 @@ public class Bullet : MonoBehaviour {
         startEffects(objectHit);
         if (onHitParticle != null)
         {
+            AudioPlayer.Instance.PlayAudio("Impact1");
             Debug.Log("Spawning particles");
             ParticleSystem systemToUse;
             if(objectHit.GetComponent<Enemy>() != null)
@@ -120,8 +120,6 @@ public class Bullet : MonoBehaviour {
         else
             Debug.Log("Not spawning particles");
 
-        //if(objectHit.GetComponent<Enemy>() != null)
-        //    AudioPlayer.Instance.PlayAudio("Impact1");
 
         if (chickenType.name != ChickenTypeEnum.slowName || chickenType.currentRank < 3)
         {

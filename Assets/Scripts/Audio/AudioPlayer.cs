@@ -15,6 +15,9 @@ public class AudioPlayer : MonoBehaviour {
     private float bawkTimeDelay = 1.5f;
     private float lastBawkTime = 0f;
 
+    private float impactTimeDelay = 2f;
+    private float lastImpactTime = 0f;
+
     private void Awake()
     {
         if (Instance == null)
@@ -87,6 +90,11 @@ public class AudioPlayer : MonoBehaviour {
 
     public void PlayAudio(string soundName)
     {
+        if (soundName == "Impact1" && lastImpactTime + impactTimeDelay >= Time.time)
+        {
+            return;
+        }
+
         Sound sound = sounds.Find(obj => obj.name == soundName);
 
         if (sound == null)
