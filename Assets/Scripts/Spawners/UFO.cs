@@ -146,7 +146,7 @@ public class UFO : MonoBehaviour {
 
     void retreat()
     {
-        float step = speed * Time.deltaTime;
+        float step = speed * Time.deltaTime * 1.5f;
         Vector3 targetPosition = startingPosition;
         this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, step);
         if (Vector3.Distance(this.transform.position, targetPosition) < 1f)
@@ -158,7 +158,8 @@ public class UFO : MonoBehaviour {
 
             wave.ufoDied();
             GetComponent<AudioSource>().Stop();
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
+            //Destroy(this.gameObject);
         }
 
         
@@ -195,7 +196,7 @@ public class UFO : MonoBehaviour {
         {
             foreach (Enemy enemy in landedEnemies)
             {
-                if (enemy.gameObject)
+                if (enemy != null && enemy.gameObject)
                 {
                     Destroy(enemy.gameObject);
                 }

@@ -88,7 +88,7 @@ public class ChickenUIManager : MonoBehaviour {
                 }
                 else
                 {
-                    deselectChickenSlot(i - 1);
+                    //deselectChickenSlot(i - 1);
                 }
 
                 
@@ -209,6 +209,9 @@ public class ChickenUIManager : MonoBehaviour {
         UpgradeShopSlot upgradeShopSlot = getUpgradeShopSlot(chickenType, rank);
         if (!upgradeShopSlot.buyable(playerMoney))
             return;
+
+        ParticleSystem particle = Instantiate(References.GetTurrent().onLevelUpParticle, References.GetPlayer().transform.position, Quaternion.identity) as ParticleSystem;
+        Destroy(particle.gameObject, References.GetTurrent().onLevelUpParticle.main.duration);
 
         playerMoney -= upgradeShopSlot.getPrice();
         chickenType.currentRank += 1;
