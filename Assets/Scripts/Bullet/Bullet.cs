@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour {
     /// <summary>
     /// How long bullet will last before being destroyed
     /// </summary>
-    float lifeTime = 10f;
+    float lifeTime = 15f;
     float timeUntilGravity = 0.25f;
 
     /// <summary>
@@ -64,31 +64,34 @@ public class Bullet : MonoBehaviour {
             // Move our position a step closer to the target.
             this.transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
 
+
         }
         else
         {
-            if (lifeTimer.Expired())
-            {
-                Debug.Log("Bullet expired");
-                //AudioPlayer.Instance.PlayAudio("Impact1");
-                Destroy(this.gameObject);
-            }
+
             if (gravityTimer.Expired())
             {
                 this.GetComponent<Rigidbody>().useGravity = true;
             }
         }
-	}
+
+        if (lifeTimer.Expired())
+        {
+            Debug.Log("Bullet expired");
+            //AudioPlayer.Instance.PlayAudio("Impact1");
+            Destroy(this.gameObject);
+        }
+    }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.name == "Player")
+        if (collision.gameObject.name == "Player" || collision.gameObject.GetComponent<Bullet>() != null)
             return;
 
         Enemy enemy = collision.gameObject.GetComponent<Enemy>();
         if (chickenType.spentOnNonEnemyImpact || enemy)
         {
-            hitEnemy(collision.gameObject);
+            hitObject(collision.gameObject);
         }
 
       
@@ -96,7 +99,7 @@ public class Bullet : MonoBehaviour {
         
     }
 
-    public void hitEnemy(GameObject objectHit)
+    public void hitObject(GameObject objectHit)
     {
         startEffects(objectHit);
         if (onHitParticle != null)
@@ -120,7 +123,17 @@ public class Bullet : MonoBehaviour {
         //if(objectHit.GetComponent<Enemy>() != null)
         //    AudioPlayer.Instance.PlayAudio("Impact1");
 
-        Destroy(this.gameObject);
+        if (chickenType.name != ChickenTypeEnum.slowName || chickenType.currentRank < 3)
+        {
+            if (objectHit.GetComponent<Enemy>() == null && heatSeeking)
+            {
+                return;
+            }
+            else
+            {
+                Destroy(this.gameObject);
+            }
+        }
     }
 
     public void spawnMiniMissiles()
@@ -252,23 +265,27 @@ public class Bullet : MonoBehaviour {
     void doSteriodEffect(GameObject objectHit)
     {
 
-        if (chickenType.currentRank == 3)
+        if (chickenType.currentRank == 3 && !heatSeekingMini)
         {
             Debug.Log("steroid rank 3 effect");
-            BulletFactory bulletFactory = new BulletFactory();
-            GameObject chickenPrefab = References.GetTurrent().storedBulletObject;
-            ChickenType normalChicken = References.getInventoryManager().chickenInventories[0];
-            float chickenRange = 10;
-            for (int i = 0; i < 5; ++i)
+            for (int i = 0; i < 3; ++i)
             {
-                //Debug.Log("Creating " + i);
-
-                Vector2 offsetV2 = (Random.insideUnitCircle.normalized * chickenRange);
-                Vector3 targetPosition = this.transform.position + new Vector3(offsetV2.x, 0, offsetV2.y);
-
-
-                bulletFactory.createBullet(chickenPrefab, this.transform.position, targetPosition, normalChicken);
+                spawnMiniMissiles();
             }
+            //BulletFactory bulletFactory = new BulletFactory();
+            //GameObject chickenPrefab = References.GetTurrent().storedBulletObject;
+            //ChickenType normalChicken = References.getInventoryManager().chickenInventories[0];
+            //float chickenRange = 10;
+            //for (int i = 0; i < 5; ++i)
+            //{
+            //    //Debug.Log("Creating " + i);
+
+            //    Vector2 offsetV2 = (Random.insideUnitCircle.normalized * chickenRange);
+            //    Vector3 targetPosition = this.transform.position + new Vector3(offsetV2.x, 0, offsetV2.y);
+
+
+            //    bulletFactory.createBullet(chickenPrefab, this.transform.position, targetPosition, normalChicken);
+            //}
         }
 
         Enemy enemy = objectHit.GetComponent<Enemy>();

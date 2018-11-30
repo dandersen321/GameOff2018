@@ -11,6 +11,7 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
     public float implosionSpeed = 5f;
     public float implosionRadius = 10.0F;
     private Timer implosionTimer = new Timer();
+    private Timer particleImplosionTimer = new Timer();
     //private float implosionInterval = 0.1f;
     private int numberOfImplosionTicks = 100; 
 
@@ -32,6 +33,13 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
             //for(int i = 0; i < numberOfImplosionTicks; ++i)
             while(!implosionTimer.Expired())
             {
+                if(particleImplosionTimer.Expired())
+                {
+                    ParticleSystem implosionParticle = Instantiate(References.GetTurrent().onImplosionParticle, positionHit, Quaternion.identity) as ParticleSystem;
+                    Destroy(implosionParticle.gameObject, References.GetTurrent().onImplosionParticle.main.duration);
+                    particleImplosionTimer.Start(1f);
+                }
+
                 //Debug.Log("Implosion effect Effect!!! " + i);
                 Collider[] collidersImplosion = Physics.OverlapSphere(positionHit, implosionRadius);
                 foreach (Collider hit in collidersImplosion)
@@ -96,6 +104,9 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
             //Debug.Log("doing explosive to " + hit.name);
             rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
         }
+
+        ParticleSystem particle = Instantiate(References.GetTurrent().onHitParticle, positionHit, Quaternion.identity) as ParticleSystem;
+        Destroy(particle.gameObject, References.GetTurrent().onHitParticle.main.duration);
 
         effectDone = true;
     }

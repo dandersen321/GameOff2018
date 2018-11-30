@@ -126,7 +126,7 @@ public class Enemy : MonoBehaviour {
         if(alive && bullet != null)
         {
             Debug.Log("Hit enemy via trigger");
-            bullet.hitEnemy(this.gameObject);
+            bullet.hitObject(this.gameObject);
         }
     }
 }

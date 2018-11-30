@@ -68,7 +68,7 @@ public class ChickenUIManager : MonoBehaviour {
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();
             showDayUI();
-            playerMoney = 100;
+            playerMoney = 100000;
             updatePlayerMoney();
         }
 
