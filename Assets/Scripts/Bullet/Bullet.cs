@@ -39,6 +39,7 @@ public class Bullet : MonoBehaviour {
 
         lifeTimer.Start(lifeTime);
         gravityTimer.Start(timeUntilGravity);
+        Physics.IgnoreLayerCollision(11, 11);
     }
 	
 	void Update ()
