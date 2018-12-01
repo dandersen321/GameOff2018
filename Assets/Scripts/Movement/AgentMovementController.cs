@@ -43,7 +43,8 @@ public class AgentMovementController : MonoBehaviour
         }
         else
         {
-            attackPlayer = (Random.value < .5);
+            attackPlayer = false;
+            //attackPlayer = (Random.value < .5);
             //attackPlayer = true;
             //float distanceToKeep = GetComponent<AttackManager>().attackData[0].attackRange - 2f;
             //float distanceToKeep = GetComponent<AttackManager>().attackData[0].attackRange *2;

@@ -43,7 +43,7 @@ public class Enemy : MonoBehaviour {
             doIrridationPoll();
         }
 
-        if(lifeTimer.Expired() && alive)
+        if(lifeTimer != null && lifeTimer.Expired() && alive)
         {
             die();
         }
@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour {
 
         if (enemySpeed != "fast")
         {
+            this.GetComponent<Collider>().enabled = false;
             // medium and large guys
             animator.SetTrigger("death");
             yield return new WaitForSeconds(3f);
@@ -120,13 +121,13 @@ public class Enemy : MonoBehaviour {
         irridationPoll.Start(1);
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        Bullet bullet = other.GetComponent<Bullet>();
-        if(alive && bullet != null)
-        {
-            Debug.Log("Hit enemy via trigger");
-            bullet.hitObject(this.gameObject);
-        }
-    }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    //Bullet bullet = other.GetComponent<Bullet>();
+    //    //if(alive && bullet != null)
+    //    //{
+    //    //    Debug.Log("Hit enemy via trigger");
+    //    //    bullet.hitObject(this.gameObject);
+    //    //}
+    //}
 }

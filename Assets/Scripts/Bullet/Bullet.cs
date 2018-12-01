@@ -137,6 +137,7 @@ public class Bullet : MonoBehaviour {
                 {
                     target.GetComponent<Enemy>().targetedByMissle = false;
                 }
+                Debug.Log("Bullet: " + this.gameObject.name + " did it to " + objectHit.name);
                 Destroy(this.gameObject);
             }
         }
@@ -305,8 +306,9 @@ public class Bullet : MonoBehaviour {
         Enemy enemy = objectHit.GetComponent<Enemy>();
         if (enemy == null)
             return;
-        int rankModifer = chickenType.currentRank == 1 ? 1 : 2;
-        enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage * rankModifer);
+        //float rankModifer = chickenType.currentRank == 1 ? 1 : 1.5;
+        int damage = chickenType.currentRank == 1 ? 20 : 30;
+        enemy.GetComponent<Health>().TakeDamage(damage);
     }
 
     void doHeatSeekingEffect(GameObject objectHit)
