@@ -9,6 +9,11 @@ public class EnemySpawnerManager : MonoBehaviour {
     public delegate void NightBeat(int nightBeat);
     public event NightBeat OnNightBeat;
 
+    public delegate void NightStart(int nightBeat);
+    public event NightStart OnNightStart;
+
+
+
     float interval = 60f;
     public float localSpawnRadius;
     public Animator transitionAnimation;
@@ -48,6 +53,9 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     public void StartNight()
     {
+        if (OnNightStart != null)
+            OnNightStart(nightNumber);
+
         prePlayerMoney = References.getChickenUIManager().playerMoney;
         preChickenCounts = new List<int>();
         foreach(ChickenType chickenType in References.getInventoryManager().chickenInventories)
