@@ -6,6 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class EnemySpawnerManager : MonoBehaviour {
 
+    public delegate void NightBeat(int nightBeat);
+    public event NightBeat OnNightBeat;
+
     float interval = 60f;
     public float localSpawnRadius;
     public Animator transitionAnimation;
@@ -61,6 +64,9 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     public void endNightMode()
     {
+        if (OnNightBeat != null)
+            OnNightBeat(nightNumber);
+
         if (nightNumber == waves.Count - 1)
         {
             //Victory
