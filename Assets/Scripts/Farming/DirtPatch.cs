@@ -48,8 +48,19 @@ public class DirtPatch : Item {
 
     public void updateStage()
     {
-        plantObj = GameObject.Instantiate(growingChickenFood.seedStages[stage]);
-        plantObj.transform.position = centerLocation;
+        gettingPicked = false;
+        try
+        {
+            if (stage < growingChickenFood.seedStages.Count)
+            {
+                plantObj = GameObject.Instantiate(growingChickenFood.seedStages[stage]);
+                plantObj.transform.position = centerLocation;
+            }
+        }
+        catch(Exception e)
+        {
+            // Just in case
+        }
     }
 
     public override bool isUsable(ChickenType chickenInHand)
