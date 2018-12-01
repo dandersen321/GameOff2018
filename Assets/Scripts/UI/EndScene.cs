@@ -34,18 +34,18 @@ public class EndScene : MonoBehaviour {
 
     private void initLines()
     {
-        lines.Add("You beat the game...");
+        lines.Add("Victory is yours...");
         lines.Add("Congrats!");
 
         lines.Add("Farmer trundles over to the rubble that was the alien mothership to discover that a lone member of the high council barely survived the crash.");
         lines.Add("In hurried breaths he tells Farmer that Neil A. was exiled centuries ago after he tried to play God by creating an immortal human.");
         lines.Add("Such an act was a complete infraction of everything their race aimed to be.");
-        lines.Add("Neil A.'s punishment was exile to Earth, the planet strategists agreed was least most likely to ever be exposed to an Artifact, removal of his hands and infinity in the company of the Immortal he created.");
+        lines.Add("Neil A.'s punishment was exile to Earth, the planet strategists agreed was least most likely to ever be exposed to an Artifact, removal of his hands and spending eternity in the company of the Immortal he created.");
 
         lines.Add("A sharp shriek behind Farmer caught his attention.");
         lines.Add("Amidst a tussle of dust and hay emerged the immortal, who threw the trenchcoat to the ground in defiance.");
         lines.Add("As his dying act, the high council member channels the Artifact's Quather and makes the Immortal a mortal human again.");
-        lines.Add("The mortal starts to make a run for one of the chicken coops. Farmer starts to head back to his farm.");
+        lines.Add("The now mortal starts to make a run for one of the chicken coops... Farmer turns to head back to his farm.");
         lines.Add("It's time to seed the crops and feed the chickens.");
     }
 

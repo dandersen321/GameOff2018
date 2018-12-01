@@ -112,7 +112,7 @@
             "immortalDialog" : [
                 {
                     "speaker" : "immortal",
-                    "text"    : "Its not easy being immortal. When you are mortal you know its going to end so its ok to get lazy and not care at the end. When you live forever there is all this pressure to keep it together."
+                    "text"    : "Its not easy being immortal. Why do anything when there is time to do everything?"
                 },
                 {
                     "speaker" : "farmer",
@@ -180,25 +180,6 @@
             ]
         },
         {
-            "day" : 6,
-            "immortalDialog" : [
-                {
-                    "speaker" : "immortal",
-                    "text"    : "Your tactics and chickens are getting pretty advanced. Do you think... Do you think they'll work on me?"
-                }
-            ],
-            "alienDialog" : [
-                {
-                    "speaker" : "farmer",
-                    "text"    : "The immortal seems pretty unstable. Should I be worried bout him?"
-                },
-                {
-                    "speaker" : "alien",
-                    "text"    : "You just worry about defending the Artifact. Its all that matters."
-                }
-            ]
-        },
-        {
             "day" : 7,
             "immortalDialog" : [
                 {
@@ -221,12 +202,12 @@
             "day" : 8,
             "immortalDialog" : [
                 {
-                  "speaker"   : "immortal",
-                    "text"    : "During the attack last night I saw the trenchcoat get a little too close to the enemy. He's probably pretty defenseless with no hands."
+                   "speaker"  : "immortal",
+                    "text"    : "During the attack last night I saw the trenchcoat get a little too close to the enemy. He's probably defenseless what with no hands."
                 },
                 {
-                    "speaker" : "farmer",
-                    "text"    : "You worried bout him?"
+                   "speaker"  : "farmer",
+                   "text"     : "You worried bout him?"
                 },
                 {
                   "speaker"   : "immortal",
@@ -241,6 +222,37 @@
                 {
                     "speaker" : "alien",
                     "text"    : "I can tell you the long boring story about the centuries I've had to put up with listening to that miserable pile of hay...or. You can pick your crops feed your chickens and defend this Artifact."
+                }
+            ]
+        },
+        {
+            "day" : 9,
+            "alienDialog" : [
+                {
+                    "speaker" : "alien",
+                    "text"    : "The mothership is near. I can sense its presence. The high council will arive tonight. Be sure you are ready."
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "How will I know which saucer is the mothership and which is the enemy?"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "Just continue as you have. Everything will fall into place."
+                }
+            ],
+            "immortalDialog" : [
+                {
+                  "speaker"   : "immortal",
+                    "text"    : "The fate of the universe and Earth will be decided tonight. This is so terrifying I can't take it!"
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "What will happen to you? Are you sure we can trust Neil?"
+                },
+                {
+                  "speaker"   : "immortal",
+                    "text"    : "I'll probably survive. 'sigh'"
                 }
             ]
         }
