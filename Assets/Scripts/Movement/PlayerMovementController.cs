@@ -45,9 +45,10 @@ public class PlayerMovementController : MonoBehaviour
     private float stepSoundTimer = 0.5f;
     private float stepSoundLastPlayed = 0;
 
+    private GameObject InitText;
+
     void Start()
     {
-        inMenu = false;
         turrent = References.GetTurrent();
         playerView = GameObject.Find("PlayerView");
         bodyController = GetComponent<BodyController>();
@@ -63,6 +64,8 @@ public class PlayerMovementController : MonoBehaviour
         playerTurrentObj.SetActive(false);
 
         animator = GetComponentInChildren<Animator>();
+
+        InitText = GameObject.Find("InitText");
     }
 
     void bodyMove()
@@ -152,7 +155,7 @@ public class PlayerMovementController : MonoBehaviour
         {
             //checkFarmingKeyPress();
 
-            if (!inMenu && !inShopMenu)
+            if (!inMenu && !inShopMenu && !InitText.activeSelf)
             {
                 bodyMove();
             }
@@ -161,7 +164,7 @@ public class PlayerMovementController : MonoBehaviour
         }
 
         //Debug.Log("InMenu: " + inMenu.ToString());
-        if (!inMenu && !inShopMenu)
+        if (!inMenu && !inShopMenu && !InitText.activeSelf)
         {
             cameraMove();
         }
@@ -215,6 +218,12 @@ public class PlayerMovementController : MonoBehaviour
             if (targetedItem != null)
             {
                 Debug.Log("Found item " + targetedItem.gameObject.name);
+
+                if(InitText.activeSelf)
+                {
+                    InitText.SetActive(false);
+                }
+
                 targetedItem.use();
                 
             }
@@ -281,7 +290,7 @@ public class PlayerMovementController : MonoBehaviour
         //    return hit.transform.gameObject;
         //}
         //return null;
-        float itemRadius = 3f;
+        float itemRadius = 5f;
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, itemRadius, itemMask);
 
         GameObject closestTarget = null;
