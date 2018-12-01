@@ -10,6 +10,8 @@ public class WaveCountUpdater : MonoBehaviour {
     private void Start()
     {
         waveCount = GetComponent<Text>();
+        References.GetEnemySpawnerManager().OnNightBeat += OnNightBeat;
+        References.GetEnemySpawnerManager().OnNightStart += OnNightStart;
     }
 
     public void OnNightBeat(int nightBeat)
@@ -20,18 +22,5 @@ public class WaveCountUpdater : MonoBehaviour {
     public void OnNightStart(int wave)
     {
         waveCount.text = "Wave: " + (wave + 1);
-    }
-
-    private void OnEnable()
-    {
-        References.GetEnemySpawnerManager().OnNightBeat += OnNightBeat;
-        References.GetEnemySpawnerManager().OnNightStart += OnNightStart;
-
-    }
-
-    private void OnDisable()
-    {
-        References.GetEnemySpawnerManager().OnNightBeat -= OnNightBeat;
-        References.GetEnemySpawnerManager().OnNightStart -= OnNightStart;
     }
 }
