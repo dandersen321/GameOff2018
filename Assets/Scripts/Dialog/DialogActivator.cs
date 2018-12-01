@@ -16,15 +16,28 @@ public class DialogActivator : MonoBehaviour {
 
     public List<DayDialog> dialog;
     public Speaker speaker;
+    private Dictionary<int, List<DayDialog>> dialogForDays;
 
     public void Start()
     {
-        if (speaker != Speaker.turret)
-            dialog = Json2Dialog.getDialogListForDay(speaker, References.GetEnemySpawnerManager().nightNumber);
+        dialogForDays = new Dictionary<int, List<DayDialog>>();
+    }
+
+    /// <summary>
+    /// A hacky way to ensure that we are getting the latest dialog for each day since we have to retrieve it game day
+    /// </summary>
+    private void getDialogForDay()
+    {
+        if (speaker != Speaker.turret && !dialogForDays.ContainsKey(References.GetEnemySpawnerManager().nightNumber))
+        {
+            dialogForDays.Add(References.GetEnemySpawnerManager().nightNumber, Json2Dialog.getDialogListForDay(speaker, References.GetEnemySpawnerManager().nightNumber));
+            dialog = dialogForDays[References.GetEnemySpawnerManager().nightNumber];
+        }
     }
 
     public bool ActivateDialog()
     {
+        getDialogForDay();
         if (speaker == Speaker.turret)
         {
             DialogSystem.Instance.StartDialog(dialog[0]);
@@ -45,6 +58,7 @@ public class DialogActivator : MonoBehaviour {
 
     public bool DialogAvailable()
     {
+        getDialogForDay();
         var dialogForDay = dialog.Find(obj => obj.day == References.GetEnemySpawnerManager().nightNumber);
         if (dialogForDay == null)
             return false;
