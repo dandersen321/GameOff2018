@@ -80,18 +80,23 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
         Vector3 explosionPos = positionHit;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
 
+        List<Enemy> enemiesHit = new List<Enemy>();
         foreach (Collider hit in colliders)
         {
+            
+            //if (hit.isTrigger)
+            //    continue;
             Rigidbody rb = hit.GetComponent<Rigidbody>();
             Enemy enemy = hit.GetComponent<Enemy>();
 
             //Debug.Log("hit " + hit.name);
 
-            if (enemy)
+            if (enemy && !enemiesHit.Contains(enemy))
             {
                 int damage = rank == 1 ? chickenType.baseDamage : Convert.ToInt32(chickenType.baseDamage * 1.5);
-                enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
+                enemy.GetComponent<Health>().TakeDamage(damage);
                 enemy.GetComponent<AgentMovementController>().stopMoving = false;
+                enemiesHit.Add(enemy);
             }
 
             Artifact artifact = hit.GetComponent<Artifact>();

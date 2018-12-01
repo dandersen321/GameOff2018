@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4200211785056562}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RearKnee.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4059401323415620}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FrontFoot.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49,7 +49,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4535540997131586}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FrontKnee.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +64,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4645591352531562}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: UpperRearLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,7 +79,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4765716623978640}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FrontFoot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4656739251683864}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FrontFoot.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -109,7 +109,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4300775398374568}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RearFoot.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +124,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4286359224670204}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RearFoot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4338274032913766}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bone.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +154,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4708462900203096}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MidRear.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -169,7 +169,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4856258814285204}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Jaw
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4549385714384590}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tooth.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4436989882991724}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: UpperFrontLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +214,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4729588874787858}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MidFront.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -230,7 +230,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4127553688328342}
   - component: {fileID: 137134762952325442}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FastAlien
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +245,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4173030048390106}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mouth.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4064358149748954}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tooth.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +275,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4987418251044256}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RearKnee.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4178957083752944}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: UpperRearLeg.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -305,7 +305,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4906122232562496}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tooth.L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -320,7 +320,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4582568708126284}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Mouth.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -335,7 +335,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4159541954093620}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -350,7 +350,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4990262884331908}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bone.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -365,7 +365,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4188676220949982}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MidRear.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +389,7 @@ GameObject:
   - component: {fileID: 114045392499200262}
   - component: {fileID: 114554355487774232}
   - component: {fileID: 114045553162022078}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FastAlien
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -404,7 +404,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4769824390173060}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: UpperFrontLeg.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +419,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4494906572280646}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bone_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -434,7 +434,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4595403713067300}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: MidFront.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -449,7 +449,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4297255064771858}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RearFoot.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4829329079771552}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: RearFoot.L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +479,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4193988747559972}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Tooth.R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -494,7 +494,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4560214570504832}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4643912441115664}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FrontFoot.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -524,7 +524,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4608441321857212}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FrontKnee.R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1083,6 +1083,7 @@ MonoBehaviour:
   health: {fileID: 0}
   alive: 1
   enemySpeed: fast
+  targetedByMissle: 0
 --- !u!114 &114793206182954552
 MonoBehaviour:
   m_ObjectHideFlags: 1

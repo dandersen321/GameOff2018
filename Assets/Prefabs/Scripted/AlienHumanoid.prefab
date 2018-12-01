@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4965716840038976}
   - component: {fileID: 33712195227849026}
   - component: {fileID: 23283670920398344}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AlienGun.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4613441990475024}
   - component: {fileID: 137231140756356052}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AlienHumanoid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 114392799389392540}
   - component: {fileID: 195094435809824436}
   - component: {fileID: 114932302087152754}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AlienHumanoid
   m_TagString: Enemy
   m_Icon: {fileID: 0}

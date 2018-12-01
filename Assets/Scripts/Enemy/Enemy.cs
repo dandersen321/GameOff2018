@@ -32,6 +32,7 @@ public class Enemy : MonoBehaviour {
 
         lifeTimer = new Timer();
         lifeTimer.Start(120); //in case they get stuck
+        Physics.IgnoreLayerCollision(12, 12);
 
     }
 
@@ -84,8 +85,9 @@ public class Enemy : MonoBehaviour {
 
     public void irridate(int rank)
     {
-        irridationCyclesLeft = rank == 1 ? 10 : 15;
-        raditionDamge = rank == 1 ? 10 : 15;
+        irridationCyclesLeft = rank == 1 ? 7 : 10;
+        //raditionDamge = rank == 1 ? 20 : 15;
+        raditionDamge = 13;
         irridationRank = rank;
     }
 

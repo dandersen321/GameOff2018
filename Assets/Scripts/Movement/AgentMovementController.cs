@@ -206,6 +206,10 @@ public class AgentMovementController : MonoBehaviour
         {
             slowDown(0.5f, 300);
         }
+        else
+        {
+            slowDown(0.75f, 300);
+        }
 
         //StartCoroutine(References.GetTurrent().flashDanger());
         References.GetTurrent().playArtifactTakeAnim();

@@ -320,6 +320,7 @@ public class Bullet : MonoBehaviour {
         Vector3 explosionPos = objectHit.transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
 
+        List<Enemy> enemiesHit = new List<Enemy>();
         foreach (Collider hit in colliders)
         {
             Rigidbody rb = hit.GetComponent<Rigidbody>();
@@ -327,11 +328,12 @@ public class Bullet : MonoBehaviour {
 
             //Debug.Log("hit " + hit.name);
 
-            if (enemy)
+            if (enemy && !enemiesHit.Contains(enemy))
             {
                 int damage = chickenType.currentRank == 1 ? chickenType.baseDamage : System.Convert.ToInt32(chickenType.baseDamage * 1.5);
-                enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
+                enemy.GetComponent<Health>().TakeDamage(damage);
                 enemy.GetComponent<AgentMovementController>().stopMoving = false;
+                enemiesHit.Add(enemy);
             }
 
             if (rb == null)
@@ -346,8 +348,8 @@ public class Bullet : MonoBehaviour {
     {
         
 
-        float slowDownModifer = chickenType.currentRank == 1 ? 0.65f : 0f;
-        float slowDownLength = 3f;
+        float slowDownModifer = chickenType.currentRank == 1 ? 0.37f : 0f;
+        float slowDownLength = 7f;
         float radius = 7f;
 
         if (chickenType.currentRank == 3)
