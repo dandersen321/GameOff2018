@@ -23,7 +23,7 @@ public class DialogActivator : MonoBehaviour {
     public void Start()
     {
         dialogForDays = new Dictionary<int, List<DayDialog>>();
-        Transform questMarkerTransform = this.transform.Find("QuestMarker");
+         Transform questMarkerTransform = this.transform.Find("QuestMarker");
         if (questMarkerTransform != null)
             questMarker = questMarkerTransform.gameObject;
 

@@ -58,6 +58,16 @@ public class DialogSystem : MonoBehaviour {
             animator.SetBool("IsOpen", false);
             continueText.text = "...";
             References.GetPlayerMovementController().closeMenu();
+
+            Item targetedItem = References.GetPlayerMovementController().getTargetedItem();
+            if (targetedItem != null)
+            {
+                Debug.Log("Found item " + targetedItem.gameObject.name);
+                targetedItem.use();
+
+            }
+
+
         }
     }
 

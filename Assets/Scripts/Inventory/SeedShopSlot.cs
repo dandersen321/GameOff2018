@@ -21,6 +21,7 @@ public class SeedShopSlot : MonoBehaviour {
         chickenType = References.getInventoryManager().chickenInventories[slotIndex];
         //Debug.Log("chickenType for slot " + slotIndex.ToString() + chickenType.name.ToString());
         costText.text = chickenType.cost.ToString();
+        costText.color = Color.yellow;
         seedIcon = this.transform.Find("Icon").GetComponentInChildren<Image>();
         seedIcon.sprite = chickenType.seedSprite;
         chickenTypeText.text = chickenType.name;
@@ -43,7 +44,7 @@ public class SeedShopSlot : MonoBehaviour {
     {
         if(isBuyable(playerMoney))
         {
-            costText.color = Color.black;
+            costText.color = Color.yellow;
             seedIcon.color = Color.white;
         }
         else

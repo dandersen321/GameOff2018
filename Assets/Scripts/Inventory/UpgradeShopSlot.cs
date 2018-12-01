@@ -53,7 +53,7 @@ public class UpgradeShopSlot : MonoBehaviour {
     {
         if(buyable(playerMoney))
         {
-            costText.color = Color.black;
+            costText.color = Color.yellow;
             upgradeIcon.color = Color.white;
         }
         else

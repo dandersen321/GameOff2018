@@ -209,7 +209,7 @@ public class PlayerMovementController : MonoBehaviour
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();
         }
-        else if (Input.GetKeyDown(KeyCode.E))
+        else if (Input.GetKeyDown(KeyCode.E) || (!inShopMenu && !DialogSystem.Instance.IsActive && Input.GetMouseButtonDown(0)))
         {
             Item targetedItem = getTargetedItem();
             if (targetedItem != null)
@@ -264,7 +264,7 @@ public class PlayerMovementController : MonoBehaviour
         farmingActiveSeed = chickenType;
     }
 
-    Item getTargetedItem()
+    public Item getTargetedItem()
     {
         GameObject targetedObject = getTargetedObject();
         //Debug.Log("Targeted " + targetedObject.name);
