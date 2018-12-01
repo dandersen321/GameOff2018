@@ -48,6 +48,7 @@ public class PlayerMovementController : MonoBehaviour
     private GameObject InitText;
 
     public GameObject farmChickenPrefab;
+    public GameObject redDot;
 
     void Start()
     {
@@ -61,6 +62,7 @@ public class PlayerMovementController : MonoBehaviour
         playerTurrentObj = GameObject.Find("PlayerTurrent");
         farmTurrentObj = GameObject.Find("Turrent");
         startingFarmPosition = GameObject.Find("PlayerStartingPosition").transform.position;
+        redDot = GameObject.Find("AimReticule");
         //switchToThirdPersonCamera();
         switchToThirdPersonCamera();
         playerTurrentObj.SetActive(false);

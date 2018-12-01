@@ -24,7 +24,7 @@ public class FarmChicken : MonoBehaviour {
     {
         this.dirtPatch = dirtPatch;
         Vector3 targetPosition = dirtPatch.centerLocation;
-        Debug.Log("Eatting plant!");
+        //Debug.Log("Eatting plant!");
         float distanceAway = 7f;
         
         
@@ -41,7 +41,7 @@ public class FarmChicken : MonoBehaviour {
             
             this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, step);
             yield return new WaitForFixedUpdate();
-            Debug.Log("Distance: " + Vector3.Distance(this.transform.position, targetPosition).ToString());
+            //Debug.Log("Distance: " + Vector3.Distance(this.transform.position, targetPosition).ToString());
         }
         yield return new WaitForSeconds(1f);
         ChickenType growingChicken = dirtPatch.growingChickenFood;
@@ -52,7 +52,7 @@ public class FarmChicken : MonoBehaviour {
 
     IEnumerator flyAway()
     {
-        Debug.Log("Flying away!");
+        //Debug.Log("Flying away!");
         while (Vector3.Distance(this.transform.position, startPosition) > 0.25f)
         {
             float step = speed * Time.deltaTime;

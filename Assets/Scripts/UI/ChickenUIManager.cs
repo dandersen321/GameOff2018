@@ -158,6 +158,7 @@ public class ChickenUIManager : MonoBehaviour {
             chickenSlot.updateChickenUICount();
         }
         chickenSlots[0].imageText.text = "Normal";
+        References.GetPlayerMovementController().redDot.SetActive(true);
         //chickenSlots[0].setChicken(References.getInventoryManager().chickenInventories[0]);
         selectChickenSlot(0);
     } 
@@ -183,6 +184,7 @@ public class ChickenUIManager : MonoBehaviour {
         References.GetPlayerMovementController().selectChickenSeed(chickenSlots[0].chickenType);
         References.GetTurrentActivator().GetComponent<DialogActivator>().hideQuestMarker();
         References.GetTurrentActivator().GetComponent<DialogActivator>().showQuestMarkerIfApplicable();
+        References.GetPlayerMovementController().redDot.SetActive(false);
     }
 
     public void updateDayTimeSeedCount(ChickenType chickenType)
