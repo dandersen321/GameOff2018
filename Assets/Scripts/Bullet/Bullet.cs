@@ -77,6 +77,10 @@ public class Bullet : MonoBehaviour {
 
         if (lifeTimer.Expired())
         {
+            if(target != null && target.GetComponent<Enemy>() != null && heatSeeking)
+            {
+                target.GetComponent<Enemy>().targetedByMissle = false;
+            }
             Debug.Log("Bullet expired");
             Destroy(this.gameObject);
         }

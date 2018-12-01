@@ -157,7 +157,7 @@ public class ChickenSlot : MonoBehaviour {
 
     public bool isUsabledAsPlant()
     {
-        return chickenType.name != ChickenTypeEnum.normalName && chickenType.seedCount > 0;
+        return chickenType.name == ChickenTypeEnum.normalName || chickenType.seedCount > 0;
     }
 
 

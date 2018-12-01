@@ -68,7 +68,7 @@ public class ChickenUIManager : MonoBehaviour {
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();
             showDayUI();
-            playerMoney = 99995;
+            playerMoney = 95;
             updatePlayerMoney();
             selectChickenSlot(0);
             References.GetPlayerMovementController().farmingActiveSeed = References.getInventoryManager().chickenInventories[0];
@@ -176,6 +176,10 @@ public class ChickenUIManager : MonoBehaviour {
 
         References.GetSeedShopActivator().gameObject.GetComponent<DialogActivator>().showQuestMarkerIfApplicable();
         References.GetUpgradeShopActivator().gameObject.GetComponent<DialogActivator>().showQuestMarkerIfApplicable();
+
+        selectChickenSlot(0);
+        References.GetPlayerMovementController().farmingActiveSeed = chickenSlots[0].chickenType;
+        References.GetPlayerMovementController().selectChickenSeed(chickenSlots[0].chickenType);
     }
 
     public void updateDayTimeSeedCount(ChickenType chickenType)
@@ -203,11 +207,12 @@ public class ChickenUIManager : MonoBehaviour {
     public void buySeed(int slotIndex)
     {
         ChickenType chickenType = chickenSlots[slotIndex].chickenType;
-        if (playerMoney < chickenType.cost)
+        int numberOfChickens = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ? 5 : 1;
+        if (playerMoney < chickenType.cost * numberOfChickens)
             return;
 
-        playerMoney -= chickenType.cost;
-        chickenType.seedCount += 1;
+        playerMoney -= chickenType.cost * numberOfChickens;
+        chickenType.seedCount += numberOfChickens;
         chickenSlots[slotIndex].updateSeedCount();
         updatePlayerMoney();  // yeah, really should be using delegates but oh well
     }

@@ -253,7 +253,7 @@ public class PlayerMovementController : MonoBehaviour
         farmingActiveSeed = null;
     }
 
-    private void selectChickenSeed(ChickenType chickenType)
+    public void selectChickenSeed(ChickenType chickenType)
     {
         
         deselectChickenSeed();
