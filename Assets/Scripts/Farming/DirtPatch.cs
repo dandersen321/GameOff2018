@@ -7,11 +7,12 @@ public class DirtPatch : Item {
 
     int stage;
 
-    private ChickenType growingChickenFood = null;
+    public ChickenType growingChickenFood = null;
 
     GameObject plantObj;
 
-    Vector3 centerLocation;
+    public Vector3 centerLocation;
+    public bool gettingPicked = false;
 
     private void Start()
     {
@@ -19,10 +20,15 @@ public class DirtPatch : Item {
         
     }
 
-    private void pickPlant()
+    //private void pickPlant()
+    //{
+    //    References.GetPlayerMovementController().animator.SetTrigger("pickupPlant");
+    //    //growingChickenFood.plantCount += 1;
+
+    //}
+
+    public void finishPickPlan()
     {
-        References.GetPlayerMovementController().animator.SetTrigger("pickupPlant");
-        //growingChickenFood.plantCount += 1;
         growingChickenFood.chickenCount += 1;
         References.getChickenUIManager().updateDayTimeChickenCount(growingChickenFood);
         growingChickenFood = null;
@@ -66,6 +72,8 @@ public class DirtPatch : Item {
     }
     public bool isPickable()
     {
+        if (gettingPicked)
+            return false;
         return growingChickenFood != null && growingChickenFood.seedStages.Count - 1 == stage;
     }
 
@@ -84,6 +92,10 @@ public class DirtPatch : Item {
             References.GetPlayerMovementController().deselectChickenSeed();
             References.getChickenUIManager().deselectChickenSlotFromItemUse(chickenType);
         }
+
+        
+        
+        
     }
 
     public override void use()
@@ -92,7 +104,10 @@ public class DirtPatch : Item {
         {
             if(growingChickenFood.seedStages.Count -1 == stage)
             {
-                pickPlant();
+                gettingPicked = true;
+                References.GetPlayerMovementController().animator.SetTrigger("pickupPlant");
+                GameObject chickenObj = GameObject.Instantiate(References.GetPlayerMovementController().farmChickenPrefab);
+                StartCoroutine(chickenObj.GetComponent<FarmChicken>().eatPlant(this));
             }
         }
         else
