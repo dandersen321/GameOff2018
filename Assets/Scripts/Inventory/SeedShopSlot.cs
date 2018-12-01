@@ -33,9 +33,15 @@ public class SeedShopSlot : MonoBehaviour {
         References.getChickenUIManager().buySeed(slotIndex);
     }
 
+    public bool isBuyable(int playerMoney)
+    {
+        int daysToGrow = chickenType.seedStages.Count - 1;
+        return playerMoney >= chickenType.cost && daysToGrow <= References.GetEnemySpawnerManager().waves.Count - References.GetEnemySpawnerManager().nightNumber; 
+    }
+
     public void updateBuyable(int playerMoney)
     {
-        if(playerMoney >= chickenType.cost)
+        if(isBuyable(playerMoney))
         {
             costText.color = Color.black;
             seedIcon.color = Color.white;

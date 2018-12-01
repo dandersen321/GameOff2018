@@ -125,6 +125,12 @@ public class Bullet : MonoBehaviour {
             }
             ParticleSystem particle = Instantiate(systemToUse, transform.position, Quaternion.identity) as ParticleSystem;
             Destroy(particle.gameObject, systemToUse.main.duration);
+
+            if(chickenType.name == ChickenTypeEnum.heatSeekingName)
+            {
+                ParticleSystem particle2 = Instantiate(systemToUse, transform.position, Quaternion.identity) as ParticleSystem;
+                Destroy(particle2.gameObject, systemToUse.main.duration);
+            }
         }
         else
             Debug.Log("Not spawning particles");
@@ -323,8 +329,8 @@ public class Bullet : MonoBehaviour {
 
     void doHeatSeekingEffect(GameObject objectHit)
     {
-        float radius = 10.0F;
-        float power = 500.0F;
+        float radius = 15.0F;
+        float power = 1000.0F;
 
         Vector3 explosionPos = objectHit.transform.position;
         Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
@@ -343,6 +349,8 @@ public class Bullet : MonoBehaviour {
                 enemy.GetComponent<Health>().TakeDamage(damage);
                 enemy.GetComponent<AgentMovementController>().stopMoving = false;
                 enemiesHit.Add(enemy);
+                ParticleSystem particle = Instantiate(onHitEnemyParticle, transform.position, Quaternion.identity) as ParticleSystem;
+                Destroy(particle.gameObject, onHitEnemyParticle.main.duration);
             }
 
             if (rb == null)

@@ -396,7 +396,7 @@ public class PlayerMovementController : MonoBehaviour
         turrent.deactiveTurrentMode();
 
         yield return new WaitForSeconds(1);
-        References.getChickenUIManager().showDayUI();
+        
 
         //if (preCatapultPosition != Vector3.zero)
         //    this.transform.position = preCatapultPosition;
@@ -411,6 +411,7 @@ public class PlayerMovementController : MonoBehaviour
 
 
         switchToThirdPersonCamera();
+        References.getChickenUIManager().showDayUI();
     }
 
 

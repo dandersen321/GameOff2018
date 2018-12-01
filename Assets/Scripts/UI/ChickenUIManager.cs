@@ -72,6 +72,7 @@ public class ChickenUIManager : MonoBehaviour {
             updatePlayerMoney();
             selectChickenSlot(0);
             References.GetPlayerMovementController().farmingActiveSeed = References.getInventoryManager().chickenInventories[0];
+            References.getChickenUIManager().showDayUI();
         }
 
         
@@ -210,13 +211,20 @@ public class ChickenUIManager : MonoBehaviour {
     {
         ChickenType chickenType = chickenSlots[slotIndex].chickenType;
         int numberOfChickens = Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift) ? 5 : 1;
-        if (playerMoney < chickenType.cost * numberOfChickens)
+
+        if (playerMoney < chickenType.cost * numberOfChickens || !isBuyable(chickenType))
             return;
 
         playerMoney -= chickenType.cost * numberOfChickens;
         chickenType.seedCount += numberOfChickens;
         chickenSlots[slotIndex].updateSeedCount();
         updatePlayerMoney();  // yeah, really should be using delegates but oh well
+    }
+
+    public bool isBuyable(ChickenType chickenType)
+    {
+        int daysToGrow = chickenType.seedStages.Count - 1;
+        return playerMoney >= chickenType.cost && daysToGrow <= References.GetEnemySpawnerManager().waves.Count - References.GetEnemySpawnerManager().nightNumber;
     }
 
     public void buyRank(int rank, int chickenIndex)

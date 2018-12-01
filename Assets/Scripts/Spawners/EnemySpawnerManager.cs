@@ -90,7 +90,7 @@ public class EnemySpawnerManager : MonoBehaviour {
             {
                 gameObject.GetComponent<DirtPatch>().endNight();
             }
-            References.getChickenUIManager().showDayUI();
+            //References.getChickenUIManager().showDayUI();
             References.getArtifact().resetPosition();
             
 
