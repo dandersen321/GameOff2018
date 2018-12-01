@@ -47,6 +47,8 @@ public class PlayerMovementController : MonoBehaviour
 
     private GameObject InitText;
 
+    public GameObject farmChickenPrefab;
+
     void Start()
     {
         turrent = References.GetTurrent();
