@@ -17736,8 +17736,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -15.106445}
-  m_SizeDelta: {x: 252.9, y: 221.7}
+  m_AnchoredPosition: {x: -0.001297, y: -15.112518}
+  m_SizeDelta: {x: 1487, y: 221.7}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &849644364
 MonoBehaviour:
@@ -17771,7 +17771,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Got chicken?
+  m_Text: Ballistic Chickens
 --- !u!114 &849644365
 MonoBehaviour:
   m_ObjectHideFlags: 0
