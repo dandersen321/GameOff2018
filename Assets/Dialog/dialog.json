@@ -30,15 +30,15 @@
                 },
                 {
                     "speaker" : "farmer",
-                    "text"    : "I don't want any trouble. All I have is this farm. My crops, my chickens. What of them?"
+                    "text"    : "Wow there pardner. I don't want any trouble now. All I have is this here farm. My crops, my chickens."
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "We can help eachother. I need this Artifact kept safe until my people arrive to retrieve it. I may not be able to defend myself, but I can shield the rest of Humanity from discovering The Artifact. There. It is done, you are the only human who knows about The Artifact. Only you can protect it from the nefarious alien hoards."
+                    "text"    : "We can help eachother. I need this Artifact safe until my people arrive to retrieve it. I may not be able to defend myself, but I can shield the rest of Humanity from discovering The Artifact. There. It is done, you are the only human who knows about The Artifact. Only you can protect it from the nefarious alien hoards."
                 },
                 {
                     "speaker" : "farmer",
-                    "text"    : "Seems like I don't have much of a choice. As long as my farm survives, I'll do it."
+                    "text"    : "Seems like I don't have much of a choice. As long as the farm survives, I'll do it."
                 },
                 {
                     "speaker" : "alien",
@@ -46,11 +46,27 @@
                 },
                 {
                     "speaker" : "farmer",
-                    "text"    : "That is a fancy turret and all, but what will I use for ammunition?"
+                    "text"    : "Thats one fancy turret n' all, but whad'll I use for ammo?"
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "You may have to get creative. Those crops on that farm plot over there. They seem to be affected by the Quather... Perhaps you can use what you have on the farm. Just pick your crops and feed your chickens, like any other day. But when you are ready for battle, enter the turret. Oh and don't pay any mind to that nervous pile of hay over there staring at us. My immortal human has gone practically mad over the centuries. Don't take anything he says too seriously. And don't forget, ESC then HELP to display controls. I shouldn't have to tell you this since its your farm, but your farm plots over there are ready for you to plant seeds. Just equip them by pressing that number on the keyboard then stand on the farm plot and press E. If you need more seeds just ask me. You might be able to get help from the immortal over in front of your house, with feeding the chickens."
+                    "text"    : "You may have to get creative. Your crops seem to be affected by the Quather... Perhaps you can use what you have on the farm. Just pick your crops and feed your chickens, like any other day. But when you are ready for battle, enter the turret. I shouldn't have to tell you this since its your farm, but those fenced off farm plots over there are ready for you to plant seeds. Just equip them by pressing that number on the keyboard then stand on the farm plot and press E. If you need more seeds, the immortal human over in front of your house might be able to help you."
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "Immortal whaaa??"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "He is the nervous wreck hiding in the pile of hay over there staring at us. The fool has gone practically mad over the centuries. Don't take anything he says too seriously. He can sell you more seeds though. And for a small fee, I can channel some of the Quather to make the chickens more...threatening."
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "This is all happenin so fast. A Fee? Do I look like I'm made a money?"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "Don't think about it too hard, I can't have you losing it too. After you successfully defend the Artifact each night, you will be rewarded for your efforts. Point the turret, shoot it at the approaching enemies. Talk to me or the Immortal to spend your winnings on improving your defenses. And in case you already forgot, ESC then HELP to display controls."
                 }
             ]
         },
@@ -58,18 +74,18 @@
             "day" : 1,
             "alienDialog" : [
                 {
-                    "speaker" : "immortal",
-                    "text"    : "Not bad! There will be more attacks before the mothership arrives. I hate to say it but the immortal pile of hay over there may be able to help you with the chickens."
+                    "speaker" : "alien",
+                    "text"    : "Not bad! There will be more attacks before the mothership arrives. I hate to say it but if you haven't already talked to the Immortal pile of hay over there, he might be able to help you grow more crops. Let me know when you're ready to take your chickens to the next level."
                 }
             ],
             "immortalDialog" : [
                 {
                     "speaker" : "immortal",
-                    "text"    : "It may sound crazy but I think I can help you make those chickens work a little better for you. I mean if it were me, I'd run away at the sight of one of those things flying towards me like that. But I'm the one hiding in the hay... But those things in the flying saucers don't seem to care. Maybe if we feed the chickens some of those Quather infested plants you've harvested, maybe it'll make the chickens more threatening?"
+                    "text"    : "I can't believe those alien things in the saucers don't run away at the sight of a chicken flying straight for them! But I guess I'm the one hiding in the hay... You probably already figured this out but the crops you plant will grow after a few days. I can sell you some seeds if you need more."
                 },
                 {
                     "speaker" : "farmer",
-                    "text"    : "I guess we could try it... Why are you hiding in the hay anyway?"
+                    "text"    : "Why are you hiding in the hay anyway?"
                 },
                 {
                     "speaker" : "immortal",
@@ -96,7 +112,7 @@
             "alienDialog" : [
                 {
                     "speaker" : "alien",
-                    "text"    : "Well, we are still here. You must be doing something right"
+                    "text"    : "Well, we are still here. You must be doing something right..."
                 }
             ]
         },
@@ -123,7 +139,7 @@
             "immortalDialog" : [
                 {
                     "speaker" : "farmer",
-                    "text"    : "Do you have any memory about how you became immortal?"
+                    "text"    : "Do you remember how you became immortal?"
                 },
                 {
                     "speaker" : "immortal",
@@ -133,7 +149,7 @@
             "alienDialog" : [
                 {
                     "speaker" : "farmer",
-                    "text"    : "Why did you give the immortal immortality?"
+                    "text"    : "Why'd you make the immortal that way?"
                 },
                 {
                     "speaker" : "alien",
@@ -152,7 +168,7 @@
             "alienDialog" : [
                 {
                     "speaker" : "farmer",
-                    "text"    : "The immortal seems pretty unstable. Should I be worried?"
+                    "text"    : "The immortal seems pretty unstable. Should I be worried bout him?"
                 },
                 {
                     "speaker" : "alien",
@@ -188,7 +204,7 @@
                 },
                 {
                     "speaker" : "farmer",
-                    "text"    : "Are you concerned for his well-being?"
+                    "text"    : "You worried bout him?"
                 },
                 {
                   "speaker"   : "immortal",
@@ -198,7 +214,7 @@
             "alienDialog" : [
                 {
                     "speaker" : "farmer",
-                    "text"    : "Is there something you aren't telling me about this Artifact, about the immortal?"
+                    "text"    : "Is there something you aren't telling me about this here Artifact, about the Immortal?"
                 },
                 {
                     "speaker" : "alien",
