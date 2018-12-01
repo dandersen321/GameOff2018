@@ -32,7 +32,7 @@ public class DirtPatch : Item {
         growingChickenFood.chickenCount += 1;
         References.getChickenUIManager().updateDayTimeChickenCount(growingChickenFood);
         growingChickenFood = null;
-
+        gettingPicked = true;
         Destroy(plantObj);
     }
 
