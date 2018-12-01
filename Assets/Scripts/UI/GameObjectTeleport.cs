@@ -16,15 +16,9 @@ public class GameObjectTeleport : MonoBehaviour {
         }
     }
 
-    private void OnEnable()
+    private void Start()
     {
         References.GetEnemySpawnerManager().OnNightBeat += OnNightBeat;
 
     }
-
-    private void OnDisable()
-    {
-        References.GetEnemySpawnerManager().OnNightBeat -= OnNightBeat;
-    }
-
 }

@@ -124,7 +124,7 @@ public class ChickenSlot : MonoBehaviour {
     public void updateSeedCount()
     {
         this.chickenIcon.sprite = chickenType.seedSprite;
-        imageOverLayText.text = isNormalSlot() ? "-" : chickenType.seedCount.ToString();
+        imageOverLayText.text = isNormalSlot() ? "" : chickenType.seedCount.ToString();
         updateDisable(isUsabledAsPlant());
     }
 
@@ -132,7 +132,11 @@ public class ChickenSlot : MonoBehaviour {
     {
         if (validIcon)
         {
-            imageOverLayText.color = Color.black;
+            //imageOverLayText.color = Color.black;
+            imageOverLayText.color = new Color32(41, 119, 0, 255);
+            //imageOverLayText.color = new Color32(115, 253, 97, 255);
+            imageOverLayText.fontStyle = FontStyle.Bold;
+            //imageOverLayText.color = Color.green;
             chickenIcon.color = Color.white;
         }
         else
