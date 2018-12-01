@@ -22,7 +22,7 @@ MonoBehaviour:
   seedCount: 0
   plantCount: 0
   currentRank: 1
-  rankCosts: 0100000002000000
+  rankCosts: c8000000c2010000
   seedStages:
   - {fileID: 1201413054525332, guid: f093ff495c29b674ea0b2cf7f7ff1b8d, type: 2}
   - {fileID: 1663929682223580, guid: cdfbf8521330efd458852f94418808f8, type: 2}

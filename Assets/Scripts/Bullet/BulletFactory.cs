@@ -24,7 +24,7 @@ public class BulletFactory {
         if(chickenType.name == ChickenTypeEnum.slowName && chickenType.currentRank == 3)
         {
             rb.useGravity = false;
-            rb.GetComponent<Collider>().isTrigger = true;
+            rb.GetComponent<SphereCollider>().isTrigger = true;
         }
 
         if (chickenType.name == ChickenTypeEnum.heatSeekingName || heatMiniMissle)
@@ -40,13 +40,13 @@ public class BulletFactory {
             {
                 chickenSizeScale = 3f;
                 bullet.heatSeekingSpawner.Start(2f);
-                rb.GetComponent<Collider>().enabled = false;
+                rb.GetComponent<SphereCollider>().enabled = false;
             }
 
             if(heatMiniMissle)
             {
                 chickenSizeScale = 1f;
-                rb.GetComponent<Collider>().isTrigger = false;
+                rb.GetComponent<SphereCollider>().isTrigger = false;
             }
 
             

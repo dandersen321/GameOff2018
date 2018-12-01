@@ -38,9 +38,9 @@ public class UpgradeShopSlot : MonoBehaviour {
     public int getPrice()
     {
         if (rank == 2)
-            return chickenType.cost * 10;
+            return chickenType.cost;
         else
-            return chickenType.cost * 50;
+            return chickenType.cost;
         //return chickenType.rankCosts[rank-2];
     }
 

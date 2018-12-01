@@ -77,6 +77,8 @@ public class EnemySpawnerManager : MonoBehaviour {
             }
             References.getChickenUIManager().showDayUI();
             References.getArtifact().resetPosition();
+            
+
             StartCoroutine(References.GetPlayerMovementController().endTurrentMode());
         }
     }
