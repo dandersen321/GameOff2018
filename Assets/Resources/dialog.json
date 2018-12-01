@@ -18,7 +18,7 @@
             "alienDialog" : [
                 {
                     "speaker" : "alien",
-                    "text"    : "It's no use trying to touch The Artifact human! It takes a massive amount of energy which humans are incapable of. There is no need to fear me. Mine is a peaceful race. How could I hurt anyone when I have no hands! We use the Artifacts to expand the understanding of the universe and promote the good of life. I probably seem pretty alien to you eh? You can just call me Neil A. though. There are however other more hostile aliens in the abyss of space. They will be coming to retrieve the Artifact for less chivalrous means."
+                    "text"    : "It's no use trying to touch The Artifact! It takes a massive amount of energy which humans are incapable of. There is no need to fear me. Mine is a peaceful race. How could I hurt anyone when I have no hands! We use the Artifacts to understand the universe and for the good of life. I probably seem pretty alien to you eh? You can just call me Neil A. There are more hostile aliens in the abyss of space. They will be coming to retrieve the Artifact in less than 10 earth days."
                 },
                 {
                     "speaker" : "farmer",
@@ -26,7 +26,7 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "Listen, I need this Artifact safe until my people arrive to retrieve it. I may not be able to defend myself, but I can ensure the rest of Humanity doesn't know about The Artifact. Only you can protect it from the nefarious alien hoards."
+                    "text"    : "Listen, I need you to protect this Artifact until my people arrive it. I may not be able to defend it myself, but I can ensure the rest of Humanity is oblivious. Only you can protect it from the nefarious alien hoards."
                 },
                 {
                     "speaker" : "farmer",
@@ -34,7 +34,7 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "Good. To defend your farm, use that turret on the hill to fire at enemies, who will attempt to steal the artifact and take it back to their ship. They will only attack at night. In order to enter the turret, press E. E is the action key used to interact with objects here. If its too much for you to remember, press ESC then HELP to view a controls list."
+                    "text"    : "Good. Use that turret on the hill to fire at enemies who will attempt to steal the artifact and take it back to their ship. They will only attack at night. In order to enter the turret, press E. E is the action key used to interact with objects. Press ESC then HELP to view a controls list."
                 },
                 {
                     "speaker" : "farmer",
@@ -42,7 +42,7 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "Your crops are affected by the Quather... Use them and your chickens. Pick your crops and feed your chickens, like any other day. When you are ready for battle enter the turret. Plant seeds on the fenced off farm plots. Equip seeds by pressing that number on the keyboard, stand on the farm plot and press E. If you need more seeds, the immortal human over in front of your house can help you."
+                    "text"    : "Your crops and chickens are affected by the Quather... Pick your crops and feed your chickens, like any other day. When you are ready for battle enter the turret. Plant seeds in the fenced farm plots. Equip seeds by pressing that number on the keyboard, stand on the farm plot and press E. To buy more seeds, talk to the immortal human near the farm plots."
                 },
                 {
                     "speaker" : "farmer",
@@ -50,7 +50,7 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "He is the nervous wreck hiding in the pile of hay over there staring at us. The fool has gone practically mad over the centuries. Don't take anything he says too seriously. He can sell you more seeds. For a small fee, I can channel some of the Quather to make the chickens more...threatening."
+                    "text"    : "He is the nervous wreck hiding in the pile of hay staring at us. Don't take anything he says too seriously. He can sell you more seeds. For a small fee, I can channel some of the Quather to make the chickens more...threatening."
                 },
                 {
                     "speaker" : "farmer",
@@ -58,7 +58,21 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "Don't think about it too hard, I can't have you going mad too. After you defend the Artifact each night, you will be rewarded for your efforts. Point the turret, shoot it at the approaching enemies. Talk to me or the Immortal to spend your winnings on improving your defenses. And in case you already forgot, ESC then HELP to display controls."
+                    "text"    : "Don't think about it too hard, I can't have you going mad too. After you succed in defending each night you will be rewarded for your efforts. Point the turret, shoot it at the approaching enemies. Talk to me or the Immortal to spend your winnings on improving your defenses. And in case you already forgot, ESC then HELP to display controls."
+                }
+            ],
+            "immortalDialog" : [
+                {
+                    "speaker" : "immortal",
+                    "text"    : "This is so scary! Where did that turret come from?! I don't know why I have all these crop seeds but you can probably make use of them, right?"
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "So you are immortal, shouldnt that make you powerful and confident?"
+                },
+                {
+                    "speaker" : "immortal",
+                    "text"    : "Eeeek!! There's a mouse in here somewhere!"
                 }
             ]
         },
@@ -67,7 +81,7 @@
             "alienDialog" : [
                 {
                     "speaker" : "alien",
-                    "text"    : "Not bad! There will be more attacks before the mothership arrives. I hate to say it but if you haven't already talked to the Immortal pile of hay over there, he might be able to help you grow more crops. Let me know when you're ready to take your chickens to the next level."
+                    "text"    : "Not bad! There will be more attacks before the mothership arrives. I hate to say it but if you haven't already talked to the Immortal in the hay pile, he will be able to help you grow more crops. Let me know when you're ready to take your chickens to the next level."
                 },
                 {
                     "speaker" : "farmer",
@@ -113,6 +127,14 @@
                 {
                     "speaker" : "alien",
                     "text"    : "Well, we are still here. You must be doing something right..."
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "Is something wrong with the immortal?"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "He's just gone a bit mad after being alive for so many centuries. Don't worry too much about it."
                 }
             ]
         },
@@ -130,7 +152,7 @@
             "alienDialog" : [
                 {
                     "speaker" : "alien",
-                    "text"    : "The Quather is extremely powerful. What human scientists have theorized to be impossible, is probably possible through harnessing the Quather. As evidence, its clearly improved your farm quite a bit."
+                    "text"    : "The Quather is extremely powerful. Whatever human scientists have theorized to be impossible, is probably possible through harnessing the Quather. As evidence, its clearly improved your farm quite a bit."
                 }
             ]
         },
