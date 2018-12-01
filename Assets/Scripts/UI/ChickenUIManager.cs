@@ -68,7 +68,7 @@ public class ChickenUIManager : MonoBehaviour {
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();
             showDayUI();
-            playerMoney = 95;
+            playerMoney = 99995;
             updatePlayerMoney();
             selectChickenSlot(0);
             References.GetPlayerMovementController().farmingActiveSeed = References.getInventoryManager().chickenInventories[0];
@@ -156,6 +156,8 @@ public class ChickenUIManager : MonoBehaviour {
         {
             chickenSlot.updateChickenUICount();
         }
+        chickenSlots[0].imageText.text = "Normal";
+        //chickenSlots[0].setChicken(References.getInventoryManager().chickenInventories[0]);
         selectChickenSlot(0);
     } 
 
@@ -168,6 +170,9 @@ public class ChickenUIManager : MonoBehaviour {
             chickenSlot.updateSeedCount();
             chickenSlot.updateDayTimeChickenUICount();
         }
+
+        chickenSlots[0].imageText.text = "Gather";
+        //chickenSlots[0].setChicken(References.getInventoryManager().chickenInventories[0]);
 
         References.GetSeedShopActivator().gameObject.GetComponent<DialogActivator>().showQuestMarkerIfApplicable();
         References.GetUpgradeShopActivator().gameObject.GetComponent<DialogActivator>().showQuestMarkerIfApplicable();

@@ -129,6 +129,10 @@ public class Bullet : MonoBehaviour {
             }
             else
             {
+                if(heatSeeking && target != null && target.GetComponent<Enemy>() != null)
+                {
+                    target.GetComponent<Enemy>().targetedByMissle = false;
+                }
                 Destroy(this.gameObject);
             }
         }
@@ -166,6 +170,11 @@ public class Bullet : MonoBehaviour {
         {
             if (gameObject.GetComponent<Enemy>().alive == false)
                 continue;
+            if(gameObject.GetComponent<Enemy>().targetedByMissle == true)
+            {
+                Debug.Log("Ignoring enemey because alreayd targeted");
+                continue;
+            }
             float sqrMagnitude = (this.transform.position - gameObject.transform.position).sqrMagnitude;
 
             if (closestSqrMagnitude == null || sqrMagnitude < closestSqrMagnitude)
@@ -183,14 +192,17 @@ public class Bullet : MonoBehaviour {
         }
         else
         {
+            Debug.Log("Found target " + closestTarget.gameObject.name);
             target = closestTarget;
-            Debug.Log("Found target " + target.gameObject.name);
+            target.GetComponent<Enemy>().targetedByMissle = true;
+            
         }
 
     }
 
     void startEffects(GameObject objectHit)
     {
+
         if (chickenType.name == ChickenTypeEnum.explosiveName)
         {
             GameObject effectObj = new GameObject();
@@ -325,15 +337,52 @@ public class Bullet : MonoBehaviour {
 
     void doSlowEffect(GameObject objectHit)
     {
-        Enemy enemy = objectHit.GetComponent<Enemy>();
-        if (enemy == null)
-            return;
+        
 
-        float slowDownModifer = chickenType.currentRank == 1 ? 0.5f : 0f;
+        float slowDownModifer = chickenType.currentRank == 1 ? 0.65f : 0f;
         float slowDownLength = 3f;
+        float radius = 7f;
 
-        enemy.GetComponent<AgentMovementController>().slowDown(slowDownModifer, slowDownLength);
-        enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
+        if (chickenType.currentRank == 3)
+        {
+
+            Vector3 explosionPos = objectHit.transform.position;
+            Collider[] colliders = Physics.OverlapSphere(explosionPos, radius);
+
+            foreach (Collider hit in colliders)
+            {
+                //Rigidbody rb = hit.GetComponent<Rigidbody>();
+                Enemy enemy = hit.GetComponent<Enemy>();
+
+                //Debug.Log("hit " + hit.name);
+
+                if (enemy)
+                {
+                    //int damage = chickenType.currentRank == 1 ? chickenType.baseDamage : System.Convert.ToInt32(chickenType.baseDamage * 1.5);
+                    //enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
+                    //enemy.GetComponent<AgentMovementController>().stopMoving = false;
+                    enemy.GetComponent<AgentMovementController>().slowDown(slowDownModifer, slowDownLength);
+                }
+
+                //if (rb == null)
+                //    continue;
+
+                //Debug.Log("doing explosive to " + hit.name);
+                //rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
+            }
+        }
+        else
+        {
+            Enemy enemy = objectHit.GetComponent<Enemy>();
+            if (enemy == null)
+                return;
+
+            enemy.GetComponent<AgentMovementController>().slowDown(slowDownModifer, slowDownLength);
+            enemy.GetComponent<Health>().TakeDamage(chickenType.baseDamage);
+        }
+
+
+
     }
 
     //void OnTriggerEnter(Collider collider)

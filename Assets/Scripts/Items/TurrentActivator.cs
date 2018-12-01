@@ -16,13 +16,13 @@ public class TurrentActivator : Item
         var alienDialogAvailable = References.GetTurrent().alienDialog.DialogAvailable();
         var imortalDialogAvailable = References.GetTurrent().imortalDialog.DialogAvailable();
 
-        // TODO just doing this for testing!!!
-        References.GetTurrent().activateTurrentMode();
+        //// TODO just doing this for testing!!!
+        //References.GetTurrent().activateTurrentMode();
 
-        //if (!imortalDialogAvailable && !alienDialogAvailable)
-        //    References.GetTurrent().activateTurrentMode();
-        //else
-        //    GetComponent<DialogActivator>().ActivateDialog();
+        if (!imortalDialogAvailable && !alienDialogAvailable)
+            References.GetTurrent().activateTurrentMode();
+        else
+            GetComponent<DialogActivator>().ActivateDialog();
     }
 
 }

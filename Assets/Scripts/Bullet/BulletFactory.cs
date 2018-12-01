@@ -21,15 +21,15 @@ public class BulletFactory {
         bullet.onHitEnemyParticle = onHitEnemyParticle;
         var rb = bulletObj.GetComponent<Rigidbody>();
 
-        if(chickenType.name == ChickenTypeEnum.slowName && chickenType.currentRank == 3)
-        {
-            rb.useGravity = false;
-            rb.GetComponent<SphereCollider>().isTrigger = true;
-        }
+        //if(chickenType.name == ChickenTypeEnum.slowName && chickenType.currentRank == 3)
+        //{
+        //    rb.useGravity = false;
+        //    rb.GetComponent<SphereCollider>().isTrigger = true;
+        //}
 
         if (chickenType.name == ChickenTypeEnum.heatSeekingName || heatMiniMissle)
         {
-            Debug.Log("This is heatseekign");
+            //Debug.Log("This is heatseekign");
             bullet.heatSeeking = true;
             rb.useGravity = false;
             

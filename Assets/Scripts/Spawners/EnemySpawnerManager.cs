@@ -53,6 +53,7 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     public void StartNight()
     {
+        inNightMode = true;
         if (OnNightStart != null)
             OnNightStart(nightNumber);
 
@@ -72,6 +73,7 @@ public class EnemySpawnerManager : MonoBehaviour {
 
     public void endNightMode()
     {
+        inNightMode = false;
         if (OnNightBeat != null)
             OnNightBeat(nightNumber);
 
@@ -84,7 +86,6 @@ public class EnemySpawnerManager : MonoBehaviour {
         else
         {
             nightNumber += 1;
-            inNightMode = false;
             foreach (GameObject gameObject in GameObject.FindGameObjectsWithTag("DirtPatch"))
             {
                 gameObject.GetComponent<DirtPatch>().endNight();

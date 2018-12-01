@@ -65,7 +65,7 @@ public class ToolTip : MonoBehaviour {
         References.activeToolTip = this;
         toolTip.SetActive(true);
         int yOffset = this.GetComponent<UpgradeShopSlot>() != null ? -285 : -350;
-        toolTip.transform.position = this.transform.position + new Vector3(250, yOffset, 0);
+        toolTip.transform.position = this.transform.position + new Vector3(150, yOffset, 0);
         nameText.text = nameToDisplay;
         mainText.text = messageToDisplay;
     }

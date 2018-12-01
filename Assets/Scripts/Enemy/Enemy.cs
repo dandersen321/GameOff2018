@@ -19,6 +19,7 @@ public class Enemy : MonoBehaviour {
     private float irridationRank3Radius = 10f;
     private Animator animator;
     public string enemySpeed;
+    public bool targetedByMissle = false;
 
     private Timer lifeTimer;
 

@@ -53,7 +53,10 @@ public class ChickenSlot : MonoBehaviour {
         chickenIcon.enabled = true;
         //chickenIcon.transform.localScale = Vector3.one * 50;
         chickenIconRecharge.enabled = true;
+
+        
         imageText.text = chickenType.name;
+            
 
         if (isNormalSlot())
         {
@@ -105,11 +108,17 @@ public class ChickenSlot : MonoBehaviour {
     public void updateChickenUICount()
     {
         updateDisable(isUsableAsBullet());
-        if (isNormalSlot())
-            return;
+
         this.chickenIcon.sprite = chickenType.sprite;
         //imageOverLayText.text = isNormalSlot() ? "-" : chickenType.chickenCount.ToString();
-        imageOverLayText.text = chickenType.chickenCount.ToString();
+        if (isNormalSlot())
+        {
+
+        }
+        else
+        {
+            imageOverLayText.text = chickenType.chickenCount.ToString();
+        }
     }
 
     public void updateSeedCount()

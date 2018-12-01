@@ -139,7 +139,8 @@ public class PlayerMovementController : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                References.GetEnemySpawnerManager().endNightMode();
+                //References.GetEnemySpawnerManager().endNightMode();
+
                 //endTurrentMode();
                 //turrent.deactiveTurrentMode();
                 //this.transform.position = preCatapultPosition;
