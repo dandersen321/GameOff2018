@@ -58,7 +58,7 @@ public class DialogSystem : MonoBehaviour {
         {
             IsActive = false;
             animator.SetBool("IsOpen", false);
-            continueText.text = "...";
+            continueText.text = "press space to continue";
             References.GetPlayerMovementController().closeMenu();
             activeDialogActivator.onDialogFinished();
         }
