@@ -48,10 +48,10 @@ public class ToolTip : MonoBehaviour {
 
     public void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            toolTipTimer.Start(toolTipTimerWait);
-        }
+        //if(Input.GetMouseButtonDown(0))
+        //{
+        //    toolTipTimer.Start(toolTipTimerWait);
+        //}
 
         if (hovering && (Time.timeScale == 0 || toolTipTimer.Expired()) && !toolTip.activeSelf)
         {
