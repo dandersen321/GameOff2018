@@ -15,6 +15,8 @@ MonoBehaviour:
   baseDamage: 10
   cooldown: 0.65
   sprite: {fileID: 21300000, guid: f49ef373da6cb9f43acf6ac62caee434, type: 3}
+  chickenColorMaterial: {fileID: 2100000, guid: d695ed7395d79ea4986629bf6259b1a2,
+    type: 2}
   seedSprite: {fileID: 21300000, guid: e94032933c4d68d4d81dd461cb432ea7, type: 3}
   cost: 0
   chickenSizeScale: 1

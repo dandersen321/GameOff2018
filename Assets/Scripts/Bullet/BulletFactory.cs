@@ -7,6 +7,7 @@ public class BulletFactory {
     public GameObject createBullet(GameObject bulletObjPrefab, Vector3 startPosition, Vector3 targetPosition, ChickenType chickenType, bool heatMiniMissle = false, ParticleSystem onHitParticle = null, ParticleSystem onHitEnemyParticle = null)
     {
         GameObject bulletObj = GameObject.Instantiate(bulletObjPrefab);
+        bulletObj.GetComponentInChildren<Renderer>().material = chickenType.chickenColorMaterial;
         bulletObj.SetActive(true);
         bulletObj.transform.position = startPosition;
         bulletObj.transform.LookAt(targetPosition);
