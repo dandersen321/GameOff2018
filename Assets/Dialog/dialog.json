@@ -18,15 +18,7 @@
             "alienDialog" : [
                 {
                     "speaker" : "alien",
-                    "text"    : "There is no use trying to touch The Artifact human! It takes an impressive amount of energy to breach its protective barrier, energy that humans are incapable of. There is no need to fear me, I assure you. Mine is a peaceful and gentle race. How could I hurt anyone anyway, I have no hands! We use the Artifacts to expand the understanding of the universe and promote the good of life. I probably seem pretty alien to you eh? You can just call me Neil A. though. But don't let my good looks and charm fool you. There are indeed other, not so friendly aliens out there in the abyss of space. In fact they are most assuredly on their way to retrieve the Artifact for less chivalrous means."
-                },
-                {
-                    "speaker" : "farmer",
-                    "text"    : "On their way? Then how did you get here so fast then?"
-                },
-                {
-                    "speaker" : "alien",
-                    "text"    : "I was already here. As a matter of fact I was honorably selected by the high council to reside on Earth, awaiting the arrival of an Artifact. The council is surely on its way here in The Mothership as we speak. Despite being lightyears away, they should be here in less than 15 Earth days. The nefarious aliens though, are likely closer and are undoubtedly hostile."
+                    "text"    : "It's no use trying to touch The Artifact human! It takes a massive amount of energy which humans are incapable of. There is no need to fear me. Mine is a peaceful race. How could I hurt anyone when I have no hands! We use the Artifacts to expand the understanding of the universe and promote the good of life. I probably seem pretty alien to you eh? You can just call me Neil A. though. There are however other more hostile aliens in the abyss of space. They will be coming to retrieve the Artifact for less chivalrous means."
                 },
                 {
                     "speaker" : "farmer",
@@ -34,7 +26,7 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "We can help eachother. I need this Artifact safe until my people arrive to retrieve it. I may not be able to defend myself, but I can shield the rest of Humanity from discovering The Artifact. There. It is done, you are the only human who knows about The Artifact. Only you can protect it from the nefarious alien hoards."
+                    "text"    : "Listen, I need this Artifact safe until my people arrive to retrieve it. I may not be able to defend myself, but I can ensure the rest of Humanity doesn't know about The Artifact. Only you can protect it from the nefarious alien hoards."
                 },
                 {
                     "speaker" : "farmer",
@@ -42,7 +34,7 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "Thats the right answer. to defend your farm, use that turret over there to fire at enemies, who will attempt to steal the artifact and take it back to their ship. The enemy will only attack at night, the cowards. In order to enter the turret, press E. E is the action key used to interact with objects here. Don't worry, if its too much for you to remember, you can always press ESC then HELP to view a controls list."
+                    "text"    : "Good. To defend your farm, use that turret on the hill to fire at enemies, who will attempt to steal the artifact and take it back to their ship. They will only attack at night. In order to enter the turret, press E. E is the action key used to interact with objects here. If its too much for you to remember, press ESC then HELP to view a controls list."
                 },
                 {
                     "speaker" : "farmer",
@@ -50,7 +42,7 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "You may have to get creative. Your crops seem to be affected by the Quather... Perhaps you can use what you have on the farm. Just pick your crops and feed your chickens, like any other day. But when you are ready for battle, enter the turret. I shouldn't have to tell you this since its your farm, but those fenced off farm plots over there are ready for you to plant seeds. Just equip them by pressing that number on the keyboard then stand on the farm plot and press E. If you need more seeds, the immortal human over in front of your house might be able to help you."
+                    "text"    : "Your crops are affected by the Quather... Use them and your chickens. Pick your crops and feed your chickens, like any other day. When you are ready for battle enter the turret. Plant seeds on the fenced off farm plots. Equip seeds by pressing that number on the keyboard, stand on the farm plot and press E. If you need more seeds, the immortal human over in front of your house can help you."
                 },
                 {
                     "speaker" : "farmer",
@@ -58,7 +50,7 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "He is the nervous wreck hiding in the pile of hay over there staring at us. The fool has gone practically mad over the centuries. Don't take anything he says too seriously. He can sell you more seeds though. And for a small fee, I can channel some of the Quather to make the chickens more...threatening."
+                    "text"    : "He is the nervous wreck hiding in the pile of hay over there staring at us. The fool has gone practically mad over the centuries. Don't take anything he says too seriously. He can sell you more seeds. For a small fee, I can channel some of the Quather to make the chickens more...threatening."
                 },
                 {
                     "speaker" : "farmer",
@@ -66,7 +58,7 @@
                 },
                 {
                     "speaker" : "alien",
-                    "text"    : "Don't think about it too hard, I can't have you losing it too. After you successfully defend the Artifact each night, you will be rewarded for your efforts. Point the turret, shoot it at the approaching enemies. Talk to me or the Immortal to spend your winnings on improving your defenses. And in case you already forgot, ESC then HELP to display controls."
+                    "text"    : "Don't think about it too hard, I can't have you going mad too. After you defend the Artifact each night, you will be rewarded for your efforts. Point the turret, shoot it at the approaching enemies. Talk to me or the Immortal to spend your winnings on improving your defenses. And in case you already forgot, ESC then HELP to display controls."
                 }
             ]
         },
@@ -76,6 +68,14 @@
                 {
                     "speaker" : "alien",
                     "text"    : "Not bad! There will be more attacks before the mothership arrives. I hate to say it but if you haven't already talked to the Immortal pile of hay over there, he might be able to help you grow more crops. Let me know when you're ready to take your chickens to the next level."
+                },
+                {
+                    "speaker" : "farmer",
+                    "text"    : "So, howd you get here so fast anyway?"
+                },
+                {
+                    "speaker" : "alien",
+                    "text"    : "I was already here. I was honorably selected by the high council to reside on Earth, awaiting the arrival of an Artifact. The council is surely on its way here in The Mothership as we speak. Despite being lightyears away, they should be here in less than 10 Earth days."
                 }
             ],
             "immortalDialog" : [
