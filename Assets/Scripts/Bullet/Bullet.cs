@@ -97,9 +97,6 @@ public class Bullet : MonoBehaviour {
         {
             hitObject(collision.gameObject);
         }
-
-      
-
         
     }
 
@@ -109,7 +106,7 @@ public class Bullet : MonoBehaviour {
         if (onHitParticle != null)
         {
             AudioPlayer.Instance.PlayAudio("Impact1");
-            Debug.Log("Spawning particles");
+            //Debug.Log("Spawning particles");
             ParticleSystem systemToUse;
             if(objectHit.GetComponent<Enemy>() != null)
             {
