@@ -18,9 +18,15 @@ public class DialogActivator : MonoBehaviour {
     public Speaker speaker;
     private Dictionary<int, List<DayDialog>> dialogForDays;
 
+    private GameObject questMarker;
+
     public void Start()
     {
         dialogForDays = new Dictionary<int, List<DayDialog>>();
+        Transform questMarkerTransform = this.transform.Find("QuestMarker");
+        if (questMarkerTransform != null)
+            questMarker = questMarkerTransform.gameObject;
+
     }
 
     /// <summary>
@@ -37,6 +43,7 @@ public class DialogActivator : MonoBehaviour {
 
     public bool ActivateDialog()
     {
+        hideQuestMarker();
         getDialogForDay();
         if (speaker == Speaker.turret)
         {
@@ -68,5 +75,20 @@ public class DialogActivator : MonoBehaviour {
 
         return true;
          
+    }
+
+    public void hideQuestMarker()
+    {
+        if (questMarker == null)
+            return;
+        questMarker.SetActive(false);
+    }
+
+    public void showQuestMarkerIfApplicable()
+    {
+        if (questMarker == null || !DialogAvailable())
+            return;
+
+        questMarker.SetActive(true);
     }
 }

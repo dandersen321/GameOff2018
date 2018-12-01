@@ -20,7 +20,8 @@ public class PlayerMovementController : MonoBehaviour
 
     private Timer lastJumpTimer = new Timer();
 
-    private Vector3 preCatapultPosition;
+    //private Vector3 preCatapultPosition;
+    private Vector3 startingFarmPosition;
     public bool turrentMode = false;
 
     private Turrent turrent;
@@ -56,6 +57,7 @@ public class PlayerMovementController : MonoBehaviour
         thirdPersonCamera = GameObject.Find("ThirdPersonCamera");
         playerTurrentObj = GameObject.Find("PlayerTurrent");
         farmTurrentObj = GameObject.Find("Turrent");
+        startingFarmPosition = GameObject.Find("PlayerStartingPosition").transform.position;
         //switchToThirdPersonCamera();
         switchToThirdPersonCamera();
         playerTurrentObj.SetActive(false);
@@ -132,6 +134,7 @@ public class PlayerMovementController : MonoBehaviour
 
     private void Update()
     {
+        
         if (turrentMode)
         {
             if (Input.GetKeyDown(KeyCode.E))
@@ -220,7 +223,7 @@ public class PlayerMovementController : MonoBehaviour
         
 
         ChickenType chickenType = References.getInventoryManager().getChickenKeyPressed();
-        if(chickenType && chickenType.name != ChickenTypeEnum.normalName)
+        if(chickenType)
         {
             //if (farmingActiveSeed == chickenType)
             //{
@@ -232,7 +235,7 @@ public class PlayerMovementController : MonoBehaviour
                 //{
                 //    deselectChickenSeed();
                 //}
-                if (chickenType.seedCount > 0)
+                if (chickenType.seedCount > 0 || chickenType.name == ChickenTypeEnum.normalName)
                 {
                     selectChickenSeed(chickenType);
                 }
@@ -242,7 +245,7 @@ public class PlayerMovementController : MonoBehaviour
 
     public void deselectChickenSeed()
     {
-        if (farmingActiveSeed != null)
+        if (farmingActiveSeed != null && farmingActiveSeed.name != ChickenTypeEnum.normalName)
         {
             farmingActiveSeed.startSeed.SetActive(false);
         }
@@ -253,7 +256,10 @@ public class PlayerMovementController : MonoBehaviour
     {
         
         deselectChickenSeed();
-        chickenType.startSeed.SetActive(true);
+        if (chickenType.name != ChickenTypeEnum.normalName)
+        {
+            chickenType.startSeed.SetActive(true);
+        }
         farmingActiveSeed = chickenType;
     }
 
@@ -281,8 +287,18 @@ public class PlayerMovementController : MonoBehaviour
         float? closestSqrMagnitude = null;
         foreach (Collider hit in colliders)
         {
+            if (hit.gameObject.GetComponent<Item>() == null)
+                continue;
+
             if (!hit.gameObject.GetComponent<Item>().isUsable(farmingActiveSeed))
                 continue;
+
+            //DirtPatch dirtPatch = hit.GetComponent<DirtPatch>();
+            //if(dirtPatch != null)
+            //{
+                
+            //}
+
             float sqrMagnitude = (this.transform.position - hit.transform.position).sqrMagnitude;
 
             if (closestSqrMagnitude == null || sqrMagnitude < closestSqrMagnitude)
@@ -360,7 +376,7 @@ public class PlayerMovementController : MonoBehaviour
     {
         bodyController.frozen = true;
         turrentMode = true;
-        preCatapultPosition = this.transform.position;
+        //preCatapultPosition = this.transform.position;
 
         yield return new WaitForSeconds(1);
         
@@ -380,8 +396,10 @@ public class PlayerMovementController : MonoBehaviour
 
         yield return new WaitForSeconds(1);
 
-        if (preCatapultPosition != Vector3.zero)
-            this.transform.position = preCatapultPosition;
+        //if (preCatapultPosition != Vector3.zero)
+        //    this.transform.position = preCatapultPosition;
+        this.transform.position = startingFarmPosition;
+        this.transform.eulerAngles = new Vector3(0, 100, 0);
         bodyController.frozen = false;
 
         

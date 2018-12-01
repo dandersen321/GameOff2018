@@ -48,18 +48,20 @@ public class DirtPatch : Item {
 
     public override bool isUsable(ChickenType chickenInHand)
     {
-        if(chickenInHand != null )
+        if (chickenInHand == null)
+            return false;
+        if (chickenInHand.name == ChickenTypeEnum.normalName)
         {
-            if (growingChickenFood == null && chickenInHand.seedCount > 0)
-            {
-                return true;
-            }
-            
+            return isPickable();
+        }
+        
+        if (growingChickenFood == null && chickenInHand.seedCount > 0)
+        {
+            // isPlantable
+            return true;
         }
 
-        return isPickable();
-
-
+        return false;
 
     }
     public bool isPickable()

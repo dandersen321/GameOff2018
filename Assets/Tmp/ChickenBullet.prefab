@@ -188,6 +188,7 @@ GameObject:
   - component: {fileID: 95977882752194108}
   - component: {fileID: 54657124443651092}
   - component: {fileID: 136137900336871012}
+  - component: {fileID: 135507894767029552}
   m_Layer: 0
   m_Name: ChickenBullet
   m_TagString: Untagged
@@ -431,7 +432,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1814726112598980}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -25.933456, y: -0.0043190555, z: -395.24445}
+  m_LocalPosition: {x: -30.255499, y: -0.004318236, z: -413.99802}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4564702492001638}
@@ -569,6 +570,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!135 &135507894767029552
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814726112598980}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0.51, z: 0}
 --- !u!136 &136137900336871012
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -576,7 +589,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1814726112598980}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.8
   m_Height: 1

@@ -5,12 +5,13 @@ using UnityEngine.EventSystems;
 
 public class SeedShopActivator : Item
 {
-
+    public GameObject questMarker;
     public GameObject seedShopUI;
     private DialogActivator dialogActivator;
 
     public void Start()
     {
+        questMarker = GameObject.Find("ImmortalQuestMarker");
         dialogActivator = GetComponent<DialogActivator>();
     }
 
@@ -32,5 +33,7 @@ public class SeedShopActivator : Item
         References.GetPlayerMovementController().closeShopMenu();
         seedShopUI.SetActive(false);
     }
+
+
 }
 

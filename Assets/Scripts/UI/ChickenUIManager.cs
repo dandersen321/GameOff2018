@@ -68,8 +68,10 @@ public class ChickenUIManager : MonoBehaviour {
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();
             showDayUI();
-            playerMoney = 100;
+            playerMoney = 95;
             updatePlayerMoney();
+            selectChickenSlot(0);
+            References.GetPlayerMovementController().farmingActiveSeed = References.getInventoryManager().chickenInventories[0];
         }
 
         
@@ -78,11 +80,11 @@ public class ChickenUIManager : MonoBehaviour {
         {
             if(Input.GetKeyDown("" + i))
             {
-                if (i == 1 && !References.GetPlayerMovementController().turrentMode)
-                    break;
+                //if (i == 1 && !References.GetPlayerMovementController().turrentMode)
+                //    break;
 
                 if (References.GetPlayerMovementController().turrentMode || 
-                    (chickenSlots[i - 1].chickenType != References.GetPlayerMovementController().farmingActiveSeed && chickenSlots[i - 1].chickenType.seedCount>0))
+                    (chickenSlots[i - 1].chickenType.seedCount>0 || i == 1))
                 {
                     selectChickenSlot(i - 1);
                 }
@@ -166,6 +168,9 @@ public class ChickenUIManager : MonoBehaviour {
             chickenSlot.updateSeedCount();
             chickenSlot.updateDayTimeChickenUICount();
         }
+
+        References.GetSeedShopActivator().gameObject.GetComponent<DialogActivator>().showQuestMarkerIfApplicable();
+        References.GetUpgradeShopActivator().gameObject.GetComponent<DialogActivator>().showQuestMarkerIfApplicable();
     }
 
     public void updateDayTimeSeedCount(ChickenType chickenType)
