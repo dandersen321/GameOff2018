@@ -52,6 +52,7 @@ public class Enemy : MonoBehaviour {
 
     public void die()
     {
+        References.GetEnemySpawnerManager().waves[References.GetEnemySpawnerManager().nightNumber].updateEnemyCount(1);
         StartCoroutine(deathAnimations());
     }
 

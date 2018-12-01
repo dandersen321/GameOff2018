@@ -19,7 +19,7 @@ public class ChickenUIManager : MonoBehaviour {
     private UpgradeShopSlot[] upgradeShopSlots;
     public int playerMoney = 0;
 
-    private Text playerMoneyText;
+    public Text playerMoneyText;
 
     private bool gameStarted = false;
 

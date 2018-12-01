@@ -73,7 +73,7 @@ public class DialogSystem : MonoBehaviour {
 
     public void Update()
     {
-        if (IsActive && Input.GetKeyDown(KeyCode.Space))
+        if (IsActive && (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.E)))
         {
             NextLine();
         }

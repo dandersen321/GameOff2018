@@ -35,6 +35,8 @@ public class EnemySpawnerManager : MonoBehaviour {
     public bool inSpawnUfoMode = false;
     public bool inNightMode = false;
 
+    public int enemiesLeftAlive = 0;
+
     // Use this for initialization
     void Start()
     {

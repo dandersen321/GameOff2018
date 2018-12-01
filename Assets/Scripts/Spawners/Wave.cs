@@ -13,6 +13,7 @@ public class Wave : MonoBehaviour
     private int ufosActive;
     private int ufosDead;
     private int ufoCheck;
+    private int enemeiesLeftAlive = 0;
     //private bool noUfosActive = false;
 
     //private Vector3 ufoStartingPosition;
@@ -50,6 +51,12 @@ public class Wave : MonoBehaviour
         ufosDead = 0;
         ufoCheck = 0;
         this.enemySpawnManager = enemySpawnManager;
+        enemeiesLeftAlive = 0;
+        foreach(UFO ufo in ufos)
+        {
+            enemeiesLeftAlive += ufo.enemyTypes.Count;
+        }
+        updateEnemyCount(0);
         StartCoroutine(SpawnUfos());
     }
 
@@ -110,6 +117,12 @@ public class Wave : MonoBehaviour
         }
 
         StartWave(enemySpawnManager);
+    }
+
+    public void updateEnemyCount(int enemiesKilled)
+    {
+        enemeiesLeftAlive -= enemiesKilled;
+        References.getChickenUIManager().playerMoneyText.text = ("Enemies: " + enemeiesLeftAlive.ToString());
     }
 
 }
