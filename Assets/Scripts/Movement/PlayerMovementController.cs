@@ -290,7 +290,7 @@ public class PlayerMovementController : MonoBehaviour
         //    return hit.transform.gameObject;
         //}
         //return null;
-        float itemRadius = 5f;
+        float itemRadius = 3f;
         Collider[] colliders = Physics.OverlapSphere(this.transform.position, itemRadius, itemMask);
 
         GameObject closestTarget = null;

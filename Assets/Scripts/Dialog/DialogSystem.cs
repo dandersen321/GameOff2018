@@ -11,6 +11,7 @@ public class DialogSystem : MonoBehaviour {
     public Text dialogText;
     public Text continueText;
     public bool IsActive { private set; get; }
+    private bool initAlienSpoken = false;
 
     public Animator animator;
 
@@ -59,12 +60,19 @@ public class DialogSystem : MonoBehaviour {
             continueText.text = "...";
             References.GetPlayerMovementController().closeMenu();
 
-            Item targetedItem = References.GetPlayerMovementController().getTargetedItem();
-            if (targetedItem != null)
+            if (initAlienSpoken)
             {
-                Debug.Log("Found item " + targetedItem.gameObject.name);
-                targetedItem.use();
+                Item targetedItem = References.GetPlayerMovementController().getTargetedItem();
+                if (targetedItem != null)
+                {
+                    Debug.Log("Found item " + targetedItem.gameObject.name);
+                    targetedItem.use();
 
+                }
+            }
+            else
+            {
+                initAlienSpoken = true;
             }
 
 
