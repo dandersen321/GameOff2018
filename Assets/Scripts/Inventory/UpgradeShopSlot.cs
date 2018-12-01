@@ -37,11 +37,11 @@ public class UpgradeShopSlot : MonoBehaviour {
 
     public int getPrice()
     {
-        if (rank == 2)
-            return chickenType.cost;
-        else
-            return chickenType.cost;
-        //return chickenType.rankCosts[rank-2];
+        //if (rank == 2)
+        //    return chickenType.cost;
+        //else
+        //    return chickenType.cost;
+        return chickenType.rankCosts[rank-2];
     }
 
     public bool buyable(int playerMoney)
