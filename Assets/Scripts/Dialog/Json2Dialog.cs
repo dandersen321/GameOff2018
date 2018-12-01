@@ -54,7 +54,8 @@ public sealed class DialogJsonParser {
 
     private void load()
     {
-        m_dialogObj = new JsonDeserializer<DialogJsonObj>().deserialize(m_dialogJsonPath);
+        TextAsset jsonFile = (TextAsset)Resources.Load("dialog", typeof(TextAsset));
+        m_dialogObj = new JsonDeserializer<DialogJsonObj>().deserialize(jsonFile.text);
         // Debug.Log("the alien's name is set to be: '" + m_dialogObj.Speakers.Alien.name + "'");
         // Debug.Log("the text: '" + m_dialogObj.DayDialog[0].alienDialog[0].text + "'");
     }
