@@ -212,7 +212,7 @@ public class PlayerMovementController : MonoBehaviour
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();
         }
-        else if (Input.GetKeyDown(KeyCode.E) || (!inShopMenu && !DialogSystem.Instance.IsActive && Input.GetMouseButtonDown(0)))
+        else if ((Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)) && (!inShopMenu && !DialogSystem.Instance.IsActive))
         {
             Item targetedItem = getTargetedItem();
             if (targetedItem != null)

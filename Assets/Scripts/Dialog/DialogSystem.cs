@@ -11,11 +11,11 @@ public class DialogSystem : MonoBehaviour {
     public Text dialogText;
     public Text continueText;
     public bool IsActive { private set; get; }
-    private bool initAlienSpoken = false;
 
     public Animator animator;
 
     private Queue<Line> lines;
+    private DialogActivator activeDialogActivator;
 
     public void Awake()
     {
@@ -24,8 +24,9 @@ public class DialogSystem : MonoBehaviour {
             Instance = this;
     }
 
-    public void StartDialog(DayDialog dialog)
+    public void StartDialog(DayDialog dialog, DialogActivator activeDialogActivator)
     {
+        this.activeDialogActivator = activeDialogActivator;
         IsActive = true;
         animator.SetBool("IsOpen", true);
         lines.Clear();
@@ -59,23 +60,7 @@ public class DialogSystem : MonoBehaviour {
             animator.SetBool("IsOpen", false);
             continueText.text = "...";
             References.GetPlayerMovementController().closeMenu();
-
-            if (initAlienSpoken)
-            {
-                Item targetedItem = References.GetPlayerMovementController().getTargetedItem();
-                if (targetedItem != null)
-                {
-                    Debug.Log("Found item " + targetedItem.gameObject.name);
-                    targetedItem.use();
-
-                }
-            }
-            else
-            {
-                initAlienSpoken = true;
-            }
-
-
+            activeDialogActivator.onDialogFinished();
         }
     }
 

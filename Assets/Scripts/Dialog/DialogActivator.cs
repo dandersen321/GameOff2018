@@ -47,7 +47,7 @@ public class DialogActivator : MonoBehaviour {
         getDialogForDay();
         if (speaker == Speaker.turret)
         {
-            DialogSystem.Instance.StartDialog(dialog[0]);
+            DialogSystem.Instance.StartDialog(dialog[0], this);
             return true;
         }
 
@@ -55,14 +55,15 @@ public class DialogActivator : MonoBehaviour {
 
         if (dialogForDay != null && !DialogSystem.Instance.IsActive && !dialogForDay.dialogRead)
         {
-            DialogSystem.Instance.StartDialog(dialogForDay);
+            DialogSystem.Instance.StartDialog(dialogForDay, this);
             dialogForDay.dialogRead = true;
             References.GetTurrentActivator().GetComponent<DialogActivator>().showQuestMarkerIfApplicable();
             
             return true;
         }
 
-
+        // If no dialog was found
+        //onDialogFinished();
 
         return false;
     }
@@ -79,6 +80,23 @@ public class DialogActivator : MonoBehaviour {
 
         return true;
          
+    }
+
+    public void onDialogFinished()
+    {
+        if (speaker == Speaker.turret)
+            return;
+
+        if (speaker == Speaker.alien && References.GetEnemySpawnerManager().nightNumber == 0)
+            return;
+
+        Item targetedItem = References.GetPlayerMovementController().getTargetedItem();
+        if (targetedItem != null)
+        {
+            Debug.Log("Found item " + targetedItem.gameObject.name);
+            targetedItem.use();
+
+        }
     }
 
     public void checkTurrentShow()
