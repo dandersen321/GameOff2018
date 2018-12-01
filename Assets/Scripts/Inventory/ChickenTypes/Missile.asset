@@ -23,10 +23,9 @@ MonoBehaviour:
   spentOnNonEnemyImpact: 0
   seedCount: 0
   plantCount: 0
-  currentRank: 3
-  rankCosts: 2c010000bc020000
+  currentRank: 1
+  rankCosts: fa000000bc020000
   seedStages:
-  - {fileID: 1335767739780254, guid: f7fecf3226d0354438f61782edacaf01, type: 2}
   - {fileID: 1740792795233602, guid: a7dc0b2aa5ec39e45ae83e322004c7ef, type: 2}
   - {fileID: 1505769355042924, guid: ed3747b6cfc8a7f4f8485f0edaa8ff48, type: 2}
   - {fileID: 1445938062509636, guid: 825c211be566bd147990732062692c31, type: 2}

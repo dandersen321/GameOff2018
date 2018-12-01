@@ -151,7 +151,7 @@ public class ChickenSlot : MonoBehaviour {
         if (isNormalSlot())
             return;
 
-        chickenCountDayTimeText.text = chickenType.name + " (Rank" + chickenType.currentRank.ToString() + " ) : " + chickenType.chickenCount;
+        chickenCountDayTimeText.text = chickenType.name + " Rank " + chickenType.currentRank.ToString() + "  : " + chickenType.chickenCount;
     }
 
     public bool isUsableAsBullet()

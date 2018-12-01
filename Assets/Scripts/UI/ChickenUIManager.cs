@@ -67,7 +67,7 @@ public class ChickenUIManager : MonoBehaviour {
             gameStarted = true;
             References.GetSeedShopActivator().hideSeedShop();
             References.GetUpgradeShopActivator().hideUpgradeShop();
-            showDayUI();
+            
             playerMoney = 95;
             updatePlayerMoney();
             selectChickenSlot(0);

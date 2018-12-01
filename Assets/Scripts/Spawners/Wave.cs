@@ -41,7 +41,7 @@ public class Wave : MonoBehaviour
         }
         this.enemySpawnManager.endNightMode();
         //References.getChickenUIManager().addPlayerMoney(moneyOnClear);
-        References.getChickenUIManager().addPlayerMoney((References.GetEnemySpawnerManager().nightNumber+1)*200);
+        References.getChickenUIManager().addPlayerMoney((References.GetEnemySpawnerManager().nightNumber+1)*250 + 50);
     }
 
     public void StartWave(EnemySpawnerManager enemySpawnManager)

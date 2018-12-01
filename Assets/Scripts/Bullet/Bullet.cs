@@ -292,7 +292,7 @@ public class Bullet : MonoBehaviour {
         if (chickenType.currentRank == 3 && !heatSeekingMini)
         {
             Debug.Log("steroid rank 3 effect");
-            for (int i = 0; i < 3; ++i)
+            for (int i = 0; i < 4; ++i)
             {
                 spawnMiniMissiles();
             }
@@ -317,6 +317,7 @@ public class Bullet : MonoBehaviour {
             return;
         //float rankModifer = chickenType.currentRank == 1 ? 1 : 1.5;
         int damage = chickenType.currentRank == 1 ? 20 : 30;
+        damage = heatSeeking ? 10 : damage;
         enemy.GetComponent<Health>().TakeDamage(damage);
     }
 
