@@ -17,7 +17,7 @@ public class BulletFactory {
 
         bulletObj.AddComponent<Bullet>();
         Bullet bullet = bulletObj.GetComponent<Bullet>();
-        bullet.init(chickenType);
+        
         bullet.onHitParticle = onHitParticle;
         bullet.onHitEnemyParticle = onHitEnemyParticle;
         var rb = bulletObj.GetComponent<Rigidbody>();
@@ -60,6 +60,7 @@ public class BulletFactory {
         }
 
         bulletObj.transform.localScale *= chickenSizeScale;
+        bullet.init(chickenType);
 
         // Debug code to see where bullet is targeting
         //GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);

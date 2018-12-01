@@ -37,7 +37,14 @@ public class Bullet : MonoBehaviour {
         GetComponent<Animator>().SetTrigger("attack");
         this.chickenType = chickenType;
 
-        lifeTimer.Start(lifeTime);
+        if(heatSeeking && chickenType.name == ChickenTypeEnum.steroidName)
+        {
+            //Debug.Log("min steorid!");
+            lifeTimer.Start(1);
+        }
+        else {
+            lifeTimer.Start(lifeTime);
+        }
         gravityTimer.Start(timeUntilGravity);
         Physics.IgnoreLayerCollision(11, 11);
     }
@@ -158,7 +165,7 @@ public class Bullet : MonoBehaviour {
         if (chickenType.currentRank == 3 && !heatSeekingMini)
             return;
 
-        if (References.getArtifact().heldBy != null)
+        if (References.getArtifact().heldBy != null && chickenType.name == ChickenTypeEnum.heatSeekingName)
         {
             target = References.getArtifact().heldBy.gameObject;
             return;
@@ -179,6 +186,10 @@ public class Bullet : MonoBehaviour {
                 continue;
             }
             float sqrMagnitude = (this.transform.position - gameObject.transform.position).sqrMagnitude;
+            //if(chickenType.name == ChickenTypeEnum.steroidName && sqrMagnitude < 10)
+            //{
+            //    continue;
+            //}
 
             if (closestSqrMagnitude == null || sqrMagnitude < closestSqrMagnitude)
             {

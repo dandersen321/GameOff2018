@@ -25,7 +25,7 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
 
     private IEnumerator doEffectCoroutine()
     {
-
+        List<Enemy> implodedEnemies = new List<Enemy>();
         if(rank == 3)
         {
             implosionTimer.Start(3f);
@@ -52,6 +52,13 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
                     if (!agentMoveContoller)
                         continue;
 
+                    Enemy enemy = hit.GetComponent<Enemy>();
+                    if(enemy != null && enemy.enemySpeed == "slow")
+                    {
+                        agentMoveContoller.slowDown(0.1f, 0.1f);
+                        continue;
+                    }
+
                     Artifact artifact = hit.GetComponent<Artifact>();
                     if (artifact && artifact.isInRock)
                         continue;
@@ -59,6 +66,7 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
                     if(agentMoveContoller)
                     {
                         agentMoveContoller.stopMoving = true;
+                        implodedEnemies.Add(hit.GetComponent<Enemy>());
                     }
 
                     float step = implosionSpeed * Time.deltaTime;
@@ -108,6 +116,14 @@ public class ExplodeEffectMonoBehavior : ChickenEffectMonoBehavior {
 
             //Debug.Log("doing explosive to " + hit.name);
             rb.AddExplosionForce(power, explosionPos, radius, 3.0F);
+        }
+
+        foreach(Enemy enemy in implodedEnemies)
+        {
+            if(enemy != null && enemy.alive)
+            {
+                enemy.GetComponent<AgentMovementController>().stopMoving = false;
+            }
         }
 
         ParticleSystem particle = Instantiate(References.GetTurrent().onHitParticle, positionHit, Quaternion.identity) as ParticleSystem;

@@ -180,6 +180,8 @@ public class ChickenUIManager : MonoBehaviour {
         selectChickenSlot(0);
         References.GetPlayerMovementController().farmingActiveSeed = chickenSlots[0].chickenType;
         References.GetPlayerMovementController().selectChickenSeed(chickenSlots[0].chickenType);
+        References.GetTurrentActivator().GetComponent<DialogActivator>().hideQuestMarker();
+        References.GetTurrentActivator().GetComponent<DialogActivator>().showQuestMarkerIfApplicable();
     }
 
     public void updateDayTimeSeedCount(ChickenType chickenType)

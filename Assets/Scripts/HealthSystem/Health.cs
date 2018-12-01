@@ -31,6 +31,7 @@ public class Health : MonoBehaviour
 
     public void resetHealth()
     {
+        isAlive = true;
         currentHealth = maxHealth;
         if (OnHealthChange != null)
         {

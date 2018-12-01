@@ -17,6 +17,7 @@ public static class References  {
     private static UpgradeShopActivator ugradeShopActivator;
     private static GameMenu gameMenu;
     public static ToolTip activeToolTip;
+    private static GameObject turrentActivator;
 
 
 
@@ -95,6 +96,12 @@ public static class References  {
         return activeToolTip;
     }
 
+    public static GameObject GetTurrentActivator()
+    {
+        if (turrentActivator == null)
+            turrentActivator = GameObject.Find("Turrent");
+        return turrentActivator;
+    }
 
 
 }

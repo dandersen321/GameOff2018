@@ -57,8 +57,12 @@ public class DialogActivator : MonoBehaviour {
         {
             DialogSystem.Instance.StartDialog(dialogForDay);
             dialogForDay.dialogRead = true;
+            References.GetTurrentActivator().GetComponent<DialogActivator>().showQuestMarkerIfApplicable();
+            
             return true;
         }
+
+
 
         return false;
     }
@@ -77,17 +81,41 @@ public class DialogActivator : MonoBehaviour {
          
     }
 
+    public void checkTurrentShow()
+    {
+
+    }
+
     public void hideQuestMarker()
     {
         if (questMarker == null)
             return;
         questMarker.SetActive(false);
+
+        
+
+
+        
     }
 
     public void showQuestMarkerIfApplicable()
     {
-        if (questMarker == null || !DialogAvailable())
+        if (speaker == Speaker.turret)
+        {
+            var alienDialogAvailable = References.GetTurrent().alienDialog.DialogAvailable();
+            var imortalDialogAvailable = References.GetTurrent().imortalDialog.DialogAvailable();
+
+            if (imortalDialogAvailable || alienDialogAvailable)
+            {
+                return;
+            }
+        }
+        else if (questMarker == null || !DialogAvailable())
+        {
             return;
+        }
+        
+        
 
         questMarker.SetActive(true);
     }
