@@ -48,6 +48,11 @@ public class ToolTip : MonoBehaviour {
 
     public void Update()
     {
+        if(Input.GetMouseButtonDown(0))
+        {
+            toolTipTimer.Start(toolTipTimerWait);
+        }
+
         if (hovering && (Time.timeScale == 0 || toolTipTimer.Expired()) && !toolTip.activeSelf)
         {
             ShowToolTipInfo();
@@ -59,7 +64,8 @@ public class ToolTip : MonoBehaviour {
     {
         References.activeToolTip = this;
         toolTip.SetActive(true);
-        toolTip.transform.position = this.transform.position + new Vector3(250, -250, 0);
+        int yOffset = this.GetComponent<UpgradeShopSlot>() != null ? -285 : -350;
+        toolTip.transform.position = this.transform.position + new Vector3(250, yOffset, 0);
         nameText.text = nameToDisplay;
         mainText.text = messageToDisplay;
     }
